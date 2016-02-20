@@ -1,0 +1,78 @@
+#+BEGIN_COMMENT’        ========================        ‘#+END_COMMENT
+#+BEGIN_COMMENT’        LIPT TASKS ORG MODE FILE        ‘#+END_COMMENT
+#+BEGIN_COMMENT’        ========================        ‘#+END_COMMENT
+
+* [#A] Main tasks [0%]
+  SCHEDULED: <2016-02-20 Sat> DEADLINE: <2016-03-12 Sat>
+ - [ ] Port org files to github
+ - [ ] Port shoutwiki to org files
+ - [ ] Port blackhats info to org files
+   - [ ] Scheme, CL and Elisp
+   - [ ] Algortimia
+   - [ ] Demos
+   - [ ] SICP
+   - [ ] GEB
+   - [ ] Experimental-os
+   - [ ] Networking
+   - [ ] Security
+   - [ ] Tooling
+   - [ ] Misc
+   - [ ] Test
+   - [ ] Tips
+   - [ ] Articles blackhats
+ - [ ] Backups
+   - [ ] Local HD
+   - [ ] Blog buscando
+ - [ ] Import data from books
+   - [ ] Chemistry book Asimov
+   - [ ] Genetics book Asimov
+
+* [#B] Important tasks [0%]
+  DEADLINE: <2016-04-02 Sat> SCHEDULED: <2016-03-05 Sat>
+ - [ ] Emacs additional functionality
+   - [ ] Check additional functionality in ORG
+     - [ ] Read tracking habits: http://orgmode.org/manual/Tracking-your-habits.html
+     - [ ] Read archiving: http://orgmode.org/manual/Internal-archiving.html#Internal-archiving
+   - [ ] Alarms+Agenda+Calendar+Tasks+Interconnection in org
+   - [ ] W3M in emacs
+   - [ ] Dired
+   - [ ] Spell/flyspell/aspell
+ - [ ] Emails refinement (3K emails)
+ - [ ] Run
+   - [ ] Print race styles, intervals, schedule running
+   - [ ] Create a schedule
+   - [ ] Add calendar to garmin connect
+   - [ ] Create reitti2000 in garmin
+ - [ ] Check current status of keepassx
+
+* [#C] Later tasks [0%]
+ - [ ] Plan a backup system with rsync
+ - [ ] Emacs articles
+   - [ ] Auto-complete
+   - [ ] Custom emacs
+   - [ ] Org-mode capture, move, archive
+   - [ ] Plot with emacs
+   - [ ] TECO y DDT
+ - [ ] Study additional technologies
+   - [ ] Tmux
+   - [ ] Docker/vagrant
+   - [ ] Aptitude
+
+* [#C] Long tasks [0%]
+ - [ ] Read "Dietoterapia" from Krause
+ - [ ] Lisp studies
+   - [ ] Elisp pdf & Elisp ref. manual
+   - [ ] "An introduction to Common lisp" book
+   - [ ] "The land of lisp" CL book
+   - [ ] "SICP" scheme book
+ - [ ] Thesis
+   - [ ] Correct issues reported from Ville
+   - [ ] Correct following chapters
+   - [ ] Re-structure chapters
+   - [ ] Ask for an extension
+ - [ ] English language
+   - [ ] How to listen
+   - [ ] How to communicate
+   - [ ] Improve language
+ - [ ] Mecanography
+ - [ ] Improve posts in buscando
