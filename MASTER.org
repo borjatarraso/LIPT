@@ -16,4 +16,19 @@ files, which has been split to avoid massive unrelated content.
   - Keybindings  file:keybindings.org
   - Books        file:books.org
   - Applications file:applications.org
-  - Extra info   file:extra/
+  - Recipes      file:recipes.org
+  - Emacs        file:emacs.org
+  - Git          file:git.org
+  - Security     file:security/
+    - nmap       file:security/port_scanning.org
+  - Networking   file:networking/
+  - Programming  file:programming/
+    - Algorithm  file:programming/algorithms
+    - Datastruct file:programming/datastructures.org
+    - Concur     file:programming/concurrence.org
+    - C          file:programming/c.org
+    - C++        file:programming/cpp.org
+    - Python     file:programming/python.org
+    - Method     file:programming/methodologies.org
+    - Code style file:programming/code_style.org
+  - Configs      file:config/
