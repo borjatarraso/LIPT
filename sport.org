@@ -1,0 +1,46 @@
+#+BEGIN_COMMENT’        =========================       ‘#+END_COMMENT
+#+BEGIN_COMMENT’           SPORT ORG MODE FILE          ‘#+END_COMMENT
+#+BEGIN_COMMENT’        =========================       ‘#+END_COMMENT
+
+* Good habits
+  - Sleep early
+  - Avoid using the laptop after work
+  - Read more about nutrition
+  - Prepare good and healthy food
+    - Vegan and vegetarian mainly
+  - Take care of the teeth
+  - Minimalism lifestyle (avoid packaging)
+  - Study technical things for the future
+  - Read non-technical books
+  - Nutrition (decrease)
+    - Coffee 3 days a week max
+    - Not sugar in the coffee
+    - Not salt or too much salt
+    - Oil only in the salads
+    - Avoid bakery
+    - Avoid chips or anything fried
+    - Eat chocolates during the weekend only
+    - Eat cookies once a month only
+    - Butter, only with some soups
+    - Cheese, only twice a week
+    - Ice-cream, once a month
+    - Replace white bread
+    - No fast food
+    - Avoid juice (because sugars)
+    - Avoid sodas (too much sugar)
+    - Alcohol (only red wine and beer once every 2 months)
+    - Meat, only 180 gr per/week max
+  - Nutrition (increase)
+    - Fruits
+    - Vegetables
+    - Salads
+    - Eggs (quality 0)
+    - Natural juices
+    - Smoothies only when doing sport
+    - Legumes
+    - Seeds
+  - Take care of parts of the body
+    - Improve arch feet
+    - Take care of Elbow tendinitis
+    - Take care of Scapula (shoulder blade) muscle contraction
+    - Take care of Wrists when doing yoga
