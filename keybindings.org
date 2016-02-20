@@ -1,0 +1,76 @@
+#+BEGIN_COMMENT’        =========================        ‘#+END_COMMENT
+#+BEGIN_COMMENT’        KEYBINDINGS ORG MODE FILE        ‘#+END_COMMENT
+#+BEGIN_COMMENT’        =========================        ‘#+END_COMMENT
+
+* Emacs
+** org-mode
+- set tasks
+ - C-c C-d  => set deadline
+ - C-c C-s  => set schedule
+ - C-c C-c  => to close a simple task
+ - C-c C-t  => to close a full set of tasks
+
+- show tasks
+ - TAB          => expand one task into subtasks
+ - Shift + TAB  => expand all subtree (if multiple times expands more)
+
+- set priorities
+ - C-c , +  => increase prio
+ - C-c , -  => decrease prio
+
+- set tags
+ - C-c C-q  => set a tag
+
+- show agenda
+ - C-c a a => agenda todo for current day/week
+ - C-c a t => agenda todo for all the tasks
+ - C-c a L => agenda todo for the current buffer
+ - C-c a m => agenda todo for specific tag
+ - C-c a s => agenda todo for specific search
+
+- ORG+check
+ - C-c / d  => Check deadlines
+ - C-c / b  => Check schedules and deadlines
+ - C-c / a  => Check deadlines after date
+
+ - Return to original view  => "q" or just Shift+TAB until view is ok
+
+- Show current tasks on startup (org-agenda) : check in dotemacs
+
+** cscope
+ C-c s s        ==> Find symbol.
+ C-c s d        ==> Find global definition.
+ C-c s c        ==> Find functions calling a function.
+ C-c s C        ==> Find called functions (list functions called from a function).
+ C-c s t        ==> Find text string.
+ C-c s e        ==> Find egrep pattern.
+ C-c s f        ==> Find a file.
+ C-c s i        ==> Find files #including a file.
+ C-c s W        ==> Find a directory.
+** cedet/semantic
+TODO
+** tags
+ M-.            ==> go to the function
+ M-*            ==> return to the caller
+** yasnippet
+TODO
+** abbrev
+TODO
+** Auto-complete
+TODO
+
+* Fluxbox
+ Alt + F2       ==> fbrun
+ Windows + t    ==> terminal (funky)
+ Windows + b    ==> terminal (bash)
+ Windows + f    ==> firefox
+ Windows + e    ==> emacs
+ Windows + w    ==> file manager (dolphin)
+ Windows + x    ==> i3lock (lock computer)
+ Windows + l    ==> screensaver lock
+ Windows + s    ==> emacs server
+ Windows + c    ==> emacs client
+ Windows + i    ==> screenshot
+
+* Tilda
+Shift + F1     ==> open/close tilda
