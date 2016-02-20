@@ -1,0 +1,3 @@
+#+BEGIN_COMMENT’        =========================        ‘#+END_COMMENT
+#+BEGIN_COMMENT’           EMACS ORG MODE FILE           ‘#+END_COMMENT
+#+BEGIN_COMMENT’        =========================        ‘#+END_COMMENT
