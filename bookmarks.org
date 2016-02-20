@@ -1,0 +1,733 @@
+#+BEGIN_COMMENT’        =========================        ‘#+END_COMMENT
+#+BEGIN_COMMENT’         BOOKMARKS ORG MODE FILE         ‘#+END_COMMENT
+#+BEGIN_COMMENT’        =========================        ‘#+END_COMMENT
+
+* Principales :principales:
+
+** Portada :portada:
+*** http://amazings.es/
+*** http://francisthemulenews.wordpress.com/
+*** http://www.lapizarradeyuri.com/
+*** http://elmaquinadeturing.wordpress.com
+*** http://www.retroyonkis.com Retroyonkis
+*** http://www.alfredodehoces.com/
+*** http://www.dimensions-math.org/
+*** http://www.ovejaselectricas.es/
+*** http://www.fogonazos.es/
+*** http://www.microsiervos.com/
+*** http://www.cabovolo.com/ Cabovolo
+*** http://alt1040.com/ Alt1040
+*** http://desequilibros.blogspot.com
+*** http://lamilanabonita.blogspot.com/
+*** http://www.escolar.net/
+*** http://www.nopuedocreer.com/
+*** http://aixi.wordpress.com/
+*** http://aldea-irreductible.blogspot.com/
+*** http://www.abadiadigital.com/
+*** http://www.elsentidodelavida.com/
+*** http://recuerdosdepandora.com/
+*** http://www.elsentidodelavida.net/
+*** http://eltamiz.com/
+*** http://sovietrussia.es/
+*** http://www.lasmatematicas.es
+*** http://www.dmae.upct.es/~juan/matematicas.htm Matematicas
+*** http://trinityeyes.wordpress.com/
+*** http://narcoguerrilla.blogspot.com/ Narco guerrilla
+*** http://fronterasblog.wordpress.com/ Fronteras blog
+*** http://blogdebanderas.com/ Blog de Banderas
+*** http://anvazher.nireblog.com/
+*** http://www.latabernadelescoces.org/
+*** http://labs.ebuzzing.es/top-blogs/internet Ranking de blogs
+*** http://www.linuxjournal.com/ Linux Journal
+*** https://hakin9.org/ Hacking9
+*** http://www.xataka.com/ Xataka
+*** http://www.gominolasdepetroleo.com/ Gominolas de petroleo
+*** http://www.hispasec.com/ Hispasec security
+*** http://www.cuantocabron.com/ Cuanto cabron
+*** http://www.jotdown.es Jotdown cultural magazine
+
+** Lugares :places:
+*** http://abandonalia.blogspot.com/
+*** http://www.territorioabandonado.org/
+*** http://loslugaresolvidados.blogspot.com/
+*** http://www.clubcela.com/
+*** http://esperandoaltren.blogspot.com/
+*** http://rutasabandonadas.es/
+*** http://abandoned-places.com/
+*** http://www.forbidden-places.net/
+*** http://www.opacity.us/
+*** http://www.opuszczone.com/index_en.php?s=home_en
+*** http://blog.traingeek.ca/
+*** http://saintjohnrailfan.blogspot.com/
+*** http://forums.inter-rail.org/interrail/tema/16394-transiberiano-07-el-diario/
+
+** A leer :read:
+*** http://mundowdg.com/blog/2011/01/11/un-nuevo-mundo/ :cristobalref:
+*** http://members.optusnet.com.au/~charles57/GTD/gtd_workflow.html :emacsref:
+
+** Personales :personales:
+*** http://www.blackhats.es Engineering blog :emacs:
+*** http://unmundomejoresposible.wordpress.com Opinion blog :opinion:
+*** http://buscandoaborja.wordpress.com Travel blog :travel:
+*** http://jugadoresdefutbol.wordpress.com Futbol blog :futbol:
+
+** Emacs :emacs:
+*** http://www.emacswiki.org Emacs wiki :wiki:
+*** http://orgmode.org Org-mode :org:
+*** http://emacs-fu.blogspot.com Emacs fu website :emacsfu:
+*** http://www.tsdh.de/ Tassilo website :tassilo:
+*** [[http://briancarper.net/blog/577/org-mode-is-awesome]] Lisp and emacs blog
+*** [[http://blog.jorgenschaefer.de/]] Emacs blog
+*** [[http://blog.refu.co/?p%3D1224][Emacs, forcing semantic to parse all source files under a directory | Intelligent rumblings]] semantic
+*** [[http://www.djcbsoftware.nl/code/mu/mu4e.html][mu4e: an e-mail client for emacs]] mu4e
+*** [[https://www.gnu.org/software/emacs/manual/html_node/semantic/index.html#Top][Semantic Manual: top]] semantic
+*** [[http://issrl.cs.memphis.edu/~jdgarrtt/software/dotemacs]] Dot emacs
+*** [[https://www.masteringemacs.org/article/complete-guide-mastering-eshell][Mastering Eshell - Mastering Emacs]] Mastering emacs
+*** [[http://www.gnu.org/software/global/manual/global.html][GNU GLOBAL source code tag system]] Gnu global
+
+
+** Emacs orgmode :orgmode:
+*** http://orgmode.org/worg/org-faq.html
+*** http://www.gnu.org/software/emacs/manual/html_node/org/Checkboxes.html
+*** http://ignaciopp.wordpress.com/2010/04/12/checkboxes-in-emacs-org-mode/
+*** http://members.optusnet.com.au/~charles57/GTD/datetree.html
+*** http://members.optusnet.com.au/~charles57/GTD/org_dates/
+*** http://www.youtube.com/user/rpdillon
+*** http://schwehr.org/blog/
+*** http://www.danielclemente.com/hacer/org.html
+*** http://orgmode.org/worg/org-configs/org-hooks.html#sec-1_35
+*** [[https://www.gnu.org/software/emacs/manual/html_node/org/Template-expansion.html#Template-expansion][The Org Manual: Template expansion]]
+
+** Emacs macos :macos:
+*** http://emacsformacosx.com/
+*** http://aquamacs.org/
+
+** Lisp :lisp:
+*** http://plt-scheme.org/
+*** http://common-lisp.net/project/slime/
+*** http://www.ccs.neu.edu/home/dorai/t-y-scheme/t-y-scheme-Z-H-1.html Teach yourself scheme :lisp:
+*** http://www.dccia.ua.es/dccia/inf/asignaturas/LPP/2007-2008/practicas-01.html Scheme in spanish :lisp:
+*** http://www.guba.com/watch/3000054867 Slime (Superior LISP Interaction Mode for Emacs) :slime:
+*** http://common-lisp.net/project/slime/ Slime official website :slime:
+*** http://impromptu.moso.com.au/gallery.html Lisp amazing libraries to interpretating code in audio and video :lisp:
+
+** Nutrition
+*** [[http://www.gominolasdepetroleo.com/2013/10/existen-las-grasas-sin-calorias.html]] Fat without calories
+*** [[http://www.gominolasdepetroleo.com/2012/03/desmontando-mitos-sobre-el-azucar.html]] Sugar myths
+*** [[http://www.hablandodeciencia.com/articulos/2013/08/26/donde-va-la-grasa-cuando-adelgazas/]] Where goes the fat when loose weight
+*** [[http://www.gominolasdepetroleo.com/2013/06/mantequilla-vs-margarina-i-la-guerra-de.html]] Margarina vs Butter I
+*** [[http://www.gominolasdepetroleo.com/2013/08/mantequilla-vs-margarina-ii-cual-es-mas.html]] Margarina vs Butter II
+*** [[http://www.gominolasdepetroleo.com/2013/11/por-que-algunos-filetes-pierden-tanta.html]] Why steaks loose water
+*** [[http://www.gominolasdepetroleo.com/2011/09/por-que-no-se-puede-volver-congelar-un.html]] Refrozen aliments
+*** [[http://www.gominolasdepetroleo.com/2011/11/por-que-no-se-debe-recalentar-la-comida.html]] Reheated aliments
+*** [[http://www.gominolasdepetroleo.com/2012/01/es-malo-beber-leche-y-zumo-de-naranja.html]] Milk and orange juice
+*** [[http://www.gominolasdepetroleo.com/2012/03/se-puede-comer-la-comida-que-se-ha.html]] Water in the ground
+*** [[http://www.gominolasdepetroleo.com/2012/05/es-cierto-que-la-miel-no-se-estropea.html]] Honey
+*** [[http://www.gominolasdepetroleo.com/2012/06/es-peligroso-rellenar-las-botellas-de.html]] Mineral water
+*** [[http://www.gominolasdepetroleo.com/2012/10/10-cosas-sobre-el-huevo-que-quiza-no.html]] Eggs
+*** [[http://www.gominolasdepetroleo.com/2012/10/es-peligroso-calentar-los-tupper-en-el.html]] Tapper in the microwave
+*** [[http://www.gominolasdepetroleo.com/2011/05/me-lo-como-o-lo-tiro-fecha-de-caducidad.html]] Expirate date
+*** [[http://www.gominolasdepetroleo.com/2012/12/como-se-hacen-las-salchichas-de.html]] Frankfurt sausages
+*** [[http://www.gominolasdepetroleo.com/2013/03/y-tu-donde-guardas-las-patatas.html]] Potatoes
+*** [[http://www.gominolasdepetroleo.com/2013/04/cuanto-dura-realmente-un-yogur.html]] Yoghurt
+*** [[http://www.escuelayogaclasico.cl/libro/sueno.htm]] Sleeping hours
+*** [[http://www.elconfidencial.com/alma-corazon-vida/2007-12-21/caminar-30-minutos-diario-y-a-paso-rapido-cambia-la-vida_306249/]] Walking
+*** [[http://irreductible.naukas.com/2008/10/22/minificha-6-por-que-no-podemos-beber-agua-de-mar/]] Sea water
+*** [[http://mx.selecciones.com/contenido/a1026_por-que-la-comida-picante-es-buena-para-tu-salud]] Spicy food
+*** [[http://ciencia-explicada.blogspot.fi/2011/01/infografia-baterias-electricas-vs.html]] Calories consumption
+*** [[www.ciencia-explicada.com/2011/02/por-que-el-cuerpo-no-se-digiere-si.html]] Autoconsumption
+*** [[http://www.ciencia-explicada.com/2011/04/vitaminas-b1b2b3b5b6-por-que-se-perdio.html]] B vitamins
+*** [[http://naukas.com/2012/06/11/hominidos-sabana1/]] Runners metabolism
+*** [[http://www.succeedwiththis.com/9-reasons-why-an-apple-a-day-really-keeps-the-doctor-away/]] Apples
+*** [[http://www.soitu.es/soitu/2007/12/26/salud/1198680815_509935.html]] Vitamins
+*** [[http://blogyciencia.blogspot.fi/2007/09/beneficios-de-la-cerveza.html]] Beer
+*** [[http://www.diariodelviajero.com/aventura/gracias-a-una-expedicion-a-la-antartida-descubrimos-que-no-nunca-debemos-comernos-un-perro-husky]] Eat survival
+*** [[http://www.ocu.org/salud/medicamentos/noticias/10-mitos-resfriado]] Sick ill
+*** [[http://www.mayoclinic.org/diseases-conditions/high-blood-cholesterol/in-depth/trans-fat/art-20046114][Trans fat: Avoid this cholesterol double whammy - Mayo Clinic]] Colesterol in trans fat
+*** [[http://www.heart.org/HEARTORG/GettingHealthy/NutritionCenter/HealthyEating/Trans-Fats_UCM_301120_Article.jsp][Trans Fats]] Trans fats
+*** [[http://es.wikipedia.org/wiki/Maltodextrina][Maltodextrina - Wikipedia, la enciclopedia libre]] Maltodextrina
+*** Products to read
+**** Propoleo.
+**** Maltodextrina.
+**** Complejos vitaminicos (no se pueden asimilar al mismo tiempo todos).
+**** Mangostan (bebida).
+**** Spirulina (complejo vitaminico).
+**** Aerored/simeticona (gases).
+**** Omeprazol (protector de estomago).
+**** Aspartamo
+**** Stevia
+
+** Sport and fisio
+*** [[http://tufisio.net/]] Fisio
+*** https://www.slsystems.fi/fite/ Padel Helsinki - Mallypuro Tennis Center (Varikkotie 4)
+*** http://kerkesix.fi/sysimusta-satku 100k running
+*** [[http://www.pilates-back-joint-exercise.com/foot-exercise.html][Foot Exercise for Flat Feet]]
+*** [[http://juliettekando.com/how-to-cure-flat-feet/#.VU5x9P56Rj6][How To Cure Flat Feet | You KANDO it]]
+*** [[https://www.stevehoggbikefitting.com/bikefit/2011/02/foot-correction-part-1-arch-support/][FOOT CORRECTION part 1: ARCH SUPPORT | The Steve Hogg Bike Fitting Website Team]]
+
+** Photography
+*** [[http://www.boredpanda.com/birds-eye-view-aerial-photography/]] Birds eye aerial view
+*** [[http://www.boredpanda.com/surreal-photo-manipulation-dariusz-klimczak/]] Surrealist pictures
+*** [[http://www.geeksaresexy.net/2014/02/08/bored-on-your-daily-commute-heres-what-you-need-to-do/]] Boring in public transport
+*** [[http://www.mymodernmet.com/profiles/blogs/national-geographic-traveler-photo-contest-2014-winners]] Win 2014
+
+** Philosophy and human being behavior
+*** [[https://www.youtube.com/watch?v=H2rAQ-_SBw8]] Internet face to face
+*** [[https://www.youtube.com/watch?v=vs1wMp84_BA]] Real friends
+*** [[http://sociedad.elpais.com/sociedad/2014/02/08/actualidad/1391881391_885310.html]] Euthanasia
+
+* Secundarias :secundarias:
+
+** Wars and conflicts
+*** [[http://www.newsru.com/background/22nov2004/yanuk.html]] Yanukovich past
+*** [[http://periodismohumano.com/sociedad/belarus-%E2%80%9Cdependemos-de-la-solidaridad-internacional%E2%80%9D.html]] Belarus press freedom
+*** [[http://www.liveleak.com/view?i=f31_1391908470]] Homs, before and after the war
+*** [[https://www.youtube.com/watch?v=gE8GESi35Yw]] Palestina talk
+*** [[http://politica.elpais.com/politica/2013/07/03/actualidad/1372868953_544986.html]] Melilla: kicked out from Israel
+*** [[http://politica.elpais.com/politica/2013/04/26/actualidad/1366927561_068366.html]] Melilla: Oppositor leader
+*** [[http://www.finanzas.com/noticias-001/espana/20131211/expresidente-melilla-mustafa-aberchan-2564353.html]] Melilla: Mustafa Aberchan
+*** [[http://www.eldiario.es/desalambre/Guardia-Civil-inmigrantes-Ceuta-nadadores_0_227827900.html]] Melilla: Guardia civil
+
+** Activism
+*** [[http://www.youtube.com/watch?v=9eMDh2-1Kwg]] Feroe Islands killing sharkwales video
+*** [[http://www.vice.com/read/Faroe-Islanders-Love-To-Stab-Whales-To-Death]] Feroe Islands killing sharkwales info
+*** [[http://anasaremeyawanas.org/][Anas Aremeyaw Anas]] Anas activism
+
+** Animals
+*** [[http://www.xatakaciencia.com/biologia/cual-es-el-animal-mas-dificil-de-matar-del-mundo]] Most difficult to kill
+
+
+** Mysql
+* [[http://dev.mysql.com/doc/refman/5.0/en/resetting-permissions.html][MySQL :: MySQL 5.0 Reference Manual :: B.5.4.1 How to Reset the Root Password]]
+
+
+** Russian language
+*** [[http://www.forvo.com/]] Pronunciation forvo
+*** [[http://masterrussian.com/]] Master russian
+*** [[http://www.russianlessons.net/]] Russian lessons
+*** [[http://www.russianforfree.com/lessons-russian-language-contents.php]] Russian for free
+*** [[http://www.bbc.co.uk/languages/russian/soap/]] BBC russian
+*** [[http://learnrussian.rt.com/speak-russian/free-russian-language-lessons-online]] Learn russian RT
+*** [[http://www.russian.ucla.edu/beginnersrussian/student/home.htm]] Russian UCLA
+*** [[http://www.fsi-language-courses.org/Content.php?page=Russian]] FSI language courses
+*** [[http://www.alphadictionary.com/rusgrammar/index.html]] Alpha dictionary
+*** [[http://www.du.edu/ahss/schools/langlit/programs/russian/resources/grammarx.htm]] DU edu
+*** [[http://wws.peacecorps.gov/wws/multimedia/language/lessons.cfm#russian]] peacecorps
+*** [[http://www.international.ucla.edu/languages/technology/podcasts/russianliterature/]] international ucla
+
+** Linux and command line cmd
+*** [[http://inspirated.com/2007/04/02/howto-use-xwd-for-screenshots][HOWTO: Use xwd for screenshots | Inspirated]]
+*** [[http://tuxradar.com/content/xdotool-script-your-mouse][xdotool: Script your mouse | TuxRadar Linux]]
+
+
+** Music playlists
+*** [[https://www.youtube.com/watch?v=QK8mJJJvaes&list=RDqV0LHCHf-pE]]  Playlist famous cool music
+*** [[http://www.youtube.com/watch?v=rKTUAESacQM&list=PL60539A8CCD476250&index=21]] Playlist old school
+*** [[https://www.youtube.com/watch?v=P2l0lbn5TVg&list=PL2788304DC59DBEB4]] Playlist classical
+** Music cool wake up
+*** [[https://www.youtube.com/watch?v=oG2ixYJ79iE&list=RD179UaJAnnipkY]] sylvester - you make me feel
+*** [[https://www.youtube.com/watch?v=9UaJAnnipkY]] Patrick Hernandez - Born to Be Alive
+*** [[http://answers.yahoo.com/question/index?qid=20071021062938AAE3sVy]] Similar to depeche mode
+*** [[https://www.youtube.com/watch?v=9UmtJ30Rl5o]] Dropkick Murphys ~ The Fighting 69th
+*** [[https://www.youtube.com/watch?v=WbAZV4hPCHc]] The best of 80's
+*** [[https://www.youtube.com/watch?v=kGnjrTkv1gs&list=RD17FYH8DsU2WCk]] The Smiths - This Charming Man
+*** [[https://www.youtube.com/watch?v=qeMFqkcPYcg&list=RD17FYH8DsU2WCk]] Eurythmics - Sweet Dreams
+*** [[https://www.youtube.com/watch?v=IOmazuzCXCg&list=RD17FYH8DsU2WCk]] New Order - Bizarre Love Triangle
+*** [[https://www.youtube.com/watch?v=bW6h6AM5mzM&list=RD17FYH8DsU2WCk]] Yazoo - Don't Go
+*** [[https://www.youtube.com/watch?NR=1&feature=endscreen&v=MCKWYDNw-PM]] Creedence Clearwater Revival CCR - Pendulum
+*** [[https://www.youtube.com/watch?v=GuJQSAiODqI]] Madonna - Vogue
+*** [[https://www.youtube.com/watch?v=PoaT6WXUV_M]] Hey there delilah
+*** [[https://www.youtube.com/watch?v=PoIoewwgaow]] Full Album/LP! Bossa Nova - New Brazilian Jazz - Lalo Schifrin - 1962
+*** [[https://www.youtube.com/watch?v=RCD14IrOcIs&feature=endscreen&NR=1]] Pixies - Where is my Mind
+*** [[https://www.youtube.com/watch?NR=1&feature=endscreen&v=Y8yQuivSEio]] Little Green Bag - Reservoir Dogs
+*** [[https://www.youtube.com/watch?feature=endscreen&NR=1&v=XMpjWxsPXOE]] Fine Young Cannibals - Johnny Come Home
+*** [[https://www.youtube.com/watch?v=huavJMGUbiI]] Bronski beat - Smalltown boy
+*** [[https://www.youtube.com/watch?v=PGNiXGX2nLU&list=RD17FYH8DsU2WCk]] Dead Or Alive - You Spin Me Round
+*** [[https://www.youtube.com/watch?v=hLhN__oEHaw&list=RD17FYH8DsU2WCk]] Iggy Pop - The Passenger
+*** [[https://www.youtube.com/watch?v=CdqoNKCCt7A&list=RD17FYH8DsU2WCk]] Simple Minds - Don't You
+*** [[https://www.youtube.com/watch?v=eH-GzcgZj48&list=RD17FYH8DsU2WCk]] New Order - Crystal
+*** [[https://www.youtube.com/watch?v=P9hOFOgqOds&list=RD17FYH8DsU2WCk]] The Cure - Boys Don't Cry
+*** [[https://www.youtube.com/watch?v=xNnAvTTaJjM&list=RD17XSCJJkFgt_w]] Talking Heads "Burning Down the House"
+*** [[https://www.youtube.com/watch?v=D6zBjYIyz-0&list=RD17XSCJJkFgt_w]] Real Life - Send Me An Angel
+*** [[https://www.youtube.com/watch?v=UA5MtAmT24g&list=RD17XSCJJkFgt_w]] Electric Avenue - Eddy Grant
+*** [[https://www.youtube.com/watch?v=t1TcDHrkQYg&list=RD17XSCJJkFgt_w]] Alphaville - Forever Young
+*** [[https://www.youtube.com/watch?v=jQYQTFudrqc&list=RD17XSCJJkFgt_w]] Nena- 99luft Balons
+*** [[https://www.youtube.com/watch?v=AR8D2yqgQ1U&list=RD17XSCJJkFgt_w]] Spandau Ballet - True
+*** [[https://www.youtube.com/watch?v=pIgZ7gMze7A&list=RD17XSCJJkFgt_w]] Wham! - Wake Me Up Before You Go-Go
+*** [[https://www.youtube.com/watch?v=otCpCn0l4Wo&list=RD17XSCJJkFgt_w]] MC Hammer - U Can't Touch This
+*** [[https://www.youtube.com/watch?v=wlq0lYB3iSM&list=RD17XSCJJkFgt_w]] Van Halen - Jump
+*** [[https://www.youtube.com/watch?v=iUiTQvT0W_0&list=RD17XSCJJkFgt_w]] Sinéad O'Connor - Nothing Compares 2U
+*** [[https://www.youtube.com/watch?v=leohcvmf8kM&list=RD17XSCJJkFgt_w]] The B52's - Love Shack
+*** [[https://www.youtube.com/watch?v=OMOGaugKpzs&list=RD17XSCJJkFgt_w]] The Police - Every Breath You Take
+*** [[https://www.youtube.com/watch?v=lyl5DlrsU90&list=RD17XSCJJkFgt_w]] Frankie Goes To Hollywood - Relax
+*** [[https://www.youtube.com/watch?v=xrOek4z32Vg&list=RD17XSCJJkFgt_w]] Good Thing - Fine Young Cannibals
+*** [[https://www.youtube.com/watch?v=ejorQVy3m8E&list=RD17XSCJJkFgt_w]] Midnight Oil - Beds Are Burning
+*** [[https://www.youtube.com/watch?v=JmcA9LIIXWw&list=RD17XSCJJkFgt_w]] Culture Club - Karma Chameleon
+*** [[https://www.youtube.com/watch?v=ST86JM1RPl0&list=RD17XSCJJkFgt_w]] Tears For Fears - "Everybody Wants To Rule The World"
+*** [[https://www.youtube.com/watch?v=lsmXLGKdkW4]] AC/DC- Thunderstruck
+*** [[https://www.youtube.com/watch?v=XSCJJkFgt_w]] Fine Young Cannibals - She Drives Me Crazy
+*** [[https://www.youtube.com/watch?v=dRHetRTOD1Q]] Pet Shop Boys - It's A Sin
+*** [[https://www.youtube.com/watch?v=ik2YF05iX2w]] Pet Shop Boys - Domino Dancing
+*** [[https://www.youtube.com/watch?v=hGmdkBbo0x8]] Tom Jobim, Vinicius de Moraes, Toquinho e Miucha Musicalmente Dallo Studio
+*** [[https://www.youtube.com/watch?v=6gjPffZGQG8]] Peter Tosh - Out of space
+*** [[https://www.youtube.com/watch?v=sYffFEIAzdE]] Oasis - Wonderwall
+*** [[https://www.youtube.com/watch?v=1HJQpSl67V8]] Guns N' Roses - Sweet Child O'Mine
+*** [[https://www.youtube.com/watch?v=yjg6flu3zuc]] Toots and the Maytals - 54-46 Was My Number
+*** [[https://www.youtube.com/watch?v=1lyu1KKwC74]] The Verve - Bitter Sweet Symphony
+*** [[https://www.youtube.com/watch?v=wtESlTKBa4s]] Guns of Navarone - The Skatalites
+*** [[https://www.youtube.com/watch?v=PWgvGjAhvIw]] OutKast - Hey Ya!
+*** [[https://www.youtube.com/watch?v=xat1GVnl8-k]] Bloodhound Gang - The Bad Touch
+*** [[https://www.youtube.com/watch?v=ejorQVy3m8E]] Midnight Oil - Beds Are Burning
+*** [[https://www.youtube.com/watch?v=9jK-NcRmVcw]] Europe - The Final Countdown
+*** [[https://www.youtube.com/watch?v=8NjbGr2nk2c]] Flashdance - Maniac
+*** [[https://www.youtube.com/watch?v=btPJPFnesV4]] Survivor - Eye Of The Tiger
+*** [[https://www.youtube.com/watch?v=djV11Xbc914]] A-ha - Take On Me
+*** [[https://www.youtube.com/watch?v=_kHgMvWmIs4]] New Order - Round & Round
+*** [[https://www.youtube.com/watch?v=Qt2mbGP6vFI]] Phil Collins - Another Day In Paradise
+*** [[https://www.youtube.com/watch?v=BXmWcsScFUE]] Gotye - Somebody That I Used To Know
+*** [[https://www.youtube.com/watch?v=xwtdhWltSIg]] R.E.M. - Losing My Religion
+*** [[https://www.youtube.com/watch?v=kYf4kqnAWos]] Eagles - Hotel California
+*** [[https://www.youtube.com/watch?v=EGikhmjTSZI]] Live is Life - Opus
+*** [[https://www.youtube.com/watch?v=DPL_SV3n7IU]] Pink Floyd - Wish You Were Here
+*** [[https://www.youtube.com/watch?v=wa2nLEhUcZ0]] The Cure - Friday Im In Love
+*** [[https://www.youtube.com/watch?v=qHYOXyy1ToI]] Joy Division - Love Will Tear Us Apart
+*** [[https://www.youtube.com/watch?v=azLiShMe-Yw]] The Connells - '74-'75
+*** [[https://www.youtube.com/watch?v%3DqEwnHf9Q23k&list%3DPLd6h18WERVo-oxrTCUJScgTQZxHEGQyZQ][African Traditional Music - YouTube]] African traditional music
+*** [[https://www.youtube.com/watch?v%3D3rZSXf-mU4E&list%3DPLF6C20EA981487279&index%3D1][3. Há Dias - Luca Mundaca - YouTube]] Ha Dias - Luca Mundaca
+
+
+
+** Criptografia :criptografia:
+*** http://cryptome.org/
+*** http://www.kriptopolis.org
+*** http://cripto.es/
+*** http://www.lostscene.com/manuales/gnupg.php
+*** http://www.cliki.net/Cryptography
+*** http://www.openssh.com/
+*** http://www.gnupg.org/
+*** http://www.pgp.com/
+*** http://www.openssl.org/
+
+** Seguridad :seguridad:
+*** http://nmap.org/
+*** http://www.kismetwireless.net/
+*** http://www.nessus.org/
+*** http://www.hping.org/
+*** http://www.ethereal.com/
+*** http://www.snort.org/
+*** http://www.tcpdump.org/
+*** http://insecure.org/
+*** http://ettercap.sourceforge.net/
+*** http://www.openwall.com/john/
+*** http://www.tripwire.com/
+*** http://www.eeye.com/Products/Retina.aspx
+*** http://www.netfilter.org/
+*** http://www.netfilter.org/
+*** http://www.saintcorporation.com/index.html
+*** http://airsnort.shmoo.com/
+*** http://www.oxid.it/cain.html :cain:
+*** http://www.ntop.org/news.php
+*** http://www.hoobie.net/brutus/
+*** http://www.stunnel.org/
+
+
+** Libs and xwindow
+*** [[http://en.wikipedia.org/wiki/File:Free_and_open-source-software_display_servers_and_UI_toolkits.svg]] Display servers and UI toolkits
+*** [[http://en.wikipedia.org/wiki/Xlib]] Xlib
+*** [[http://en.wikipedia.org/wiki/Motif_%28software%29]] Motif
+*** [[http://en.wikipedia.org/wiki/GLib]] Glib
+*** [[http://en.wikipedia.org/wiki/Boost_%28C%2B%2B_libraries%29]] Boost
+*** [[http://en.wikipedia.org/wiki/Standard_Template_Library]] STL
+
+
+** Soviet cartoons
+*** [[http://www.youtube.com/watch?v=KWGovsuRWYM]] Chunga Changa Katerok
+*** [[http://www.youtube.com/watch?v=BK_EREb1gWo]] Львенок и черепаха мульт
+*** [[http://www.youtube.com/watch?v=FUrasxY_n2s]] Ну, погоди! - Выпуск 14 (Дом юных техников)
+
+
+** Multimedia :multimedia:
+*** http://www.malviviendo.com
+*** http://elcosmonauta.es/
+*** http://www.cinetube.es
+*** http://www.stagevu.com
+*** http://www.seriesyonkis.com
+*** http://www.taringa.net
+*** http://www.vagos.es
+*** http://www.peliculasyonkis.com/
+*** http://www.dotpod.com.ar/2009/07/08/25-sitios-para-ver-peliculas-gratis-online-en-espanol-y-subtituladas/
+
+** Hacktivismo :hacktivismo:
+*** http://www.lahaine.org :lahaine:
+*** http://hacktivistas.org :hacktivistas:
+*** http://www.indymedia.org/ :indymedia:
+*** http://anonops.net/ :anonops:
+*** http://www.4chan.org/ :4chan:
+*** http://www.wikileaks.org :wikileaks:
+*** http://thepiratebay.org :tpb:
+
+** Software libre :opensource:
+*** http://www.fsf.org/
+*** http://www.gnu.org/
+*** http://www.defectivebydesign.org
+*** http://endsoftpatents.org/
+*** http://wiki.42registry.org/
+*** http://search.42
+*** http://www.42experiment.org/
+*** https://www.42registry.org/charter
+
+** Hacking :hacking:
+*** http://freegary.org.uk/ :GaryMcKinnon:
+*** http://hackaday.com/
+*** http://www.hacklabs.org/
+*** http://wearables.blu.org/
+*** http://www.grynx.com/
+*** http://www.remote-exploit.org/
+*** http://www.securityfocus.com/archive/1 Security focus archive
+*** http://www.securityfocus.com/ Security focus main page
+*** http://www.exploit-db.com/
+*** http://packetstormsecurity.org/
+*** http://www.set-ezine.org/
+*** http://www.elhacker.net
+*** http://www.undercon.org/
+*** http://lcamtuf.coredump.cx/mobp/
+*** http://freeworld.thc.org/
+*** http://www.phrack.org/ Phrack
+*** https://www.ipredator.se/ :anony:
+*** inurl:"viewerframe?mode=motion :webcams:
+*** inurl:/view/index.shtml :webcams:
+*** https://www.ibm.com/developerworks/linux/library/l-pam/ PAM
+*** [[https://wiki.archlinux.org/index.php/tor][Tor - ArchWiki]] Tor for arch
+*** [[https://www.torproject.org/docs/hidden-services.html.en][Tor: Hidden Service Protocol]] Tor hidden protocol
+*** [[https://www.youtube.com/watch?v%3Df4BUZrbFbis&list%3DPLQ1AvxemhheWfQxOpQCU9RS593qc7sAbo][DEFCON 17: Why Tor is Slow, and What We're Doing About It - YouTube]] Tor is slow
+
+** Portales :portales:
+*** http://meneame.net
+*** http://reddit.com
+*** http://digg.com
+*** http://slashdot.org/
+
+** Servicios :services:
+*** http://www.delicious.com/
+*** http://gmail.com
+*** http://analytics.google.com
+*** http://docs.google.com
+*** http://talkgadget.google.com/talkgadget/client
+*** http://www.tineye.com
+*** http://123people.com
+*** http://www.wikipedia.org
+
+** Recursos viajero :resources:
+*** http://www.tripadvisor.com
+*** http://www.wikitravel.org
+*** http://www.losviajeros.com
+*** http://forums.inter-rail.org
+*** http://www.trabber.com
+*** http://rzd.ru/
+*** [[http://www.minube.com/][Donde empiezan y terminan tus viajes - Minube.com]]
+
+** Escaner de ondas :ondas:
+*** http://websdr.ewi.utwente.nl:8901/
+*** http://www.websdr.org/
+
+** Audiolibros, podcasts y radios :audio:
+*** http://hongkongpingpong.co.uk/category/mixtapes/
+*** http://www.ivoox.com/
+*** http://www.shoutcast.com/
+*** http://www.emezeta.com/articulos/13-paginas-para-escuchar-musica-gratis
+*** http://radiomalva.net/
+*** http://www.radio.larnr.org/?p=7478 Radio La nueva republica :radio:
+*** [[http://en-directo.frequence-radio.com/m80.html]] :radio:
+
+
+
+** Introspeccion :instrospeccion:
+*** Mushrooms :mushrooms:
+**** http://setas-magicas.com/
+**** http://spanish.shayanashop.com/
+**** http://www.magictruffles.com/
+**** http://azarius.es
+
+** Sexualidad y orientaciones :sexualidad:
+*** http://www.asexuality.org/ :asexualidad:
+*** http://es.wikipedia.org/wiki/Asexualidad :asexualidad:
+*** http://es.wikipedia.org/wiki/Filia :filias:
+*** http://es.wikipedia.org/wiki/Fobia :fobias:
+*** http://es.wikipedia.org/wiki/Anexo:Fobias :fobias:
+*** http://es.wikipedia.org/wiki/Parafilia :parafilia:
+*** http://www.mercaba.org/Rialp/F/fobias_y_filias.htm :fobias y fibias:
+*** http://es.wikipedia.org/wiki/Man%C3%ADa_(Problema_psicol%C3%B3gico) :mania:
+*** http://es.wikipedia.org/wiki/Disonancia_cognitiva :cognitiva:
+*** http://es.wikipedia.org/wiki/Pansexualidad :pansexualidad:
+
+
+*** DMT :DMT:
+**** http://www.thespiritmolecule.com/
+**** http://www.mind-surf.net/drogas/visionarios.htm
+**** http://www.erowid.org/
+**** http://www.temadictos.net/r/glandula-pineal-simbolo-de-la-pina
+**** http://thelemalatina.creatuforo.com/-temas145.html
+**** http://bibianaclaudiabryson.webs.com/medicinaalternativa.htm
+**** http://www.portalnet.cl/comunidad/showthread.php?t=456788
+
+*** Brain and drugs
+**** http://brainz.org/ten-most-revealing-psych-experiments/ Top 10 Most Revealing Psych Experiments :experiment:
+**** http://www.taointegral.net/tips-para-agilizar-el-cerebro-1-de-2/ Trips for the brain 1/2 :brain:
+**** http://www.taointegral.net/tips-para-agilizar-el-cerebro-2-de-2/ Trips for the brain 2/2 :brain:
+**** [[http://www.vice.com/es/read/fentanilo-el-hermano-mayor-de-la-heroina-629][Fentanilo: el hermano mayor de la heroína | VICE | España]] Fentanilo
+
+
+** Descarga y streaming :streaming:
+*** http://www.frozen-layer.com/
+*** http://www.cinetube.es
+*** http://www.vagos.es
+*** http://www.taringa.net
+
+** Lang population :programming:
+*** http://langpop.com/ Most used languages
+*** http://www.slideshare.net/olvemaudal/deep-c Deep C
+*** http://charlespetzold.com/ Author of Turing book
+*** http://www.theannotatedturing.com/ The annotated Turing
+*** http://charlespetzold.com/code/index.html Book CODE
+*** http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html Robot framework
+*** [[https://projecteuler.net/][About - Project Euler]] Project Euler
+
+
+** Politica :politica:
+*** http://partidodeinternet.es/ Partido de Internet :partido:
+
+** Linux :linux:
+*** http://linuxgazette.net
+*** http://libertonia.escomposlinux.org/
+*** http://www.escomposlinux.org/
+*** http://barrapunto.com
+*** http://makepkg.net/blog/
+*** [[http://diegocg.blogspot.co.uk/2015_05_01_archive.html][D'Oh!: mayo 2015]] Linux kernel news
+
+** Kernel :kernel:
+*** http://www.kernel-labs.org/
+*** http://kernel.org/
+*** http://kernelnewbies.org/
+*** http://www.kernelhacking.com/
+*** http://linux-mm.org/
+
+** OSdev :osdev:
+*** http://wiki.osdev.org/
+*** http://www.osdever.net/
+*** http://loonix.technigga.net/osdev.php
+*** http://visopsys.org/osdev/index.php
+*** http://atc.ugr.es/~acanas/arquitectura.html
+
+** Aviacion :aviation:
+*** http://www.radarvirtuel.com/
+*** http://www.knights.ru/knights-e.shtml
+*** http://www.cruzdesanandres.com/
+*** http://www.portierramaryaire.com/
+*** http://www.tridentmilitary.com/
+*** http://analizame.com/test_destreza.php
+
+** Solidaridad :solidarity:
+*** http://solidariosengaza.wordpress.com/
+*** http://www.freegaza.org/
+*** http://ayudaapalestina.blogspot.com/
+
+** Finlandia :finland:
+*** http://tradukka.com/ :translate:
+*** http://www.vr.fi Trenes de Finlandia 			     :trains:
+*** http://www.newsweek.com/2010/08/15/interactive-infographic-of-the-worlds-best-countries.html :quality:
+*** http://www.gotampere.fi/eng/ Web oficial de Tampere :tampere:
+*** http://www.cs.tut.fi/uniprogramme/ MSc in IT en University of Technology of Tampere :masters:
+*** http://tutmasters.bootti.net/DowebEasyCMS/?Page=Programmes Masters en Tampere en la TUT :masters:
+*** http://www.minedu.fi/OPM/?lang=en Ministerio de educacion y cultura de Finlandia y relacion con la universidad :education:
+*** http://www.stat.fi/index_en.html Estadisticas de Finlandia :statistics:
+*** http://www.cs.tut.fi/uniprogramme/requirements.html Requerimientos para MSc in IT en TUT :requirements:
+*** http://www.cs.tut.fi/uniprogramme/admission.html Proceso de admision para MSc in IT en TUT :admissions:
+*** http://tutmasters.bootti.net/DowebEasyCMS/?Page=CostofLiving Vivir en Tampere coste de la vida :costs:
+*** http://tutmasters.bootti.net/DowebEasyCMS/?Page=Accommodation Vivir en Tampere :accommodation:
+*** http://www.toas.fi/ Vivir en Tampere mas sobre casa :accommodation:
+*** http://verkko.ayy.fi/ Mejor conexion a internet de toda europa :internet:
+*** http://netstat.ayy.fi/weathermap/ Mejor conexion a internet de toda europa :internet:
+*** http://www.reittiopas.fi/en/ :busandtrains:
+*** http://www.openstreetmap.org/ :map:
+*** http://news.tky.fi/thread.php?group=tori.asunnot :house:flat:
+*** [[http://www.tyosuojelu.fi/fi/workingfinland/][Työsuojeluhallinto / Working in Finland]] Working in Finland
+
+** Finlandia hacklabs :hacklabs:
+*** http://www.hacklab.fi
+*** http://5w.fi
+*** http://hacklabs-fi.referata.com/wiki/Main_Page
+*** http://linux.fi/wiki/Tampere :linuxusergroupintampere:
+
+** Finlandia :university:
+*** http://information.tkk.fi/en/studies/cse/ :helsinki:
+*** http://www.tkk.fi/en/prospective_students/master/apply/ :apply:
+
+** Bici :bikes:
+*** http://www.viasverdes.com/ViasVerdes
+*** [[http://postscapes.com/gps-bike-tracker][Smart Bike Locks- Postscapes]] Smart bike locks
+
+** Tiendas :shops:
+*** http://www.dhgate.com
+*** http://www.focalprice.com
+*** http://www.dealextreme.com
+*** http://www.kidrobot.eu/
+*** http://www.furilla.com/
+*** http://www.threadless.com/
+*** http://www.trafficlights.com/
+*** http://www.mimoco.com/
+*** http://www.bawidamann.com/
+*** http://www.iwantoneofthose.com/
+*** http://www.thinkgeek.com
+
+** Desarrollo web :web:
+*** http://wellstyled.com/tools/
+*** http://www.ficml.org/jemimap/style/color/wheel.html
+*** http://www.w3.org/
+*** http://www.w3.org/Style/CSS/
+*** http://www.w3schools.com/
+*** http://www.dafont.com/
+*** http://www.csszengarden.com/
+*** http://simplebits.com/
+*** http://www.oswd.org/
+*** http://stopdesign.com/
+
+** Desarrollo web secundario :web:
+*** http://www.stunicholls.myby.co.uk/
+*** http://legacy.www.nypl.org/styleguide/
+*** http://www.thenoodleincident.com/
+*** http://www.webproducer.at/
+*** http://www.maxdesign.com.au/
+*** http://www.alistapart.com/
+*** http://www.contentwithstyle.co.uk/
+*** http://css.maxdesign.com.au/
+*** http://icant.co.uk/
+
+** Servers :servers:
+*** http://www.worldtimeserver.com/
+
+** Posters :decoration:
+*** http://posters.nce.buttobi.net/
+
+** Ejournals :journals:
+*** http://www.sciencedirect.com/
+*** http://www.ingentaconnect.com/
+*** http://scholar.google.com/
+
+** BSD :bsd:
+*** http://www.nomoa.com/
+*** www.openbsd.org
+*** www.netbsd.org
+*** www.freebsd.org
+
+** Ropa de invierno :clothes:
+*** www.trango.com
+*** www.ternua.com
+
+** Webs dedicadas a culturas especificas
+*** http://www.dannychoo.com/ :japonesa:
+
+** Lugares :places:
+*** General
+   - http://101lugaresincreibles.com/
+*** Andalucia
+   - http://blog.cadenaserviajes.es/blog/los-10-pueblos-mas-bonitos-de-andalucia/
+   - http://listas.20minutos.es/lista/los-pueblos-mas-bonitos-de-andalucia-2014-385038/
+   - http://viajes.101lugaresincreibles.com/2014/06/13-pueblos-curiosos-que-inspiran-un-viaje-a-andalucia/
+*** [[http://www.adme.ru/video/paradoks-krasivejshee-video-iz-severnoj-korei-743360/]] North Korea
+*** Galicia
+*** [[http://viajes.101lugaresincreibles.com/2014/02/12-lugares-curiosos-de-galicia-que-tal-vez-desconocias-parte-1/]] 12 lugares que quiza no conoces de Galicia I
+*** [[http://viajes.101lugaresincreibles.com/2014/02/12-lugares-curiosos-de-galicia-que-tal-vez-desconocias-parte-2/]] 12 lugares que quiza no conoces de Galicia II
+*** [[http://upload.wikimedia.org/wikipedia/commons/2/25/Galice_castro.jpg ]] Castro de Baroña
+*** [[http://media-cdn.tripadvisor.com/media/photo-s/01/66/f3/9d/barra-preciosa-playa.jpg]] Playa de Barra en Cangas
+*** [[http://2.bp.blogspot.com/_Baveq2OKmdw/SZFA0hPcDUI/AAAAAAAAA-I/W6IQC0dJIM8/s400/yacim_2127-Castro%2520de%2520Viladonga%2520y%2520su%2520Museo%2520anex%2520o%2520.jpg]] El Castro de Viladonga, Lugo
+*** [[http://www.medieval-spain.com/historia/Reino%20de%20Asturias/Camino%20de%20Santiago%2020005BC.JPG]] El monasterio de Samos
+*** [[http://static.panoramio.com/photos/large/2371071.jpg]] El monasterio de Sobrado dos Monxes
+*** [[http://esphoto980x880.mnstatic.com/lagos-de-la-fervenza-del-belelle_6154841.jpg]] La fervenza del Belelle, cerca de Ferrol
+*** [[http://2.bp.blogspot.com/-Aljq_y1vpDA/ToJhNexsiRI/AAAAAAAAODo/BDELr13SWL4/s1600/Betanzos%25252C_Pasatiempo_01-78.jpg]] Parque do Pasatempo en Betanzos
+*** [[http://acostadamorteenpocaspalabras.files.wordpress.com/2011/08/angel-ramil-museo-man-camelle-dsc_0001_cr_cr2.jpg]] Museo de Man en a Costa da Morte
+*** [[http://www.belt.es/noticiasmdb/imagenes/cabo%20silleiro%2004.jpg]] Bateria de cañones abandonados en Cabo de Silleiro
+*** [[http://3.bp.blogspot.com/_ac_DjCZNzWk/S7yG73gVBdI/AAAAAAAAALE/DK7L923S2Xs/s400/Os+peares1.jpg]] Os Peares
+*** [[http://www.ojodigital.com/foro/attachments/la-noche-25-de-febrero-al-20-de-marzo-2011/118563d1300649089-redondela-bajo-la-superluna-viaducto_noche.jpg]] Redondela
+*** [[http://guias.masmar.net/var/masmar/storage/images/pesca/nuestros-rios/rio-arnoia.-ourense/allariz.-el-gusto-de-lo-bien-hecho/32323-1-esl-ES/Allariz.-El-gusto-de-lo-bien-hecho.jpg]] Allariz
+*** [[http://www.ribadavia.net/fotos/situacion/mapa/gran/vision_ponte_francisco.jpg]] Ribadavia
+*** [[http://1.bp.blogspot.com/-3bnlNXimPAQ/T2S94_RPi4I/AAAAAAAAAKM/lJSKa2yCxbg/s1600/2009_07_19_Cambados_torre_San_Saturnino_ME.jpg]] Cambados
+*** [[http://ailladearousa.es/imagenes/galeria/aillaaerea2.jpg]] A Illa de Arousa
+*** Other places in Galicia
+**** Illa de Ons
+**** Cabo Home y Costa da Vela
+**** Praias de Areal de Trece y Ariño en Camariñas
+**** Redes en Ares (A Coruña)
+**** Doniños en Ferrol, con su laguna litoral
+**** Punta Frouxeira en Valdoviño
+**** Castelo de Monterrei en Monterrei, Ourense
+**** El Miño entre Ribadavia y la desembocadura (no todo se reduce a Santa Tegra)
+**** Monte Louro en Muros
+**** Porto de Tal en Muros
+**** Fervenza de Santa Leocadia en Mazaricos
+**** Fervenza de Bouzafría en Bembrive, Vigo (tan poco conocida que no la conocen ni los vigueses)
+**** La desembocadura del río Anllóns en Ponteceso, A Coruña
+**** El Castelo de Pambre en Palas de Rei, Lugo
+**** As Pozas de Mougás en Oia, Pontevedra
+**** Fervenza do Río Toxa en Silleda, Pontevedra
+**** Mosteiro de Santo Estevo de Ribas de Sil, Ourense
+**** Casco histórico de Tui, Pontevedra
+**** Ría do Barqueiro en O Vicedo, Lugo y Mañón, A Coruña
+*** Abandoned
+**** [[http://es.gizmodo.com/10-colosales-bases-militares-abandonadas-por-sus-gobier-1527971164]] 10 colosales bases militares abandonadas por sus gobiernos
+
+*** Iceland
+**** [[http://www.hola.com/actualidad/2010041913916/volcan/islandia/fotos/][Las imágenes más impresionantes del volcán islandés que ha paralizado Europa]]
+*** Curious places misc
+**** [[http://www.valenciaplaza.com/ver/155379/josep-pujiula-sobre-marxa.html][Toda la verdad sobre Josep Pujiula, el hombre que construyó un paraíso al lado de una autopista]]
+**** [[http://www.nytimes.com/interactive/2015/01/09/sports/the-dawn-wall-el-capitan.html?_r%3D0][The Dawn Wall: El Capitan’s Most Unwelcoming Route - NYTimes.com]]
+*** Myanmar advices
+**** [[http://www.ananda-travel.com/UK/myanmar_embassy_thailand_uk.html][Burmese (Myanmar) embassy in Bangkok Thailand, information, fare, form, visa]]
+**** [[http://www.ananda-travel.com/UK/does_dont_myanmar_uk.htm][Behaving : Do & Don't in Myanmar (Burma), respect burmese people]]
+**** [[http://smartraveller.gov.au/zw-cgi/view/Advice/Burma][Burma (Myanmar) | Travel advice | Smartraveller: The Australian Government's travel advisory and consular assistance service]]
+**** [[http://travelguia.net/moneda-en-myanmar.html][Moneda en Myanmar | Usar tarjeta en Myanmar]]
+**** [[http://topgearspecials.com/top-gear-specials/][Top Gear Specials | Top Gear Specials]] Top gear myanmar
+
+** Astronomia :astronomy:
+*** http://www.cbsnews.com/8301-504784_162-20058382-10391705.html :darkmatter:
+*** [[http://particle-clicker.web.cern.ch/particle-clicker/][Particle Clicker]] Particles
+
+** Virtualizacion
+*** https://wiki.archlinux.org/index.php/Virtualbox#.22NS_ERROR_FAILURE.22_and_missing_menu_items Virtualbox troubleshooting
+*** https://wiki.archlinux.org/index.php/VirtualBox Virtualbox
+*** http://ubuntuforums.org/showthread.php?t=1885936 Troubleshooting
+*** https://help.ubuntu.com/community/KVM/Networking KVM
+
+
+** Countries curiosities
+*** [[https://twitter.com/TapasDeCiencia/status/432499724021534720]] The 10 countries most vicious from the world
+*** [[http://www.adme.ru/tvorchestvo-reklama/luchshie-roliki-goda-596155/]] Adme
+*** [[http://www.adme.ru/video/ochen-blin-milaya-socialnaya-reklama-622355/]] Spot
+*** [[https://www.youtube.com/watch?v=mYP-2UCS5nY]] Facebook abstinents
+
+
+* New bookmarks
+* [[http://www.ataun.net/BIBLIOTECAGRATUITA/indice.html][D:\BIBLIOTECAGRATUITA]]
+* [[http://www.ataun.net/BIBLIOTECAGRATUITA/indice.html][D:\BIBLIOTECAGRATUITA]]
+* [[http://www.dominiopublico.es/][Dominio Público]]
+* [[https://www.epublibre.org/][epublibre - inicio]]
+* [[http://www.espaebook.com/][espaebook - epub gratis en español | libros gratis | ebooks gratis | libros para Kindle, Papyre, iPad, iPhone, Android, Nook, Sony]]
+* [[http://blogs.publico.es/strambotic/2015/05/confusion/][Strambotic » Cuando los chinos se lían: un desternillante muestrario de aberraciones del Todo a 100]]
+* [[http://comicbookplus.com/][Comic Book Plus - Free And Legal Public Domain Books]]
+* [[http://www.vice.com/es/read/deje-de-fumar-gracias-al-lsd-629][Dejé de fumar gracias al LSD | VICE | España]]
+* [[http://www.telegraph.co.uk/travel/hotels/11604863/50-of-the-worlds-most-unusual-hotels.html][50 of the world's most unusual hotels - Telegraph]]
+* [[http://www.meganstarr.com/2015/06/bratislava-doesnt-suck.html][5 Reasons Why Bratislava Doesn't Suck... It's Probably You]]
+* [[http://blog.beyondthewhiteboard.com/2015/07/01/foot-rehab-w-brian-mackenzie/][Foot Rehab w/ Brian Mackenzie |]]
+* [[https://www.chesscademy.com/dashboard][Chesscademy | Dashboard]]
+* [[http://www.theatlantic.com/photo/2015/07/running-of-the-bulls-2015-the-fiesta-de-san-fermin/398009/][Running of the Bulls 2015: The Fiesta de San Fermin - The Atlantic]]
+* [[http://www.boredpanda.com/map-of-longest-place-names-in-the-world/][Map Of Longest Place Names In The World | Bored Panda]]
+* [[http://magnet.xataka.com/que-pasa-cuando/narrando-cinco-anos-como-polizon-de-trenes-a-traves-de-fotografias][Cinco años como polizón de trenes, y a través de estas fotografías nos narra su experiencia]]
+* http://blog.beyondthewhiteboard.com/2015/07/01/foot-rehab-w-brian-mackenzie/
+
+* http://www.runners.es/entrenamiento/articulo/ventajas-correr-descalzo
+* http://www.entrenamientonatural.com/7-mitos-erroneos-sobre-correr-descalzo/
+* http://www.piessucios.com/en/como-correr-descalzo/
+* http://www.cualquierapuedehacerlo.es/
+* http://www.correrdescalzos.es/
+* http://www.entrenamientonatural.com/7-mitos-erroneos-sobre-correr-descalzo/
+* http://correvivir.blogspot.fi/
+* http://www.worldlifeexpectancy.com/world-health-review/spain-vs-morocco
