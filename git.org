@@ -1,0 +1,1969 @@
+==== Types of VC ====
+
+There are 3 basic different Version Control (VC) system types:
+
+* Local VC : Check out of files from local servers. Drawbacks: Impossible to collaborate for big projects.
+* Centralized VC : Check out of files from remote servers. Drawbacks: It is possible only to restablish the last version of some files.
+* Distributed VC : Clone the whole database. Advantatge: If server fall down it is possible to restablish the whole history of the project.
+
+==== States and areas of GIT ====
+
+Git has 3 areas and file states:
+
+* Working directory : checked out version.
+* Staging area : storaged in a file, that contains info about what will go into the next commit.
+* Git directory (repository) : metadata and object database of your project.
+
+[[File:img/git/8.png]]
+
+==== Dependencies of GIT ====
+
+Git installation requires:
+
+* curl-devel
+* expat-devel
+* gettext-devel
+* openssl-devel
+* zlib-devel
+
+==== Start using GIT ====
+
+There are basically two ways:
+
+* Initialise GIT in an existing directory:
+
+  $ '''git init'''
+
+* Cloning an existing repository:
+
+  (for git protocol - just a normal socket communications)
+  $ '''git clone git://path/repo.git'''
+  or (for http(s) protocol)
+  $ '''git clone http(s)://path/repo.git'''
+  or (for ssh protocol)
+  $ '''git clone user@server:/path/repo.git'''
+
+[[File:img/git/17_1.png]]
+
+==== Git basics: untrack, unmodified, modified and staging areas ====
+
+  $ '''git add *.c''' <-- for start tracking .c files
+  $ '''git status''' <-- check the status of your files
+
+Files in "Changes to be committed" means are in staging area.
+
+By default, git will not track new files that where not in last snapshot in order to avoid add object files from compilation and similar stuff.
+
+  $ '''echo "foobar" >> benchmarks.rb'''  <-- modify file
+  $ '''git status'''
+  ... "Changed but not updated" ...
+  ... "          benchmarks.rb" ...
+  $ '''git add benchmarks.rb''' <-- existing file previously
+  $ '''git status'''
+  ... "Changes to be committed" ...
+  ... "modified: benchmarks.rb" ...
+  $ '''echo "foobar2" >> benchmarks.rb''' <-- modify again
+  $ '''git status'''
+  ... "Changes to be committed" ...
+  ... "modified: benchmarks.rb" ... <-- file with changes just before 'git add' (referring to the staged one)
+  ... "Changed but not updated" ...
+  ... "          benchmarks.rb" ... <-- file with latest changes, after last "git add" (referring to the modified but unstaged area in working directory)
+
+If you run now "'''git commit'''" will go only the "staged file", not the "modified file" (in the working directory). Except if we run:
+
+  $ '''git -a -m "some message for the commit"''' <-- will add all the files to the 'staged area' from 'modified unstaged area' in the working directory, before the commit
+
+==== Git basics: Ignoring files ====
+
+For ignoring files we can create/modify the '''.gitignore''' file, there are different options and syntax:
+
+* *.a       # no .a files
+* !lib.a    # no .a files
+* *.[oa]    # no .o / .a files
+* \*~        # ignore temporary files from some editors like emacs
+* /TODO     # ignore specific root file, but not the rest like subdir/TODO
+* build/    # ignore all files under specific directory
+* doc/*.txt # ignore all txt files from specific subdirectory, but not doc/othersubdir/*.txt
+
+==== Git basics: diffs of staged and unstaged areas ====
+
+To show what you changed but not staged (this is because it compares from your working directory with what it is in the staging area):
+
+  $ '''git diff'''
+
+To show diffs from staged area with the checked out version:
+
+  $ '''git diff --cached'''
+  or for never versions
+  $ '''git diff --staged'''
+
+==== Git basics: committing ====
+
+To commit directly with some message:
+
+  $ '''git commit -m "Some commit message"'''
+
+To commit 'skipping' stage area, everything will be staged:
+
+   $ '''git commit -a -m "Some commit message"'''
+
+==== Git basics: removing files ====
+
+  $ '''rm file'''
+  $ '''git status'''
+  ... "Changed but not updated" ... <-- because is not staged
+  ... "          deleted: file" ...
+  $ '''git rm file''' <-- now it will be staged the removal
+
+If we want to keep the file in the working directory but remove from staging area, could be added to .gitignore or if you forgot then launch:
+
+  $ '''git rm --cached file'''
+
+In the .gitignore the syntax should be like log/\*.log this is because git own file extension system in addition to the shells file expansion
+
+==== Git basics: moving files ====
+
+For moving files we can do:
+
+  $ '''git mv filefrom fileto'''
+
+The previous command is equivalent to those ones:
+
+  $ '''mv filefrom fileto'''
+  $ '''git rm filefrom'''
+  $ '''git add fileto'''
+
+==== Git basics: history ====
+
+To see the history:
+
+  $ '''git log'''
+  or (include diffs for every commit, limitting to 2 entries)
+  $ '''git log -p -2'''
+  or (abbreviated history)
+  $ '''git log --stat'''
+  or (for looking nice from different levels)
+  $ '''git log --pretty=oneline'''
+  $ '''git log --pretty=short'''
+  $ '''git log --pretty=full'''
+  $ '''git log --pretty=fuller'''
+  $ '''git log --pretty=format:"%h - %an, %ar : %s"'''
+
+Formatting options for '''git log pretty''':
+
+  Option  Description
+  %H      Commit hash
+  %h      Abbreviated commit hash
+  %T      Tree hash
+  %t      Abbreviated tree hash
+  %P      Parent hashes
+  %p      Abbreviated parent hashes
+  %an     Author name
+  %ae     Author e-mail
+  %ad     Author date (format respects the --date= option)
+  %ar     Author date, relative
+  %cn     Committer name
+  %ce     Committer email
+  %cd     Committer date
+  %cr     Committer date, relative
+  %s      Subject
+
+Difference between committer and author: author is who wrote the work, committer is the last who applied the work. If you send a patch to some project, you are considered the author, somebody from the core team the committer.
+
+To see the history in tree format:
+
+  $ '''git log --pretty=format:"%h %s" --graph'''
+
+'''git log''' output options:
+
+  Option          Description
+  -p              Show the patch introduced with each commit.
+  --stat          Show statistics for files modified in each commit.
+  --shortstat     Display only the changed/insertions/deletions line from the --stat command.
+  --name-only     Show the list of files modified after the commit information.
+  --name-status   Show the list of files affected with added/modified/deleted information as well.
+  --abbrev-commit Show only the first few characters of the SHA-1 checksum instead of all 40.
+  --relative-date Display the date in a relative format (for example, “2 weeks ago”) instead of using the full date format.
+  --graph         Display an ASCII graph of the branch and merge history beside the log output.
+  --pretty        Show commits in an alternate format. Options include oneline, short, full, fuller, and format (where you specify your own format).
+
+To see the history for some timeline:
+
+  $ '''git log --since=2.weeks'''
+
+'''git log''' filtering:
+
+  Option      Description
+  -(n)        Show only the last n commits
+  --since,    --after    Limit the commits to those made after the specified date.
+  --until,    --before   Limit the commits to those made before the specified date.
+  --author    Only show commits in which the author entry matches the specified string.
+  --committer Only show commits in which the committer entry matches the specified string.
+
+Remember to add '''--all-match''' for following both or all criterias (if more than one); like show all the commits from some authors AND since last 2 weeks.
+
+It is possible to use the tree or graph in graphical way with '''gitk''' (tcl/tk) or '''qgit''' (qt).
+
+==== Git basics: modifying commits ====
+
+If you forgot to add a file in a previous commit:
+
+  $ '''git commit -m "Message"'''
+  $ '''git add forgottenfile'''
+  $ '''git commit --amend''' <-- this will modify a previous commit with the forgotten file
+
+==== Git basics: unstaging files ====
+
+To unstage a file:
+
+  $ '''git add .'''
+  $ '''git status'''
+  ... "Changes to be committed" ...
+  ... "      modified: fileone" ...
+  ... "      modified: filetwo" ...
+  $ '''git reset HEAD fileone'''
+  ... "Changes to be committed" ...
+  ... "      modified: filetwo" ...
+  ... "Changed but not updated" ...
+  ... "      modified: fileone" ...
+
+==== Git basics: discard changes ====
+
+To discard the changes in the working directory and restore to the original version when it was cloned or last commit:
+
+  $ '''git checkout -- filemodified'''
+
+==== Git basics: working with remotes ====
+
+After cloned repository try for showing associated keywords to remote repositories:
+
+  $ '''git remote -v'''
+  or (at least should show origin by default)
+  $ '''git remote'''
+
+To add a remote repository:
+
+  $ '''git remote add keyword repository'''
+
+From now, we can get changes from somebody for the repository doing:
+
+  $ '''git fetch keyword'''
+
+Keyword master branch will be accessible from keyword/master from now.
+
+If you clone a repository, the command automatically adds that remote repository under the name origin. Fetch only pull data to your local repository, does not merge or modify your current directory you are working on.
+
+To fetch and merge the remote branch in your local branch:
+
+  $ '''git pull'''
+
+To push your changes in a remote branch (you must have write access in the remote server and no other pushes before - if not it would be required to pull)
+
+  $ '''git push remotename branchname'''
+
+To push your changes in master:
+
+  $ '''git push origin master'''
+
+To show information of the remotes:
+
+  $ '''git remote show origin'''
+
+To rename a local and a remote branch:
+
+  $ '''git remote rename name1 name2'''
+
+To remove somebody as remote branch (for somebody who stop contributing anymore)
+
+  $ '''git remote rm name'''
+
+==== Git basics: tagging ====
+
+Tagging is used for milestones, versions in some specific commit, etc.
+
+To show tags:
+
+  $ '''git tag'''
+
+Show tags from some specific version:
+
+  $ '''git tag -l v1.4.2.*'''
+
+Add new tag (amended tag):
+
+  $ '''git tag -a v1.4 -m "Message for the tag"'''
+
+Show info of a tag:
+
+  $ '''git show v1.4'''
+
+Add new tag and signing using GPG:
+
+  $ '''git tag -s v1.4 -m "Message for the tag"'''
+
+Add new tag (lightweight):
+
+  $ '''git tag v1.4'''
+
+Verify a tag (you must have the public key):
+
+  $ '''git tag -v v1.4'''
+
+Tagging later some specific commit:
+
+  $ '''git tag -a v1.4 shortnumberofcommit'''
+
+To share a tag in the remote:
+
+  $ '''git push origin v1.5'''
+
+To share all tags at a time:
+
+  $ '''git push origin --tags'''
+
+==== Git basics: autocompletion ====
+
+# Download git src.
+# Copy contrib/completion/git-completion.bash to ~
+# Add "source ~/git-completion.bash" to your .bashrc
+or add to (for all users):
+Copy to /etc/bash_completion.d/
+
+Now try autocompletion like:
+
+  $ '''git c<TAB><TAB>'''
+  or
+  $ '''git log --s<TAB><TAB>'''
+
+==== Git basics: alias ====
+
+  $ '''git config --global alias.co checkout'''
+  $ '''git config --global alias.br branch'''
+  $ '''git config --global alias.ci commit'''
+  $ '''git config --global alias.st status'''
+  $ '''git config --global alias.unstage 'reset HEAD --'''' <-- then we can do things like '''git unstage file'''
+  $ '''git config --global alias.last 'log -1 HEAD'''' <-- then we can do things like '''git last'''
+  $ '''git config --global alias.visual "!gitk"''' <-- then we can do things like git visual that executes some command
+
+==== Git branching: how information is saving in a branch ====
+
+If we have for example a repository with 3 files inside.
+
+Git repository contains 5 objects:
+# Blob: for the contents of each of your 3 files
+# Tree: lists the contents of the directory and specifies which file names are stored as which blobs.
+# Commit: with the pointer to that root tree and all the commit metadata.
+
+[[File:img/git/48_1.png]]
+
+==== Git branching: creating and destroy branches ====
+
+When we create a branch like that:
+
+ $ '''git branch testing'''
+
+We really create a new pointer to move around.
+
+[[File:img/git/49_1.png]]
+
+For git, to know in which branch we are currently, keeps a special pointer called '''HEAD'''. HEAD is really a pointer on a local branch you are currently on.
+
+[[File:img/git/50_1.png]]
+
+If we switch to other branch like that:
+
+ $ '''git checkout testing'''
+
+Internally it happens really this:
+
+[[File:img/git/50_2.png]]
+
+If we commit something else with:
+
+ $ '''echo "foobar" >> test.rb'''
+ $ '''git commit -a -m "Message of the commit"'''
+
+[[File:img/git/51_1.png]]
+
+We will see we left master behind. and if we switch again to master, we still only change the HEAD special pointer like this (it will of course also update the working directory back to the snapshot of master):
+ $ '''git checkout master'''
+
+[[File:img/git/51_2.png]]
+
+However, if we commit again but now in master like this:
+  $ '''echo "foobar2" >> test.rb'''
+  $ '''git commit -a -m "Message of the commit"'''
+
+Both branches will be diverged:
+
+[[File:img/git/52_1.png]]
+
+So a branch concept in git is just 41 bytes (40 of SHA-1 and newline), so it is fast and cheap create and destroy branches.
+
+==== Git branching: typical workflow and fast forward merging ====
+
+Typical workflow is having master that should be the production one, create a new branch to develop stuff before merge to master, so long term devel. And create a new branch in parallel (based on master) for critical and fast issues to must goes to master.
+
+ $ '''git checkout -b iss53'''
+ or (it is equivalent to)
+ $ '''git branch iss53'''
+ $ '''git checkout iss53'''
+
+[[File:img/git/54_1.png]]
+
+ $ '''echo "foobar" >> index.html'''
+ $ '''git commit -a -m "Added new stuff to issue 53"'''
+
+[[File:img/git/54_2.png]]
+
+Some urgent stuff appears so we will create a parallel branch based on master to fix the issue:
+ $ '''git checkout master'''
+ $ '''git checkout -b 'hotfix''''
+ $ '''echo "foobar2" >> index.html'''
+ $ '''git commit -a -m "Hot issue fixed"'''
+
+[[File:img/git/55_1.png]]
+
+If it is properly tested and fix the issue, then we can merge with master like that:
+ $ '''git checkout master'''
+ $ '''git merge hotfix'''
+ ... Fast forward ...
+
+The merge is called '''"Fast forward"''' because the commit pointed to by the branch you merged in was directly upstream of the commit, so gitmoves the pointer forward. It means when you try to merge one commit with a commit that can be reached by following the first's commit history, by moving the pointer forward, as there is no divergent work to merge.
+
+[[File:img/git/56_1.png]]
+
+Now you can switch and continue with the original branch to continue your long term work and delete the branch hotfix as no needed anymore.
+
+ $ '''git branch -d hotfix'''
+ $ '''git checkout iss53'''
+ $ '''echo "foobar3" > index.html'''
+ $ '''git commit -a -m "Finished new stuff to issue 53"'''
+
+Now there are two options; integrate the hotfix issue in the new branch as it is important, or just wait until iss53 is merged with master
+
+[[File:img/git/57_1.png]]
+
+==== Git branching: recursive merging ====
+
+Following the previous example, if we finished the stuff for the branch iss53 and we want to merge with maste we can do something like this:
+
+ $ '''git checkout master'''
+ $ '''git merge iss53'''
+ ... recursive ...
+
+As the development history has diverged from some older point, the commit you are on is not direct ancestor of the branch you are merging in and then the merging is '''recursive'''. Then Git need to do "three way merge", using the two snapshots pointed to by the branch tips and  the common ancestor of the two. Git creates a new snapshot that results from this "three way merge" and automatically creates a new commit that points to it, this is referred to as a merge commit and is special in that it has more than one parent. Git determines the best common ancesotr to use for its merge base.
+
+[[File:img/git/58_1.png]]
+
+[[File:img/git/58_2.png]]
+
+From now it is possible to delete the iss53 branch with:
+
+ $ '''git branch -d iss53'''
+
+==== Git branching: merge conflicts ====
+
+Some times you can have conflicts when you are merging:
+
+ $  '''git merge iss53'''
+ ... CONFLICT ...
+
+Merge has not been done, it is paused. Until you fix the conflict. Now run:
+
+ $ '''git status'''
+ ... unmerged: file.ext  ...
+
+Everything that has unmerged are basically the files with conflicts. Editing the file(s) and fixing the conflicts must be done. The file will look like this:
+
+ <<<<<<< HEAD:file.ext
+ some diffs version from the branch you are currently, and you are merging for
+ =======
+ some other diffs version from the other branch you are merging from
+ >>>>>>> iss53:file.ext
+
+The other option is just run:
+
+ $ '''git mergetool'''
+
+You can use: kdiff3, tkdiff, xxdiff, meld, gvimdiff, opendiff, emerge, vimdiff, etc.
+
+After you exit the mergetool, git will asks if the merge was successfull. If you tell the script it was, then verify again with:
+
+ $ '''git status'''
+ ... Changes to be committed ...
+ ... modified: file.ext ...
+
+If you think everything is correct now then you can finalize the merge commit with:
+
+ $ '''git commit'''
+ ... Merge branch 'iss53' ...
+
+ ... Conflicts: ...
+ ... file.ext ...
+
+You can modify the message about the resolving merge if you think could be helpful or what you did it was not obvious.
+
+==== Git branching: branch management ====
+
+Git branch does much more than create and delete branches, for example:
+
+ $ '''git branch'''
+ somebranch
+ * master
+ otherbranch
+
+Will show you in which branch you are currently checked out.
+
+To see the last commit of your branch you can do:
+
+ $ '''git branch -v'''
+ somebranch  12349cc Some commit message
+ * master    15749c5 Some other commit message
+ otherbranch 88349d1 Another commit message
+
+To see the branches you are merged against the current branch you are, then:
+
+ $ '''git branch --merged'''
+ somebranch
+ * master
+
+Branches without the * you are merged, generally are fine to delete with '''git branch -d somebranch'''
+
+To see the branches you are not merged against the current branch you are then:
+
+ $ '''git branch --no-merged'''
+ otherbranch
+
+Because this is a branch that contains the work is not merged yet, trying to delete will fail:
+
+ $ '''git branch -d otherbranch'''
+ ... error ...
+
+If you really want to force to delete:
+
+ $ '''git branch -D otherbranch'''
+
+==== Git branching: branch workflows ====
+
+* Long-running: Because git uses simple three-way merge, merging from one branch into another multiple times over a long period is easy to do. Having several branches that are always open and that you use for different stages of your development cycle, and merging regularly from some of them into others.
+
+[[File:img/git/62_1.png]]
+
+* Topic: Useful in projects of any size, but short-lived branch that you create and use for a single particular feature or related work.
+
+[[File:img/git/63_1.png]]
+
+==== Git branching: remote branches ====
+
+Remote branches are just '''references to the state''' of branches on your remote repositories. Are local branches you cannot move, and they move automatically when you do any network communication. So they are just like bookmarks to remind you where the branches on your remote repositories were the last time you connected them. The form is '''(remote)/(branch)'''. If you want to see what the master (or other branch) on your origin remote looked like as the last time you communicated with it, you would check origin/master (or origin/somebranch).
+
+[[File:img/git/65_1.png]]
+
+To synchronize your work you can run:
+
+ $ '''git fetch origin'''
+
+The command looks up which server origin is (in the example is git.ourcompany.com). This fetches any data you don't have updates your local database moving origin/master pointer to its new place.
+
+You can add new remote reference:
+
+ $ '''git remote add shortname'''
+
+This will add your shortname for the whole URL. Now you can run:
+
+ $ '''git fetch shortname'''
+
+And it will fetch everything from the server.
+
+As a new set of examples from the previous commands; If you do some work on your local and somebody else's pushes to the server and updates the master branch, then you will see this:
+
+[[File:img/git/66_1.png]]
+
+If you launch git fetch origin then:
+
+[[File:img/git/66_2.png]]
+
+If you add another server as a remote then:
+
+[[File:img/git/67_1.png]]
+
+If you get a reference to some team master branch position locally then:
+
+[[File:img/git/67_2.png]]
+
+==== Git branching: pushing ====
+
+When you want to share a branch in the world, you need to push it up to a remote that you have write access. You have explicitily push the branches you want to share. So if you have a branch named somebranch, you can pushed like that:
+
+ $ '''git push origin somebranch'''
+ ... [new branch]    somebranch -> somebranch ...
+ (or this does the same thing, without the shortcut, so you can use this format to push a local branch to remote branch with a different name)
+ $ '''git push origin somebranch:somebranch'''
+ (if it is with different name)
+ $ '''git push origin somebranch:anotherbranch'''
+
+This is a shortcut, git normally expands the '''somebranch''' name out to '''refs/heads/somebranch:refs/heads/somebranch''' which means:
+''"Take my somebranch local branch and push it to update the remote somebranch branch"''
+
+The next time your collaborators fetches from the server, they will get a reference where the version of the server of somebranch is under the remote origin/somebranch.
+
+ $ '''git fetch origin'''
+ ... [new branch]     somebranch -> origin/somebranch
+
+When you fetch, you don't have automatically a local editable copy of them, so you do not have new somebranch branch, you only have an origin/somebrach pointer that you can't modify.
+
+To merge this work in your current working branch:
+
+ $ '''git merge origin/somebranch'''
+
+If you want your own somebranch to work on, this gives you a local branch that you can work on that starts where origin/somebranch is:
+
+ $ '''git checkout -b somebranch origin/somebranch'''
+
+==== Git branching: tracking branches ====
+
+Checking out a local branch from a remote branch automatically creates a tracking branch. When you clone a branch, it generally automatically creates a master branch that tracks '''origin/master''', but you can also track the branches as you wish in the format '''git checkout -b [branch] [remotename]/[branch]''' or just with '''--track''' shortcut.
+
+ $ '''git checkout --track origin/branchname'''
+ (or to set up a local branch with different name than the remote)
+ $ '''git checkout -b somebranchname origin/branchname'''
+
+Now your local branch somebranchname push to and pull from origin/branchname.
+
+==== Git branching: deleting remote branches ====
+
+Delete remote branches makes sense for example if a collaborator finish with a feature and have merged it into your remote master branch (or whatever branch). To delete then you can run:
+
+ $ '''git push origin :somebranch'''
+
+Because the syntax of this command is '''git push [remotename] :[branch]''' this command tells "Take nothing on my side and make it to be remote branch.
+
+==== Git branching: rebasing ====
+
+There are two ways to integrate one branch to another; merge and rebase.
+
+The basic rebase with:
+ $ '''git checkout branchname'''
+ $ '''git rebase master'''
+
+[[File:img/git/71_1.png]]
+
+[[File:img/git/71_2.png]]
+
+Imagine you have a branch of branch, like here:
+
+[[File:img/git/72_1.png]]
+
+If you want to merge the second level branch on master then you must do '''git rebase --onto master firstlevelbranch secondlevelbranch''' in this example would be:
+
+ $ '''git rebase --onto master server client'''
+
+And then you will have this result:
+
+[[File:img/git/73_1.png]]
+
+Now you need additional step, to fast-forward the master branch:
+ $ '''git checkout master'''
+ $ '''git merge client'''
+
+And you will have this result:
+
+[[File:img/git/73_2.png]]
+
+And now to rebase the first level branch you can do '''git rebase master firstlevelbranch''' like this:
+ $ '''git rebase master server'''
+
+Now you will have this result:
+
+[[File:img/git/74_1.png]]
+
+And now it is possible to fast-forward the base branch (master):
+ $ '''git checkout master'''
+ $ '''git merge server'''
+
+And remove the useless branches:
+ $ '''git branch -d client'''
+ $ '''git branch -d server'''
+
+[[File:img/git/74_2.png]]
+
+==== Git branching: exceptions of rebasing ====
+
+Do not rebase commits that you have pushed to a public repository.
+
+Reason of that is because you are abandoning existing commits and creating a new ones, that are similar but different. If you '''push''' commits, other '''pull''' them down, and base work on them, and then you rewrite those commits with '''git rebase''' and push them up again, the collaborators will have to re-merge their work and things will get messy when you try to pull their work back into yours.
+
+[[File:img/git/75_1.png]]
+
+If someone else does more work that includes a merge, pushes to the central server. If you fetch the merge the new remote branch into your work will look like:
+
+[[File:img/git/75_2.png]]
+
+Next, the person who pusehd and merged work decides to go back and rebase their work instead; and they do:
+ $ '''git push --force'''
+
+[[File:img/git/76_1.png]]
+
+This would overwrite the history on the server. You then fetch from the server, bringing down the new commits. So at this point you have to merge this work in again, even if you have already done so.. Rebasing changes the SHA-1 hashes of these commits they look like new commits, even if you have already C4 work (for the example) in your history.
+
+[[File:img/git/77_1.png]]
+
+==== Git server: protocols ====
+
+* Local protocol: for shared filesystems, NFS, etc.
+
+  $ '''git clone /path/repo.git'''
+  or
+  $ '''git clone file:///path/repo.git'''
+
+* SSH protocol
+
+ $ '''git clone ssh://user@server:repo.git'''
+ or
+ $ '''git clone user@server:repo.git'''
+
+* Git protocol: Uses the port 9418, but with no authentication
+
+ <it runs with the own daemon, check gitosis to manage that>
+
+* HTTP(S) protocol
+
+To set up in your apache:
+
+ $ '''cd /var/www/htdocs/'''
+ $ '''git clone --bar /path/git_project gitproject.git''' << --bar option is just to clone without working directory
+ $ '''cd gitproject.git'''
+ $ '''mv hooks/post-update.sample hooks/post-update'''
+ $ '''chmod a+x hooks/post-update'''
+
+Now you can run to update in the server the status of the repo:
+
+ $ '''git update-server-info'''
+
+Other people can now clone via:
+
+ $ '''git clone http://server.com/gitproject.git'''
+
+==== Git server: set up ====
+
+To set up a git server, clone the repo without working dir:
+
+ $ '''git clone ---bare my_project my_project.git'''
+ $ '''cp -Rf my_project/.git my_project.git'''
+
+Put the bare repo on a server:
+
+ $ '''scp -r my_project.git user@server.com:/opt/git'''
+
+Other users can do that now:
+
+ $ '''git clone user@server.com:/opt/gitmy_project.git'''
+
+Add group write permissions to a repository properly (is done by git init with --shared option):
+
+ $ '''ssh user@server.com'''
+ $ '''cd /opt/git/my_project.git'''
+ $ '''git init --bar --shared'''
+
+For SSH access:
+
+ <Needs to add the SSH public key to ~./ssh/authorized_keys>
+
+To generate the key use:
+
+ $ '''ssh-keygen''' <-- Do not put password if you do not want to be asked every time
+
+To set up the Git server with git user for the system:
+
+ $ '''sudo adduser git'''
+ $ '''su git'''
+ $ '''cd'''
+ $ '''mkdir .ssh'''
+
+Now add SSH public keys from developers into ~/.ssh/authorized_keys from git user on the server:
+
+ $ '''cat /tmp/id_rsa_user1.pub >> ~/.ssh/authorized_keys'''
+ ... do the same for the rest of users ...
+
+Create the repository empty without working directory on the server:
+
+ $ '''cd /opt/git'''
+ $ '''mkdir project.git'''
+ $ '''cd project.git'''
+ $ '''git --bare init'''
+
+On user computer now run:
+
+ $ '''cd myproject'''
+ $ '''git init'''
+ $ '''git add .'''
+ $ '''git commit -m "Initial commit"'''
+ $ '''git remote add origin git@gitserver:/opt/git/project.git'''
+ $ '''git push origin master'''
+
+At this point, the others can clone it down and push changes back like this:
+
+ $ '''git clone git@gitserver:/opt/git/project.git'''
+ $ '''emacs README'''
+ $ '''git commit -am "Fix of README file"'''
+ $ '''git push origin master'''
+
+Restrict git without shell is always good, then git user can only use for SSH connection to push and pull git repositories, on the server do:
+
+ # '''emacs /etc/passwd'''
+ ... Replace this line ...
+ git:x:1000:1000::/home/git:/bin/bash
+ ... by this one ...
+ git:x:1000:1000::/home/git:/bin/git-shell
+
+For allowing public access read-only:
+
+ $ '''cd project.git'''
+ $ '''mv hooks/post-update.sample hooks/post-update''' <-- the hook just update the git server when triggers
+ $ '''chmod a+x hooks/post-update'''
+
+Edit your configuration file from apache and add a virtualhost like that:
+
+ <VirtuallHost>
+  ServerName git.gitserver <-- or the url from the server
+  DocumentRoot /opt/git <-- or the directory where it is the repo
+  <Directory /opt/git/>
+   Order allow, deny
+   allow from all
+  </Directory>
+ </VirtualHost>
+
+Now you must set the Unix user group to the webserver to have access for read the directory where it is the repo:
+
+ $ '''chgrp -R www-data /opt/git'''
+
+Restart apache
+
+ # '''apachectl restart'''
+
+Now you should be able to clone using HTTP server:
+
+ $ '''git clone http://git.gitserver/project.git'''
+
+==== Git server: gitweb ====
+
+Install the package:
+
+ # '''apt-get install gitweb'''
+
+Run on your project directory (on the server):
+
+ $ '''git instaweb'''
+
+Or install gitweb manually:
+
+ $ '''git clone git://git.kernel.org/pub/scm/git/git.git'''
+ $ '''cd git'''
+ $ '''make GITWEB_PROJECTROOT="/opt/git/ prefix=/usr gitweb/gitweb.cgi'''
+ $ '''sudo cp -Rf gitweb /var/www'''
+
+Add the CGI script to the apache configuration:
+
+ <VirtualHost *:80>
+  ServerName gitserver
+  DocumentRoot /var/www/gitweb
+  <Directory /var/www/gitweb>
+   Options ExecCGI +FollowSymlinks +SymlinksIfOwnerMatch
+   AllowOverride All
+   order allow,deny
+   Allow from all
+   AddHandler cgi-script cgi
+   DirectoryIndex gitweb.cgi
+  </Directory>
+ </VirtualHost>
+
+At this point you should be able to use, clone and fetch from HTTP at: http://gitserver/ or http://git.gitserver
+
+==== Git server: gitosis ====
+
+Gitosis maintains for large number of users the keys, accesses, etc. Install dependencies and gitosis:
+
+ # '''apt-get install python-setuptools'''
+ $ '''git clone git://eagain.net/gitosis.git'''
+ $ '''cd gitosis'''
+ $ '''sudo python setup.py install'''
+
+If you have your repositories on /opt/git, gitosis wants to look under /home/git. In this case do a link:
+
+ $ '''ln -s /opt/git /home/git/repositories'''
+
+Gitosis will manage keys for you, so remove the current file:
+
+ $ '''mv /home/git/.ssh/authorized_keys /home/git/.ssh/ak.bak'''
+
+Turn the shell back for the git user if you changed to the git-shell before:
+
+ # '''emacs /etc/passwd'''
+ ... Replace this line ...
+ git:x:1000:1000::/home/git:/usr/bin/git-shell
+ ... By this one ...
+ git:x:1000:1000::/home/git:/bin/bash
+
+Initialise gitosis (to let the user to modify the main git repository that controls gitosis) with your personal public key (if your public key is not in the server you will need to copy):
+
+ $ '''sudo -H -u git gitosis-init < /tmp/id_dsa.pub'''
+
+Post update for your need control repository:
+
+ $ '''sudo chmod 755 /opt/git/gitosis-admin.git/hooks/post-update'''
+
+Try to SSH in your server:
+
+ $ '''ssh git@gitserver'''
+ ... you should not have access ...
+ $ '''git clone git@gitserver:gitosis-admin.git'''
+ ... this should work instead ...
+
+Now you have a directory named gitosis-admin, that has two parts:
+
+* gitosis.conf : is the control you use to specify users, repos, and permissions.
+* keydir : is the directory where you store the public keys of all users for accesses.
+
+Example of configurations could be:
+
+ $ '''cat gitosis.conf'''
+ [gitosis]
+
+ [group gitosis-admin]
+ writable = gitosis-admin
+ members = scott
+
+If you create a new project called iphone_project:
+
+ [group mobile]
+ writable = iphone_project
+ members = scott
+
+Now you must commit thos changes to take effect:
+
+ $ '''git commit -am "Add iphone_project and mobile group"'''
+ $ '''git push'''
+
+Add the server as a remote to your local version (you do not need to do more than 1 time):
+
+ $ '''git remote add origin git@gitserver:iphone_project.git'''
+ $ '''git push origin master'''
+
+Adding new user keys, add them to the projects (some as write and some as read), example:
+
+ $ '''cp /tmp/id_rsa.user1.pub keydir/user1.pub'''
+ $ '''cp /tmp/id_rsa.user2.pub keydir/user2.pub'''
+ $ '''cp /tmp/id_rsa.user3.pub keydir/user3.pub'''
+
+Add them:
+
+ [group mobile]
+ writable = iphone_project
+ members = scott user1 user2
+
+ [group mobile_ro]
+ readable = iphone_project
+ members = user3
+
+After you commit and push that change, every user will have read or write access to your repo.
+
+==== Git server: git daemon ====
+
+For public, unauthenticated read access, it could be much suitable to use the git protocol, as it is the fastest.Basically you must run:
+
+ # '''git daemon --reuseaddr --base_path=/opt/git /opt/git'''
+ ... Also you need to open port 9418 in your firewall ...
+
+Demonize the process:
+
+ # '''emacs /etc/event.d/local-git-daemon'''
+ ... Add those lines ...
+ start on startup
+ stop on shutdown
+ exec /usr/bin/git daemon \
+      --user=git --group=git \
+      --reuseaddr \
+      --base-path=/opt/git/ \
+      /opt/git
+ respawn
+
+Reboot the machine or just start the daemon:
+
+ # '''initctl start local-git-daemon'''
+
+Tell gitosis server which repos you want to allow unauthenticated server based access to. On gitosis.conf file:
+
+ [repo iphone_project]
+ daemon = yes
+
+Commit and push those changes. Now you must see anyone has read access to this server on the port 9418.
+
+In case you are not running gitosis, but you want a daemon, then you must do these steps:
+
+ $ '''cd /path/project.git'''
+ $ '''touch git-daemon-export-ok'''
+
+The presence of this file tells Git is OK to server this project without authentication.
+
+Gitosis can also control which projects GitWeb shows, add this to /etc/gitweb.conf file:
+
+ $project_list = "/home/git/gitosis/projects.list";
+ $projectroot = "/home/git/repositories";
+ $export_ok = "git-daemon-export-ok";
+ @git_base_url_list = ('git://gitserver');
+
+Now on gitosis.conf you can put configurations like this:
+
+ [repo iphone_project]
+ daemon = yes
+ gitweb = yes
+
+Now if you commit and push the project, gitweb will automatically start showing your project.
+
+==== Git server: hosted git ====
+
+Set up github (for remote server) or gitlab (for local instalations). For github:
+
+# Create an account on github.com
+# Generate the keys
+# Upload the public key to github.com
+
+Create the local repository:
+
+ $ '''git init'''
+ $ '''git add .'''
+ $ '''git commit -m "Initial commit"'''
+
+Add the remote repository and push the changes there
+
+ $ '''git remote add origin git@github.com:my_username/my_project.git'''
+ $ '''git push origin master'''
+
+==== Distributed Git: Workflows ====
+
+* Centralized workflow:
+
+# One central hub or repository can accept code. Everyone synchronizes their work to it.
+# A number of developers are nodes, consumers of that hub and synchronize to that one place.
+
+[[File:img/git/108_1.png]]
+
+
+* Integration-Manager workflow:
+
+# The project maintainer pushes to their public repository.
+# A contributor clones that repository and makes changes.
+# The contributor pushes to their own public copy.
+# The contributor sends the maintainer an email asking them to pull changes.
+# The maintainer adds the contributor's repository as a remote and merges locally.
+# The maintainer pushes merged changes to the main repository.
+
+[[File:img/git/109_1.png]]
+
+
+* Dictator and Lieutenants workflow:
+
+# Regular developers work on their topic branch and rebase their work on top of master. The master branch is that of the dictator.
+# Lieutenants merge the developers' topic branches into their master branch.
+# The dictator merges the lieutenants' master branches into the dictator's master branch.
+# The dictator pushes their master to the reference repository so the other developers can rebase on it.
+
+[[File:img/git/110_1.png]]
+
+
+==== Distributed Git: Contributing to a project ====
+
+Commit guidelines:
+
+It is good practice to check the blank spaces:
+
+ $ '''git diff --check'''
+
+Have some template like this for commit messages:
+
+Short (50 chars or less) summary of changes
+
+ More detailed explanatory text, if necessary. Wrap it to about 72
+ characters or so. In some contexts, the first line is treated as the
+ subject of an email and the rest of the text as the body. The blank
+ line separating the summary from the body is critical (unless you omit
+ the body entirely); tools like rebase can get confused if you run the
+ two together.
+
+ Further paragraphs come after blank lines.
+
+  - Bullet points are okay, too
+
+  - Typically a hyphen or asterisk is used for the bullet, preceded by a
+    single space, with blank lines in between, but conventions vary here
+
+Now you can check this nice look with:
+
+ $ '''git log --no-merges'''
+
+* Private small team: the typical approach for small projects.
+
+ # John Machine
+ $ '''git clone john@githost:simplegit.git'''
+ $ '''cd simplegit'''
+ ... edit something ...
+ $ '''git commit -a -m "Message commit"'''
+
+ # Jessica Machine
+ $ '''git clone jessica@githost:simplegit.com'''
+ $ '''cd simplegit'''
+ ... edit something else ...
+ $ '''git commit -a -m "Message commit"'''
+
+ ... Now Jessica pushes her work to the server ...
+
+ # Jessica Machine
+ $ '''git push origin master'''
+ ... Now John try to push his changes ...
+ # John Machine
+ $ '''git push origin master'''
+ ... Rejected ...
+ ... Because John must fetch Jessica's changes...
+ $ '''git fetch origin'''
+
+John local repo look like this:
+
+[[File:img/git/114_1.png]]
+
+ ... John has a reference to the changes Jessica pushed up, so he has to merge them into his own work before he is allowed to push ...
+ $ '''git merge origin/master'''
+
+John local repo look like this now:
+
+[[File:img/git/114_2.png]]
+
+ ... If John tests all the changes works properly after tested them, he can push his new merged work to the server ...
+ $ '''git push origin master'''
+
+John local repo look like this now:
+
+[[File:img/git/115_1.png]]
+
+Meanwhile Jessica has been working in a new topic branch she created and she did not fetch anything, so looks like this for her:
+
+[[File:img/git/115_2.png]]
+
+If Jessica wants to sync up with John, she fetches:
+
+ # Jessica Machine
+ $ '''git fetch origin'''
+
+Jessica history repo look like this now:
+
+[[File:img/git/116_1.png]]
+
+Jessica before merging it, wants to know with which she is going to merge (which commits), so she run this:
+
+ $ '''git log --no-merges origin/master ^issue54'''
+
+Now she thinks is going to merge with master:
+
+ $ '''git checkout master'''
+ $ '''git merge issue54'''
+
+Now she wants to merge with John's work:
+
+ $ '''git merge origin/master'''
+
+[[File:img/git/117_1.png]]
+
+Now origin/master is reachable from Jessica's master branch, so she should be able to successfully push:
+
+ $ '''git push origin master'''
+
+[[File:img/git/117_2.png]]
+
+The whole workflow looks like that in general:
+
+[[File:img/git/118_1.png]]
+
+
+* Private managed team: For large private groups, team based contributions that are integrated by another party.
+
+John and Jessica works together in feature A Jessica and Josie works together in feature B Company is using a type of integration manager workflow.
+
+ # Jessica machine
+ $ '''git checkout -b featureA'''
+ ...emacs lib/simplegit.rb...
+ $ '''git commit -am "some commit message"'''
+
+Now Jessica needs to share her work with John, so she pushes her feature A.
+
+ $ '''git push origin featureA'''
+
+Jessica emails John to tell him she pushed changes in a branch called featureA. Jessica decides to start working on feature B with Josie in a new branch.
+
+ # Jessica machine
+ $ '''git fetch origin'''
+ $ '''git checkout -b featureB origin/master'''
+ ...emacs lib/simplegit.rb...
+ $ '''git commit -am "some commit message"'''
+ ...emacs lib/simplegit.rb...
+ $ '''git commit -am "some commit message"'''
+
+Jessica repo looks like this:
+
+[[File:img/git/120_1.png]]
+
+Jessica is ready to push her work, but Josie email her telling that this feature already was pushed as featureBee. So Jessica first needs to merge those changes in with her own before she can push to the server, she can fetch changes from Jossie with:
+
+ $ '''git fetch origin'''
+
+Now Jessica can merge this into the work she did with:
+
+ $ '''git merge origin/featureBee'''
+
+Problem: She needs to push the merged work in her featureB branch to the featureBee branch on the server. She can do by specifying the local branch followed by a colon followed by the remote branch, This is called refspec:
+
+ $ '''git push origin featureB:featureBee'''
+
+John emails Jessica to say he pushed some changes to the featureA branch and ask her to verify them. So she needs to pull those changes:
+
+ $ '''git fetch origin'''
+
+She can see what has been changed with:
+
+ $ '''git log origin/featureA ^featureA'''
+
+She merges John's work into her own featureA branch:
+
+ $ '''git checkout featureA'''
+ $ '''git merge origin/featureA'''
+
+Jessica wants to modify something else and push back to the server:
+
+ $ '''git commit -am "some message"'''
+ $ '''git push origin featureA'''
+
+Jessica history's looks like this:
+
+[[File:img/git/122_1.png]]
+
+Jessica, Josie and John inform the integrators that the featureA and featureBee branches on the server are ready for integration into the mainline. So after integration will look like this:
+
+[[File:img/git/122_2.png]]
+
+The whole sequence workflow (and typically in a managed team) is like that:
+
+[[File:img/git/123_1.png]]
+
+
+* Public small project: On this projects normally you do not have permissions to directly update branches on the project. So generally you do this forking the project and sending the patch by email.
+
+ $ '''git clone URL'''
+ $ '''cd project'''
+ $ '''git checkout -b featureA'''
+ ...emacs...
+ $ '''git commit'''
+ ...emacs...
+ $ '''git commit'''
+
+To squash (put altogether) into a single commit, or just to put all modifications in a patch easier for reviewers from maintainers you can use:
+
+ $ '''git rebase -i'''
+
+When you are ready to contribute back to maintainers then you fork, creating your own writable fork of the project, adding new repository as a second remote:
+
+ $ '''git remote add myfork URL'''
+
+You need then to push your work back to it (reason of that is that if work is not accepted or is cherry picked, you dont have to rewind to your master branch):
+
+ $ '''git push myfork featureA'''
+
+Now, you need to notify the maintainer this is called "pull request". You can do it via some web interfaces or just:
+
+ $ '''git request-pull'''
+
+And now email the output to the project maintainer manually.
+
+The request-pull command takes the base branch into which you want your topic branch pulled and the git repository URL you want them to pull from, and outputs the summary of all the changes you are asking to be pulled in.
+
+And if Jessica wants to send John a pula request, and she's done two commits on the topic branch, she just pushed up, she can run this:
+
+ $ '''git request-pull origin/master myfork'''
+
+The output can be sent to the maintainer, it tells them where the work was branched from, summarizes the commits, and tells where to pull this work from.
+
+If you want to submit a second topic of work to the project, dont continue working on the topic branch you just pushed up, start over from the main repository's master branch:
+
+ $ '''git checkout -b featureB origin/master'''
+ ...emacs...
+ $ '''git commit'''
+ $ '''git push myfork featureB'''
+ ... email maintainer ...
+ $ '''git fetch origin'''
+
+Now, each of your topics is contained in a silo, similar to a patch queue, that you can rewrite, rebase and modify without the topics interfering or interdepending on each other:
+
+[[File:img/git/125_1.png]]
+
+Lets say that maintainer has pulled a bunch of other patches and tried your first branch, but it is no longer cleanly merges. In this case, you can try to rebase that branch on to of origin/master, resolve the conflicts for the maintainer and then resubmit your changes:
+
+ $ '''git checkout featureA'''
+ $ '''git rebase origin/master'''
+ $ '''git push -f myfork featureA'''
+
+[[File:img/git/126_1.png]]
+
+Because you rebase the branch, you need to specify he -f to your push command in order to be able to replace the featureA branch on the server with a commit that is not a descendant of it (an alternative would be to push this new work to a different branch on the server, like featureAv2).
+
+Another possible scenario: the maintainer has looked at work in your second branch and likes the concept, but would like you to change an implementation detail. You will also take this opportunity to move the work to be based off the project's current master branch. You start a new branch based off the current origin/master branch, squash the featureB changes there, resolve any conflicts, make the implementation change, and then push that up as a new branch:
+
+ $ '''git checkout -b featureBv2 origin/master'''
+ $ '''git merge --no-comit --squash featureB'''
+ ... change implementation ...
+ $ '''git commit'''
+ $ '''git push myfork featureBv2'''
+
+The --squash option take all the work on the merged branch and put altogether it into one non-merge commit on top of the branch you are on. The --no-commit option tells git not to automatically record a commit. This allows you to introduce all the changes from another branch and then make more changes before recording the new commit.
+
+Now send the maintainer a message that you have made the requested changes, and can find those in featureBv2 branch.
+
+[[File:img/git/127_1.png]]
+
+
+* Public large project: Large project establishes procedures for accepting patches. So you need to check their rules. But many of them, accept patches by developer mailing lists. So you create a topic branch for each patch series you work on, and you submit them to the project, instead forking the project and pushing to your own writable repository. You generate email versions of each commit series and email them to the developer mailing list:
+
+ $ '''git checkout -b topicA'''
+ ...emacs...
+ $ '''git commit'''
+ ...emacs...
+ $ '''git commit'''
+
+To generate each commit into an email message you can do:
+
+ $ '''git format-patch -M origin/master'''
+
+-M option tells Git to look for renames.
+
+ $ '''cat 0001-some-message.patch'''
+
+You can paste this to the mailing list or just send it via command line program configuring git like this in your .gitconfig file:
+
+ [imap]
+   folder = "[Gmail]/Drafts"
+   host = imaps://imap.gmail.com
+   user = user@gmail.com
+   pass = passw0rd
+   port = 994
+   sslverify = false
+
+If you imap server does not use SSL, just remove the last 2 lines and use imap instead imaps for the host.
+
+Now you can send the patch(es) via command line:
+
+ $ '''git send-email *.patch'''
+
+Check "drafts" folder, change the TO field to the mailing list you are sending the patch, possible CC the maintainer or person responsible for that section and send it off.
+
+==== Distributed Git: Maintaining a project ====
+
+Working in topic branches, ideally create topic branches namespacing them it helps to remember who contributed the work, like this:
+
+ $ '''git branch sc/ruby_client master'''
+ Or to switch it inmediatelly
+ $ '''git checkout -b sc/ruby_client master'''
+
+For applying patches from email you can do:
+
+ $ '''git apply /tmp/patchname.patch'''
+
+This modifies files in your working directory (like patch -p1 command). You can also check if the patch applies cleanly (if there is no output with the following command):
+
+ $ '''git apply --check /tmp/patchname.patch'''
+
+If someone uploaded a patche generated by format-patch to a ticketing system or similar, you can save the file on your disk and apply by:
+
+ $ '''git am file.patch'''
+
+Now check how it is applied the patch:
+
+ $ '''git log --prety=fuller -1'''
+ ... output with email details ...
+
+If the patch is not applied cleanly you will see "error" and "Patch failed". To solve this issue you can do on the next way:
+
+ ... fix the file ...
+ $ '''git add file.c'''
+ $ '''git am --resolved'''
+
+Pass -3 option to resolve the conflict more intelligently from git, means attempt of three-way merge. Generally this is better were based on public commits:
+
+ $ '''git am -3 file.patch'''
+
+If you apply patches from mbox, you can run the command in interactive mode, stopping in each patch:
+
+ $ '''git am -3 -i mbox'''
+
+Checking out remote branches: If the contribution came from a git user who set up his own repo, pushed a number of changes into it and then sent you the URL to the repo and the name of the repote branch, you can add them as a remote and do merges locally:
+
+ $ '''git remote add jessica git://github.com/jessica/myproject.git'''
+ $ '''git fetch jessica'''
+ $ '''git checkout -b rubyclient jessica/ruby-client'''
+
+Oher option for working with less consistent people is directly do like that:
+
+ $ '''git pull git://github.com/onetimeguy/project.git'''
+
+Determining what is introduced:
+
+To exclude commits in the master branch:
+
+ $ '''git log branchname --not master'''
+
+To see what changes each commit introduces you can pass -p option.
+
+To see the full diffs of what would happen if you were to merge this topic branch with another branch:
+
+ $ '''git diff master'''
+
+If your master branch has moved forward since you created the topic branch from it, then you will get strange results. Because git compares the snapshots of the last commit of the topic branch you are on and the snapshot of the last commit on the master branch.
+
+In this case, if you really want to see the changes added to the topic branch, and the work you will introduce if you merge this branch with master, then do:
+
+ $ '''git merge-base branchname master'''
+ ... some sha1...
+ $ '''git diff shanumber'''
+
+Short way to do the same is:
+
+ $ '''git diff master...branchname'''
+
+Integrating Contributed work:
+
+When all the work in your topic branch is ready, to be integrated on the mainline branch, there are several ways:
+
+* Merging workflows: one simple workflow merges your work into your master branch. Master branch in this scenario contains stable code. You work in topic branch as inestable until is tested, then merged, delete topic branch and continue with the process.
+
+Before:
+
+[[File:img/git/135_1.png]]
+
+After:
+
+[[File:img/git/136_1.png]]
+
+If you have more developers or a larger project, then probably you need two-phase merge cycle. With 2 long running branches, master and develop, in which you determine master is updated only when very stable release from develop branch.  Every topic branch is merging with develop, then you tag a release, and fast-forward master when develop stable is every time.
+
+Before:
+
+[[File:img/git/136_2.png]]
+
+After:
+
+[[File:img/git/137_1.png]]
+
+After:
+
+[[File:img/git/137_2.png]]
+
+* Large-Merging workflows: 4 running branches: master, next, pu (purposed updates for new work) and maint (for maintenance backports). Work is collected into topic branches in the maintainer's repository. Topics are evaluated to see if need more work, if they are safe, they go to next, and branch is pushed, so everyone can try the topics integrated together. If the topics still need work, they are merged into pu instead. Determining when they are totally stable, the topics are re-merged into master, and are then rebuilt from the topics that were in next but didnt yet graduate to master. Meaning master almost moves forward, next is rebased occasionally, and pu is rebased often. When a topic branch has finally been merged into master, it's removed from the repository. Also a maint branch that is forked off from the last release is provided for backported patches in case a maintenance release is required.
+
+Before:
+
+[[File:img/git/138_1.png]]
+
+After:
+
+[[File:img/git/138_2.png]]
+
+* Rebasing and Cherry-picking workflows: Some maintainers prefer to rebase or cherry-pick contributed work on top of the master, rather than merging it, to keep more linear history. So normally you work on topic branch, when you want to integrate it, you move to the branch and run the rebase command to rebuild the changes on top of your current master (or develop, and so on). If it works well, you can fast-forward your master, ending with a project linear history.
+
+Before:
+
+[[File:img/git/139_1.png]]
+
+If you want to pull commit sha1number into your master branch, you can run:
+
+ $ '''git cherry-pick SHA1NUMBER'''
+
+This pulls the change introduced in sha1number, but with new commit sha-1 value, because the applied date is different.
+
+After:
+
+[[File:img/git/140_1.png]]
+
+Tagging your releases: When you decided to drop a release, it is good to drop a tag, so you can recreate the release at any point going forward.
+
+If you release tag a release and signing as a maintainer:
+
+ $ '''git tag -s v1.5 -m "message for 1.5 tag"'''
+
+Normally the maintainer distribute the PGP key (to avoid future problems of verification for others) in the repository and then adding a tag that points directly to that content:
+
+To see the list of keys:
+
+ $ '''git --list-keys'''
+ ... returns the key list, we are interested on the pub and after 1024D/ etc...
+
+To import the GPG key into the Git database, writing a new blob, and then using the feature in the future of get SHA-1 from a blob from git:
+
+ $ '''gpg -a --export PUBLICKEYID | git hash-object -w --stdin'''
+  ... returns the hash of the hash-object ...
+
+Now you can have the contents of your key in git, and can create a tag pointing directly to the key from the hash-object:
+
+ $ '''git tag -a maintainer-pgp-pub SHAFROMHASHOBJECT'''
+
+Now you can see the key with:
+
+ $ '''git show maintainer-pgp-pub | git --import'''
+
+And for tags verification this commands will give you instructions when you type:
+
+ $ '''git show SPECIFICTAG'''
+
+Generating a build number: Git does not increase numbers like v123, to have human readable name to go with a commit, you need:
+
+ $ '''git describe master'''
+
+Preparing a release: To prepare a release build, creating an archive of the latest snapshot of your code for people who does not use git then (latest snapshot will be safe in the project directory):
+
+ $ '''git archive master --prefix='project' | gzip > `git describe master`.tar.gz'''
+ Or for zip:
+ $ '''git archive master --prefix='project' --format=zip > `git describe master`.zip'''
+
+Now you can upload to a web or send by email
+
+The shortlog: To summarize all the commits in the range you give for people who wants to know then:
+
+ $ '''git shortlog --no-merges master --not v1.0.1'''
+
+==== Git tools : revisions ====
+
+Identify a commit in a list:
+
+ $ '''git log'''
+ ... No need to put the whole SHA to see the diffs (at least 6 digits if there are no ambiguities)...
+ $ '''git show 12c00d'''
+
+To have a list of short sha list:
+
+ $ '''git log --abbrev-commit --prety=oneline'''
+
+To see which specific SHA points your branch:
+
+ $ '''git rev-parse BRANCHNAME'''
+ ... return sha1 ...
+
+Git has a temporary history (everytime is updated) accessible via:
+
+ ...to see the reflog...
+ $ '''git reflog'''
+ ...to see the log from the previous 5th action...
+ $ '''git show HEAD@{5}'''
+ ...to see the diffs from yesterday from master...
+ $ '''git show master@{yesterday}'''
+ ...to see information inline with -g option...
+ $ '''git log -g master'''
+
+To see ancestry references:
+
+ ...to see the whole tree...
+ $ '''git log --pretty=format:'%h %s' --graph'''
+ ...to see the previous commit, meaning the parent of HEAD with ^ syntax...
+ $ '''git show HEAD^'''
+ or
+ $ '''git show SHA1NUMBER^'''
+ ...to see two parents of HEAD (if there is another side of two branches, it will take the one outside from main branch)...
+ $ '''git show SHA1NUMBER^2'''
+ ...to see the first parent of the first parent (grandparent, in the side of main branch) with syntax ~...
+ $ '''git show HEAD~2'''
+ or (are equivalent if it was a merge commit)
+ $ '''git show HEAD^^^'''
+ ...to se the previoys parent of the previous reference (assuming it was a merge commit) combining
+ $ '''git show HEAD~3^2'''
+
+[[File:img/git/146.png]]
+
+To see commit ranges:
+
+[[File:img/git/148.png]]
+
+to see log of just commits by one BRANCH ('experiment') and NOT reachable by other BRANCH ('master') ['''2 DOTS''']
+
+ $ '''git log master..experiment'''
+ ... D C ...
+ ... To see commits in your current branch that are not in master, so the ones you are going to transfer if you do git push are shown ...
+ $ '''git log origin/master..HEAD'''
+
+Those three commands are equivalent (to see commits that are in other branch and not in the current one you are) ['''--not''']:
+
+ $ '''git log refA..refB'''
+ $ '''git log ^refA refB'''
+ $ '''git log refB --not refA'''
+
+But to compare more than two branches you can do (commits that are in other branches and not in the current one you are):
+
+ $ '''git log refA refB ^refC'''
+ $ '''git log refA refB --not refC'''
+
+To see all the commits that are reachable in two references, but not from both of them ['''3 DOTS''']:
+
+ $ '''git log master...experiment'''
+ ... F E D C ...
+ ... to see the same but telling which commits are on the first branch (<) and which one is on the second (>)
+ $ '''git log --left-right master...experiment'''
+ ... <F <E >D >C ...
+
+==== Git tools : Interactive staging ====
+
+To have interactive staging:
+
+ $ '''git add -i'''
+ What now>
+ ... will show a menu with possible commands (status, update, revert, add untracked, patch, diff, quit, help)...
+
+When selected one option, you can select with the new prompt one or more commits:
+
+ What now> '''2'''
+ or
+ What now> '''1,2'''
+
+When selected the option of "patch", there are different ways to patch:
+
+ ... some diffs ...
+ Stage this hunk [y,n,a,d,/,j,J,g,e,?]? '''Press ? to show all the options help'''
+
+==== Git tools : Stashing ====
+
+To save the stuff to continue later:
+
+ $ '''git stash'''
+
+Now your working directory is clean (check it with '''git status''').
+
+To see the stash list:
+
+ $ '''git stash list'''
+
+To apply one stash:
+
+ $ '''git stash apply stash{NUMBEROFSTASH}'''
+ or
+ $ '''git stash apply'''
+ ... will apply the last stash ...
+
+To try to re-apply stash changes, is needed --index option (in case of previous conflicts, this will re-staged):
+
+ $ '''git stash apply --index'''
+
+To remove a stash:
+
+ $ '''git stash drop stash@{NUMBEROFSTASH}'''
+ or
+ $ '''git stash pop'''
+ ... will apply the stash and then inmediatelly drop it from stack ...
+
+When apply stashes, you might have a problem to reapply the work, could be interesting to create a new branch, checks out the commit you were on when you stashed, reapplies the work and drop the stash if it applies succesfully:
+
+ $ '''git stash branch NEWBRANCHNAME'''
+
+==== Git tools : Rewriting history ====
+
+Changing the last commit:
+
+ $ '''git commit --amend'''
+
+Chaning multiple commit messages (remember: the parent and last commit, so 4):
+
+ $ '''git rebase -i HEAD~3'''
+ ... commands are: p = pick (leave at it is), e = edit (modify the message), s = squash (put all them in one commit), you must change the text file ...
+ ... save the editor, git will rewind you back to the last commit (but in inverse order), now do ...
+ $ '''git rebase -i HEAD~3'''
+ ... git will tell you exactly what to do; typically ...
+ $ '''git commit --amend'''
+ ... change the commit message, exit the editor, then continue ...
+ $ '''git rebase --continue'''
+
+To reordering commits you can just replace lines by others.
+
+To squash a commit it is possible with '''squash''' option, but to split it is a bit more complex, first you must change to '''edit''' option the desired commit, then it will apply the pick commits first (independently if the edit option is in a middle commit), later git will drop you to the console, so you must undo the commit, and leaves the modified files unstaged, now you can stage files until you have several commits and run '''git rebase --continue''' when you are done:
+
+ $ '''git reset HEAD^'''
+ $ '''git add README'''
+ $ '''git commit -m 'a message of commit''''
+ $ '''git add file.extension'''
+ $ '''git commit -m 'a message of commit''''
+ $ '''git rebase --continue'''
+
+Now check the commits with: '''git log -4 --pretty=format:"%h %s"'''
+
+The nuclear option: filter-branch (means for each checkout of the project and re-commits the result) is used to re-write a large number of commets, like for changing email address globally or removing a file from every commit:
+
+ $ '''git filter-branch --tree-filter 'rm -f passwords.txt' HEAD'''
+ ... removes a file existing in every commit ...
+ $ '''git filter-branch --tree-filter 'rm -f *~''''
+ ... removes all backup files in every commit ...
+
+To remove subdirectories (e.g. when we import project from other source control system that does not make sense in git this dir):
+
+ $ '''git filter-branch --subdirectory-filter trunk HEAD'''
+
+To change the email address globally:
+
+ $ '''git filter-branch --commit-filter ''''
+     if [ "$GIT_AUTHOR_EMAIL" = "borja@localhost" ];
+     then
+         GIT_AUTHOR_NAME="Borja Tarraso";
+         GIT_AUTHOR_EMAIL="borja.tarraso@member.fsf.org";
+         git commit-tree "$@";
+     else
+         git commit-tree "$@";
+     fi' HEAD
+
+==== Git tools : debugging ====
+
+To see who commit some change (between two lines):
+
+ $ '''git blame -L 12,22 file.c'''
+
+To see where this commit cames from (if it was copied from somewhere else):
+
+ $ '''git blame -C -L 12,22 file.c'''
+
+For binary search to check which commit introduce some bug:
+
+ $ '''git bisect start'''
+ $ '''git bisect bad'''
+ ... specify now there is some bug ...
+ $ '''git bisect good v1.0'''
+ ... specify in which version for sure it was good ...
+ ... look if it happens the bug, if not then do this several times ...
+ $ '''git bisect good'''
+ ... until you find in which commit exist the bug ...
+ $ '''git bisect bad'''
+ ... now git has all the information which commit it was bad, now continue with the rest saying "rest commits are ok" ...
+ $ '''git bisect good'''
+ ... when you finish, then reset, to reset your HEAD, where you were before you started ...
+ $ '''git bisect reset'''
+
+This is quite helpful, because you can check hundreds of commits in minutes, in fact you can run a script checking the return result to avoid do it manually, and automate this search (or just running make or make tests, or whatever you need).
+
+ $ '''git bisect start HEAD v1.0'''
+ $ '''git bisect run test-error.sh'''
+
+==== Git tools : submodules ====
+
+To include another projects inside your projects, like 3rd party libraries developed separatelly, you can use submodules.
+
+ $ '''git submodule add git://giturl.com/repo.git repo'''
+
+Now a subdirectory named "repo" will be created in your project, check with '''git status''' (two files are added, the .gitmodules; a configuration that maps between the project URL and the local subdirectory you have pulled it into, it will exist one entry per submodule. With '''git diff'''; you will see the rack subdirectory that git does NOT track its contents if you are NOT in the subdirectory). Now you can made changes also to this subproject, fetch, merge, etc from original repository.
+
+When you commit first time with a submodule, you will see those two files added, with special permissions (16000 for subproject directory and 100644 for .gitmodules).
+
+When you clone a project that has submodules, you will see the submodule directory empty, so you need to initialise:
+
+ $ '''cd submoduleproject'''
+ $ '''git submodule init'''
+ ... will init the submodule ...
+ $ '''git submodule update'''
+ ... will clone or update ...
+
+If another developer does some change in the submodule code and commits, when you pull and merge you will get something odd:
+
+ $ '''git merge origin/master'''
+ ... changed but not updated ...
+
+This will move the pointer on the submodule, however will not update the code in the submodule directory. The reason of that, is because the submodule is not what is actually in the submodule directory, to fix this you must run (you must do this every time you pull down a submodule change in the main project):
+
+ $ '''git submodule update'''
+ ... Submodule path 'SUBMODULENAME': checked out 'SHA1NUMBER' ...
+ or
+ ... if it fails: Unable to checkout 'SHA1NUMBER' ...
+
+If you get an error, it means other developers run '''git submodule update''', and the system cannot find the commit that is referenced, because it exists only on the first developer's system. To fix this, you must check who last changed the submodule and email him:
+
+ $ '''git log -1 SUBMODULENAME'''
+
+For superprojects; meaning having a separate directory with all git repositories with multiple submodules. Be aware that running git submodule update, it checks out the specific version of the project, but not within a branch (this is called detached head) and it is easy to lose changes. So if you do an initial submodule update without creating a branch to work in, and then run git submodule update again from the superproject without committing in the meantime, git will overwrite your changes without telling you. So you will not lose the work, but you will not have a branch pointing to. To avoid this issue:
+
+Create a branch when you work in a submodule directory:
+
+ $ '''git checkout -b work'''
+ ... you do a submodule update then, but you will have a point to the work ...
+ $ '''git submodule add git@github.com:user/reponame.git reponame'''
+ $ '''git commit -am "commit message"'''
+ $ '''git checkout master'''
+ $ '''git status'''
+ ... now you have to either move it out of the way or remove it and clone it again when you switch back ...
+ $ '''rm -Rf reponame'''
+ $ '''git submodule add git@github.com:user/reponame.git reponame'''
+ ... 'reponame' already exists in the index ...
+ ... you have to unstage the rack directory first, and then add the submodule ...
+ $ '''git rm -r reponame'''
+ $ '''git submodule add git@github.com:user/reponame.git reponame'''
+ ... if you did that in a branch, if you try to switch back to a branch where those files are still in the actual tree rather than a submodule, then you get an error ...
+ $ '''git checkout master'''
+ ... error: Untracked ....
+ ... you have to move the rack submodule directory out of the way before you can siwtch to a branch that does not have it ...
+ $ '''mv reponame /tmp/'''
+ $ '''git checkout master'''
+ $ '''ls'''
+ ... reponame is listed! but empty, so to reclone you need to run '''git submodule clone''' or just mv back the /tmp/reponame directory into the empty directory ...
+
+==== Git tools : subtree merging ====
+
+This is alternative way to solve the previous problem of submodules. Using the octopus strategy; that can handle multiple branches instead the three-way merge used to handle only two branches merging. Subtree merge is also another stategy used to solve the problem; git is taking care that some branches are merged from a subproject and not from the current superproject.
+
+First you add the submodule project to your project:
+
+ $ '''git remote add remote_project git@github.com:user/submodulereponame.git'''
+ $ '''git fetch remote_project'''
+ $ '''git checkout -b project_branch remote_project/master'''
+ ... now you have the root of the remote project in your project_branch branch and your on project in the master branch. So they have different project roots ...
+ $ '''ls'''
+ ... some files from project_branch (aka submodule previously) ...
+ $ '''git checkout master'''
+ $ '''ls'''
+ ... some files from master branch (aka superproject previously) ...
+
+Now to pull from remote_project, you use special read-tree; it reads the root tree of one branch into your current index and working directory:
+
+ $ '''git read-tree --prefix=remote_project_directory/ -u project_branch'''
+ ... when you commit, looks like you have all remote_project_directory files under that subdirectory. So, if the remote_project_directory updates, you can pull in upstream changes by switching to that branch and pulling ...
+ $ '''git checkout project_branch'''
+ $ '''git pull'''
+ ... Now you can merge into your master branch (with -s option for subtree, but this will put the histories together. To pull the changes and repopulate the commit message use --squash and --no-commit options...
+ $ '''git checkout master'''
+ $ '''git merge --squash -s subtree --no-commit project_branch'''
+ ... now all the changes from your remote_project_directory are merged in and ready to be commited locally. You can do also the opposite, make changes in the remote_project_directory subdirectory of your master and then merge them into your project_branch to submit them to the maintainers or push them upstream ...
+
+To get a diff between remote_project_directory and the code in your project_branch you must use:
+
+ $ '''git diff-tree -p project_branch'''
+ or
+ $ '''git diff-tree -p remote_project_branch/master'''
+
+==== Git custom : configuration ====
+
+* For general settings:
+
+# Git first looks in /etc/gitconfig file (done via '''git config --system''' ...).
+# Later to '''~/.gitconfig''' file, specific to your user (done via '''git config --global''' ...).
+# Finally, git looks for configuration values in the config file in the git repository (in '''.git/config''') specific for the repository.
+
+ $ '''git config --global user.name "Borja Tarraso"'''
+ $ '''git config --global user.email borja.tarraso@member.fsf.org'''
+ $ '''git config --global core.editor emacs'''
+ $ '''git config --global core.page less'''
+ $ '''git config --global user.signingkey <gpg-key-id>''' # From now you can sign with git tag -s <tag-name>
+ $ '''git config --global color.ui true'''
+
+* Setting the colors (where color can be; auto, normal, black, red, green, yellow, blue, magenta, cyan or white. Attributes can be: bold, dim, ul, blink and reverse):
+
+ $ '''git config --global color.branch <color>'''
+ $ '''git config --global color.diff <color>'''
+ $ '''git config --global color.interactive <color>'''
+ $ '''git config --global color.status <color>'''
+
+E.g.:
+
+ $ '''git config --global color.diff.meta "blue black bold"'''
+
+* To configure git with proxy:
+
+ $ '''git config --global http.proxy host_proxy:port_proxy'''
+
+* If you are on Linux to avoid CRLF from windows and put LF line endings put:
+
+ $ '''git config --global core.autocrlf input'''
+
+* To detect whitespaces (git will detect when you run git diff, highlighing this):
+
+ $ '''git config --global core.whitespace trailing-space,space-before-tab,indent-with-non-tab'''
+ or (if you try to apply a patch from email)
+ $ '''git apply --whitespace=warn <patch>'''
+ or (if you want git to try to fix that)
+ $ '''git apply --whitespace=fix <patch>'''
+
+* For a commit template, edit '''$HOME/.gitmessage.txt''':
+
+ subject line
+
+ what happened
+
+ [ticket: X]
+
+And then:
+
+ $ '''git config --global commit.template $HOME/.gitmessage.txt'''
+ $ '''git commit'''
+
+* Git to compare images when commit:
+
+ $ '''echo '*.png diff=exif' >> .gitattributes'''
+ $ '''git config diff.exif.textconv exiftool'''
+
+* Git to check indent: put in .gitattributes something like '''*.c filter=indent'''. And then:
+
+ $ '''git config --global filter.indent.clean indent'''
+ $ '''git config --global filter.indent.smudge cat'''
+
+==== Git custom : Hooks ====
+
+Put the hooks in '''.git/hooks'''. There are several kind of hooks:
+
+Client side hooks:
+
+# Commiting workflow hooks
+# E-mail workflow hooks
+# Other client hooks
+
+Server hooks:
+
+# Pre-receive and post-receive
+# Update hooks
+
+We can be interested in some kind of hooks:
+
+# To allow only some users to modify some directories
+# To force some format
+
+To force some format example:
+
+ $regex = /\[ref: (\d+)\]/
+
+ # enforced custom commit message format
+ def check_message_format
+   missed_revs = `git rev-list #{$oldrev}..#{$newrev}`.split("\n")
+   missed_revs.each do |rev|
+     message = `git cat-file commit #{rev} | sed '1,/^$/d'`
+     if !$regex.match(message)
+       puts "[POLICY] Your message is not formatted correctly"
+       exit 1
+     end
+   end
+ end
+ check_message_format
+
+==== Git extras : Important commands learned outside from the book ====
+
+Based on diffs, create patches and apply later using git:
+
+ $ '''git diff > file.patch'''
+ ''... copied in the repo we want to apply ...''
+ $ '''git apply file.patch'''
+
+EOA%
+
+== Git links: advanced ==
+
+* http://en.wikipedia.org/wiki/Git_%28software%29
+* http://gitreal2.codeschool.com/levels/1
+* http://vimeo.com/49444883
+* http://gitready.com/
+* http://blog.jacius.info/2009/08/09/your-git-submodule-and-you/
+* https://git.wiki.kernel.org/index.php/GitSubmoduleTutorial
+* http://joncairns.com/2011/10/how-to-use-git-submodules/
+* http://chrisjean.com/2009/04/20/git-submodules-adding-using-removing-and-updating/
+* http://pkp.sfu.ca/wiki/index.php/Git_sub-module_tutorial
+* http://blogs.atlassian.com/2013/03/git-submodules-workflows-tips/
+* http://www.vogella.com/tutorials/Git/article.html
