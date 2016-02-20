@@ -1,0 +1,7 @@
+#+BEGIN_COMMENT’        =========================       ‘#+END_COMMENT
+#+BEGIN_COMMENT’           APPLICATIONS IN USE          ‘#+END_COMMENT
+#+BEGIN_COMMENT’        =========================       ‘#+END_COMMENT
+
+* Mecanography
+  klavaro
+  ktouch
