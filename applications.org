@@ -5,3 +5,6 @@
 * Mecanography
   klavaro
   ktouch
+* Git related
+  gitk
+  gource
