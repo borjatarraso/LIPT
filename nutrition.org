@@ -1,0 +1,1155 @@
+#+BEGIN_COMMENT’              ===================               ‘#+END_COMMENT
+#+BEGIN_COMMENT’                   NUTRITION                    ‘#+END_COMMENT
+#+BEGIN_COMMENT’              ===================               ‘#+END_COMMENT
+
+* Superfood
+ https://en.wikipedia.org/wiki/Freekeh
+ https://en.wikipedia.org/wiki/Quinoa
+ https://en.wikipedia.org/wiki/Salvia_hispanica
+ https://en.wikipedia.org/wiki/Amaranth
+ https://en.wikipedia.org/wiki/Bulgur
+ https://en.wikipedia.org/wiki/Buckwheat
+ https://en.wikipedia.org/wiki/Millet
+ https://en.wikipedia.org/wiki/Kale
+
+* Nutrition [/]                                                  :2016:nutrition:
+** [#A] Tasks [16%]
+   SCHEDULED: <2015-06-06 Sat>
+ - [ ] Register description of type of ingest
+ - [X] Register IDR
+ - [ ] Track IDR
+ - [ ] Complete oligoelements with this [[http://es.wikipedia.org/wiki/Oligoelemento]]
+ - [ ] Complete vitamins with this [[http://en.wikipedia.org/wiki/Vitamin]]
+ - [-] Check huge list of links
+   - [ ] Essential aminoacids and quantity: http://www.whfoods.com/genpage.php?tname=nutrient&dbid=129
+   - [ ] https://es-la.facebook.com/notes/yo-no-como-cad%C3%A1veres-respet%C3%A1-los-derechos-de-los-animales/una-mirada-cient%C3%ADfica-de-porque-no-comer-carne/311347328881727
+   - [ ] La revolución comienza por tu menú del día http://www.meneame.net/story/revolucion-comienza-tu-menu-dia
+   - [ ] "Dejar de comer carne salva el Planeta" dice Naciones Unidas [ING] http://www.meneame.net/story/dejar-comer-carne-salva-planeta-dice-naciones-unidas-ing
+   - [ ] Receta de WWF para salvar la Tierra: energías renovables y menos consumo de carne http://www.wwf.es/?16501/Receta-de-WWF-para-salvar-la-TierraMs-energas-renova
+   - [ ] Comer carne y lácteos compromete el objetivo de limitar el calentamiento global a 2ºC: http://www.meneame.net/story/producir-carne-lacteos-compromete-objetivo-limitar-calentamiento
+   - [ ] Greenpeace demuestra cómo la ganadería es la primera causa de deforestación en la amazonía: http://www.meneame.net/story/greenpeace-demuestra-como-ganaderia-primera-causa-deforestacion-amazon
+   - [ ] Estamos destruyendo el amazonas para alimentar vacas http://www.elpais.com/articulo/sociedad/Estamos/destruyendo/Amazonas/alimentar/vacas/elpepusoc/20080627elpepisoc_9/Tes
+   - [ ] La 'industria' de la carne contamina más que el transporte: http://www.elmundo.es/elmundo/2010/07/20/valencia/1279645414.html
+   - [ ] Un ciclista carnívoro contamina lo mismo que un vegetariano en un 4x4: http://www.reducetuhuella.org/2010/08/16/un-ciclista-carnivoro-contamina-lo-mismo-que-un-vegetariano-en-un-4x4-diesel/
+   - [ ] España es el 8º país que más carne consume del planeta : http://www.meneame.net/story/grafico-consumo-carne-mundo-espana-octavo-pais-mas-carnivoro
+   - [ ] http://www.forovegetariano.org/foro/showthread.php?t=10808 (lista completa):
+   - [ ] Los Campos de la Muerte. La batalla para alimentar la ganadería industrial [Documental]: http://www.meneame.net/story/campos-muerte-batalla-alimentar-ganaderia-industrial-documental-1
+   - [ ] Ditto: http://www.youtube.com/watch?v=RF31mHrf9fM
+   - [ ] Se requieren 15.000 litros de agua para generar un kilo de carne, señala la FAO: http://www.todoagro.com.ar/noticias/nota.asp?nid=19709
+   - [ ] Se ahorra más agua no comiendo carne que no bañándose: http://www.meneame.net/story/ahorra-mas-agua-no-comiendo-carne-no-banandose
+   - [ ] Consumo de agua de diferentes alimentos: http://www.waterfootprint.org/?page=files/productgallery&product=apple
+   - [ ] Documentos TV: "Ámame enCARNEcidamente"
+     - [ ] El desmesurado consumo de carne ha abierto la puerta a la ganadería industrial
+     - [ ] En la actualidad se sacrifican 60.000 millones de animales para alimentarnos
+     - [ ] Si la demanda de carne sigue la progresión actual, la cifra se duplicará en 2050
+     - [ ] Este insostenible sistema provoca estragos en la salud y el Medio Ambiente
+   - [ ] http://www.rtve.es/television/20120529/documentos-amame-encarnecidamente/5321
+   - [ ] Cutting red meat-for a longer life: http://www.health.harvard.edu/staying-healthy/cutting-red-meat-for-a-longer-life
+   - [ ] Red meat consumption and breast cancer risk women who ate the most red meat in adolescence or early adulthood had an increased risk of developing breast cancer later in life.: http://www.hsph.harvard.edu/news/features/red-meat-consumption-and-breast-cancer-risk/
+   - [ ] Red meat raises red flags red meat consumption is associated with an increased risk of total, cardiovascular, and cancer mortality.: http://news.harvard.edu/gazette/story/2012/03/red-meat-raises-red-flags/
+   - [ ] Red meat consumption linked to increased risk of total, cardiovascular, and cancer mortality: http://www.hsph.harvard.edu/news/press-releases/red-meat-consumption-linked-to-increased-risk-of-total-cardiovascular-and-cancer-mortality/
+   - [ ] Post punk kitchen: http://www.theppk.com/
+   - [X] Post lots of vitamins info: https://ods.od.nih.gov/factsheets/list-VitaminsMinerals/
+   - [X] Additional vitamins info incompatible: http://www.katking.com/Wisdom/Vitamin.html
+ - [ ] Polifenoles
+ - [ ] Limonoides
+
+** [#B] Info
+*** General basic info
+ Los principales macronutrientes son:
+
+  - Proteinas: son moleculas formadas por cadenas lineales de aminoacidos (Un aminoácido es una molécula orgánica con un grupo amino (-NH2) y un grupo carboxilo (-COOH)). La union entre aminoacidos se llaman uniones peptidicas.
+
+    Ejemplo de aminoacido:
+
+                  H
+                  | / El carbono es alfa
+    Grupo amino - C - Grupo Carboxilo
+      (H2N)       |      (COOH)
+                  R
+           (cadena lateral)
+
+    Como se forma la union peptidica:
+
+      H    H      0        H    H      0
+       \   |    //          \   |    //
+       N - C - C            N - C - C
+       /   |    \           /   |    \
+      H    R     O - H     H    R      O - H
+                 \----------/
+               union peptidica
+               formando agua, uniendose asi
+               el carbono con el nitrogeno
+
+      -> Se llama "peptido" Cuando se unen pocos aminoacidos (2 dipeptido, 3 tripeptido... etc. Menos de 10 se les puede llamar oligopeptido).
+      -> De 10 a 50 (polipeptido)
+      -> Mas de 50 (se llama proteina propiamente dicha). Aunque a todas se les llaman proteinas.
+      -> Las proteinas tienen un orden especifico de aminoacidos (estructura primaria) y de ahi reciben su nombre.
+      -> Estructura secundaria: la disposicion de la proteina que adopta en el espacio dentro de las celulas (puede ser en hoja o beta-sheet, helice o alfa-helix -formadas por puentes di-isulfuro (S-S), puentes de hidrogeno (O-H...O), puentes ionicos (moleculas con carga positiva y carga negativa) y las interacciones hidrofobicas (dos moleculas que rechazan el agua y quedan unidas entre si)-, llamada tambien alfa, porque se descubrio primero,... o podria ser Random coil o configuracion al azar es sin ninguna forma especifica).
+      -> Estructura terciaria: es el nuevo plegamiento o sobreenrollamiento que una proteina tiene con una estructura secundaria.
+      -> Estructura cuaternaria: a estructura cuaternaria se da cuando se unen varias proteínas en conformacion 3D(es decir, con estructura terciaria). A cada proteina se le denomina subunidad y suelen ser todas iguales.
+
+    Las proteinas son necesarias por:
+    * Estructural: Esta es la función más importante de una proteína (Ej: colágeno). Constituyendo el 80% del protoplasma deshidratado de todas las celulas.
+    * Inmunológica: anticuerpos.
+    * Enzimática: por ejemplo sacarasa y pepsina.
+    * Contráctil: actina y miosina.
+    * Homeostática: colaboran en el mantenimiento del pH (ya que actúan como un tampón químico).
+    * Transducción de señales: por ejemplo rodopsina.
+    * Protectora o defensiva: por ejemplo trombina y fibrinógeno.
+    * Producción de costras: por ejemplo fibrina.
+
+    Se pueden categorizar segun propiedades fisico-quimicas:
+    * Holoproteidos: proteinas simples formadas solo por aminoacidos o sus derivados.
+    * Heteroproteidos: proteinas conjugadas formadas por aminoacidos acompanados de distintas sustancias
+
+    Se pueden categorizar segun su forma:
+    * Fibrosas: cadenas polipeptídicas largas y una estructura secundaria atípica.
+    * Globulares: cadenas en una forma esférica apretada o compacta.
+    * Mixtas: posee una parte fibrilar (comúnmente en el centro de la proteína) y otra parte globular (en los extremos).
+
+    Se pueden categorizar segun su solubridad:
+    * Escleroproteínas: son esencialmente insobles, fibrosas y cristalinidad alta.
+    * Esferoproteínas: de forma mas o menos esferica, hay 5 tipos segun su solubilidad:
+      - I: Albuminas: solubles en agua y soluciones salinas diluidas.
+      - II: Globulinas: insolubles en agua pero solubles en soluciones salinas.
+      - III: Glutelinas: insolubles en agua o soluciones salinas, pero solubles en medios acidos o basicos.
+      - IV: Prolaminas: solubles en etanol al 50%-80%.
+      - V: Histonas: son solubles en medios acidos.
+
+    Se pueden categorizar segun su origen (tantos uno como otro tipo poseen los 20 aminoacidos necesarios para la alimentacion humana):
+    * Origen vegetal: legumbres, frutos secos, semillas, cereales, verduras
+    * Origen animal: carne, huevos, productos lacteos
+
+  - Grasas (Lipidos): compuestos principalmente por carbono e hidrógeno y en menor medida oxígeno, aunque también pueden contener fósforo, azufre y nitrógeno. Son hidrofobas (no solubles en agua). Cumplen funciones diversas en los organismos vivientes, entre ellas la de reserva energética (como los triglicéridos), la estructural (como los fosfolípidos de las bicapas) y la reguladora (como las hormonas esteroides).
+    * Saponificables: lipidos que se hidrolizan en presencia de hidroxidos. Estan compuestos por un alcohol unido a uno o varios ácidos grasos.
+        -> Simples: los que contienen carbono, hidrógeno y oxígeno.
+
+           * Saturadas: todos los carbonos poseen dos enlaces con hidrogenos, por lo que los enlaces entre carbonos son simples.
+           * Insaturadas: existen carbonos que no tienen dos enlaces con hidrogenos, por lo que existen enlaces dobles o triples entre carbonos (estos dobles enlaces crean una inclinacion en la molecula).
+
+             Por numero de enlaces:
+             -> Mono-insaturadas: poseen un solo doble enlace carbono-carbono
+
+             -> Poli-insaturadas: poseen más de un doble enlace entre sus carbonos (incluso puede ser triple)
+                * Omega 3: el primer enlace doble esta situado en la posicion 3. Existiendo 6 subtipos:
+                           - Ácido alfa-linolénico (ALA): 18:3 (n-3):
+                           - Ácido estearidónico (SDA): 18:4 (n-3):
+                           - Ácido eicosatetraenoico (ETA): 20:4 (n-3)
+                           - Ácido eicosapentaenoico (EPA): 20:5 (n-3):
+                           - Ácido docosapentaenoico (DPA): 22:5 (n-3)
+                           - Ácido docosahexaenoico (DHA): 22:6 (n-3)
+                * Omega 6: el primer enlace doble esta situado en la posicion 6. Omega-6 compite con omega-3 en el organismo humano.
+                * Omega 9: el primer enlace doble esta situado en la posicion 9 (pero NO es poliinsaturado, sino monoinsaturado porque solo posee un enlace doble).
+
+             Por tipo de configuracion o estructura molecular:
+             -> Cis: los enlaces de hidrogenos hacia los carbonos estan en un mismo lado (en donde se encuentra el enlace doble).
+             -> Trans: los enlaces de hidrogenos hacia los carbonos estan en lados opuestos (en donde se encuentra el enlace doble).
+
+             Por dios sabe que:
+                                                          O                 OH OH OH
+                                                          ||                 | | |
+             -> Gliceridos: union entre acidos grasos (HO-C-R) y glicerol (H-C-C-C-H). El triglicerido seria que una molecula de acidos grasos se uniese a tres gliceroles (los trigliceridos se depositan principalmente en las arterias cerebrales).
+                                                                             | | |
+                                                                             H H H
+                * Grasas:
+                * Aceites:
+             -> Ceras:
+
+
+        -> Complejos: los que continenen carbono, hidrogeno, oxigeno y otros elementos como nitrógeno, fósforo, azufre u otra biomolécula como un glúcido. O lo que es lo mismo, seria un lipido unido con "otra sustancia" (forforo, se llamaria fosfolipido. glucosa, se llamaria "glucolipido", proteina, se llamaria "proteolipido")
+
+           * Fosfolípidos: lípidos anfipáticos compuestos por una molécula de glicerol, a la que se unen dos ácidos grasos (1,2-diacilglicerol) y un grupo fosfato.
+             Funciones: Componente estructural de la membrana celular, Activación de enzimas, Componentes del surfactante pulmonar, Componente detergente de la bilis, Síntesis de sustancias de señalización celular.
+           * Fosfoglicéridos: Están compuestos por ácido fosfatídico, una molécula compleja compuesta por glicerol, en el que se han esterificado dos ácidos grasos (uno saturado y otro insaturado) y un grupo fosfato. A su vez, al grupo fosfato se une un alcohol o un aminoalcohol.
+             Funciones: función estructural.
+           * Fosfoesfingolípidos:  lípidos complejos que derivan del aminoalcohol insaturado de 18 carbonos esfingosina los hay con fosfato. Se dividen en 2 subtipos: fosfoesfingolípidos (esfingomielinas) y los glucoesfingolípidos (gangliósidos, cerebrósidos).
+             Funciones: desempeña una función en la transducción de señales. La vaina de mielina membranosa que rodea y aísla eléctricamente muchos axones de células nerviosas es particularmente rica en esfingomielina, lo que parece indicar que su función es mejorar el aislamiento de las fibras nerviosas.
+             * Glucolípidos: son esfingolípidos compuestos por una ceramida (esfingosina + ácido graso) y un glúcido de cadena corta; carecen de grupo fosfato.
+               Funciones: es un componente fundamental del glicocálix, donde actúa en el reconocimiento celular y como receptor antigénico.
+             * Cerebrósidos: constan de una molécula de ceramida (esfingosina + ácido graso) a la que se une un monosacárido mediante enlace β-glucosídico en el grupo hidroxilo de la ceramida. El monosacárido puede ser tanto glucosa como galactosa, lo que origina dos familias de cerebrósidos
+               Funciones: forman parte de la vaina de mielina de los nervios.
+             * Gangliósidos: on glucolípidos con cabezas polares muy grandes formadas por unidades de oligosacáridos cargadas negativamente, y que poseen una o más unidades de ácido N-acetilneuramínico o ácido siálico que tiene una carga negativa a pH 7.
+               Funciones: Se presentan en la zona externa de la membrana y sirven para reconocer las células, por lo tanto se les considera receptores de membrana.
+           Mas informacion en: https://es.wikipedia.org/wiki/L%C3%ADpido
+
+        -> Asociados: quimicamente no son lipidos, pero con propiedades similares, ubicandolos asi en este grupo.
+           * esteroides: Presencia en comun de la molecula de ciclopentanoperhidrofenantreno por ej. hormonas sexuales, vitamina D, colesterol, etc. Muy comunes en la biologia de los mamiferos y la humana.
+
+           * carotenoides:
+           * ubiquinona:
+           * tocoferol: vitamina E.
+           * filoquinona: vitamina K.
+
+    * Insaponificables: lipidos que no se hidrolizan en presencia de hidróxidos
+
+           * Terpenoides: son lípidos derivados del hidrocarburo isopreno (o 2-metil-1,3-butadieno). Los terpenos son el principal constituyente de los aceites esenciales de algunas plantas y flores, como el limonero, el naranjo.
+           * Esteroides: son lípidos derivados del núcleo del hidrocarburo esterano (o ciclopentanoperhidrofenantreno), esto es, se componen de cuatro anillos fusionados de carbono que posee diversos grupos funcionales (carbonilo, hidroxilo) por lo que la molécula tiene partes hidrofílicas e hidrofóbicas (carácter anfipático). Entre los esteroides más destacados se encuentran los ácidos biliares, las hormonas sexuales, las corticosteroides, la vitamina D y el colesterol.
+           * Eicosanoides: son lípidos derivados de los ácidos grasos esenciales de 20 carbonos tipo omega-3 y omega-6. Los principales precursores de los eicosanoides son el ácido araquidónico, el ácido linoleico y el ácido linolénico.
+           Mas informacion en: https://es.wikipedia.org/wiki/L%C3%ADpidos_insaponificables
+
+  - Carbohidratos/glucidos: suministran energia, realizan un papel vital para la digestion, la asimilacion, metabolismo y la oxidacion de proteinas y grasas.
+    * Simples: azucares que se componen de 1 o 2 azucares (no contiene nutrientes esenciales o muy pocas vitaminas y minerales)
+
+      -> Monosacarido: (CH2O)n (donde n es cualquier número igual o mayor a tres, su límite es de 7 carbonos). Los monosacáridos poseen siempre un grupo carbonilo en uno de sus átomos de carbono y grupos hidroxilo en el resto, por lo que es un polialcohol. os monosacáridos se clasifican de acuerdo a tres características diferentes: la posición del grupo carbonilo, el número de átomos de carbono que contiene y su quiralidad.
+
+         Por la posicion del grupo carbonillo:
+         * Aldosa: cuando el carbonillo es aldehido.
+         * Cetosa: cuando el carbonillo es cetona.
+         * etc... checkear todos los carbonillos: https://es.wikipedia.org/wiki/Grupo_carbonilo
+
+         Por numero atomos de carbono:
+         * Diosa: los que poseen dos atomos de carbono (como es menor de 3 NO es un monosacarido).
+         * Triosas: los que poseen tres átomos de carbono.
+         * Tetrosas: los que poseen cuatro átomos de carbono.
+         * Pentosas: los que poseen cinco átomos de carbono.
+         * Hexosas: los que poseen seis átomos de carbono.
+         * Heptopsa: los que poseen siete átomos de carbono.
+
+         Por quiralidad:
+         Cada átomo de carbono posee un grupo de hidroxilo (-OH), con la excepción del primero y el último carbono, todos son asimétricos, haciéndolos centros estéricos con dos posibles configuraciones cada uno (el -H y -OH pueden estar a cualquier lado del átomo de carbono). Debido a esta asimetría, cada monosacárido posee un cierto número de isómeros.
+         Se mide la orientacion del carbono asimetrico mas alejado del grupo carbonillo:
+         * Azucar D: Si el grupo hidroxilo está a la derecha de la molécula.
+         * Azucar L: Si el grupo hidroxilo está a la derecha de la molécula.
+         Como los D azúcares son los más comunes, usualmente la letra D es omitida.
+
+      -> Discarido: Los disacáridos son glúcidos formados por dos moléculas de monosacáridos. Los dos monosacáridos se unen mediante un enlace covalente conocido como enlace glucosídico.
+         * Sacarosa: compuesto de una molécula de glucosa y una molécula de fructosa. La glucosa adopta la forma piranosa y la fructosa una furanosa. El carbono anomérico uno (C1) de α-glucosa está enlazado en alfa al C2 de la fructosa formando 2-O-(alfa-D-glucopiranosil)-beta-D-fructofuranosido. El carbono anomérico de ambos monosacáridos participan en el enlace glicosídico.
+         * Lactosa: compuesto por una molécula de galactosa y una molécula de glucosa. Esta solo presente en la leche de forma natural.
+         * Maltosa: formado por dos glucosa con enlace α-1,4; se obtiene de la hidrólisis del almidón.
+         * Celobiosa: formado dos glucosas con enlace β-1,4; se obtiene de la hidrólisis de la celulosa.
+
+    * Compuestos: estructura de tres o mas azucares. Ricos en fibra, vitaminas y minerales. No aumentan tan rapido los niveles de azucar en sangre (al ser mas complejos).
+    La parte no utilizada se almacena en el higado o se convierte en grasa.
+
+      -> Oligosacarido: Los oligosacáridos están compuestos por tres a nueve moléculas de monosacáridos. Se encuentran con frecuencia unidos a proteínas, formando las glucoproteínas.
+      -> Polisacarido: Los polisacáridos son cadenas de más de diez monosacáridos.
+         * Almidon: es la manera en que las plantas almacenan monosacáridos (amilosa + amilopectina).
+         * Glucogeno: es esmpleado por los animales, perimitiendo ser metabolizado mas rapidamente (ajustandose a los animales en vida de locomocion).
+         * Celulosa: forma la pared celular de las plantas.
+         * Quitina: empleado en el exoesqueleto de los antropodos y en las paredes celulares de muchos hongos. Similar a la celulosa pero empleando hidrogeno en sus ramas incrementando asi su fuerza.
+         * Calosa: se encuentra en los plasmodesmos durante la citocinesis y durante el desarrollo del polen.
+         * Laminarina: se encuentra en anti-apoptosis (muerte de las celulas) y actividades anti-tumores
+         * Maltodextrina: es el resultado de la hidrólisis del almidón o la fécula (ideal para actividades fisicas intensas y de larga duracion debido a su liberacion gradual de glucosa en sangre).
+         * Xilano: se encuentra en la corteza de los arboles y en la paja.
+         * Galactomanosa: galacto-polisacarido (sin informacion).
+
+  - Vitaminas: Las vitaminas son precursoras de coenzimas, (aunque no son propiamente enzimas) grupos prostéticos de las enzimas. Esto significa que la molécula de la vitamina, con un pequeño cambio en su estructura, pasa a ser la molécula activa, sea ésta coenzima o no. Actúan como catalizadoras de todos los procesos fisiológicos (directa e indirectamente).
+    * Liposolubles: solubles en lipidos
+      - Vitamina A: C20H30O. Resistencia a infecciones, la producción de anticuerpos, crecimiento óseo, fertilidad. Pero su principal función es la que cumple en la retina.
+      - Vitamina D: Absorción de minerales y la mineralización de hueso marca lo importante que es para la densidad ósea.
+      - Vitamina E: C27H46O2. Antioxidante que posee la propiedad de proteger a los ácidos grasos poliinsaturados de las membranas y otras estructuras celulares de la peroxidación lipídica.
+      - Vitamina K: La vitamina K convierte proteinas Glu en Gla, carboxilacion que ocurre dentro de la celula.
+    * Hidrosolubles: solubles en aguas
+      - Vitamina B1: C12H17N4OS+.  juega un papel importante en el metabolismo de carbohidratos principalmente para producir energía; además de participar en el metabolismo de grasas, proteínas y ácidos nucleicos (ADN, ARN). Es esencial para el crecimiento y desarrollo normal y ayuda a mantener el funcionamiento propio del corazón, sistema nervioso y digestivo. Ademas protege a las células ante los niveles elevados de glucosa.
+      - Vitamina B2: Necesaria para la integridad de la piel, las mucosas y de forma especial para la córnea, por su actividad oxigenadora, siendo imprescindible para la buena visión. Su requerimiento se incrementa en función de las calorías consumidas en la dieta: a mayor consumo calórico, mayor es la necesidad de vitamina B2. Esta vitamina es crucial para la producción de energía en el organismo. Otra de sus funciones consiste en desintoxicar el organismo de sustancias nocivas, además de participar en el metabolismo de otras vitaminas
+      - Vitamina B3: C6H5NO2. Las formas coenzimáticas de la niacina participan en las reacciones que generan energía gracias a la oxidación bioquímica de hidratos de carbono, grasas y proteínas. NAD+ y NADP+ son fundamentales para utilizar la energía metabólica de los alimentos. La niacina participa en la síntesis de algunas hormonas y es fundamental para el crecimiento. Además de funciones biológicas como: mantener el buen estado del sistema nervioso, producir neurotransmisores, mejorar el sistema circulatorio relajando los vasos sanguíneos, mantener una piel sana, estabilizar la glucosa en la sangre y restaurar el ADN.
+      - Vitamina B5: Esta coenzima puede actuar como un grupo transportador de acilos para formar acetil-CoA y otros componentes relacionados; ésta es una forma de transportar átomos de carbono dentro de la célula. La transferencia de átomos de carbono por la CoA es importante en la respiración celular, así como en la biosíntesis de muchos compuestos importantes como ácidos grasos, colesterol y acetil colina. Interviene en una amplia variedad de procesos celulares entre los que se encuentran pasos de traducción de la señal.
+      - Vitamina B6: Sirve de coenzima para múltiples enzimas, interviene en el metabolismo de neurotransmisores que regulan el estado de ánimo, como la serotonina, pudiendo ayudar, en algunas personas, en casos de depresión, estrés y alteraciones del sueño. Además interviene en la síntesis de dopamina, adrenalina, norepinefrina y GABA (ácido gamaaminobutírico), un neurotransmisor inhibitorio muy importante del cerebro. incrementa el rendimiento muscular y la producción de energía. Eso es debido a que cuando hay necesidad de un mayor esfuerzo favorece la liberación de glucógeno que se encuentra almacenado en el hígado y en los músculos. También puede colaborar a perder peso ya que ayuda a que nuestro cuerpo consiga energía a partir de las grasas acumuladas. importante para una adecuada absorción de la vitamina B12 y del magnesio. Alivia las náuseas. ayuda en caso de tendencia a espasmos musculares nocturnos, calambres en las piernas y adormecimiento de las extremidades. Puede ayudar a reducir la sequedad de boca ocasionada por la toma de medicamentos y/o drogas. Interviene en la síntesis de ADN y ARN. Mantiene el funcionamiento de las células nerviosas ya que interviene en la formación de mielina. Favorece la absorción de hierro.
+      - Vitamina B7/B8: C10H16N2S3. La biotina se encuentra en la célula unida con resto específico de lisina (un aminoácido) formando la biocitina; la biocitina se une covalentemente a ciertas enzimas relacionadas con la formación o la utilización del dióxido de carbono, y ejerce así función de coenzima: actúa en la transferencia (aceptor y donador) de dióxido de carbono en numerosas carboxilasas y decarboxilasas, que son esenciales en los procesos de duplicación celular.  es usada en el crecimiento celular, la producción de ácidos grasos y en el metabolismo de grasas y aminoácidos. Juega un papel en el ciclo del ácido cítrico o Krebs, el cual es un proceso por el cual la energía bioquímica es generada durante la respiración aeróbica. La biotina no sólo asiste en varias conversiones químicas y metabólicas, sino también ayuda a transferir dióxido de carbono. La biotina participa también en el mantenimiento de los niveles de azúcar en la sangre o glucemia.
+      - Vitamina B9: C19H19N7O6. La vitamina B9 ayuda a convertir la vitamina B12 en una de sus formas coenzimáticas y participa en la síntesis de ADN requerido para un rápido crecimiento celular. Del mismo modo actúa como coenzima en la transferencia de grupos monocarbonados. Interactúa con B12 y Vit C. El ácido fólico no posee actividad coenzimática, pero sí su forma reducida, el ácido tetrahidrofólico, representado frecuentemente como FH4 o TFH. Actúa como transportador intermediario de grupos con un átomo de carbono, especialmente grupos formilo, que se precisa en la síntesis de purinas, compuestos que forman parte de los nucleótidos, sustancias presentes en el ADN y el ARN, y necesarias para su síntesis durante la fase S del ciclo celular, y por lo tanto para la división celular; también actúa en la transferencia de grupos metenilo y metileno. El ácido tetrahidrofólico también actúa en la ruta de las pirimidinas, al modificar el anillo de uridina para formar la tiamina al ceder un grupo metilo. Las coenzimas de vitamina B9 (H4 folato) desempeñan un papel vital en el metabolismo del ADN a través de la síntesis de ADN a partir de sus precursores (timidina y purinas) y la síntesis del aminoácido metionina, que es necesario para la síntesis de un donante del grupo metilo utilizado en muchas reacciones biológicas. La adición de un grupo metilo (-CH3) (‘metilación’) en un número de puntos del ADN podría tener importancia en la prevención del cáncer. Las coenzimas del folato son necesarias para el metabolismo de diversos aminoácidos importantes, como la síntesis de metionina a partir de la homocisteína. La vitamina B9 (ácido fólico) regula la cantidad de homocisteína en la sangre, aunque lo hacen también las vitaminas B6 y B12 (4). Se ha observado que es la B9 la que tiene el mayor efecto en la reducción del nivel basal de homocisteína en la sangre cuando no hay una deficiencia coexistente de vitamina B6 ó B12.
+      - Vitamina B12: C63H88CoN14O14P. intervienen en la metilación de la homocisteína a metionina y en la síntesis de S-Adenosil metionina. necesaria para la metilación de los fosfolípidos de la vaina de mielina. ayuda en el reciclado para la provisión de un sustrato adecuado para este (el aminoácido esencial metionina) ya que es asistido por la B12. La S-Adenosil metionina está involucrada en de numerosas reacciones de metilación que implican proteínas, fosfolípidos, ADN, el metabolismo de ciertos neurotransmisores, catecolaminas y en el metabolismo del cerebro.23 Estos neurotransmisores son importantes para mantener el buen estado de ánimo, lo que posiblemente explica por qué la depresión está asociada con la deficiencia de B12.
+      - Notas sobre la Vitamina B12: Ningun animal, planta, hongo o alga pueden generar la vitamina B12, ya que esta solo se produce por fermentacion de bacterias y arqueobacterias que tienen las enzimas necesarias para su sintesis, aunque algunos alimentos debido a su sintesis bacteriana son generalmente fuentes de esta vitamina. Para la absorcion de esta vitamina se necesitan principalmente dos procesos; el primero es la separacion de la vitamina del resto de alimentos, mediante el acido clorhidrico en el estomago. Y el segundo, mediante el factor intrinseco gastrico, que es una glucoproteina producida por las celulas parietales de la mucosa gastrica (estomago) necesaria para la absorcion intestinal de la vitamina B12 (realizando el transporte ileal para mas tarde llegar a la circulacion sanguinea). La vitamina B12 puede almacenarse en el higado por mas de 1 año sin deficiencias, lo que hace que la avitaminosis en este caso sea un caso muy raro.
+      - Vitamina C: C6H8O6. Sirve para: Evitar el envejecimiento prematuro, Facilitar la absorción de otras vitaminas y minerales, como antioxidante, Evitar las enfermedades degenerativas tales como arteriosclerosis, cáncer, demencia, entre otros, Evitar las enfermedades cardíacas, Tiene un papel fundamental en la formación de colágeno, Prevenir escorbuto, polio y hepatitis, Disminuir la incidencia de coágulos en las venas, Ayudar en los movimientos articulares, Acelerar el proceso de curación de heridas, lesiones y quemaduras.
+    * Incompatibilidades (-) y aceleracion (+) de la absorcion de vitaminas
+      - Vitamina A:
+        - Aspirina (acido acetilsalicilico)
+        - Acido clorihidrico.
+        - Altas concentraciones de vitamina E reducen la absorcion de vitamina A.
+        + La vitamina A ayuda a la absorcion de la vitamina E.
+        + El zinc ayuda a una mejor absorcion de vitamina A.
+      - Vitamina D:
+        - Incompatible con la vitamina E.
+        - Incompatible con hidrocortisona, tetracycline, acido hydrochloric.
+        - Cuidado con las mujeres mayores, y embarazadas mayores de 35 anos.
+        + Efecto positivo en el metabolismo del cuerpo en el calcio y fosforo.
+      - Vitamina E:
+        - Incompatible con la vitamina D.
+      - Vitamina K
+        - Tomarla separada de la A.
+        - Tomarla separada de la E.
+      - Vitamina B1:
+        - Calcio (ya que reduce la que se disuelva la vitamina B1 en agua).
+        - Magnesio (ya que reduce la que se disuelva la vitamina B1 en agua).
+        + Generalmente se absorbe con B6, B12, C y B3.
+      - Vitamina B2:
+        - Hierro.
+        - Zinc.
+        - Cobre.
+        + B6 (acelera el proceso).
+        + Con la B12 ambas varian el metabolismo.
+      - Vitamina B3:
+        - Incompatible con tetracycline, hydrocortisone, aminophylline y otros.
+        - Vitamina B1.
+        - Vitamina B3 (incrementa el nivel de ciertas enzimas en la sangre causando FLD o esteatosis hepatica -grasa en el higado-).
+        - Vitamina B6.
+        - Vitamina B12.
+        - No recomendada para diabeticos.
+        + Mejor tomarla despues de las comidas.
+      - Vitamina B5:
+        ??????????
+      - Vitamina B6:
+        - Cafeina.
+        - Aminofilina.
+        - B1.
+        - B12.
+        - Con precaucion si se tienen ulceras gastricas o duodenales.
+        + B2 (acelera la asimilacion de magnesio).
+      - Vitamina B7/B8:
+        ??????
+      - Vitamina B9:
+        + C.
+        - Zinc (inhibe la absorcion de ambas; tanto zinc como la B9).
+        - Ancianos con cancer deben ser precavidos.
+      - Vitamina B12:
+        - Aspirina (acido acetilsalicilico)
+        - Acido clorihidrico.
+        - Clorpromazina.
+        - Gentamicina.
+        - C.
+        - B1 (creando reacciones alergicas).
+        - B2.
+        - B3.
+        - B6.
+        - Con precauciones por angina, tumores (tanto benignos como malignos).
+      - Vitamina C:
+        - Tetracycline
+        - Diphenhydramine
+        - Penicilina
+        - Aminophylline
+        - Preparados de hierro.
+        - B1.
+        - B12.
+        - No se puede introducir por medio de inyecciones mexclandolo con analgium.
+        - En muchos casos, la absorcion de esta vitamina crea deficiencia de cobre.
+        + Se acelera la absorcion mediante Flavonoides (vitamina P).
+        + E (interacciona bien).
+        + Carotenos
+        + Mejora la absorcion de hierro, cromo.
+    * Notas importantes:
+    ! No hay que preocuparse por la falta de vitaminas, porque se necesitan miligramos y en algunos casos microgramos y las dietas son suficientemente variadas para obtener todas las vitaminas y enzimas que modulan el metabolismo de la tirosina.
+    ! Las vitaminas antioxidantes son especialmente las A, C, y E. Con especial peligro en el exceso de vitamina A que causa osteoporosis.
+    ! Las vitaminas y multivitaminas deben tomarse despues de las comidas para evitar efectos secundarios (como el impacto en organos o en el tracto intestinal)
+    ! Las vitaminas que se introduzcan por jeringa, nunca deben estar mezcladas.
+    ! Antes de tomarse preparados multivitaminados, es importante conocer los elementos traza del organismo.
+    ! Los complejos multivitaminados, deben tomarse de 1 a 3 veces al ano, y con un maximo de 1 a 2 meses por vez.
+    ! Existen 2 tipos de vitamina D, el ergocalciferol (vitamina D2) el colecalciferol (vitamina D3). La D3 se almacena mucho mejor en el cuerpo y a largo plazo. Ademas casi ningun alimento contiene vitamina D, y los que la contienen, es una cantidad minuscula en comparacion con la que se puede conseguir mediante la exposicion de la piel en los rayos ultravioleta.
+    ! Hay otros nombres por los que se conocen algunas vitaminas: Vitamina B3=PP, K2=forma de almacenar en animales la vitamina K, F=nombre inicial para omega3, H=B7/B8,
+
+  - Minerales: son elementos quimicos necesarios para la vida humana. Existen unos 20 esenciales y su carencia da lugar a alteraciones bioquímicas que son reversibles con el aporte del nutriente deficitario.
+    * Macrominerales: son aquellos minerales que se necesitan en cantidades superiores a 100 mg/día.
+      - Calcio: Además de su función en la construcción y mantenimiento de huesos y dientes, el calcio también tiene otras funciones metabólicas. Afecta la función de transporte de las membranas celulares, actuando como un estabilizador de la membrana. También influye en la transmisión de iones a través de las membranas, y la liberación de neurotransmisores. Este calcio actúa como mediador intracelular cumpliendo una función de segundo mensajero; por ejemplo, el ion Ca2+ interviene en la contracción de los músculos. También está implicado en la regulación de algunas enzimas quinasas que realizan funciones de fosforilación, por ejemplo la proteína quinasa C (PKC), y realiza unas funciones enzimáticas similares a las del magnesio en procesos de transferencia de fosfato (por ejemplo, la enzima fosfolipasa A2). Se requiere calcio en la trasmisión nerviosa y en la regulación de los latidos cardíacos. El equilibrio adecuado de los iones de calcio, sodio, potasio y magnesio mantiene el tono muscular y controla la irritabilidad nerviosa.
+      - Fosforo: Forma parte de la molécula de Pi («fosfato inorgánico»), así como de las moléculas de ADN y ARN y de los fosfolípidos en las membranas lipídicas. Las células lo utilizan para almacenar y transportar la energía mediante el adenosín trifosfato. Además, la adición y eliminación de grupos fosfato a las proteínas, fosforilación y desfosforilación, respectivamente, es el mecanismo principal para regular la actividad de proteínas intracelulares, y de ese modo el metabolismo de las células eucariotas tales como los espermatozoides.
+      - Magnesio: mantiene el equilibrio energético en las neuronas y actúa sobre la transmisión nerviosa, manteniendo al sistema nervioso en buena salud. Es utilizado como tratamiento antiestrés y antidepresión además de como relajante muscular. El magnesio ayuda a fijar el calcio y el fósforo en los huesos y dientes. Previene los cálculos renales ya que moviliza al calcio. Es también efectivo en las convulsiones del embarazo: previene los partos prematuros manteniendo al útero relajado. Interviene en el equilibrio hormonal, disminuyendo los dolores premenstruales. Actúa sobre el sistema neurológico favoreciendo el sueño y la relajación. Autorregula la composición y propiedades internas (homeostasis).     Actúa controlando la flora intestinal y nos protege de las enfermedades cardiovasculares. Favorable para quien padezca de hipertensión.
+      - Sodio: Tiene un papel fundamental en el metabolismo celular, por ejemplo, en la transmisión del impulso nervioso (mediante el mecanismo de bomba de sodio-potasio). Mantiene el volumen y la osmolaridad. Participa, además del impulso nervioso, en la contracción muscular, el equilibrio ácido-base y la absorción de nutrientes por las membranas.
+      - Potasio: Está involucrado en el mantenimiento del equilibrio normal del agua, el equilibrio osmótico entre las células y el fluido intersticial2 y el equilibrio ácido-base, determinado por el pH del organismo. El potasio también está involucrado en la contracción muscular y la regulación de la actividad neuromuscular, al participar en la transmisión del impulso nervioso a través de los potenciales de acción del organismo humano. Debido a la naturaleza de sus propiedades electrostáticas y químicas, los iones de potasio son más grandes que los iones de sodio, por lo que los canales iónicos y las bombas de las membranas celulares pueden distinguir entre los dos tipos de iones; bombear activamente o pasivamente permitiendo que uno de estos iones pase, mientras que bloquea al otro.3 El potasio promueve el desarrollo celular y en parte es almacenado a nivel muscular, por lo tanto, si el músculo está siendo formado (periodos de crecimiento y desarrollo) un adecuado abastecimiento de potasio es esencial.
+      - Cloro: regula el equilibrio ácido-base del organismo por medio de distintos mecanismos: transporte de líquidos, intercambio de líquidos a través de la membrana celular (el cloro es el anion mientras que el Sodio es cation), etc. También ayudan en procesos de absorción, filtrado y transporte, mantenimiento del pH corporal y del pH renal.
+      - Azufre: el azufre se encuentra presente en la queratina, que es una sustancia proteica de la piel, uñas y pelo, participa en la síntesis del colágeno (elemento que mantiene unidas a las células). También interviene en el metabolismo de los lípidos y de los hidratos de carbono.
+    * Oligoelementos, microminerales o elementos traza: aquellos que sólo son precisan en muy pequeñas cantidades.
+      - Hierro: Necesario no solo para lograr una adecuada oxigenación tisular sino también para el metabolismo de la mayor parte de las células. Los animales para transportar el hierro dentro del cuerpo emplean unas proteínas llamadas transferrinas. Para almacenarlo, emplean la ferritina y la hemosiderina.
+      - Manganeso: tiene un papel tanto estructural como enzimático. Está presente en distintas enzimas, destacando la superóxido dismutasa de manganeso (Mn-SOD), que cataliza la dismutación de superóxidos, O2-; la Mn-catalasa, que cataliza la dismutación de peróxido de hidrógeno, H2O2; así como en la concavanila A (de la familia de las lectinas), en donde el manganeso tiene un papel estructural.
+      - Cobre: contribuye a la formación de glóbulos rojos y al mantenimiento de los vasos sanguíneos, nervios, sistema inmunitario y huesos y por tanto es esencial para la vida humana.
+      - Yodo: La glándula tiroides fabrica las hormonas tiroxina y triyodotironina, que contienen yodo. Las hormonas tiroideas juegan un papel muy básico en la biología, actuando sobre la transcripción genética para regular la tasa metabólica basal. La T4 actúa como un precursor de la T3, la cual es (con algunas excepciones menores) la hormona biológicamente activa, la acción de dichas hormonas es indispensable para el crecimiento y maduración del sistema nervioso central en la etapa prenatal y los primeros años de vida del ser humano, además de su crecimiento y desarrollo somático ulterior.
+      - Zinc: interviene en el metabolismo de proteínas y ácidos nucleicos, estimula la actividad de aproximadamente 100 enzimas, colabora en el buen funcionamiento del sistema inmunitario, es necesario para la cicatrización de las heridas, interviene en las percepciones del gusto y el olfato y en la síntesis del ADN. El metal se encuentra en la insulina, las proteínas dedo de cinc (zinc finger) y diversas enzimas como la superóxido dismutasa. La mayoría del cinc se encuentra en el cerebro, los músculos, los huesos, el riñón y el hígado, con las concentraciones más altas en la próstata y las partes del ojo.9 El semen es particularmente rico en cinc, siendo un factor clave en la correcta función de la glándula prostática y en el crecimiento de los órganos reproductivos. El cinc aumenta la testosterona en sangre indirectamente, funcionando como coenzima en el metabolismo de las hormonas masculinas por medio de su formación a través de la hormona luteinizante (LH), que estimula las células de Leydig.11 12 También previene que la testosterona se degrade en estrógeno por medio de la enzima aromatasa. En el cerebro, el cinc se almacena en determinadas vesículas sinápticas mediante neuronas glutamatérgicas14 y puede "modular la excitabilidad del cerebro".15 Desempeña un papel clave en la plasticidad sináptica y por lo tanto en el aprendizaje.16 Sin embargo, ha sido llamado el "caballo oscuro del cerebro" (“the brain's dark horse”)14 ya que también puede comportarse como una neurotoxina, lo que sugiere que la adecuada homeostasis del cinc desempeña un papel fundamental en el funcionamiento normal del cerebro y del sistema nervioso central.
+      - Cobalto: Una deficiencia de cobalto puede llevar a anemia. Las proteínas basadas en la cobalamina usan el anillo de corrina para mantener unido el cobalto. La coenzima B12 proporciona el enlace C-Co, el cual participa en las reacciones.
+      - Fluor: Se localiza principalmente en los dientes y huesos, donde se incorpora a los cristales de hidroxiapatita, sustituye al ión hidrocxilo y da lugar a cristales de fluoropatita. Además de estos tejidos, el flúor se encuentra también en la piel, tiroides, plasma, linfa y vísceras. Es imprescindible en la prevención de las caries dentales ya que por un lado, refuerza la estructura mineral de los dientes y mantiene el esmalte y por otro, actúa sobre las bacterias cariogénicas inhibiendo su metabolismo y adhesión a la placa dental.
+      - Selenio: Es antioxidante, ayuda a neutralizar los radicales libres, induce la apoptosis, estimula el sistema inmunológico e interviene en el funcionamiento de la glándula tiroides. Las investigaciones realizadas sugieren la existencia de una correlación entre el consumo de suplementos de selenio y la prevención del cáncer en humanos.
+      - Cromo: o se conocen con exactitud sus funciones. Parece participar en el metabolismo de los lípidos, en el de los hidratos de carbono, así como otras funciones. Se ha observado que algunos de sus complejos parecen potenciar la acción de la insulina, por lo que se les ha denominado "factor de tolerancia a la glucosa"; debido a esta relación con la acción de la insulina, la ausencia de cromo provoca una intolerancia a la glucosa, y esta ausencia, la aparición de diversos problemas.
+      - Molibdeno: En los animales y las plantas, estas enzimas usan el molibdeno como un cofactor. Todos los seres vivos que utilizan enzimas de molibdeno. Las enzimas de molibdeno en las plantas y animales catalizan la oxidación y la reducción a veces de ciertas moléculas pequeñas, como parte de la regulación de nitrógeno, azufre y los ciclos del carbono.
+      - Niquel: Un 87% de las hidrogenasas contienen níquel, especialmente en aquellas cuya función es oxidar el hidrógeno. El níquel sufre cambios en su estado de oxidación lo que indica que el núcleo de níquel es la parte activa de la enzima. El níquel está también presente en la enzima metil con reductasa y en bacterias metanogénicas.
+      - Vanadio: Existen compuestos de vanadio que imitan y potencian la actividad de la insulina. En humanos no está demostrada su esencialidad.
+      - Estaño: Podría estar involucrado en la actividad de la gastrina que regula la producción de CLH del estómago. Sin embargo, hasta la fecha de la bibliografía consultada, no se ha demostrado su esencialidad en la especie humana.
+      - Silicio*: El silicio entra en la estructura tisular del colágeno (proteína constituyente de muchos tejidos, entre ellos la piel), de la elastina y de las paredes arteriales: esto permite prevenir y evitar las esclerosis por calcificación de los tejidos, proteger la pared interna de las arterias y ayudar al mantenimiento de la elasticidad de la piel. El silicio permite, igualmente, la fijación del calcio y así previene el agotamiento de los huesos y las enfermedades óseas (osteoporosis).
+
+
+*** Tables
+ Current tables shows only for men from 31-50 years:
+
+ Vitaminas:
+
+ |--------+-------+------+-------+--------+--------+--------+-------+--------+--------+--------+------+-------+--------|
+ | A      | C     | D    | E     | K      | B1     | B2     | B3    | B6     | B9     | B12    | B5   | B8    | B7     |
+ |--------+-------+------+-------+--------+--------+--------+-------+--------+--------+--------+------+-------+--------|
+ | 900 μg | 90 mg | 5 μg | 15 mg | 120 μg | 1,2 mg | 1,3 mg | 16 mg | 1,3 mg | 400 μg | 2,4 μg | 5 mg | 30 μg | 550 mg |
+ |--------+-------+------+-------+--------+--------+--------+-------+--------+--------+--------+------+-------+--------|
+
+  Vitamina A: Retinol
+  Vitamina C: Acido ascorbico
+  Vitamina D: Calciferol
+  Vitamina E: α-tocoferol
+  Vitamina K: Fitomenadiona
+  Vitamina B1: Tiamina
+  Vitamina B2: Riboflavina
+  Vitamina B3: Niacina
+  Vitamina B5: Acido Pantotenico
+  Vitamina B6: Piridoxina, piridoxal y piridoxamina
+  Vitamina B7: Colina
+  Vitamina B8: Biotina
+  Vitamina B9: Folato
+  Vitamina B12: Cobalamina
+
+ Minerales (oligoelementos):
+
+ |---------+-------+--------+---------+--------+--------+----------+-----------+-----------+---------+---------+-------+---------+-------+---------|
+ | Calcio  | Cromo | Cobre  | Floruro | Yodo   | Hierro | Magnesio | Manganeso | Molibdeno | Fosforo | Selenio | Cinc  | Potasio | Sodio | Cloruro |
+ |---------+-------+--------+---------+--------+--------+----------+-----------+-----------+---------+---------+-------+---------+-------+---------|
+ | 1000 mg | 35 μg | 900 μg | 4 mg    | 150 μg | 8 mg   | 420 mg   | 2,3 mg    | 45 μg     | 700 mg  | 55 μg   | 11 mg | 4,7 g   | 1,5 g | 2,3 g   |
+ |---------+-------+--------+---------+--------+--------+----------+-----------+-----------+---------+---------+-------+---------+-------+---------|
+
+ Energia:
+
+ |------------------------------|
+ | Consumo de energia           |
+ |------------------------------|
+ | 3067 - 10 kcal/dia > 19 años |
+ |------------------------------|
+
+ Macronutrientes:
+
+ |------+-----------+---------------+-------+---------+-----------------------------------------------------+--------------------------------------------------------+----------------------------------------------|
+ | Tipo | Proteinas | Carbohidratos | Fibra | Grasas  | Acidos grasos poliinsaturados n-6 (acido linoleico) | Acidos grasos poliinsaturados n-3 (acido α-linolenico) | Acidos grasos saturados y trans y colesterol |
+ |------+-----------+---------------+-------+---------+-----------------------------------------------------+--------------------------------------------------------+----------------------------------------------|
+ | ADR  | 56 g      | 130 g         | 38 g  |         | 17 g                                                | 1,6 g                                                  |                                              |
+ |------+-----------+---------------+-------+---------+-----------------------------------------------------+--------------------------------------------------------+----------------------------------------------|
+ | IADM | 10-35 g   | 45-65 g       |       | 20-35 g | 5-10 g                                              | 0,6-1,2 g                                              |                                              |
+ |------+-----------+---------------+-------+---------+-----------------------------------------------------+--------------------------------------------------------+----------------------------------------------|
+
+  ADR (Aportes Diarios Recomendados)
+  IADM (Intervalo Aceptable de Distribucion de Macronutrientes)
+
+  Lista de aminoacidos necesarios para el cuerpo humano:
+
+  |-----------------------+------------------+
+  | Esenciales            | No esenciales    |
+  |-----------------------+------------------+
+  | Isoleucina (Ile)      | Alanina (Ala)    |
+  |-----------------------+------------------+
+  | Leucina (Leu)         | Tirosina (Tyr)   |
+  |-----------------------+------------------+
+  | Lisina (Lys)          | Aspartato (Asp)  |
+  |-----------------------+------------------+
+  | Metionina (Met)       | Cisteina (Cys)   |
+  |-----------------------+------------------+
+  | Fenilalanina (Phe)    | Glutamato (Glu)  |
+  |-----------------------+------------------+
+  | Treonina (Thr)        | Glutamina (Gln)  |
+  |-----------------------+------------------+
+  | Triptofano (Trp)      | Glicina (Gly)    |
+  |-----------------------+------------------+
+  | Valina (Val)          | Prolina (Pro)    |
+  |-----------------------+------------------+
+  | Hirstidina (His) cond | Serina (Ser)     |
+  |-----------------------+------------------+
+  | Arginina (Arg) cond   | Asparagina (Asn) |
+  |-----------------------+------------------+
+
+  Funciones de los aminoacidos esenciales:
+  Isoleucina (Ile): La Isoleucina es necesaria para la formación de hemoglobina, estabiliza y regula el azúcar en la sangre y los niveles de energía. Este aminoácido es valioso para los deportistas porque ayuda a la curación y la reparación del tejido muscular, piel y huesos. La cantidad de este aminoácido se ha visto que es insuficiente en personas que sufren de ciertos trastornos mentales y físicos.
+  Leucina (Leu): La leucina interactúa con los aminoácidos isoleucina y valina para promover la cicatrización del tejido muscular, la piel y los huesos y se recomienda para quienes se recuperan de la cirugía. Este aminoácido reduce los niveles de azúcar en la sangre y ayuda a aumentar la producción de la hormona del crecimiento.
+  Lisina (Lys): Funciones de este aminoácido son garantizar la absorción adecuada de calcio y mantiene un equilibrio adecuado de nitrógeno en los adultos. Además, la lisina ayuda a formar colágeno que constituye el cartílago y tejido conectivo. La Lisina también ayuda a la producción de anticuerpos que tienen la capacidad para luchar contra el herpes labial y los brotes de herpes y reduce los niveles elevados de triglicéridos en suero.
+  Metionina (Met): La Metionina es un antioxidante de gran alcance y una buena fuente de azufre, lo que evita trastornos del cabello, piel y uñas, ayuda a la descomposición de las grasas, ayudando así a prevenir la acumulación de grasa en el hígado y las arterias, que pueden obstruir el flujo sanguíneo a el cerebro, el corazón y los riñones, ayuda a desintoxicar los agentes nocivos como el plomo y otros metales pesados, ayuda a disminuir la debilidad muscular, previene el cabello quebradizo, protege contra los efectos de las radiaciones, es beneficioso para las mujeres que toman anticonceptivos orales, ya que promueve la excreción de los estrógenos, reduce el nivel de histamina en el cuerpo que puede causar que el cerebro transmita mensajes equivocados, por lo que es útil a las personas que sufren de esquizofrenia.
+  Fenilalanina (Phe): Aminoácidos utilizados por el cerebro para producir la noradrenalina, una sustancia química que transmite señales entre las células nerviosas en el cerebro, promueve el estado de alerta y la vitalidad. La Fenilalanina eleva el estado de ánimo, disminuye el dolor, ayuda a la memoria y el aprendizaje, que se utiliza para tratar la artritis, depresión, calambres menstruales, las jaquecas, la obesidad, la enfermedad de Parkinson y la esquizofrenia.
+  Treonina (Thr): La treonina es un aminoácido cuyas funciones son ayudar a mantener la cantidad adecuada de proteínas en el cuerpo, es importante para la formación de colágeno, elastina y esmalte de los dientes y ayuda a la función lipotrópica del hígado cuando se combina con ácido aspártico y la metionina, previene la acumulación de grasa en el hígado, su metabolismo y ayuda a su asimilación.
+  Triptofano (Trp): Este aminoácido es un relajante natural, ayuda a aliviar el insomnio induciendo el sueño normal, reduce la ansiedad y la depresión y estabiliza el estado de ánimo, ayuda en el tratamiento de la migraña, ayuda a que el sistema inmunológico funcione correctamente. El Triptofano ayuda en el control de peso mediante la reducción de apetito, aumenta la liberación de hormonas de crecimiento y ayuda a controlar la hiperactividad en los niños.
+  Valina (Val): La Valina es necesaria para el metabolismo muscular y la coordinación, la reparación de tejidos, y para el mantenimiento del equilibrio adecuado de nitrógeno en el cuerpo, que se utiliza como fuente de energía por el tejido muscular. Este aminoácido es útil en el tratamiento de enfermedades del hígado y la vesícula biliar, promueve el vigor mental y las emociones tranquilas.
+  Hirstidina (His): Este aminoácido se encuentra abundantemente en la hemoglobina y se utiliza en el tratamiento de la artritis reumatoide, alergias, úlceras y anemia. Es esencial para el crecimiento y la reparación de los tejidos. La Histidina, también es importante para el mantenimiento de las vainas de mielina que protegen las células nerviosas, es necesario para la producción tanto de glóbulos rojos y blancos en la sangre, protege al organismo de los daños por radiación, reduce la presión arterial, ayuda en la eliminación de metales pesados del cuerpo y ayuda a mejorar la líbido.
+  Arginina (Arg): Este aminoácido está considerado como "El Viagra Natural" por el aumento del flujo sanguíneo hacia el miembro viril, retrasa el crecimiento de los tumores y el cáncer mediante el refuerzo del sistema inmunológico, aumenta el tamaño y la actividad de la glándula del timo, que fabrica las células T, componentes cruciales del sistema inmunológico. La Arginina, ayuda en la desintoxicación del hígado neutralizando el amoniaco, reduce los efectos de toxicidad crónica de alcohol, que se utiliza en el tratamiento de la esterilidad en los hombres, aumentando el conteo de espermatozoides; ayudas en la pérdida de peso, ya que facilita un aumento de masa muscular y una reducción de grasa corporal, ayuda a la liberación de hormonas de crecimiento, que es crucial para el "crecimiento óptimo" músculo y la reparación de tejidos, es un componente importante del colágeno que es bueno para la artritis y trastornos del tejido conectivo y ayuda a estimular el páncreas para que libere insulina.
+
+  Funciones de los aminoacidos no esenciales:
+  Alanina (Ala): Desempeña un papel importante en la transferencia de nitrógeno de los tejidos periféricos hacia el hígado, ayuda en el metabolismo de la glucosa, un carbohidrato simple que el cuerpo utiliza como energía, protege contra la acumulación de sustancias tóxicas que se liberan en las células musculares cuando la proteína muscular descompone rápidamente para satisfacer las necesidades de energía, como lo que sucede con el ejercicio aeróbico, fortalece el sistema inmunológico mediante la producción de anticuerpos.
+  Tirosina (Tyr): Es un aminoácido importante para el metabolismo general. La Tirosina es un precursor de la adrenalina y la dopamina, que regulan el estado de ánimo. Estimula el metabolismo y el sistema nervioso, actúa como un elevador del humor, suprime el apetito y ayuda a reducir la grasa corporal. La Tirosina ayuda en la producción de melanina (el pigmento responsable del color del pelo y la piel) y en las funciones de las glándulas suprarrenales, tiroides y la pituitaria, se ha utilizado para ayudar a la fatiga crónica, la narcolepsia, ansiedad, depresión, reducción de la líbido, alergias y dolores de cabeza.
+  Aspartato (Asp): El Ácido Aspártico aumenta la resistencia y es bueno para la fatiga crónica y la depresión, rejuvenece la actividad celular, la formación de células y el metabolismo, que le da una apariencia más joven, protege el hígado, ayudando a la expulsión de amoniaco y se combina con otros aminoácidos para formar moléculas que absorben las toxinas y sacarlas de la circulación sanguínea. Este aminoácido también ayuda a facilitar la circulación de ciertos minerales a través de la mucosa intestinal, en la sangre y las células y ayuda a la función del ARN y ADN, que son portadores de información genética.
+  Cisteina (Cys): La Cisteína funciona como un antioxidante de gran alcance en la desintoxicación de toxinas dañinas. Protege el cuerpo contra el daño por radiación, protege el hígado y el cerebro de daños causados por el alcohol, las drogas y compuestos tóxicos que se encuentran en el humo del cigarrillo, se ha utilizado para tratar la artritis reumatoide y el endurecimiento de las arterias. Otras funciones de este aminoácido es promover la recuperación de quemaduras graves y la cirugía, promover la quema de grasa y la formación de músculos y retrasar el proceso de envejecimiento. La piel y el cabello se componen entre el 10% y el 14% de este aminoácido.
+  Glutamato (Glu): El Ácido Glutámico actúa como un neurotransmisor excitatorio del sistema nervioso central, el cerebro y la médula espinal. Es un aminoácido importante en el metabolismo de azúcares y grasas, ayuda en el transporte de potasio en el líquido cefalorraquídeo, actúa como combustible para el cerebro, ayuda a corregir los trastornos de personalidad, y es utilizado en el tratamiento de la epilepsia, retraso mental, distrofia muscular y úlceras.
+  Glutamina (Gln): Es el aminoácido más abundante en los músculos. La Glutamina ayuda a construir y mantener el tejido muscular, ayuda a prevenir el desgaste muscular que puede acompañar a reposo prolongado en cama o enfermedades como el cáncer y el SIDA. Este aminoácido es un "combustible de cerebros" que aumenta la función cerebral y la actividad mental, ayuda a mantener el equilibrio del ácido alcalino en el cuerpo, promueve un sistema digestivo saludable, reduce el tiempo de curación de las úlceras y alivia la fatiga, la depresión y la impotencia, disminuye los antojos de azúcar y el deseo por el alcohol y ha sido usado recientemente en el tratamiento de la esquizofrenia y la demencia.
+  Glicina (Gly): La Glicina retarda la degeneración muscular, mejora el almacenamiento de glucógeno, liberando así a la glucosa para las necesidades de energía, promueve una próstata sana, el sistema nervioso central y el sistema inmunológico. Es un aminoácido útil para reparar tejidos dañados, ayudando a su curación.
+  Prolina (Pro):Funciones de este aminoácido son mejorar la textura de la piel, ayudando a la producción de colágeno y reducir la pérdida de colágeno a través del proceso de envejecimiento. Además, la Prolina ayuda en la cicatrización del cartílago y el fortalecimiento de las articulaciones, los tendones y los músculos del corazón. La Prolina trabaja con la vitamina C para ayudar a mantener sanos los tejidos conectivos.
+  Serina (Ser): Este aminoácido es necesario para el correcto metabolismo de las grasas y ácidos grasos, el crecimiento del músculo, y el mantenimiento de un sistema inmunológico saludable. La Serina es un aminoácido que forma parte de las vainas de mielina protectora que cubre las fibras nerviosas, es importante para el funcionamiento del ARN y ADN y la formación de células y ayuda a la producción de inmunoglobulinas y anticuerpos.
+  Asparagina (Asn): Es creada en el cuerpo por el hígado y se utiliza fundamentalmente para alimentar el sistema nervioso. La glicosilación de la asparigina es un fenómeno muy importante que sufren las proteínas destinadas al espacio extracelular. El ácido ayuda al sistema nervioso a mantener el equilibrio emocional, éste se utiliza para la prevención del desarrollo a un alto grado de sensibilidad al sonido y al tacto.
+
+  Aminoacidos en productos (segun PDCAAS - Protein Digestibility Corrected Amino Acids Score desarrollado por la FDA para mejorar el PER (Protein Efficiency Ratio)). Existen otros metodos como VB, NPU, PER, NB o PD:
+
+  |--------+-----------------------|
+  | PDCAAS | Producto              |
+  |--------+-----------------------|
+  |   1.00 | casein (milk protein) |
+  |--------+-----------------------|
+  |   1.00 | egg white             |
+  |--------+-----------------------|
+  |   1.00 | soy protein           |
+  |--------+-----------------------|
+  |   1.00 | whey (milk protein)   |
+  |--------+-----------------------|
+  |   0.99 | mycoprotein           |
+  |--------+-----------------------|
+  |   0.92 | beef                  |
+  |--------+-----------------------|
+  |   0.78 | chickpeas             |
+  |--------+-----------------------|
+  |   0.76 | fruits                |
+  |--------+-----------------------|
+  |   0.75 | black beans           |
+  |--------+-----------------------|
+  |   0.73 | vegetables            |
+  |--------+-----------------------|
+  |   0.70 | other legumes         |
+  |--------+-----------------------|
+  |   0.64 | yellow split pea      |
+  |--------+-----------------------|
+  |   0.59 | cereals               |
+  |--------+-----------------------|
+  |   0.52 | peanuts               |
+  |--------+-----------------------|
+  |   0.42 | whole wheat           |
+  |--------+-----------------------|
+  |   0.25 | wheat gluten (food)   |
+  |--------+-----------------------|
+
+  Organizacion de aminoacidos para eleccion de alimentos segun la variedad de los mismos y tipo:
+
+  Cuando consideramos que eleccion de alimentos debemos obtener para la ingesta de aminoacidos debemos dividirlos en 4 categorias:
+
+  |-----------------------------------+-------------------------------------+---------------------+--------------------------------|
+  | BCAAs (Branched-chain aminoacids) | SAAs (Sulfur-containing aminoacids) | Aromatic aminoacids | Other indispensable aminoacids |
+  |-----------------------------------+-------------------------------------+---------------------+--------------------------------|
+  | Isoleucine                        | Methionine                          | Histidine           | Lysine                         |
+  | Leucine                           | Cysteine*                           | Phenylalanine       | Threonine                      |
+  | Valine                            |                                     | Tyrosine            |                                |
+  |                                   |                                     | Tryptophan          |                                |
+  |-----------------------------------+-------------------------------------+---------------------+--------------------------------|
+
+  Alimentos con alta concentracion de BCAAs (requerira la ingesta de 7 a 50 gr):
+   * Pescado
+   * Huevos
+   * Productos derivados de animales y lacteos (queso, leche, etc)
+   * Vegetales marinos (algas)
+   * Soja y derivados de la soja
+   E.g.: 226 gr de tofu, bacalao o gambas. Un yogurt o 28 gr de queso proveera entre el 25% y el 33% de esta cantidad.
+  Alimentos con alta concentracion de SAAs (combinando methionine+cysteina o methionina solo ya que esta ultima puede convertirse en cisteina por el cuerpo):
+   * Salmon
+   * Legumbres
+   * Frutos secos
+   * Semillas
+   * Vegetales (especialmente ajo, cebolla, puerro, o brocoli, col y similares).
+   E.g.: 112 gr de salmon o 2 tazas de la mayoria de legumbres o 224 gr de frutos secos o semillas.
+  Alimentos con alta concentracion de aminoacidos aromaticos:
+   * Frutos secos
+   * Semillas
+   * Vegetales
+   * Huevos
+   * Productos derivados de animales y lacteos (queso, leche, etc)
+   * Tofu
+   * Salmon
+   * Pollo
+   E.g.: Para el triptofano 56 gr de frutos secos o semillas, entre 112 y 168 gr de vegetales, 5 yogures, 2 huevos o 70 gr de queso o 75 gr de salmon o 56 gr de pollo.
+   E.g.: Para el phenylalanine es mas complejo: 224 gr de la mayoria de pescados y carnes, 84 gramos de la mayoria de legumbres o tofu, 168 gr de la mayoria de frutos secos o semillas. Los vegetales solo contienen un 5% por plato de la cantidad necesaria.
+  Alimentos con alta concentracion de otros aminoacidos indispensables:
+   * Legumbres
+   * Frutos secos
+   * Tofu
+   * Huevos
+   * Productos derivados de animales y lacteos (queso, leche, etc)
+   E.g.: 2 tazas de legumbres, 140 gr de frutos secos, 168 gr de tofu, 4 huevos o 112 gr de queso, 3 yogures, 112 gr de pescado o pollo.
+
+   Productos vegetarianos recomendados para todos los aminoacidos: judias, lentejas, guisantes, tofu, tempeh y otras legumbres. Asi como frutos secos, semillas, vegetales (especialmente por las vitaminas y minerales, pero cuando se toman en grandes cantidades se pueden obtener gran cantidad de aminoacidos). Las frutas, no son determinantes a la hora de adquirir aminoacidos, por ello no fueron incluidos en estas listas (por racion tan solo proveen entre el 1% y el 3% necesario).
+
+   Ingesta necesaria de aminoacidos por dia:
+
+   Miligramos por kg de peso
+   |---------------------------+------------+---------+--------+---------------------+-----------------------+-----------+------------+--------|
+   | Histidine                 | Isoleucine | Leucine | Lysine | Methionine+Cysteine | Phenlalanine+Tyrosine | Threonine | Tryptophan | Valine |
+   |---------------------------+------------+---------+--------+---------------------+-----------------------+-----------+------------+--------|
+   | 14                        |         19 |      42 |     38 |                  19 |                    33 |        20 |          5 |     24 |
+   |---------------------------+------------+---------+--------+---------------------+-----------------------+-----------+------------+--------|
+   Miligramos para una persona de 75 kg de peso
+   |-----------+------------+---------+---------+---------------------+-----------------------+-----------+------------+---------|
+   | Histidine | Isoleucine | Leucine | Lysine  | Methionine+Cysteine | Phenlalanine+Tyrosine | Threonine | Tryptophan | Valine  |
+   |-----------+------------+---------+---------+---------------------+-----------------------+-----------+------------+---------|
+   | 1050      | 1425       | 3150    | 2850    | 1425                | 2475                  | 1500      | 375        | 1800    |
+   | (~1 gr)   | (~1.5 gr)  | (~3 gr) | (~3 gr) | (~1.5 gr)           | (~2.5 gr)             | (~1.5 gr) | (~0.5 gr)  | (~2 gr) |
+   |-----------+------------+---------+---------+---------------------+-----------------------+-----------+------------+---------|
+
+
+*** Digestion, absorcion, transporte y excrecion de nutrientes
+**** Aparato digestivo
+
+ Funciones del tubo digestivo:
+  - Extraer macronuetrientes, proteinas, carbohidratos, lipidos, agua y etanol de los alimentos ingeridos.
+  - Absorber micronutrientes y oligoelementos necesarios.
+  - Actuar como barrera fisica e inmunitaria frente a microorganismos, materiales extranos y posibles antigenos.
+
+ Es capaz de absorber entre el 90 y 97% de los alimentos pero es poco eficiente en la extraccion de energia de hierbas, tallos, semillas y otros materiales fibrosos porque carecen de enzimas que hidrolizan los enlaces quimicos que unen entre si moleculas de azucares que forman las fibras vegetales.
+
+ El intestino esta configurado con un patron de pliegues, fosas y proyecciones digitiformes denominadas vellosidades.
+
+ Las celulas que recubren el tubo digestivo tienen una vida de 3-5 dias y despues son recicladas. Estas celulas son completamente funcionales los ultimos 2-3 dias.
+
+ La funcion optima del tubo digestivo humano parece depender mas de un aporte constante de alimentos que del consumo de grandes cantidades de alimentos intercalado con ayunos prolongados.
+
+**** Proceso de digestion y absorcion
+
+ - La masticacion reduce el tamano de las particulas, mezcladas con las secreciones salivares que las preparan para la deglucion.
+ - Una pequena cantidad de almidon es degradada por la amilasa salival.
+ - En el estomago el alimento se mezcla con el liquido acido y las enzimas proteoliticas y lipoliticas, produciendo pequenas cantidades de digestion de lipidos y algunas proteinas cambian de estructura o son digeridas para dar peptidos grandes.
+ - En el intestino delgado se produce la digestion, absorbiendo la mayor parte del alimento ingerido. La presencia de alimento aqui produce liberacion de hormonas, estimulando la sintesis y la liberacion de potentes enzimas desde el pancreas y el intestino delgado y de bilis desde el higado y la vesicula biliar. Asi se reducen almidones y proteinas hasta carbohidratos de menor peso molecular y peptidos de menor tamano.
+ - Las grasas se reducen desde globulos de grasa visibles hasta gotas microscopicas de trigliceridos y mas tarde hasta acidos grasos libres y monogliceridos.
+ - Las enzimas del borde en cepillo del intestino delgado reducen aun mas los carbohidratos a monosacaridos y los peptidos a aminoacidos unicos, dipeptidos y tripeptidos.
+ - Secreciones salivares, gastricas y secreciones del pancreas el intestino delgado y la vesicula biliar contribuyen con 7-9L de liquido al dia.
+ - El movimiento del material ingerido y secretado esta regulado principalmente por hormonas peptidicas, nervios y musculos entericos.
+ - A lo largo del restante intestino delgado se absorben casi todos los macronutrientes, minerales, vitaminas, oligoelementos y liquido antes de llegar al intestino grueso (colon).
+ - El colon y el recto absorben la mayor parte de liquidos restantes. Absorben electrolitos y pequenas cantidades de nutrientes restantes.
+ - La mayoria de nutrientes absorbidos por el tubo digestivo se dirige hacia el higado a traves de la vena porta, donde se pueden almancenar, transformar en otras sustancias o ser liberados hacia la circulacion.
+ - Los productos terminales de la mayor parte de las grasas se transportan en ultimo termino hacia el torrente sanguineo a traves de la circulacion linfatica.
+ - La flora colonica tiene la funcion de fermentar de parte de la fibra restante, el almidon resistente, los azucares y los aminoacidos.
+ - La fermentacion de los carbohidratos restantes da lugar a la sintesis de Acidos Grasos de Cadena Corta (AGCC) y gas.
+ - Los AGCC ayudan a mantener la funcion normal de la mucosa y rescatan una pequena cantidad de energia de los sustratos residuales y facilitan la absorcion del resto de la sal y el agua.
+ - Los sustratos restantes, especialmente fibras elementales, actuan como material prebiotico sintatizando AGCC, reduciendo el pH colonico y aumentando la masa de bacterias utiles.
+
+ La digestion del alimento se consigue por la hidrolisis dirigida por las enzimas. El acido clorhidrico, la bilis y el bicarbonato socido favorecen los procesos de digestion y absorcion
+
+ El movimiento del tubo digestivo incluye contraccion, mezclado y propulsion del contenido luminal como resultado de la actividad coordinada de los nervios entericos, nervios extrinsecos, celulas endocrinas y el musculo liso.
+
+ Los neurotransmisores y los neuropeptidos con pesos moleculares pequenos envian senales a los nervios para que contraigan o relajen los musculos, aumenten o reduzcan las secreciones de liquidos o modifiquen el flujo sanguineo. De esta forma el tubo digestivo regula en gran medida su propia motilidad y actividad secretora.
+
+Digestion enzimatica en la absorcion:
+
+|------------------------------------------+----------------------------------------------+-----------------------------+-------------------------------------------------+----------------------------------------------|
+| Secrecion y origen                       | Enzimas                                      | Sustrato                    | Accion y productos resultantes                  | Productos finales absorbidos                 |
+|------------------------------------------+----------------------------------------------+-----------------------------+-------------------------------------------------+----------------------------------------------|
+| Saliva de las glandulas salivares        | Ptialina                                     | Almidon                     | Hidrolisis para formar dextrinas                | -                                            |
+|                                          |                                              |                             | y oligosacaridos ramificados                    |                                              |
+|------------------------------------------+----------------------------------------------+-----------------------------+-------------------------------------------------+----------------------------------------------|
+| Jugo gastrico de las glandulas gastricas | Pepsina                                      | Proteinas                   | Hidrolisis de los enlaces peptidicos            | -                                            |
+| de la mucosa del estomago                |                                              |                             | para formar polipeptidos y aminoacidos          |                                              |
+|------------------------------------------+----------------------------------------------+-----------------------------+-------------------------------------------------+----------------------------------------------|
+|                                          | Lipasa gastrica                              | Grasa de cadena corta       | Hidrolisis para formar acidos grasos            | -                                            |
+|                                          |                                              |                             | libres                                          |                                              |
+|------------------------------------------+----------------------------------------------+-----------------------------+-------------------------------------------------+----------------------------------------------|
+| Secreciones exocrinas del pancreas       | Lipasa                                       | Grasa                       | Hidrolisis para formar monogliceridos y         | Acidos grasos hacia las celulas de la mucosa |
+|                                          |                                              |                             | acidos grasos, incorporandose a las micelas     | reesterificandose como trigliceridos         |
+|------------------------------------------+----------------------------------------------+-----------------------------+-------------------------------------------------+----------------------------------------------|
+|                                          | Colesterol esterasa                          | Colesterol                  | Hidrolisis para formar esteres de colesterol    | Colesterol hacia las celulas de la mucosa;   |
+|                                          |                                              |                             | y acidos grasos incorporandose a las micelas    | se transfiere a los quilomicrones            |
+|------------------------------------------+----------------------------------------------+-----------------------------+-------------------------------------------------+----------------------------------------------|
+|                                          | α-amilasa                                    | Almidon y dextrinas         | Hidrolisis para formar dextrinas y maltosa      | -                                            |
+|------------------------------------------+----------------------------------------------+-----------------------------+-------------------------------------------------+----------------------------------------------|
+|                                          | Tripsina                                     | Proteinas y polipeptidos    | Hidrolisis de los enlaces peptidicos internos   | -                                            |
+|                                          | (tripsinogeno activado)                      |                             | para formar polipeptidos                        |                                              |
+|------------------------------------------+----------------------------------------------+-----------------------------+-------------------------------------------------+----------------------------------------------|
+|                                          | Quimotripsina                                | Proteinas y peptidos        | Hidrolisis de los enlaces peptidicos internos   | -                                            |
+|                                          | (quimotripsinogeno activado)                 |                             | para formar polipeptidos                        |                                              |
+|------------------------------------------+----------------------------------------------+-----------------------------+-------------------------------------------------+----------------------------------------------|
+|                                          | Carboxipeptidasa                             | Polipeptidos                | Hidrolisis de los enlaces peptidicos terminales | Aminoacidos                                  |
+|                                          |                                              |                             | (extremo carboxilico) para formar aminoacidos   |                                              |
+|------------------------------------------+----------------------------------------------+-----------------------------+-------------------------------------------------+----------------------------------------------|
+|                                          | Ribonucleasa y desoxirribonucleasa           | Acidos ribonucleicos y      | Hidrolisis para formar mononucleotidos          | Mononucleotidos                              |
+|                                          |                                              | acidos desoxirribonucleicos |                                                 |                                              |
+|------------------------------------------+----------------------------------------------+-----------------------------+-------------------------------------------------+----------------------------------------------|
+|                                          | Elatasa                                      | Proteina fibrosa            | Hidrolisis para formar peptidos y aminoacidos   | -                                            |
+|------------------------------------------+----------------------------------------------+-----------------------------+-------------------------------------------------+----------------------------------------------|
+| Enzimas del intestino delgado            | Carboxipeptidasa, aminopeptidasa y peptidasa | Polipeptidos                | Hidrolisis de los enlaces peptidos de los       | Aminoacidos                                  |
+|                                          |                                              |                             | extremos carboxilico o amino o internos         |                                              |
+|------------------------------------------+----------------------------------------------+-----------------------------+-------------------------------------------------+----------------------------------------------|
+|                                          | Enterocinasa                                 | Tripsinogeno                | Activa la tripsina                              | Dipeptidos y tripeptidos                     |
+|------------------------------------------+----------------------------------------------+-----------------------------+-------------------------------------------------+----------------------------------------------|
+|                                          | Sacarasa                                     | Sacarosa                    | Hidrolisis para formar glucosa y fructosa       | Glucosa y fructosa                           |
+|------------------------------------------+----------------------------------------------+-----------------------------+-------------------------------------------------+----------------------------------------------|
+|                                          | α-dextrinasa (isomaltasa)                    | Dextrina (isomaltosa)       | Hidrolisis para formar glucosa                  | Glucosa                                      |
+|------------------------------------------+----------------------------------------------+-----------------------------+-------------------------------------------------+----------------------------------------------|
+|                                          | Maltasa                                      | Maltosa                     | Hidrolisis para formar glucosa                  | Glucosa                                      |
+|------------------------------------------+----------------------------------------------+-----------------------------+-------------------------------------------------+----------------------------------------------|
+|                                          | Lactasa                                      | Lactosa                     | Hidrolisis para formar glucosa y galactosa      | Glucosa y galactosa                          |
+|------------------------------------------+----------------------------------------------+-----------------------------+-------------------------------------------------+----------------------------------------------|
+|                                          | Nucleotidasas                                | Acidos nucleicos            | Hidrolisis para formar nucleotidos y fosfatos   | Nucleotidos                                  |
+|------------------------------------------+----------------------------------------------+-----------------------------+-------------------------------------------------+----------------------------------------------|
+|                                          | Nucleotidasa y fosforilasa                   | Nucleosidos                 | Hidrolisis para formar purinas, pirimidinas     | Bases purinicas y pirimidinicas              |
+|                                          |                                              |                             | y pentosa fosfato                               |                                              |
+|------------------------------------------+----------------------------------------------+-----------------------------+-------------------------------------------------+----------------------------------------------|
+
+Neurotransmisores y sus acciones:
+
+|------------------------------+--------------------------------------------------------------------+---------------------------------------------------------------------------------------------|
+| Neurotransmisor              | Punto de liberacion                                                | Acciones principales                                                                        |
+|------------------------------+--------------------------------------------------------------------+---------------------------------------------------------------------------------------------|
+| Acido α-aminobutirico (GABA) | Sistema nervioso central                                           | Relaja el esfinter esofagico inferior                                                       |
+|------------------------------+--------------------------------------------------------------------+---------------------------------------------------------------------------------------------|
+| Noradrenalina                | Sistema nervioso central, medula espinal, nervios simpaticos       | Reduce la motilidad, aumenta la contraccion de los esfinteres, inhibe las secreciones       |
+|------------------------------+--------------------------------------------------------------------+---------------------------------------------------------------------------------------------|
+| Acetilcolina                 | Sistema nervioso central, sistema nervioso autonomo, otros tejidos | Aumenta la motilidad, relaja los esfinteres, estimula la secrecion                          |
+|------------------------------+--------------------------------------------------------------------+---------------------------------------------------------------------------------------------|
+| Neurotensina                 | Tubo digestivo, sistema nervioso central                           | Inhibe la liberacion del vaciado gastrico y la secrecion de acido                           |
+|------------------------------+--------------------------------------------------------------------+---------------------------------------------------------------------------------------------|
+| Serotonina (5-HT)            | Tubo digestivo, medula espinal                                     | Facilita la secrecion y el peritaltismo                                                     |
+|------------------------------+--------------------------------------------------------------------+---------------------------------------------------------------------------------------------|
+| Oxido nitrico                | Sistema nervioso central, tubo digestivo                           | Regula el flujo sanguineo, mantiene el tono muscular, mantiene la actividad motora gastrica |
+|------------------------------+--------------------------------------------------------------------+---------------------------------------------------------------------------------------------|
+| Sustancia P                  | Intestino, sistema nervioso central, piel                          | Aumenta la conciencia sensitiva (principalmente dolor) y el peritaltismo                    |
+|------------------------------+--------------------------------------------------------------------+---------------------------------------------------------------------------------------------|
+
+Hormonas neuropeptidicas:
+
+La regulacion del aparato digestivo implica a numerosas hormonas que pueden actuar localmente (con mecanismo autocrino o paracrino) o a distancia (endocrino). Existen mas de 100 hormonas peptidicas secretados por mas de 30 celulas diferentes neuroendodrinas, actuando algunas de ellas como neurotransmisores entre neuronas. Afectan al crecimiento, sintesis de ADN, proliferacion, secrecion, movimiento o metabolismo de las celulas del tubo digestivo.
+
+ - Gastrina: es una hormona que estimula las secreciones y la motilidad del estomago. Es secretada principalmente por las celulas G endocrinas de la mucosa antral del estomago.
+   secrecion: iniciada por distension del antro despues de una comida, impulsos procedentes del nervio vago (como los que se desencadenan por el olor o vista de alimentos), o por la presencia de en el antro de secretagogos como proteinas digeridas parcialmente, bebidas alcoholicas fermentadas, cafeina o extractos de alimentos. Cuando la luz se hace mas acida, la retroalimentacion en la que participan otras hormonas inhibe la liberacion de gastrina. La gastrina se une a receptores de las celulas parietales y las celulas liberadores de histamina para estimular el acido gastrico, a receptores de las celulas principales para liberar pepsinogeno y a receptores del musculo liso para aumentar la motolidad gastrica.
+
+ - Secretina: es liberada por las celulas S de la pared intestinal del intestino delgado proximal hacia el torrente sanguineo.
+   secrecion: en respuesta al acido gastrico y a los productos finales de la digestion en el duodeno. Estimula al pancreas para que secrete agua y bicarbonato hacia el duodeno e inhibe la secrecion gastrica de acido y el vaciado gastrico. La neutralizacion de la acidez protege a la mucosa duodenal de la exposicion prolongada al acido y proporciona el entorno adecuado para la actividad de las enzimas intestinales y pancreaticas. El receptor es un receptor acoplado a la proteina G con siete dominios transmembranarios y se encuentra en el estomago y en las celulas ductales y acinares del pancreas.
+
+ - Colecistocinina (CCK): es un importante hormona multifuncional, entre sus funciones se encuentran: estimular al pancreas para que secrete enzimas (y en menor medida bicarbonato y agua), estimular la contraccion de la vesicula biliar, estimular la motilidad colonica y rectal, y aumentar la saciedad.
+   secrecion: celulas I de la mucosa del intestino delgado la secretan en respuesta ante la presencia de proteinas y grasas. Habiendo receptores de la CCK en las celulas acinares pancreaticas, en las celulas de los islotes pancreaticos, en las celulas D gastricas liberadoras de la somatostanina, en las celulas musculares lisas del tubo digestivo y en el sistema nervioso central.
+
+ - Peptido similar al glucagon-1 (GLP-1) y el polipeptido insulinotropico dependiente de glucosa (GIP): estimulan la sintesis y la liberacion de insulina. El GPL-1 tambien reduce la secrecion de glucagon, retrasa el vaciado gastrico y puede ayudar a favorecer la saciedad. El GPL-1 y el GIP son hormonas incretinas, que contribuyen a evitar que la glucosa sanguinea aumente excesivamente despues de una comida.
+   secrecion: liberados por la mucosa intestinal en presencia de comidas ricas en glucosa y grasa
+
+ - Motilina: liberada hacia el duodeno por las celulas de la parte proximal del intestino delgado. Aumenta la velocidad del vaciado gastrico y estimula la motilidad del tubo digestivo. Actua sobre sobre receptores acoplados a la proteina G de las neuronas entericas del duodeno y del colon y estimula la contraccion del musculo liso del estomago.
+   secrecion: en respuesta a la bilis y a las secreciones pancreaticas.
+
+ - Somatostatina: Es una hormona con acciones de gran alcance, siendo sus funciones inhibidoras y antisecretoras. Reduce la motilidad del estomago y del intestino e inhibe o regula la liberacion de varias hormonas digestivas
+   secrecion: liberada por las celulas D del antro y del piloro.
+
+Funciones de las principales hormonas digestivas:
+
+|-----------------------+--------------------------------------+----------------------------------------------------------------------------------------------------+-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Hormona               | Lugar de liberacion                  | Estimulantes de la liberacion                                                                      | Organo afectado                     | Efecto sobre el organo                                                                                                                                  |
+|-----------------------+--------------------------------------+----------------------------------------------------------------------------------------------------+-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Gastrina              | Mucosa gastrica, duodeno             | peptidos, aminoacidos, cafeina, distension del antro. Bebidas alcoholicas fermentadas, nervio vago | Estomago, esofago, tubo digestivo.  | Estimula la secrecion del acido clorhidrico (HCI) y pepsinogeno. Aumenta la motilidad antral gastrica. Aumenta el tono del esfinter esofagico inferior. |
+|                       |                                      |                                                                                                    | Vesicula biliar.                    | Estimula debilmente la contraccion de la vesicula biliar.                                                                                               |
+|                       |                                      |                                                                                                    | Pancreas.                           | Estimula debilmente la secrecion pancreatica de bicarbonato.                                                                                            |
+|-----------------------+--------------------------------------+----------------------------------------------------------------------------------------------------+-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Secretina             | Mucosa duodenal                      | Acido en el intestino delgado                                                                      | Pancreas.                           | Aumenta la liberacion de H2O y bicarbonato. Aumenta la secrecion de algunas enzimas por el pancreas y la liberacion de insulina.                        |
+|                       |                                      |                                                                                                    | Duodeno.                            | Reduce la motilidad.                                                                                                                                    |
+|-----------------------+--------------------------------------+----------------------------------------------------------------------------------------------------+-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Colecistocinina (CCK) | Intestino delgado proximal           | Peptidos, aminoacidos, grasas, HCI                                                                 | Pancreas.                           | Estimula la secrecion de enzimas pancreaticas.                                                                                                          |
+|                       |                                      |                                                                                                    | Vesicula biliar.                    | Produce contraccion de la vesicula biliar.                                                                                                              |
+|                       |                                      |                                                                                                    | Estomago.                           | Retrasa el vaciado gastrico.                                                                                                                            |
+|                       |                                      |                                                                                                    | Colon.                              | Aumenta la motilidad. Puede mediar la conducta alimentaria.                                                                                             |
+|-----------------------+--------------------------------------+----------------------------------------------------------------------------------------------------+-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| GIP                   | Intestino delgado                    | Glucosa, grasa                                                                                     | Estomago, pancreas.                 | Estimula la liberacion de la insulina.                                                                                                                  |
+|-----------------------+--------------------------------------+----------------------------------------------------------------------------------------------------+-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| GLP-1                 | Intestino delgado                    | Glucosa, grasa                                                                                     | Estomago, pancreas.                 | Prolonga el vaciado gastrico. Inhibe la liberacion del glucagon. Estimula la liberacion de la insulina                                                  |
+|-----------------------+--------------------------------------+----------------------------------------------------------------------------------------------------+-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Motilina              | Estomago, intestino delgado y grueso | Secreciones biliares y pancreaticas                                                                | Estomago, intestino delgado, color. | Estimula el vaciado gastrico y la motilidad digestiva.                                                                                                  |
+|-----------------------+--------------------------------------+----------------------------------------------------------------------------------------------------+-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+Digestion en la boca: Los dientes muelen y trituran el alimento. Al mismo tiempo la masa es humedecida y lubricada por la saliva. 3 pares de glandulas salivares (parotidas, submandibulares y sublinguales) producen 1.5 L de saliva al dia. Una secrecion serosa que contiene amilasa (ptialina) comienza la digestion del almidon. La amilasa se inactiva cuando llega al contenido acido del estomago. Otro tipo de saliva contiene moco, una proteina que hace que las particulas de alimento se ahdieran entre si y lubrica la masa para su deglucion. Las secreciones orofaringeas tambien contienen una lipasa, que es capaz de digerir algunas grasas. La masa de alimento masticada pasa entonces a la zona posterior de la faringe bajo control voluntario, pero en todo el esofago el proceso de deglucion es involuntario. Despues el peritaltismo mueve el alimento hacia el estomago.
+
+Digestion en el estomago: Los alimentos son propulsados en direccion retrogada y se mezclan con las secreciones gastricas por contracciones ondulatorias hacia adelante desde la porcion superior del estomago (fondo) hasta la porcion media (cuerpo) y posteriormente hasta el antro y el piloro. En el estomago las secreciones gastricas se mezclan con los alimentos y las bebidas. Las secreciones gastricas contienen acido clorhidrico (secretado por las celulas parietales de las paredes del fondo y del cuerpo), una proteasa, la lipasa gastrica, moco, factor intrinseco (una glucoproteina que facilita la absorcion de la vitamina B12 en el ileon). y la hormona digestiva gastrina. La proteasa es pepsina y es secretada por las glandulas del fondo y del cuerpo, primero en forma inactiva, pepsinogeno, que por el acido clorhidrico se convierte en forma activa. La pepsina modifica tamano y forma de algunas de las proteinas de una comida normal. Una lipasa estable en el medio acido es secretada hacia el estomago por las celulas principales y contribuye al procesado global de los trigliceridos. En el proceso de la digestion gastrica la mayor parte del alimento se convierte en quimo semiliquido, conteniendo un 50% de agua aprox. Las secreciones gastricas son importantes para aumentar la disponibilidad y absorcion distal de vitamina B12 y algunos metales y oligoelementos como calcio, hierro y cinc. El acido del estomago es PH 1 a 4, que combinado con las enzimas proteoliticas del estomago dan lugar a una reudccion de microorganismos ingeridos. El estomago mezcla y agita continuamente el alimento, con cada contraccion del piloro y del antro, vaciandose la comida liquida en 1-2 horas y la solida en 2-3 horas. Los carbohidratos son los primeros que salen del estomago, seguidos por las proteinas, grasas y alimentos con fibra. Aunque en comidas mixtas este orden depende del volumen global y caracteristicas de los alimentos. Los liquidos se vacian antes que los solidos, las particulas pequenas antes que las grandes, el alimento diluido antes que el concentrado en calorias, El esfinter esofagico inferior, impide el flujo del contenido gastrico hacia el esofago, y el esfinter pilorico de la porcion distal del estomago ayuda a regular la salida del contenido gastrico e impide el flujo retrogrado del quimo desde el duodeno hacia el estomago.
+
+Digestion en el intestino delgado: es el principal punto de digestion de los alimentos y nutrientes. Se divide en duodeno, yeyuno e ileon. El quimo acido procedente del estomago entra en el duodeno, mezclandose con los jugos duodenales y con las secreciones del pancreas y del sistema biliar. Como consecuencia de la secrecion del liquido que contiene bicarbonato desde el pancreas y la dilucion por las demas secreciones, se neutraliza el quimo acido. La entrada de alimentos digeridos parcialmente, pricipalmente grasas y proteinas, estimula la liberacion de diversas hormonas que a su vez estimulan la secrecion de enzimas y liquidos y afectan a la motilidad digestiva y a la saciedad. La bilis, que es principalmente una mezcla de agua, sales biliares y cantidades pequenas de pigmentos y colesterol, es secretada desde el higado y la vesicula biliar. Gracias a sus propiedades tensioactivas, las sales biliares facilitan la digestion y absorcion de los lipidos. El pancreas secreta protentes enzimas (lipasa pancreatica y colipasa) capaces de digerir todos los nutrientes principales, y las enzimas del intestino delgado contribuyen a finalizar el proceso. Las enzimas proteoliticas, incluyen tripsina, quimotripsina, carboxipeptidasa, aminopeptidasa, ribonucleasa y desoxirribonucleasa. La tripsina y la quimotripsina son secretadas en sus formas inactivas y se activan por la enterocinasa (o enteropeptidasa), que se secreta cuando el quimo entra en contacto con la mucosa intestinal. La amilasa pancreatica tiene como funcion hidrolizar las grandes moleculas de almidon finalmente hasta unidades aproximadamente dos a seis azucares. Las enzimas que recubren el borde en cepillo de las vellosidades producen una hidrolisis adicional de las moleculas de carbohidratos para dar lugar a monosacaridos antes de su absorcion. Una cantidad variable de almidones resistentes y la mayor parte de la fibra de la dieta ingerida escapan a la digestion en el intestino delgado y pueden contribuir al material fibroso disponible para la fermentacion por los microorganismos colonicos. El contenido intestinal avanza a 1 cm por minuto tardando de 3 a 8 horas en recorrer todo el intestino delgado hasta la valcula ileocecal, mientras que a lo largo del trayecto los sustratos restantes siguen siendo digeridos y absorbidos. La valvula ileocecal, como la valcula pilorica, sirve para limitar el paso de material intestinal en ambos sentidos entre en intestino delgado y el colon.
+
+
+**** Intestino delgado
+
+El intestino delgado tiene pliegues en su superficie llamados valvulas conniventes, que estan recubiertas de microvellosidades o borde de cepillo. Las vellosidades descansan sobre una estructura de soporte llamada lamina propia, que esta formada por tejido conjuntivo, sangre y vasos linfaticos. Dentro de la lamina propia se reciben los productos de la digestion, absorbiendo 150-300 gr de monosacaridos, 60-100 gr de acidos grasos, 60-120 gr de aminoacidos y peptidos, y 50-100 gr de iones de promedio. Sobre el 95% de las sales biliares secretadas por el higado y por la vesicula biliar son reabsorbidas en forma de acidos biliares en el ileon distal. El ileon distal tambien es el punto de absorcion de la vitamina B12 con el factor intrinseco.
+
+La emulsificacion de las grasas en el intestino delgado es seguida por su digestion, principalmente por la lipasa pancreatica para dar acidos grasos libres y Beta-monogliceridos. La lipasa pancreatica tipicamente escinde el primer y el tercer acido graso, dejando uno unido al carbono medio del glicerol. Cuando la concentracion de sales biliares alcanza un nivel determinado, se forman micelas (complejos de acidos grasos libres, monogliceridos y sales biliares), que se organizan con los extremos polares de las moleculas orientados hacia la luz acuosa del intestino. Los productos de la digestion lipidica se solubilizan rapidamente en la procion central de las micelas y son transportados hacia la zona del borde en cepillo.
+
+En la superficie del CAE (Capa Acuosa Estatica), que es la placa ligeramente acida y acuosa que forma el limite entre la luz intestinal y las membranas del borde del cepillo, los lipidos se separan en micelas, y los restos de las micelas vuelven a la luz por un transporte posterior. Dejando asi los monogliceridos y los acidos grasos sigan su trayecto a traves de la CAE lipofoba hacia las membranas celulares mas lipofilas del borde del cepillo. Cuando llegan, son captadas rapidamente para su procesado y su entrada en el sistema de transporte. La absorcion de colesterol se puede realizar mediante transferencia pasiva y facilitada, que implica a un sistema de proteina transportadora especifica del colesterol y no de otros esteroles.
+
+La absorcion es un proceso muy complejo, que combina el proceso mas intrincado de transporte activo y de difusion pasiva, en el cual los nutrientes atraviesan las celulas de la mucosa intestinal (enterocitos o colonocitos) y finalmente se dirigen hacia la circulacion linfatica o por el sistema venoso hacia el higado. La difusion supone el movimiento aleatorio a traves de aberturas de las membranas de las paredes de las celulas mucosas o entre las mismas utilizando proteinas de canales (difusion simple) o proteinas transportadoras (transporte), como una forma de difusion facilitada.
+
+El transporte activo supone la aportacion de energia para desplazar los iones y otras sustancias, en combinacion con una proteina transportadora, a traves de una membrana contra un gradiente de energia. Algunos nutrientes pueden compartir el mismo transportador y por tanto computen por su absorcion. Los sistemas de transporte tambien se pueden saturar retrasando la absorcion del nutriente. Un ejemplo de un transportador de este tipo es el factor intrinseco.
+
+Algunas moleculas se desplazan desde la luz intestinal hacia las celulas mucosas por medio de bombas, que precisan un transportador y energia procedente del trifosfato de adenosina. La absorcion de la glucosa, sodio, galactosa, potasio, magnesio, fosfato, yoduro, calcio, hierro y los aminoacidos, se produce de esta forma.
+
+La pinocitosis, es la absorcion de una gota pequena de contenido intestinal por parte de la membrana de la celula epitelial. Permite asi que se absorban particulas grandes, como proteinas enteras y en cantidades pequenas.
+
+**** Intestino grueso
+
+El intestino grueso es la localizacion de la absorcion del resto del agua y de las sales, de la fermentacion bacteriana, de la sintesis de una pequena cantidad de vitaminas, de almacenamiento y de excrecion. Esta formado por el ciego, colon y recto.
+
+El moco secretado por la mucosa del intestino grueso protege a la pared intestinal de la escoriacion y la actividad bacteriana y proporciona un medio para la aglutinacion de las heces. Los iones de bicarbonato que se secretan intercambiandolos por los iones de cloruro absorbidos contribuyen a neutralizar los productos finales acidos que produce la accion bacteriana. Se absorbe la mayor parte del agua y el contenido colonico se mueve en direccion anterograda a una velocidad de 5 cm/hora pudiendo absorber algunos nutrientes que persistan.
+
+La defecacion es variable de 3 veces al dia hasta 1 vez por cada 3 dias. El tiempo de transito desde la ingesta por la boca hasta el ano puede variar desde 18 hasta las 72 horas.
+
+Accion bacteriana: la microflora intestinal forma una comunidad que se estima que incluye 400 especies de microorganismos. Los lactobacillus son el principal componente en el tubo digestivo. Mas tarde Escherichia coli se hace predominante en el ileon distal, formada principalmente por anaerobios, de los cuales los mas frecuentes son los Bacteroides. Tambien hay lactobacilos en las heces. Generalmente quedan escasas bacterias por las acciones del acido clorhidrico, la pepsina y la bilis como agente germicida. Las bacterias colonicas contribuyen a la formacion de gases (hidrogeno, dioxido de carbono, nitrogeno y en algunos casos metano) y AGCC (acidos acetico, propionico, butirico y lactico). Las bacerias colonicas continuan la digestion de algunos materiales, durante este proceso forman varios nutrientes mediante sintesis bacteriana, como por ejemplo Vitamina K, B12, tiamina y riboflavina.
+
+Una dieta basada en carne, grasa y carbohidratos muy digeribles da lugar a un mayor cociente de bacterias putrefactivas o potecialmente perjudiciales como Pseudomonas, Clostridium, E. coli y Proteus.
+
+Los alimentos probioticos son alimentos concentrados que contienen cantidades muy elevadas de bacterias que se consideran saludables o protectoras frente a microorganismos patogenos y las enfermedades. La accion bacteriana tambien puede dar lugar a la formacion de sustancias potencialmente toxicas como amoniaco, indoles, aminas y compuestos fenolicos como indolacetato, tiramina, histamina y cresol.
+
+Despues de salir del intestino delgado, quedan en el quimo algunas pequenas cantiades de carbohidratos de bajo peso molecular y aminoacidos. La eliminacion de los sustratos residuales mediante la sintesis de AGCC se denomina rescate colonico. Los AGCC que se producen por la fermentacion se absorben rapidamente y arrastran agua con ellos. Tambien actuan como combustible para los colonocitos y los microorganismos intestinales, estimulan la proliferacion y la diferenciacion de los colonocitos, estimulan la absorcion de electrolitos y agua y reducen la carga osmotica de los azucares no absorbidos. Tambien pueden ayudar a retrasar el movimiento del contenido digestivo y participan en otras diversas funciones reguladoras.
+
+Las recomendaciones actuales proponen el consumo de entre 24 y 38 gr de fibra dietetica al dia procedente de frutas, verduras, legumbres, semillas y granos enteros para:
+
+ 1. Mantener la salud de las celulas que revisten el colon.
+ 2. Prevenir una presion intracolonica excesiva.
+ 3. Prevenir el estrenimiento y mantener una poblacion microbiana estable y saludable.
+
+***** Digestion y absorcion de tipos especificos de nutrientes
+
+ Carbohidratos y fibra
+ ---------------------
+
+ Se consumen la mayor parte mediante almidones, disacaridos y monosacaridos. Los almidones son moleculas grandes formadas por cadenas rectas o ramificadas de moleculas de azucar que estan unidas entre si. La fibra de la dieta tambien esta formada principalmente por cadenas y ramas de moleculas de azucar. Los seres humanos tienen la capacidad de digerir el almidon, pero no la mayor parte de las formas de fibra.
+
+ La enzima amilasa salivar (ptialina), con pH neuro o ligeramente alcalino, comienza la accion digestiva hidrolizando una pequena cantidad de moleculas de almidon para obtener fragmentos mas pequenos. La amilasa se inactiva despues en contacto con el acido clorhidrico.
+
+ La amilasa pancreatica hidroliza las grandes moleculas de almidon para dar lugar a maltosa, maltotriosa y dextrinas de <<alfa-limite>> procedentes de las ramas de la amilopectina. Las enzimas del borde del cepillo de los enterocitos hidrolizan aun mas los disacaridos y los oligosacaridos para obtener monosacaridos.
+
+ Los monosacaridos resultantes (glucosa, galactosa y fructosa) atraviesan las celulas de la mucosa y pasan hacia el torrente sanguineo a traves de los capilares de las vellosidades, desde donde son transportados por la vena porta hasta el higado. A concentraciones baja de glucosa y galactosa se absorben mediante transporte activo, principalmente por un transportador dependiente del sodio, el contransportador de glucosa (galactosa) (SGLT1). A mayores concentraciones luminales de glucosa, GLUT 2 se convierte en el principal transportador facilitador hacia el interior de la celula intestinal. La fructosa se absorbe mas lentamente y utiliza GLUT 5 y el transportador facilitador desde la luz. Se utiliza GLUT 2 para transportar tanto glucosa como fructosa a traves de las celulas intestinales hacia la sangre.
+
+El transporte de los monosacaridos dependiente de sodio es el motivo por el que se utilizan bebidas con sodio y glucosa para rehidratar a los lactantes con diarrea y a los atletas que han perdido demasiado liquido. La glucosa se transporta desde el higado hacia los tejidos, aunque parte de ella se almacena en el higado y en los musculos en forma de glucogeno. La mayor parte de la fructosa al igual que la galactosa, es transportada hacia el higado, donde se convierte en glucosa.
+
+ Hidrolisis gradual de grandes moleculas de almidon en glucosa por las enzimas digestivas:
+
+    Moleculas de almidon --> moleculas de dextrina --> moleculas de dextrina de menor tamano --> moleculas de dextrina de menor tamano --> moleculas de dextrina de menor tamano aumentando el numero de moleculas de maltosa --> moleculas de glucosa
+                             (hidro. enzima salival)   (hidro. enzima salival)                   (hidro. enzima pancreatica)               (hidro. enzima intestinal)
+
+ Algunas formas de carbohidratos no pueden ser absorbidas por los seres humanos porque ni la amilasa salivar ni la pancreatica tienen la capacidad de hidrolizar los enlaces beta1-2 y beta1-4 que conectan los azucares que la constituyen: celulosa, hemicelulosa, pectina, goma y otras formas de fibra no pueden ser absorbidas.
+
+ Proteinas
+ ---------
+
+ En general las proteinas animales se digieren con mayor eficiencia que las vegetales. La digestion de las proteinas comienza en el estomago, donde algunas de las proteinas son hidrolizadas para dar proteosas, peptonas y polipeptidos grandes. El pepsinogeno inactivo se convierte en la enzima pepsina cuando entra en contacto con el acido clorhidrico y con otras moleculas de pepsina. Al contrario que cualquiera de las demas enzimas proteoliticas, la pepsina digiere el colageno, que es la principal proeina del tejido conectivo. La mayor parte de de la digestion de las proteinas tiene lugar en la procion superior del intestino delgado, aunque continua durante todo el tubo digestivo.
+
+ +-------------------------------------------------------------------------------+
+ |                                  Almidon                                      |
+ |                                                                               |
+ |                                                                               |
+ | Sacarosa     Dextrina          Matotriosa       Maltosa        Lactosa        |  Luz intestinal
+ |    |    \             \            |             /            /   |           |
+ |    v     \-------------------\     |     /-------------------     v           |
+ | Fructosa                        Glucosa          Na+         Galactosa        |
+ |    |                               |         /        \          |            |
+ +--GLUT 5                          SGLT 1                   -   SGLT 1----------+
+ |                                                                               |
+ |                                                                               |
+ | Fructosa                        Glucosa                      Galactosa        |  Interior del enterocito
+ |                                                                               |
+ |                                                                               |
+ +--------------  GLUT 2                          GLUT 2-------------------------+
+ |                   |                              |                            |
+ |                   v                              v                            |  Hacia la luz intestinal
+ |                                                                               |
+ +-------------------------------------------------------------------------------+
+
+ El contacto entre el quimo y la mucosa intestinal estimula la liberacion de enterocinasa, una enzima que transforma el tripsinogeno pancreatico inactivo en tripsina activa, que es la principal enzima pancreatica que digiere proteinas. La tripsina a su vez, activa a las demas enzimas proteoliticas pancreaticas. La tripsina, la quimotripsina y el carboxipeptidasa pancreaticas escinden proteinas intactas y continuan la escision que comenzo en el estomago hasta que se forman polipeptidos pequenos y aminoacidos.
+
+ Las peptidasas proteoliticas localizadas en el borde del cepillo tambien actuan sobre los polipeptidos, escindiendolos para dar aminoacidos, dipeptidos y tripeptidos.  La fase final de la digestion de las proteinas tiene lugar en el borde en cepillo, donde algunos de los dipeptidos y tripeptidos son hidrolizados hasta los aminoacidos que lo forman por las hidrolasas peptidicas.
+
+ Los productos finales de la digestion de la digestion de las proteinas se absorben en forma de aminoacidos y de peptidos pequenos. Son necesarias varias moleculas transportadoras para los diferentes aminoacidos, debido a las diferencias de tamano, polaridad y configuracion de los diferentes aminoacidos. Tambien se absorben grandes cantidades de dipeptidos y tripeptidos hacia las celulas intestinales utilizando un transportador peptidico (PEPT1), siendo una forma de transporte activo. Los peptidos y aminoacidos absorbidos son tranportados despues hasta el higado a traves de la vena porta para su metabolismo por el higado y son liberados hacia la circulacion general. Finalmente solo se encuentra el 1% de las proteinas ingeridas en la fase final del yeyuno.
+
+ Lipidos
+ -------
+
+ El 97% de los lipidos de la dieta estan formados por trigliceridos, el resto por fosfolipidos y colesterol. Pequenas cantidades de grasa son digeridas en la boca por la lipasa lingual y en el estomago por la accion de lipasa gastrica (tributirinasa). La mayor parte de la digestion de las grasas tiene lugar en el intestino delgado por la accion de la lipasa pancreatica.
+
+ La entrada de grasas y proteinas en el intestino delgado estimula la liberacion de CCK y enterograstrona, que inhiben las secreciones y la motilidad del estomago, retrasando la liberacion de los lipidos. Entre otras funciones, la CCK estimula la secrecion biliar y pancreatica. La combinacion de la accion peristaltica del intestino delgado y de la accion tensioactiva y emulsionante de la bilis reduce los globulos de grasa hasta gotitas pequenas, haciendo la digestion mas accesible desde la enzima mas potente que digiere los lipidos, la lipasa pancreatica.
+
+ La bilis es una secrecion hepatica formada por acidos biliares, pigmentos biliares, sales inorganicas, algunas proteinas, colesterol, lecitina y compuestos como farmacos destoxificados que son metabolizados y secretados por el higado.
+
+ Los acidos grasos libres y los monogliceridos que se producen por la digestion forman complejos con las sales biliares denominados micelas. Las micelas facilitan el paso de los lipidos a traves del entorno acuoso de la luz intestinal hasta el borde en cepillo. Las micelas liberan los componentes lipidicos y vuelven a la luz intestinal. La mayor parte de las sales biliares son reabsorbidas de forma activa en el ileon terminal y vuelven al higado para volver a entrar en el tubo digestivo con las secreciones biliares (este fenomeno de reciclado se conoce como circulacion enterohepatica).
+
+ En las celulas de la mucosa los acidos grasos y los monogliceridos se vuelven a ensamblar para dar nuevos trigliceridos, siendo algunos de estos sometidos a una digestion adicional para dar acidos grasos y glicerol y despues se vuelven a ensamblar para formar trigliceridos, siendo estos junto con el colesterol, las vitaminas liposolubles y los fosfolipidos, rodeados por una cubierta de beta-lipoproteina, formando quilomicrones. Los globulos de lipoproteinas pasan hacia el sistema linfatico en lugar de entrar en la sangre portal y son transportados hacia el conducto toracico y drenados hasta la circulacion sistemica en la union de las venas yugular interna izquierda y subclavia izquierda. A continuacion los quilomicrones son reempaquetados en lipoproteinas de muy baja densidad y transportados principalmente hasta el tejido adiposo para su metabolismo y almacenamiento.
+
+ Las vitaminas A, D, E y K tambien se absorben en forma de micelas, aunque se pueden absorber las formas hidrosolubles de los suplementos de las vitaminas A, E y K y el caroteno sin la presencia de sales biliares.
+
+ Los grasos acidos de 8 a 12 atomos de carbono, se pueden absorber directamente hacia las celulas de la mucosa colonica sin la presencia de bilis ni la formacion de micelas. Despues de entrar en las celulas de la mucosa, pueden pasar directamente sin esterificacion, hasta la vena porta, que los transporta hasta el higado.
+
+ Vitaminas
+ ---------
+
+ Se absorben y digieren a traves de la mucosa, principalmente en el intestino delgado. Ademas de los correspondientes mecanismos pasivos y de transporte, diversos factores afectan a la biodisponibilidad de las vitaminas y los minerales, como la presencia o ausencia de otros nutrientes especificos, acidos o alcalis, fitatos y oxalatos. Cada dia se secretan 8 o 9 litros de liquido desde el tubo digestivo que actua como disolvente, vehiculo para las reacciones quimicas y medio de transferencia para distintos nutrientes. La mayoria de las vitaminas y agua pasa sin modificaciones desde el intestino delgado hasta la sangre mediante difusion pasiva, aunque se podrian utilizar mecanismos para transportar vitaminas individuales a traves de la mucosa digestiva. Los farmacos se absorben por diversos mecanismos y pueden compartir los mecanismos para la absorcion de nutrientes hacia las celulas intestinales o competir por ellos.
+
+ Minerales
+ ---------
+
+ Su absorcion es compleja, especialmente la de los minerales cationicos, como el selenio, que estan disponibles para la absorcion por el proceso de quelacion, en la que un mineral esta unido a un ligando (habitualmente un acido, un acido organico o un aminoacido), de modo que esta en una forma capaz de ser absorbida hacia las celulas intestinales.
+
+ La absorcion del hierro y zinc, comparte varias caracteristicas ya que la eficiencia de la absorcion depende en parte de las necesidades del huesped. Utilizan al menos una proteina transportadora, y cada uno de ellos tiene mecanismos para aumentar la absorcion cuando los depositos son inadecuados. Los fitatos y los oxalatos reducen la absorcion de hierro y de zinc y su reabsorcion es mejor cuando proceden de fuentes animales que cuando son de origen vegetal. La absorcion de zinc esta reducida cuando hay cantidades desproporcionadamente elevadas de magnesio, calcio y hierro.
+
+ La absorcion de calcio hacia el interior del enterocito se produce a traves de canales en la membrana del borde en cepillo, donde se una a una proteina transportadora especifica para su transporte a traves de la membrana basolateral. El proceso esta regulado por la presencia de vitamina D.
+
+ El fosforo se absorbe por un cotransportador de sodio y fosforo que tambien esta regulado por la vitamina D o por una baja ingesta de fosforo.
+
+ El tubo digestivo es la localizacion de importantes interacciones entre los minerales. El aporte de grandes cantidades de hierro o de zinc puede reducir la absorcion de cobre.
+
+ La presencia de cobre, puede reducir la absorcion de hierro y de molibdeno.
+
+ La absorcion de cobalto esta aumentada en pacientes con deficiencia de hierro, pero en cobalto y el hierro compiten entre si e inhiben su absorcion mutuamente.
+
+ Los minerales se transportan por la sangre unidos a transportadores proteicos. La union de proteinas puede ser especifica (por ejemplo transferrina que se une al hierro) o general (por ejemplo albumina que se une a diversos minerales). Una fraccion de diversos minerales tambien es transportada en el suero en forma de complejos con aminoacidos o con peptidos. Las proteinas transportadoras especificas habitualmente no estan saturadas por completo, la capacidad de reserva puede actuar como amortiguador frente a una exposicion excesiva, por lo que la toxicidad de minerales se produce solo despues de superar esta capacidad amortiguadora.
+
+ Factores que afectan a la digestion
+ -----------------------------------
+
+ El aspecto, olfato, el gusto por los alimentos, influyen sobre la digestion. La vista, olfato, gusto e incluso el pensamiento en el alimento aumenta la secrecion de hormonas digestivas, liquidos y enzimas y la actividad muscular del tubo digestivo.
+
+ Despues de la ingestion de alimentos, los productos digestivo activan mecanismos de retroalimentacion que inhiben la actividad digestiva y reducen la ingesta de alimentos. El miedo, la ira y la preocupacion estimulan al hipotalamo para que active el sistema nervioso autonomo, que a su vez reduce las secreciones, inhibe el peristaltismo y retrasa la propulsion del alimento al aumentar el tono de los esfinteres. Los olores intensos, los estimulos perjucidiales y las emociones muy intensas pueden inducir nauseas y vomitos. El envejecimiento afecta a la digestion por una disminucion de la velocidad de recambio de proteinas, reduccion de la sintesis de hormonas antagonicas y una ingesta inadecuada.
+
+ Varios nutrientes, se pueden destruir con una coccion prolongada y alteran la digestibilidad de los alimentos. Sin embargo, algunos alimentos tienden a ser mas seguros y digeribles que los alimentos crudos, por ejemplo la coccion de la carne ablanda el tejido conectivo, facilita la masticacion y hace que la carne sea mas accesible para los jugos digestivos. La coccion hablanda la fibra de la dieta, haciendo que algunos tipos de fibra se puedan fermentar con mas facilidad y hacen que aumenten los nutrientes digeribles unidos a la fibra. Las frutas y verduras se deben consumir crudas porque sus enzimas inherentes para la digestion de carbohidratos o proteinas facilitan la digestion de los alimentos y se destruyen con la coccion. Durante el refinado del grano para obtener panes y cereales se pierden muchos de los nutrientes, productos fitoquimicos y materiales fibrosos. El enriquecimiento reemplaza varios de los nutrientes perdidos, pero no la fibra dietetica ni los productos fitoquimicos.
+
+***** Sistema inmunitario
+
+ Funciones del sistema inmunitario innato:
+
+ 1. Poner en marcha y posteriormente desactivar un ataque frente a los patogenos invasores transitorios que se abren camino por el tubo digestivo.
+ 2. Impedir que los componentes antigenicos de los alimentos (e.g. peptidos) interactuen o sean absorbidos y produzcan respuestas alergicas a nivel local y sistematico.
+ 3. Tolerar la mezcla de aproximadamente 400 especies de bacterias <normales> que residen en el tubo digestivo, sus secreciones y sus productos de degradacion (e.g. componentes de la pared celular, ADN, proteinas).
+
+ Uso terapeutico para la flora intestinal mediante el consumo de:
+
+ Probioticos: alimentos o concentrados de microorganismos vivos que contribuyen a un entorno microbiano saludable y suprimen los microorganismos potencialmente perjudiciales.
+ Prebioticos: componentes oligosacaridos de la dieta (e.g. fructooligosacaridos, inulina) que son los sustratos energeticos preferidos de los microorganismos <amistosos> del tubo digestivo.
+ Simbioticos: son una combinacion de probioticos y prebioticos.
+
+*** Energia
+**** Componentes y consumo de energia
+
+Se define la energia como capacidad para realizar un trabajo. La fuente ultima de toda la energia en los organismos vivos es el sol.
+
+El cuerpo tiene la capacidad unica de modificar la mezcla de combustible de carbohidratos, proteinas y grasas para adaptarse a las necesidades energeticas.
+
+GET (Gasto Energetico Total): La energia se consume en el cuerpo en forma de metabolismo basal, efecto termico de los alimentos y termogenia debida a la actividad. Estos 3 componentes forman el GET.
+GEB (Gasto Energetico Basal): Cantidad minima de energia consumida que es compatible con la vida. Refleja la cantidad de energia que se utiliza durante 24h mientras esta en reposo fisico y mental en un entorno termicamente neutro que evita la activacion de procesos generadores de calor como el temblor.
+MB (Metabolismo Basal): Las mediciones se realizan a primera hora, antes de haber realizado cualquier actividad fisica, y de 10 a 12 h despues de ingerir cualquier alimento, bebida o nicotina. Representa el 60 o 70% del gasto energetico total.
+TMR (Tasa Metabolica en Reposo): Si no se cumple cualquiera de las condiciones para medir el MB, se debe denominar TMR. Alimentos, cafeina, alcohol y nicotina aumentan el TMR.
+GER (Gasto Energetico en Reposo): Energia consumida en las actividades necesarias para mantener las funciones corporales normales y la homeostasis. Dichas actividades incluyen la respiracion, circulacion, sintesis de compuestos organicos, bombeo de iones a traves de las membranas, energia necesaria para el sistema nervioso central y mantenimiento de la temperatura corporal.
+
+ETA (Efecto Termico de los Alimentos): es el aumento del gasto energetico asociado al consumo de alimentos. Supone el ~10% del GET. El ETA varia con la composicion de la dieta; la grasa se metaboliza de forma eficiente con un desperdicio del 4%, los carbohidratos tienen un desperdicio del 25% cuando se convierten en grasas para su almacenamiento. Los alimentos picantes aumentan el ETA hasta un 33%.
+Termogenia obligatoria: energia necesaria para digerir, absorber y metabolizar los nutrientes, incluyendo la sintesis y el almacenamiento de proteinas, grasas y carbohidratos.
+Termogenia adaptativa/facultativa: es el exceso de energia consumido ademas de la termogenia obligatoria, debido posiblemente a la ineficiencia metabolica del sistema estimulado por la actividad nerviosa simpatica.
+TA (Termogenia por Actividad): es la energia consumida durante el ejercicio para mantener la forma fisica.
+NEAT (Termogenia por Actividad no Relacionada con el Ejercicio): son las actividades de la vida diaria (mascar chicle, pasear, ir de compras, etc).
+ECOP (Exceso de Consumo de Oxigeno Postejercicio): la duracion y la magnitud de la actividad fisica aumentan el ECOP.
+
+
+**** Medicion del consumo de energia
+
+Caloria: cantidad de energia calorica necesaria para elevar 1 C la temperatura de 1 L de agua a 15 C.
+
+kcal, Cal, C: La cantidad de agua que participa en el metabolismo de los alimentos es bastante grande, por lo que se utiliza la Kcal o Cal (1000 calorias)
+
+julio, J: mide la energia expresada como trabajo mecanico. Es la cantidad de energia necesaria para acelerar con una fuerza de 1 Newton (N) durante 1 distancia de 1 m. 1 kcal = 4,184 kJ.
+
+Calorimetria directa: estima el gasto energetico basandose en la cantidad de calor producida por una persona situada dentro de una estructura.
+Calorimetria indirecta: estima el gasto energetico basandose en el consumo de oxigeno y produccion de dioxido de carbono en un periodo dado.
+
+CR (Cociente Respiratorio): CR = moles de CO2 espirados/moles de O2 consumidos. Midiendose las kilocalorias por cada m2 de superficie corporal por hora y extrapolada a 24h. El CR depende de la mezcla de combustibles que se metaboliza, siendo el CR para los carbohidratos de 1, ya que el numero de moleculas de dioxido de carbono que se producen es igual al numero de moleculas de oxigeno que se consumen.
+
+ Carbohidratos = CR 1
+ Dieta mixta   = CR 0.85
+ Proteinas     = CR 0.82
+ Grasas        = CR 0.7
+
+AMD (Agua Doblemente Marcada): estimacion de la produccion de dioxido de carbono a partir de las diferencias de velocidades de eliminacion del hidrogeno y del oxigeno corporales
+
+**** Estimacion de las necesidades energeticas
+
+Las estimaciones de las necesidades energeticas se deben basar en las estimaciones del gasto energetico.
+
+NEE (Necesidades Energeticas Estimadas): son el promedio de la ingesta energetica con la dieta que se prevee que permitira mantener el equilibrio energetico en un adulto sano de una edad, sexo, peso, altura y nivel de actividad fisica definidos con una buena salud.
+
+Ingesta Dietetica de Referencia (IDR): necesidades energeticas en personas activas
+
+ NAF y NEE segun edad
+ |-------------------+-----------------------------------------------------------------------------------------|
+ | Edad              | NAF activo, NEE (kcal/dia)                                                              |
+ |-------------------+-----------------------------------------------------------------------------------------|
+ | Adultos > 18 anos | 3067 (restando 10 kcal/dia) para los varones y 7 para las mujeres por encima de 19 anos |
+ |                   |                                                                                         |
+ |-------------------+-----------------------------------------------------------------------------------------|
+
+NAF (Niveles de actividad fisica): categorias de estilo de vida; sedentario, poco activo (3.2 km/dia), activo (11.3 km/dia) y muy activo (27.4 km/dia) para gente que camina de 4.8 a 6.4 km/h..
+
+ Ecuaciones de prediccion de NEE (Necesidades Energeticas Estimadas) segun el nivel de actividad fisica
+ |--------------------------------------------------------------------------------|
+ | NEE para varones de 19 anos de edad y mas (IMC 18,5-25 kg/m2)                  |
+ |--------------------------------------------------------------------------------|
+ | NEE = GET                                                                      |
+ | NEE = 662 - 9.53 x edad (anos) + AF * (15.91 x peso [kg] + 539.6 x altura [m]) |
+ | Donde:                                                                         |
+ | AF = coeficiente de actividad fisica:                                          |
+ | AF = 1.48 si se estima que el NAF es >= 1.9 y < 2.5 (muy activo)               |
+ |--------------------------------------------------------------------------------|
+
+IMC (Indice de Masa Corporal): se determina dividiendo el peso en kg por el cuadrado de la altura en metros.
+
+El consumo energetico se determina por la cantidad de oxigeno metabolizado por el cuerpo.
+
+MET (Equivalentes Metabolicos): MET de 1 es el oxigeno metabolizado en reposo (3.5 mL de oxigeno por cada kg de peso corporal por minuto en adultos). Se puede expresar como 1 kcal por kg de peso corporal por hora.
+
+E.g. de un adulto que pesa 65 kg y camina de forma moderada a una velocidad de 6.4 km/h (que es un valor MET de 4.5) durante 1 h consumira 293 calorias (4.5 kcal * 65 kg * 1 = 293).
+
+Para estimar las necesidades energeticas de una persona utilizando las escuaciones del NEE, es necesario asignar un valor de NAF a esa persona. El valor del NAF puede estar influido por las diversas actividades que se realizan durante el dia y se denomina cambio de nivel de actividad fisica (Δ NAF). Para determinar el Δ NAF se toma la suma de los Δ NAF de cada una de las actividades realizadas durante 1 dia a partir de la siguiente tabla:
+
+ Categorias de nivel de actividad fisica y equivalencia de paseo
+ |------------------+----------------+-------------------------------------------------|
+ | Categoria de NAF | Valores de NAF | Equivalencia de paseo (km/dia a 4.8 - 6.4 km/h) |
+ |------------------+----------------+-------------------------------------------------|
+ | Sedentario       |         1-1.39 |                                                 |
+ | Poco activo      |       1.4-1.59 | 2.2, 3.5, 4.7 para NAF = 1.5                    |
+ | Activo           |       1.6-1.89 | 4.8, 7.1, 9.3 para NAF = 1.6                    |
+ |                  |                | 8.5, 11.8, 15.9 para NAF = 1.75                 |
+ | Muy activo       |        1.9-2.5 | 12.1, 16.6, 22.5 para NAF = 1.9                 |
+ |                  |                | 19.8, 26.9, 36.2 para NAF = 2.2                 |
+ |                  |                | 27.4, 37, 49.9 para NAF = 2.5                   |
+ |------------------+----------------+-------------------------------------------------|
+ Los valores inferior, medio y superior del numero de km/dias se aplican a personas de peso relativamente elevado (120 kg), medio (70 kg) y ligeros (44 kg) respectivamente
+
+Para calcular el valor NAF para 1 dia se toma la suma de las actividades y se anade el GEB (1) mas el 10% para tener en consideracion el ETA (1 + 0.1 = 1.1)
+
+**** Calculo de la energia de los alimentos
+
+No toda la energia de los alimentos esta disponible  para las celulas del cuerpo. Los procesos de digestion y absorcion no son completamente eficientes, y la porcion nitrogenada de los aminoacidos no se oxida, sino que se excreta en forma de urea. Por lo que la energia disponible de los alimentos se expresa en valores redondeados ligeramente por debajo.
+
+ Proteinas      4 kcal/gr
+ Grasas         9 kcal/gr
+ Carbohidratos  4 kcal/gr
+ Alcohol        7 kcal/gr
+ Fibra          2 kcal/gr (carbohidrato no disponible, ya que se resiste a la digestion y absorcion)
+
+*** Nutrientes y metabolismo
+**** Macronutrientes
+***** Carbohidratos
+
+Formados por carbono, hidrogeno y oxigeno en proporciones C:O:H2
+
+****** Monosacaridos
+
+Los seres humanos solo pueden absorber y utilizar un pequeno numero de los muchos monosacaridos. Los monosacaridos pueden tener de 3 a 7 atomos de carbono, aunque los monosacaridos mas importantes en la dieta humana son las 3 hexosas de 6 atomos de carbono: glucosa, galactosa y fructosa. Todas hexosas tienen la misma formula quimica, aunque difieren mucho entre si, debido a sus pequenas diferencias en la estructura quimica, algunas debidas a la presencia de carbonos quirales. Un carbono quiral es un carbono que tiene unidos cuatro atomos o grupos diferentes, estos grupos pueden aparecer en posiciones diferentes, dando lugar a isomeros.
+
+  Hexosas
+  -------
+
+  α-D-glucosa
+
+     H   O
+      \ //
+  1    C
+       |
+  2    C
+       |
+  3    C
+       |
+  4    C
+       |
+  5    C
+       |
+  6    CH₂OH
+
+
+****** Disacaridos y oligosacaridos
+
+****** Polisacaridos
+
+****** Fibra dietetica y fibra funcional
+
+***** Grasas y lipidos
+
+****** Estructuras y funciones de los lipidos
+
+****** Acidos grasos
+
+****** Acidos grasos esenciales y cociente omega-6/omega-3
+
+****** Acidos grasos trans
+
+****** Trigliceridos
+
+****** Fosfolipidos
+
+****** Lipidos sinteticos
+
+****** Alcohol (alcohol etilico)
+
+
+***** Aminoacidos y proteinas
+
+****** Aminoacios esenciales
+
+****** Calidad de las proteinas
+
+****** Equilibrio nitrogenado
+
+***** Uso y almacenamiento de macronutrientes en situacion posprandial
+
+***** Catabolismo de los macronutrientes en ayunas
+**** Micronutrientes
+***** Vitaminas liposolubles
+
+****** Vitamina A
+
+****** Vitamina D
+
+****** Vitamina E
+
+****** Vitamina K
+
+***** Vitaminas hidrosolubles
+
+****** Tiamina
+
+****** Riboflavina
+
+****** Niacina
+
+****** Acido pantotenico
+
+****** Vitamina B6
+
+****** Folato
+
+****** Vitamina B12
+
+****** Biotina
+
+****** Acido ascorbico
+
+***** Otros factores similares a vitaminas
+
+****** Colina
+
+****** Carnitina
+
+****** Mioinositol
+
+****** Ubiquinonas
+
+****** Bioflavonoides
+
+***** Minerales
+
+****** Composicion en minerales del cuerpo
+
+****** Calcio
+
+****** Fosforo
+
+****** Magnesio
+
+****** Azufre
+
+***** Microminerales: oligoelementos
+
+****** Hierro
+
+****** Cinc
+
+****** Fluor
+
+****** Cobre
+
+***** Ultraoligominerales
+
+****** Yodo
+
+****** Selenio
+
+****** Manganeso
+
+****** Cromo
+
+****** Molibdeno
+
+****** Cobalto
+
+***** Otros oligoelementos
+
+*** Agua, electrolitos y equilibro acidobasico
+**** Agua corporal
+**** Electrolitos
+**** Equilibrio acidobasico
+**** Trastornos acidobasicos
