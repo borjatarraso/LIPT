@@ -1,0 +1,19 @@
+#+BEGIN_COMMENT’        =========================        ‘#+END_COMMENT
+#+BEGIN_COMMENT’        LIPT MASTER ORG MODE FILE        ‘#+END_COMMENT
+#+BEGIN_COMMENT’        =========================        ‘#+END_COMMENT
+
+*IMPORTANT*: Latest master org mode file is always stored Github in
+https://github.com/borjatarraso/LIPT first and locally in
+file:~/Dropbox/LIPT/MASTER.org. Any other backup copies will not ensure
+the latest org file version. MASTER.org contains the links to other org
+files, which has been split to avoid massive unrelated content.
+
+* ORG files tree
+  - Task list    file:tasks.org
+  - Bookmarks    file:bookmarks.org
+  - Sport        file:sport.org
+  - Nutrition    file:nutrition.org
+  - Keybindings  file:keybindings.org
+  - Books        file:books.org
+  - Applications file:applications.org
+  - Extra info   file:extra/
