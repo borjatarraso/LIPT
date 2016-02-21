@@ -1,0 +1,49 @@
+* arch
+
+** Pacman
+
+Search a package:
+
+ pacman -Ss package
+
+Install a package:
+
+ pacman -S package
+
+Upgrade the system:
+
+ pacman -Syu
+
+** Yaourt
+
+Search a package:
+
+ yaourt -Ss package
+
+Install a package:
+
+ yaort -S package
+
+** Systemd
+
+*** ssh service
+
+For installing the service:
+
+ systemctl start sshd.service
+
+To enable the service by default on boot time:
+
+ systemctl enable sshd.service
+
+To disable the service by default on boot time:
+
+ systemctl disable sshd.service
+
+To restart the service:
+
+ systemctl restart sshd
+
+To list all the services:
+
+ systemctl list-units -all

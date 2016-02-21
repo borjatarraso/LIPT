@@ -1,0 +1,159 @@
+* laptop w520 config
+
+** 1. Install Debian
+
+ 1.1. Install debian 7.X testing netinst with cable connected
+ ------------------------------------------------------------
+ Download from here: http://www.debian.org/distrib/netinst
+ Specifically this one is the last release: http://cdimage.debian.org/debian-cd/7.4.0/amd64/iso-cd/debian-7.4.0-amd64-netinst.iso
+
+ 1.2. Modify the /etc/apt/sources.list adding this line
+ ------------------------------------------------------
+ deb http://ftp.de.debian.org/debian wheezy main non-free
+
+ 1.3 Update and install firmware for wireless
+ --------------------------------------------
+ apt-get update
+ apt-get install firmware-iwlwifi
+
+ 1.4 Configure firmware for wireless
+ -----------------------------------
+ modprobe -r iwlwifi
+ modprobe iwlwifi
+
+** 2. Install packages needed
+
+ apt-get install git
+ apt-get install automake
+ apt-get install libncurses-dev
+ apt-get install fluxbox
+ apt-get install zsh-beta
+ apt-get install tilda
+ apt-get install screen
+ apt-get install sloccount
+ apt-get install tcpdump
+ apt-get install scapy
+ apt-get install wireshark
+ apt-get install portsentry
+ apt-get install python3
+ apt-get install gthumb
+ apt-get install dolphin
+ apt-get install aterm
+ apt-get install xscreensaver
+ apt-get install i3lock
+ apt-get install icedove
+
+** 3. Install emacs
+
+ 3.1 Install emacs dependancies
+ ------------------------------
+ apt-get install libxpm-dev
+ apt-get install libjpeg8-dev
+ apt-get install libpng12-dev
+ apt-get install libgif-dev
+ apt-get install libtiff5-dev
+ apt-get install libgpm-dev
+ apt-get install libdbus-1-dev
+ apt-get install libxaw7-dev
+ apt-get install librsvg2-dev
+ apt-get install libm17n-dev
+ apt-get install libotf-dev
+ apt-get install libmagick++-dev
+ apt-get install libm17n-dev
+ apt-get install libxft-dev
+ apt-get install libgnutls-dev
+ apt-get install libgconf2-dev
+ apt-get install xaw3dg-dev
+ apt-get install libacl1-dev
+ apt-get install libselinux1-dev
+ apt-get install libghc-mmap-dev
+
+ 3.2 Clone latest emacs
+ ----------------------
+ git clone git://git.savannah.gnu.org/emacs.git
+
+ 3.3 Configure and compile emacs
+ -------------------------------
+ cd emacs
+ ./autogen.sh
+ ./configure --with-x-toolkit=athena --enable-acl
+
+ 3.4 Configure emacsserver
+ -------------------------
+ Create kill-emacs.sh script under ~/scripts:
+ #!/bin/bash
+ emacsclient -e "(kill-emacs)"
+
+ Create alias and exports in .bashrc or .zshrc:
+
+ export EDITOR="emacsclient -c"
+ export VISUAL="emacsclient -c"
+ export ALTERNATIVE_EDITOR="emacs"
+ alias e="emacsclient -c"
+ alias es="emacs --daemon"
+ alias ec="emacsclient -c"
+ alias kill_emacs="~/scripts/kill-emacs.sh"
+
+** 4. Install virtualbox
+
+ 4.1 Install virtualbox and linux headers
+ ----------------------------------------
+ apt-get install linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') virtualbox
+
+ Note: VirtualBox can now be started. To not load the VirtualBox modules at system startup, edit /etc/default/virtualbox and set LOAD_VBOXDRV_MODULE to 0.
+
+ 4.2 Import existing VMs or just install new ones
+ ------------------------------------------------
+ cp -Rf ~/VirtualBox\ VMs/Debian-Satellite-VM* ~/VirtualBox VMs/
+ Then press "New" -> next -> Name: VM1 Type: Linux 2.6 Version: 64bits -> next -> next -> Use existing hard disk -> select the image from ~/VirtualBox VMs/Debian-Satellite-VM1/Debian-Satellite-VM1.vdi -> Next -> Create
+ Then press "New" -> next -> Name: VM2 Type: Linux 2.6 Version: 64bits -> next -> next -> Use existing hard disk -> select the image from ~/VirtualBox VMs/Debian-Satellite-VM2/Debian-Satellite-VM2.vdi -> Next -> Create
+
+ Another option is just clone the VM1 reinitialising the network data in order to avoid duplication of IP addresses and MAC.
+
+ 4.3 Enable local access
+ -----------------------
+ To enable connect by ssh from the host machine to VM:
+
+ Select VM1 -> Settings -> Network -> Adapter 1 -> Set as NAT -> Advanced -> Port forwarding -> Host port 3022 / Guest port 22
+ Select VM2 -> Settings -> Network -> Adapter 1 -> Set as NAT -> Advanced -> Port forwarding -> Host port 3023 / Guest port 22
+ Then it is possible from host machine to ssh user@127.0.0.1 -p 2022 for VM1
+ Then it is possible from host machine to ssh user@127.0.0.1 -p 2023 for VM2
+
+ Another option or just to establish communication also with internet it is possible to do bridged network:
+ Select VM1 -> Settings -> Network -> Adapter 1 -> Set as Bridged
+ Select VM2 -> Settings -> Network -> Adapter 1 -> Set as Bridged
+ Wait until configuration is get by DHCP.
+ Then it is possible from host machine and VMs connect by ssh between them using the acquired IP address.
+
+** 5. Install mediawiki
+
+ 5.1 Install mediawiki
+ ---------------------
+ apt-get install mediawiki mediawiki-extensions
+
+ 5.2 Configure mediawiki
+ -----------------------
+ ln -s /var/lib/mediawiki /var/www
+ mv /var/www/mediawiki /var/www/wiki
+ Check http://localhost/wiki and configure the next steps
+ Get the LocalSettings.php and put it as local configuration that should be /var/www/wiki/LocalSettings.php
+ Now check http://localhost/wiki/index.php
+
+ 5.3 Troubleshooting mediawiki
+ -----------------------------
+ If install phpmyadmin or any other package that touch the mysql database, we can have the problem that wiki is down, in this case we need to do the following:
+ 1. stop mysqld with /etc/init.d/mysqld stop
+ 2. mysql or mysql -u root -p
+ 3. mysql> UPDATE mysql.user SET Password=PASSWORD('MyNewPass') WHERE User='root';
+    mysql> FLUSH PRIVILEGES;
+ 4. start mysqld with /etc/init.d/mysqld start
+ 5. the wiki now it should work.
+ The FLUSH statement tells the server to reload the grant tables into memory so that it notices the password change.
+ For more info please check: https://dev.mysql.com/doc/refman/5.0/en/resetting-permissions.html
+
+** Appendix A: References
+
+# http://www.emacswiki.org/emacs/Git
+# https://wiki.debian.org/VirtualBox#Debian_7_.22Wheezy.22
+# https://wiki.debian.org/VirtualBox#Starting
+# http://www.gns3.net/appliances/

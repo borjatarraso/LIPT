@@ -1,0 +1,7 @@
+* xmonad
+
+Remember to create bin directory with script files and install suckless-tools and xmobar.
+
+Change the aparence:
+
+ use lxapparence

@@ -1,0 +1,11 @@
+* xdefaults configuration
+
+Put this to avoid emacs problems for second frame:
+
+ Emacs.font:Terminus-12
+ Emacs*foreground: white
+ Emacs*background: black
+
+More info:
+# http://arstechnica.com/civis/viewtopic.php?f=16&t=1028705
+# http://www-h.eng.cam.ac.uk/help/tpl/emacs/node23.html

@@ -1,0 +1,59 @@
+* issues examples
+
+Edit the '''/etc/issue''' and '''/etc/issue.net''' files with the following content:
+
+** star example
+
+       Welcome to GNU/Linux operating system
+
+       Powered by
+
+        ,adPPYba,  88,dPYba,,adPYba,   ,adPPYYba,   ,adPPYba,  ,adPPYba,
+       a8P_____88  88P'   "88"    "8a  ""     `Y8  a8"     ""  I8[    ""
+       8PP"""""""  88      88      88  ,adPPPPP88  8b           `"Y8ba,
+       "8b,   ,aa  88      88      88  88,    ,88  "8a,   ,aa  aa    ]8I
+        `"Ybbd8"'  88      88      88  `"8bbdP"Y8   `"Ybbd8"'  `"YbbdP"'
+
+                                        in this machine we don't have vi
+
+                                      ' '
+                                     '  .=.
+                                        yqx
+                                    ' '?q8q''''
+                                      'qy 8q '''
+                                     '7q, ,E> ' '
+                                      E7   xq. ''
+                                     xq.'   q+   '
+                                    +q:  .' +q3
+                                    qh   '  '8q: '
+                              '    E8'  '    ;qZ
+                                ' +8^  '    ' :q?
+                             '   ,Ex   ' '   ''yq
+ ''  '''                     ''. Zq            ,q?  '                  ' '''''
+ '                              ;8>             +q'
+ ''>hEEqqqEEEqEEEEEEEEEEEEEEEEqqEf.        ' '   qEqEEEEqEEEEEEEEEEEEEEEqqqqqEy:'
+ ''  ;xf>                                           '              '     ?qqx^
+        ?3.  ,7$,73>x?;x? .+3,x3>x=+y3'^3x?Z+=37?$=..7x,$7?x7 '       ^+EE^
+       ,qE>' >Eq7EqfqhyE8,:qE?EEfqqyq@,?EEZqq8Eqhqh^>EE=EqfqE ''' '^xEq$
+  '  '                                                        '  ';$7      '''
+       .$y?xy7$f:y$7Z7+yx7h73f++f+xf;ZZ=$y?y$7Zfyf+.,$y=ff=y3 .yZ77$>hx=y$^ '
+       .h8$yqhh8$q8h8qhqhhqf88hh8h88yq888qy88q8888y,:8q;883qq 'q8f88x8qx88: '
+ '     .88883qZq88h8Z88>q8h88>88f88y88y8Z88h888h88h^>qq788qqq .q8888f88788: '
+       .8888$f8+q8$88788Z88Z8fy8yy8=88y88+88Z88888$^ ,^'^,'^, .88Zf8388388>
+   '   .x88h$3f+Z$$3f>xZx$$xxZ3fx$Z7ZZZ3f>x$xf8hhq7'    .'     hf+38?8Z>hZ, ''
+ '     ,q8888Eh88?8888838hf8788888y88=88h8q$qq88888:   3qE>   ,88888h88Z8q;
+       ,f888:' 88q8f888q8888q8q888888q8f888Z  ,y88y,;EE=88fEq .q8888x88Z88; '
+        7hf$.  yfhx7$ff8$fhhhffffffffhZ7xhf+  '78f= ^$f:hf;yx  yfhff7f3^yx^' '
+             '          $'              ,;,        '     'y. .             ' '
+          ''          'qf  ''        .yE8ZqE3.   ''  '  ' qh'' '      '      '
+                      >q, '''      =EEZ^   ;fEE?    '    '?q> ''   '         '
+                     =q= '      >8Ey,         ^hEf:'  '    Zq
+                '    q8  ''  .hEq>               =EEZ. ''' 'q+,'
+                 '  Zq>    +qE+^  '         ' '.'  '$Eq>    =q7
+                '' ?q  '3qEZ.                         ,hEE?' qq'   '
+                , .8h;xEq>                               ;Eqx^8y    '
+               ' '3qqq3'    '                     ' '      .3Eqq> ' ' '
+                 .y=                                           ?f,'
+
+               '    '                                                '
+                       ..:: www.blackhats.es ::..

@@ -1,0 +1,19 @@
+* conky
+
+** Install conky
+
+ 1. Install conky
+ ----------------
+ apt-get install conky
+ apt-get install python-central python-dateutil
+
+ 2. Use this .conkyrc
+ --------------------
+
+ [[Media:Download dotconkyrc file]]
+ Note: Modified for WP520 not needed conkyForecast (big issues and not well supported anymore).
+
+ 3. Download openlogos
+ ---------------------
+ Copy the .ttf file in /usr/local/share/fonts/
+ Update the database with: fc-cache -f -v

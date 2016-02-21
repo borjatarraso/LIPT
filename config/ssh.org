@@ -1,0 +1,166 @@
+
+* ssh config examples
+
+Protect ssh:
+
+- Non-standard accounts usable.
+- Allow SSH connections from trusted places.
+- Use fail2ban or sshguard to monitor for brute force attacks, and ban them if necessary.
+
+For the client change the file /etc/ssh/ssh_config or ~/.ssh/config.
+
+For the server change the file /etc/ssh/sshd_config:
+
+Disable root access by ssh:
+
+ PermitRootLogin no
+
+Allowing specific users:
+
+ AllowUsers user1 user2
+
+Allow access for some groups:
+
+ AllowGroups group1 group2
+
+Change the banner:
+
+ Banner /etc/issue
+
+Only aalow authentication using keys (remember add the pubkey on authorized_keys):
+
+ PasswordAuthentication no
+
+Restrict root access for some specific commands (like backuping), add the key in /root/.ssh/authorized_keys:
+
+ command="/usr/lib/rsync/rrsync -ro /" ssh-rsa...key
+
+And then modify the sshd_config with this line:
+
+ PermitRootLogin forced-commands-only
+
+Permit only access to root using key authentication:
+
+ PermitRootLogin without-password
+
+** X11 forwarding
+
+Mechanism that allows graphical interfaces of X11 programs running on a remote system to be displayed on a local client machine (the remote system does not need to have the full X11 system installed, but at least require to have xauth utility that maintains Xauthority configurations used by server and client for auth of X11 session).
+
+# On the remote system install xorg-xauth
+# In /etc/ssh/sshd_config verify that "AllowTcpForwarding" and "X11UseLocalhost" options are set to yes, and "X11DisplayOffset" is set to 10.
+# Set "X11Forwarding" to yes.
+# Restart the ssh daemon.
+
+Usage from the client:
+
+If the client was not enabled ForwardX11:
+
+ ssh -X user@host
+
+Trying ForwardX11Trusted if receiving errors to run graphical applications:
+
+ ssh -Y user@host
+
+Start any X application and the output will be forwarded to your local session.
+If getting "Cannot open display" try as non root the following command (will allow anybody to forward X11 applications):
+
+ xhost +
+
+To restrict to any particular host:
+
+ xhost +hostname
+
+** Forwarding to other ports
+
+- Local forwarding (option -L): open a port in a local machine, connections will be forwarded to a remote host and from there on to a given destination. Often, the forwarding destination will be the same as the remote host.
+
+Syntaxis:
+
+ <tunnel port>:<destination address>:<destination port>
+ # Open a shell on 192.168.0.100 will create a tunnel from the local machine TCP port 1000 to mail.google.com on port 25.
+ # Once established connections to localhost:1000 will connect to the gmail SMTP port.
+ ssh -L 1000:mail.google.com:25 192.168.0.100
+
+Remote forwarding (option -R): open a port in a remote machine, bringing up a shell on localhost on port 3000, will be sent over the tunnel to the local machine and then to irc.freenode.net on port 6667.
+
+ ssh -R 3000:irc.freenode.net:6667 192.168.0.200
+
+For the client change the file /etc/ssh/ssh_config or ~/.ssh/config.
+
+For the server change the file /etc/ssh/sshd_config:
+
+Disable root access by ssh:
+
+ PermitRootLogin no
+
+Allowing specific users:
+
+ AllowUsers user1 user2
+
+Allow access for some groups:
+
+ AllowGroups group1 group2
+
+Change the banner:
+
+ Banner /etc/issue
+
+Only aalow authentication using keys (remember add the pubkey on authorized_keys):
+
+ PasswordAuthentication no
+
+Restrict root access for some specific commands (like backuping), add the key in /root/.ssh/authorized_keys:
+
+ command="/usr/lib/rsync/rrsync -ro /" ssh-rsa...key
+
+And then modify the sshd_config with this line:
+
+ PermitRootLogin forced-commands-only
+
+Permit only access to root using key authentication:
+
+ PermitRootLogin without-password
+
+** X11 forwarding
+
+Mechanism that allows graphical interfaces of X11 programs running on a remote system to be displayed on a local client machine (the remote system does not need to have the full X11 system installed, but at least require to have xauth utility that maintains Xauthority configurations used by server and client for auth of X11 session).
+
+# On the remote system install xorg-xauth
+# In /etc/ssh/sshd_config verify that "AllowTcpForwarding" and "X11UseLocalhost" options are set to yes, and "X11DisplayOffset" is set to 10.
+# Set "X11Forwarding" to yes.
+# Restart the ssh daemon.
+
+Usage from the client:
+
+If the client was not enabled ForwardX11:
+
+ ssh -X user@host
+
+Trying ForwardX11Trusted if receiving errors to run graphical applications:
+
+ ssh -Y user@host
+
+Start any X application and the output will be forwarded to your local session.
+If getting "Cannot open display" try as non root the following command (will allow anybody to forward X11 applications):
+
+ xhost +
+
+To restrict to any particular host:
+
+ xhost +hostname
+
+** Forwarding to other ports
+
+- Local forwarding (option -L): open a port in a local machine, connections will be forwarded to a remote host and from there on to a given destination. Often, the forwarding destination will be the same as the remote host.
+
+Syntaxis:
+
+ <tunnel port>:<destination address>:<destination port>
+ # Open a shell on 192.168.0.100 will create a tunnel from the local machine TCP port 1000 to mail.google.com on port 25.
+ # Once established connections to localhost:1000 will connect to the gmail SMTP port.
+ ssh -L 1000:mail.google.com:25 192.168.0.100
+
+Remote forwarding (option -R): open a port in a remote machine, bringing up a shell on localhost on port 3000, will be sent over the tunnel to the local machine and then to irc.freenode.net on port 6667.
+
+ ssh -R 3000:irc.freenode.net:6667 192.168.0.200

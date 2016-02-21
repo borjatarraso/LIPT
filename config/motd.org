@@ -1,0 +1,104 @@
+* motd file examples
+
+Create or modify the /etc/motd configuration file with the following content:
+
+** blackdragons example
+
+
+                       .::    .   .:::.,::::::   :::       .,-:::::     ...     .        :  .,::::::
+                       ';;,  ;;  ;;;' ;;;;''''   ;;;     ,;;;'````'  .;;;;;;;.  ;;,.    ;;; ;;;;''''
+                        '[[, [[, [['   [[cccc    [[[     [[[        ,[[     \[[,[[[[, ,[[[[, [[cccc
+                          Y$c$$$c$P    $$""""    $$'     $$$        $$$,     $$$$$$$$$$$"$$$ $$""""
+                          "88"888     888oo,__ o88oo,.__`88bo,__,o,"888,_ _,88P888 Y88" 888o888oo,__
+                           "M "M"     """"YUMMM""""YUMMM  "YUMMMMMP" "YMMMMMP" MMM  M'  "MMM""""YUMMM
+                                                 ::::::::::::   ...
+                                                 ;;;;;;;;''''.;;;;;;;.
+                                                     [[    ,[[     \[[,
+                                                     $$    $$$,     $$$
+                                                     88,   "888,_ _,88P
+                                                     MMM     "YMMMMMP"
+ :::::::.   :::      :::.       .,-:::::  :::  .  :::::::-.  :::::::..     :::.      .,-:::::/      ...   :::.    :::. .::::::.
+  ;;;'';;'  ;;;      ;;`;;    ,;;;'````'  ;;; .;;,.;;,   `';,;;;;``;;;;    ;;`;;   ,;;-'````'    .;;;;;;;.`;;;;,  `;;;;;;`    `
+  [[[__[[\. [[[     ,[[ '[[,  [[[         [[[[[/'  `[[     [[ [[[,/[[['   ,[[ '[[, [[[   [[[[[[/,[[     \[[,[[[[[. '[['[==/[[[[,
+  $$""""Y$$ $$'    c$$$cc$$$c $$$        _$$$$,     $$,    $$ $$$$$$c    c$$$cc$$$c"$$c.    "$$ $$$,     $$$$$$ "Y$c$$  '''    $
+ _88o,,od8Po88oo,.__888   888,`88bo,__,o,"888"88o,  888_,o8P' 888b "88bo, 888   888,`Y8bo,,,o88o"888,_ _,88P888    Y88 88b    dP
+ ""YUMMMP" """"YUMMMYMM   ""`   "YUMMMMMP"MMM "MMP" MMMMP"`   MMMM   "W"  YMM   ""`   `'YMUP"YMM  "YMMMMMP" MMM     YM  "YMmMY"
+
+
+
+                              Welcome to Apocalipsis computer running under GNU / Linux
+
+
+
+   		                                            <xeee..
+  		                                        ueeeeeu..^"*$e.
+  		                                 ur d$$$$$$$$$$$$$$Nu "*Nu
+  	        	                       d$$$ "$$$$$$$$$$$$$$$$$$e."$c
+  		                           u$$c   ""   ^"^**$$$$$$$$$$$$$b.^R:
+  		                         z$$#"""           `!?$$$$$$$$$$$$$N.^
+  		                       .$P                   ~!R$$$$$$$$$$$$$b
+ 		                      x$F                 **$b. '"R).$$$$$$$$$$
+ 		                     J^"                           #$$$$$$$$$$$$.
+ 		                    z$e                      ..      "**$$$$$$$$$
+ 		                   :$P           .        .$$$$$b.    ..  "  #$$$$
+ 		                   $$            L          ^*$$$$b   "      4$$$$L
+ 		                  4$$            ^u    .e$$$$e."*$$$N.       @$$$$$
+ 		                  $$E            d$$$$$$$$$$$$$$L "$$$$$  mu $$$$$$F
+ 		                  $$&            $$$$$$$$$$$$$$$$N   "#* * ?$$$$$$$N
+ 		                  $$F            '$$$$$$$$$$$$$$$$$bec...z$ $$$$$$$$
+ 		                 '$$F             `$$$$$$$$$$$$$$$$$$$$$$$$ '$$$$E"$
+ 		                  $$                  ^""""""`       ^"*$$$& 9$$$$N
+ 		                  k  u$                                  "$$. "$$P r
+ 		                  4$$$$L                                   "$. eeeR
+ 		                   $$$$$k                                   '$e. .@
+ 		                   3$$$$$b                                   '$$$$
+ 		                    $$$$$$                                    3$$"
+ 		                     $$$$$  dc                                4$F
+ 		                      RF** <$$                                J"
+ 		                       #bue$$$LJ$$$Nc.                        "
+ 		                        ^$$$$$$$$$$$$$r
+ 		                          `"*$$$$$$$$$
+
+
+                                         Access granted! You are welcome hacker...
+
+** Marihuana leaf example
+
+
+    ,o888b,`?888888888888888888888888888888888888888888888P',d888o,
+  ,8888 888   ?888                                   888P   888 8888,
+  8888888P'    888        W e l c o m e   t o        888     ?8888888
+  888P'        888        T e r m i n a t o r        888        `?888
+  `88   O     d888                                   888b     O   88'
+    `?._  _.o888888888888888888888888888888888888888888888o._  _.P'
+       |  |                                                    |
+       |  |       L o c a l h o s t  T e a m   2000 - 2002     |
+       |  |                                                    |
+       `--+-[ 127.0.0.1 ]-----------------------------------+-.
+        | |                                                    | |
+        | | Server Administrator: Overdrive                    | |
+        | |                      .                             | |
+        | |                      dM                            | |
+        | |                      MMr                           | |
+        | |                     4MMML                  .       | |
+        | |                     MMMMM.                xf       | |
+        | |     .              "MMMMM               .MM-       | |
+        | |      Mh..          +MMMMMM            .MMMM        | |
+        | |      .MMM.         .MMMMML.          MMMMMh        | |
+        | |       )MMMh.        MMMMMM         MMMMMMM         | |
+        | |        3MMMMx.     'MMMMMMf      xnMMMMMM"         | |
+        | |        '*MMMMM      MMMMMM.     nMMMMMMP"          | |
+        | |          *MMMMMx    "MMMMM\    .MMMMMMM=            | |
+        | |            *MMMMMh  "MMMMM"   JMMMMMMP             | |
+        | |             MMMMMM   3MMMM.  dMMMMMM            .  | |
+        | |              MMMMMM  "MMMM  .MMMMM(        .nnMP"  | |
+        | |  =..          *MMMMx  MMM"  dMMMM"    .nnMMMMM*    | |
+        | |   "MMn...      'MMMMr 'MM   MMM"   .nMMMMMMM*"     | |
+        | |     "4MMMMnn..   *MMM  MM  MMP"  .dMMMMMMM""       | |
+        | |       ^MMMMMMMMx.  *ML "M .M*  .MMMMMM**"          | |
+        | |          *PMMMMMMhn. *x > M  .MMMM**""             | |
+        | |             ""**MMMMhx/.h/ .=*"                    | |
+        | |                      .3P"%....                     | |
+        | |                    nP"     "*MMnx                  | |
+        | |                                                    | |
+        | |                                                    | |

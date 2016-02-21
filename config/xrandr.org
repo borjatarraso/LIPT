@@ -1,0 +1,32 @@
+* xrandr usage
+
+To print out information about the current connectivity:
+
+ xrandr
+
+To put some mode for some specific output:
+
+ xrandr --output LDVS --mode 1280x800
+
+To put additional rate:
+
+ xrandr --output LDVS --mode 1280x800 --rate 75
+
+Automatically configure:
+
+ xrandr --output LDVS --auto
+
+Disable one screen and configure a second one:
+
+ xrandr --output LDVS --off --output HDMI-0 --auto
+
+Test resolutions:
+
+ xrandr --output VGA1 --mode 1280x1024_60.00 && sleep 5 && xrandr --newmode "1024x768-safe" 65.00 1024 1048 1184 1344 768 771 777 806 -HSync -VSync && xrandr --addmode VGA1 1024x768-safe && xrandr --output VGA1 --mode 1024x768-safe
+
+Other applications:
+
+ lxrandr
+ arandr
+
+To put permanent resolution check section "Screen" from /etc/x11/xorg.conf.

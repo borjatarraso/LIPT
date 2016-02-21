@@ -1,0 +1,16 @@
+* root-tail
+
+Install root-tail:
+
+ apt-get install root-tail
+
+Give permission to normal user to read logs (not sure if this is secure - Need to check!):
+
+ chmod a+x /var/log/messages
+ chmod a+x /var/log/auth.log
+
+Add this line to the .fluxbox/startup:
+
+ root-tail -g 1400x70+100+795 --font '*-*-*-*-*-*-*-*-*-*-*-c*' /var/log/messages,white /var/log/auth.log,white,'ALERT' &
+
+Note this configuration is for W520, size screen matters and configuration coords may vary.

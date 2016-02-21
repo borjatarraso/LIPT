@@ -1,0 +1,24 @@
+* xscreensaver
+
+Install xscreensaver:
+
+apt-get install xscreensaver xscreensaver-screensaver-bsod xscreensaver-gl xscreensaver-data xscreensaver-data-extra xscreensaver-screensaver-webcollage
+
+Select one of those:
+# Xanalog TV
+# BSOD
+
+Run xscreensaver, set the settings and save.
+Later modify .fluxbox/startup with this line:
+
+xscreensaver -nosplash &
+
+To select the screensaver and other options it is possible to run:
+
+'''xscreensaver-demo'''
+
+To lock automatically the screen (if .fluxbox/keys has been set) just press:
+
+'''Windows+L'''
+
+Additional options for xscreensaver can be set from ~/.xscreensaver

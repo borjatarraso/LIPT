@@ -1,0 +1,307 @@
+* latex configuration
+
+To configure LaTex and later use in GNU/Emacs:
+
+First install LaTeX interesting packages with some extras, spell, etc:
+
+ $ '''sudo apt-get install dia gv texlive-latex-extra texlive-lang-english texlive-fonts-recommended lmodern texlive-doc-en texlive-fonts-extra texlive-font-utils texlive-lang-english myspell-en-gb texmaker'''
+
+AUCTeX requires TeX, LaTeX and texinfo:
+
+ $ '''sudo apt-get install tex-common texlive-base'''
+
+Preview-latex requires to install dvips for the operations in DVI mode.
+
+ $ '''sudo apt-get install dvi2ps'''
+
+Preview-latex requires of the installation of ghostscript.
+
+ $ '''sudo apt-get install ghostscript'''
+
+Is required texinfo; this package is interesting to build the tarball.
+
+ $ '''sudo apt-get install texinfo'''
+
+Download latest version of AucTeX:
+
+ http://www.gnu.org/software/auctex/
+
+Uncompress and install (I would uncompress in .emacs.d/ directory):
+
+ $ '''cd ~/.emacs.d/'''
+ $ '''tar xvfz auctex.version.tar.gz'''
+ $ '''cd auctex-version'''
+ $ '''./configure'''
+ $ '''make'''
+ $ '''sudo make install'''
+
+In the .emacs file put this:
+
+ ;; —————————————————————————
+ ;; AucTeX
+ ;; —————————————————————————
+ (add-to-list 'load-path "~/.emacs.d/auctex-11.87/")
+ (add-to-list 'load-path "~/.emacs.d/auctex-11.87/preview/")
+ (load "auctex.el" nil t t)
+ (load "preview-latex.el" nil t t)
+ (setq-default TeX-PDF-mode t)
+
+ (setq auto-mode-alist
+ '(("\\.tex$" . LaTeX-mode)
+ ("\\.sty$" . LaTeX-mode)
+ ("\\.bbl$" . LaTeX-mode)
+ ("\\.bib$" . BibTeX-mode)
+ ("\\.cls$" . LaTeX-mode)
+ ("\\.clo$" . LaTeX-mode)))
+
+ ;; —————————————————————————
+ ;; Doc View
+ ;; —————————————————————————
+ ;(add-to-list ‘load-path “~/docview/”)
+ (require 'doc-view)
+ (setq auto-mode-alist
+ '(("\\.pdf$" . doc-view-mode)))
+
+Write some example from latex for example [https://pangea.stanford.edu/computing/unix/formatting/latexexample.php here] and type '''C-c C-c''' to compile, later you can try to open with emacs the example with pdf extension or just using '''gv example.pdf'''.
+
+Some extra configuration to use TAB for autocompletion in LaTeX-mode:
+
+ (eval-after-load 'latex
+   '(define-key LaTeX-mode-map [(tab)] 'TeX-complete-symbol))
+
+Some other auto-completions are:
+
+ ;; AucTeX autocompletion (it autocompletes from scratch)
+ ;; Use C-RET
+
+ ;; Use ESC-TAB or C-M-i for 'normal' autocompletion
+
+ ;; M-/ is the default completion thing in emacs
+
+= Basics of the language =
+
+== Hello World ==
+
+ \documentclass{article}
+
+ \begin{document}
+ Hello world!
+ \end{document}
+
+For check different document class, we have:
+
+ article => articles in scientific journals, presentations, short reports, program documentation, invitations, etc
+ proc    => proceedings based on article class
+ minimal => only sets a page size and a base font (debugging purposes)
+ report  => longer reports containing several chapters, small books, thesis
+ book    => for real books
+ slides  => for slides, with big letters
+ memoir  => changing sensibly the output of the document
+ letter  => for writing letters
+ beamer  => for writing presentations
+
+Other basics:
+
+* Latex normalizes spaces.
+* Reserved characters:
+
+ #  => \#
+ $  => \$
+ %  => \%
+ ^  => \^{}
+ &  => \&
+ _  => \_
+ {  => \{
+ }  => \}
+ ~  => \~{}
+ \  => \textbackslash{}
+
+* The commands \~ and \^ produce respectively a tilde and a hat which is placed over the next letter. For example \~n gives ñ.
+* Check more about special characters here: http://en.wikibooks.org/wiki/LaTeX/Special_Characters
+* The \begingroup and \endgroup commands are equivalent to opening brace and closing brace:
+
+ {
+ \bf This is bold.
+ }
+ This is no longer bold.
+
+* Environments in LaTeX have a role that is quite similar to commands, but they usually have effect on a wider part of the document:
+
+ \begin{environmentname}
+ text to be influenced
+ \end{environmentname}
+
+* Latex commands: They start with a backslash \ and then have a name consisting of letters only. General syntax:
+
+ \commandname[option1,option2,...]{argument1}{argument2}...
+
+* Comments with: %
+* For multiline comments:
+
+ \begin{comment}
+ rather stupid,
+ but helpful
+ \end{comment}
+
+* Compilation process: two options
+** tex compiler reads a TeX .tex file and creates a .dvi.
+** pdftex compiler reads a TeX .tex file and creates a .pdf.
+
+These compilers are basically used to compile Plain TeX, not LaTeX. There is no such LaTeX compiler since LaTeX is just a bunch of macros for TeX.
+
+** latex executable calls tex with LaTeX initialization files, reads a LaTeX .tex file and creates a .dvi
+** pdflatex executable calls pdftex with LaTeX initialization files, reads a LaTeX .tex file and creates a .pdf
+
+[img_latex.png]
+
+Highly important references:
+
+* Latex basics: http://en.wikibooks.org/wiki/LaTeX/Basics
+* Latex quick ref card: http://www.stdout.org/~winston/latex/
+* Reference manual: http://texcatalogue.ctan.org/
+* Latex special chars: http://en.wikibooks.org/wiki/LaTeX/Special_Characters
+* Document structure: http://en.wikibooks.org/wiki/LaTeX/Document_Structure
+* Modular documents: http://en.wikibooks.org/wiki/LaTeX/Modular_Documents
+
+
+== Document structure ==
+
+Document classes syntax:
+
+ \documentclass[options]{class}
+
+
+Example:
+
+ \documentclass[11pt,twoside,a4paper]{article}
+
+Packages: If you want to include graphics, colored text or source code from a file into your document, you need to enhance the capabilities of LaTeX. Such enhancements are called packages. Some packages come with the LaTeX base distribution. Others are provided separately. The syntax is:
+
+ \usepackage[options]{package}
+
+Example:
+
+ \usepackage{color}
+
+Some packages allow optional settings in square brackets. The syntax and example is:
+
+ \usepackage[margin=2cm]{geometry}
+ OR
+ \usepackage[option1,option2,option3]{''package_name''}
+
+The document environment (metadata like title and date, and also information about the authors, such as name, address, email etc. ):
+
+ \documentclass[11pt,a4paper]{report}
+
+ \begin{document}
+ \title{How to Structure a LaTeX Document}
+ \author{Andrew Roberts}
+ \date{December 2004}
+ \maketitle
+ \end{document}
+
+Abstract: you always finish the top matter with the \maketitle command, which tells LaTeX that it's complete and it can typeset the title according to the information you have provided and the class (style) you are using.
+
+Most research papers have an abstract:
+
+ \documentclass{article}
+
+ \begin{document}
+
+ \begin{abstract}
+ Your abstract goes here...
+ ...
+ \end{abstract}
+ ...
+ \end{document}
+
+Section commands: in order to show different sections (Notice that you do not need to specify section numbers; LaTeX will sort that out for you):
+
+ \chapter{Introduction}
+ This chapter's content...
+
+ \section{Structure}
+ This section's content...
+
+ \subsection{Top Matter}
+ This subsection's content...
+
+ \subsubsection{Article Information}
+ This subsubsection's content...
+
+{| class="wikitable"
+! Command
+!width="10%"| Level
+! Comment
+|-
+| \part{''part''}
+| style="text-align: center" | -1
+| not in letters
+|-
+| \chapter{''chapter''}
+| style="text-align: center" | 0
+| only books and reports
+|-
+| \section{''section''}
+| style="text-align: center" | 1
+| not in letters
+|-
+| \subsection{''subsection''}
+| style="text-align: center" | 2
+| not in letters
+|-
+| \subsubsection{''subsubsection''}
+| style="text-align: center" | 3
+| not in letters
+|-
+| \paragraph{''paragraph''}
+| style="text-align: center" | 4
+| not in letters
+|-
+| \subparagraph{''subparagraph''}
+| style="text-align: center" | 5
+| not in letters
+|-
+|}
+
+To get an unnumbered section heading which does not go into the Table of Contents:
+
+ \subsection*{Introduction}
+
+To add to the TOC:
+
+ \addcontentsline{toc}{section}{Introduction}
+
+
+Tutorials about fast LaTeX:
+
+* http://navarroj.com/latex/guia.html
+* http://navarroj.com/latex/curso.html
+* https://docs.google.com/file/d/0B9yIcbWx6zAeVWtGNmFEZmpOUFk/edit
+* http://www.emacswiki.org/emacs/AUCTeX
+* http://tex.stackexchange.com/
+
+Enviroments for LaTeX:
+
+* Emacs + AucTeX
+* http://www.xm1math.net/texmaker/
+* http://www.tug.org/texlive/
+* http://tex.stackexchange.com/questions/339/latex-editors-ides
+* http://en.wikipedia.org/wiki/Comparison_of_TeX_editors
+
+Install extra packages:
+
+  apt-get install texlive-full
+
+All possible packages are at:
+
+ http://www.ctan.org/pkg/
+
+After that use the command:
+
+ tlmgr install <package1> <package2> ...
+ tlmgr remove <package1> <package2> ...
+
+* CTAN: http://en.wikibooks.org/wiki/LaTeX/Installing_Extra_Packages
+* Tex Archive: http://www.ctan.org/tex-archive/
+* Headers and footers: http://tex.stackexchange.com/questions/103585/logo-in-footer-with-aligned-text

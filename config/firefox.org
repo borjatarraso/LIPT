@@ -1,0 +1,23 @@
+* Firefox
+** Addons/Extensions
+
+# Forecastfox: [https://addons.mozilla.org/en-US/firefox/addon/forecastfox-weather/]
+# Firebug: [https://addons.mozilla.org/en-US/firefox/addon/firebug/]
+# Web developer: [https://addons.mozilla.org/en-US/firefox/addon/web-developer/]
+# Addblock plus: [https://addons.mozilla.org/en-US/firefox/addon/adblock-plus/]
+# Tab mix plus: [https://addons.mozilla.org/en-US/firefox/addon/tab-mix-plus/]
+# Colorful tabs: [https://addons.mozilla.org/en-US/firefox/addon/colorfultabs/]
+# Turn off the lights: [https://addons.mozilla.org/en-US/firefox/addon/turn-off-the-lights/?src=cb-dl-featured]
+# All in one gestures: [https://addons.mozilla.org/en-US/firefox/addon/all-in-one-gestures/]
+# Video DownloadHelper: [https://addons.mozilla.org/en-US/firefox/addon/video-downloadhelper/?src=cb-dl-featured]
+# No script: [https://addons.mozilla.org/en-US/firefox/addon/noscript/?src=cb-dl-featured]
+# Quick Translator: [https://addons.mozilla.org/en-US/firefox/addon/quick-translator/?src=search]
+
+** Themes
+
+# Fractal summer colors: [https://addons.mozilla.org/en-US/firefox/addon/fractal-summer-colors/]
+# Colorful fractal: [https://addons.mozilla.org/en-US/firefox/addon/colorful-fractal/]
+# Batik: [https://addons.mozilla.org/en-US/firefox/addon/batik-firefox/]
+# Dark fox: [https://addons.mozilla.org/en-US/firefox/addon/dark-fox-18066/]
+
+** Plugins
