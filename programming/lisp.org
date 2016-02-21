@@ -1,0 +1,440 @@
+= General info about Lisp =
+
+== Intro Lisp, Elisp, CL ==
+
+Al final me he adentrado a estudiar scheme, el dialecto de Lisp mas minimalista de todos, sin embargo a nivel de concepto sea probablemente el mas complejo. El estandar de scheme R5RS cuenta tan solo con 50 paginas, aunque no es el ultimo (R6RS) que ha sido extendido para ser mas practico y aplicable a ciertos proyectos, aunque todas estas extensiones incluidas en el R6RS han sido incluidas a modo biblioteca. Asi que nos disponemos a analizar el R5RS.
+
+Sin embargo, antes de que os adentreis en uno de estos 3 dialectos, deberiais hacer un test de personalidad, yo ya lo hice, al leer el libro “The land of lisp”. Ahora es vuestro turno:
+
+[[File:../img/programming/lisp.png]]
+
+Y bien? ya habeis elegido? Si habeis elegido la opcion A, parece que os gusta el poder duro y crudo en vuestro lenguaje. No os importa si vuestro lenguaje a un poco sucio debido por la cantidad de compromisos pragmaticos, siempre que podais escribir codigo que se ajuste a vuestras necesidades. En ese caso, Common Lisp (CL) es vuestro lenguaje, dando una increible funcionalidad.
+
+Si habeis elegido la opcion B, eso es porque te gustan los lenguajes limpios y elegantes. Estais mas interesados en problemas de programacion fundamental y sois felices siempre y cuando exista un camino bonito para realizarlo, contemplando el codigo precioso en vuestro codigo, ocasionalmente escribiendo un research paper de problemas sobre computacion teorica. Es por eso que scheme es vuestro lenguaje, creado por Guy L. Steele y Gerald Jay Sussman envolviendo la busqueda sobre el lisp ideal. Programar en scheme tiende a ser ligeramente mas detallado, debido a que los schemers tienden a pensar mas en la pureza matematica de su codigo que en crear los programas lo mas corto posible.
+
+Sin embargo, si habeis elegido la opcion C, es porque sois gente que quereis un todo en uno; el poder de CL al mismo tiempo que quereis la pureza matematica de scheme. En este momento, no existe un dialecto lisp que completamente llene vuestras necesidades, pero sin duda esto cambiara en un futuro. Un lenguaje sin embargo que servira para vosotros es Haskell. Haskell obviamente no es considerado un dialecto Lisp, pero sigue la gran mayoria de los paradigmas populares entre lisperos como la sintaxis uniforme, soporte para listas de forma nativa y confiando fuertemente en funciones de order alto. Tiene un importante rigor matematico (incluso mas que scheme), lo que permite esconder la funcionalidad mas potente bajo una superficien chirriantemente limpia. Esto es esencialmente un lobo con la vestimenta de una oveja. Como Lisp, Haskell es un lenguaje que todo programador encontrara un beneficio una vez haya investigado lo suficiente.
+
+A mi me salio la C, simplemente porque estoy como una cabra, pero me hubiese llevado las 3 mascotas a casa. Asi que yo soy de los que quiero scheme, CL y Haskell. Hay que tener mucho cuidado al aprender uno de estos lenguajes, ya que generalmente los manuales, tutoriales y otros libros tienden a ser bastante malos, con ejemplos que se centran y se focalizan en IA y se cargan toda la esencia del lenguaje. Asi que me he dedicado a ver cada uno de estos libros y decidir, basado en opiniones de otros, analisis, y demas, cuales son los mejores libros para aprender cada uno de estos lenguajes a nivel desde el principio y mas claramente sin mezclar conceptos.
+
+* Para aprender Scheme: The little schemer
+* Para aprender Elisp: C-h i en emacs tiene un estupendo manual de elisp en el que practicar en el propio entorno.
+* Para aprender CL:  Common LISP: A Gentle Introduction to Symbolic Computation
+* Para aprender Haskell: Learn You a Haskell for Great Good!: A Beginner’s Guide
+* El libro mas avanzado de Scheme: Structure and Interpretation of Computer Programs
+* El libro mas avanzado para Elisp: An Introduction to Programming in Emacs Lisp
+* El libro mas avanzado para CL: On Lisp
+* El libro mas avanzado para Haskell: The Haskell Road to Logic, Maths and Programming
+
+== Analisis del estandar R5RS ==
+
+=== Vista General ===
+
+==== Semantica ====
+
+Los tipos estan asociados con valores (objetos) y no con variables. Todos los objetos son creados en el curso de la computacion de scheme y nunca son destruidos.
+
+Los argumentos en scheme son siempre pasados por valor lo que significa que las expresiones de los argumentos son evaluadas antes que el procedimiento gane el control.
+
+En scheme cada entero (Z) es racional (Q), cada racional es real (R), y cada real es complejo (C).
+
+==== Sintaxis ====
+
+La representacion uniforme es la susceptibilidad de los programas scheme y tratamiento de informacion uniforme por otros programas scheme.
+
+<TODO: En desarrollo>
+
+== El lenguaje Lisp ==
+
+=== El lenguaje lisp ===
+
+Antes de comenzar, debemos realizar algunas aclaraciones, y es que LISP se refiere al lenguaje creado por John McCarthy originalmente (LISP1.5). LISP son las raices del resto de lenguajes derivados, sin embargo hoy en dia no se emplea dicho lenguaje original. Sin embargo, cuando nos referimos a Lisp nos referimos al dialecto CL (Common Lisp). Podemos referirnos al grupo de dialectos como scheme y CL entre otros mediante “lisp-based” o “Lisp family”.
+
+==== Propiedades del lenguaje lisp ====
+
+Lisp es un lenguaje multiparadigma, es prodedural, orientado a objetos, reflectivo y metaprogramado.
+
+El lenguaje lisp esta basado en s-expression (solo la sintaxis, no el lenguaje); es decir, expresions simbolicos, que es una notacion en forma de texto para representar estructuras de datos de arbol, basadas en listas anidadas donde cada sublista es un  subarbol.
+
+En lisp, el primer elemento de cada s-expression es un operador, mientras que el resto de elementos son tratados como datos. Esta forma se denomina notacion prefija o notacion Polaca Cambridge, a diferencia de la notacion infija donde el operador se encuentra dentro.
+
+Lisp tiene precision infinita para enteros (numeros grandes), por lo que las operaciones booleanas a nivel de bit estan exemptas de las limitaciones a nivel de maquina, excepto por la memoria disponible.
+
+En lisp, “todo” son listas.  Hay que matizar que no todo son listas, realmente es una estructura comun que se usa para el codigo, pero cuando se quiere realizar algo eficiente, no se usa listas, sino que se usan vectores, arboles, tablas hash, etc.
+
+En lisp nil es nulo.
+
+En lisp t es verdadero.
+
+En lisp esto seria una lista (list 1 2 3). Aunque realmente la lista, no seria 1 2 3, sino list 1 2 3. Es decir, son 4 elementos si te quieres referir a la lista, y el resultado de ejecutar (evaluar) eso, es una lista 1 2 3.
+
+En lisp tenemos simbolos, no variables (realmente hay que matizar que tambien hay variables. Donde por ejemplo (quote a) a seria un simbolo. Variables y simbolos son cosas diferentes; un simbolo es un identificador unico, mientras que una variable, es algo que contiene un valor. Pero como es util poder llamar a variables unicamente en la sintaxis las listas-como-codigo, se usan simbolos para denotar variables.
+
+Lisp no es case sensitive. Otra aclaracion mas, realmene es case-sensitive, lo que ocurre es que el reader por defecto convierte todo a mayusculas. Pero: 1) se puede apagar y 2) se pueden escapar simbolos asi:
+
+ foo == FOO
+ pero
+ \foo == fOO
+
+En lisp el primer parametro sera el nombre de una funcion. (funcion param1 param2 paramX) donde se emplea espacio para separar parametros.
+
+Todo en lisp son funciones. Aqui cabe aclarar, que realmente no todo son funciones, sino mas bien que lo que en otros lenguajes son operadores, en Lisp son funciones.
+
+Lisp basicamente tiene 3 operaciones:
+
+# Extraer un miembro de una lista.
+# Anadir/eliminar un miembro de una lista.
+# Extrae un miembro de una lista de manera no destructiva.
+
+En lisp existen las celdas cons (o expresiones S no atomicas), una celda cons se compone de dos punteros. La operacion car extrae el primer puntero, y la operacion cdr extrae el segundo. Lisp fue implementado en IBM 704 a finales de 1950, en dicho hardware existia soporte especial para dividir una palabra de la maquina de 36 bits en 4 partes, es de aqui de donde viene dicho origen de los nombres. CAR (Contents of the Address part of Register number) y CDR (Contents of the Decrement part of Register number).
+
+==== Lisp basico ====
+
+Para definir variables globales (tambien llamadas top-level definition, o bien dynamic variable o special variable):
+
+ (defparameter *big* 100)
+
+Los asteriscos alrededor de la variable (llamados earmuffs) son completamente opcionales aunque se recomienda usar. Esto devolvera *BIG* debido a que se ha definido una nueva variable. Si queremos ver su valor podemos hacer lo siguiente:
+
+ *big*
+
+Podemos definir variables globales de otro modo (con defvar). Sin embargo estas actuaran como constantes, ya que no sobreescribira el valor una vez asignado:
+
+ (defvar *small* 2)
+
+Para definir una funcion lo hacemos de la siguiente manera:
+
+ (defun factorial (o)
+     "optional command"
+     if (= n 1)
+         1
+     ( * n (factorial (- n 1) ) ) )
+
+Para usar una funcion dentro de un fichero podemos hacer lo siguiente:
+
+ (load “file.el”)
+ (factorial 1)
+ (factorial 10)
+
+Para anadir trazas a dichas funciones podemos hacer lo siguiente:
+
+ (trace factorial)
+ (factorial 11)
+
+Para listar operaciones, como “todo son listas” (la palabra reservada setf proviene de set field):
+
+ (setf a ‘(1 2 3 4) )
+
+Una funcion interesante a utilizar es ash, que permite realizar desplazamientos de bits a la izquierda o derecha sobre un valor, por ejemplo:
+
+ (ash 11 1)
+ (ash 11 -1)
+
+Para definir variables locales en Lisp lo hacemos de la siguiente forma:
+
+ (let (declaraciones de variables)
+     (body) )
+
+Esto nos permite hacer multiples declaraciones, por ejemplo:
+
+ (let (a 5)
+     (b 9)
+     (+ a b))
+
+Para definir funciones locales en Lisp lo hacemos de la siguiente forma:
+
+ (flet ((nombre-de-la-funcion (argumentos)
+         ... body de la funcion ...))
+     ... body...)
+
+Por ejemplo:
+
+ (flet ((f (n)
+         (+ n 10)))
+     (f 5))
+
+De la misma forma podemos declarar multiples funciones al mismo tiempo:
+
+ (flet ((f (n)
+         (+ n 10))
+     (g (n)
+         (- n 3)))
+     (g (f 5)))
+
+Para hacer que los nombres de funciones esten disponibles en las funciones definidas, empleamos el comando labels en lugar de flet:
+
+ (labels ((a (n)
+         (+ n 5))
+     (b (n)
+         (+ (a n) 6)))
+ (b 10))
+
+Mas informacion:
+
+* https://en.wikipedia.org/wiki/Lisp_%28programming_language%29
+* http://en.wikipedia.org/wiki/S-expression
+* http://en.wikipedia.org/wiki/CAR_and_CDR
+
+== Lisp group ==
+
+Reserved words used in the last exercise:
+
+* gensym
+* macroexpand
+* defmacro
+* setq
+* set
+* lambda
+* when
+* if
+* loop
+
+= Common Lisp: A gentle introduction to symbolic computation =
+
+== Functions and data ==
+
+=== Introduction ===
+
+The term data means information, such as numbers, words or lists of strings.
+You can think of a function as a box through which data flows.
+The function operates on the data in some way, and the result is what flows out.
+
+=== Functions on numbers ===
+
+Arithmetic functions of: additional, substraction, multiplication and division.
+For example the name of the function is "+."
+
+ +    Adds
+ -    Subtracts
+ *    Multiplies
+ /    Divides
+ ABS  Absolute value
+ SQRT Square root
+
+=== Three kinds of numbers ===
+
+* Integers: whole numbers. Optionally with the + or - in front.
+* Floating point: written with decimal point.
+* Ratios: written with ratio "/" and CL automatically simplifies to use the smallest possible denominator.
+
+=== Order of inputs is important ===
+
+The order in which inputs are supplied to a function is important.
+
+=== Symbols ===
+
+Symbols are another type of data in Lisp.
+
+Symbol names may contain practically any combination of letters and numbers.
+Notice that symbols may include digits in their names, but this does not make them numbers.
+
+ 4      Is an integer
+ FOUR   Is a symbol
+ +4     Is an integer
+ +      Is a symbol
+ 7-11   Is a symbol
+
+=== The special symbols T and NIL ===
+
+Two Lisp symbols have special meanings attached to them:
+
+ T      Truth, "yes"
+ NIL    Falsity, "no"
+
+Predicates: Yes-or-no functions
+
+=== Some simple predicates ===
+
+A predicate is a question-answering function. Predicates output the symbol T when they mean "yes" and the symbol NIL when they mean "no".
+
+ NUMBERP   Is a number?
+ SYMBOLP   Is a symbol?
+ ZEROP     Is zero?
+ EVENP     Is even number?
+ ODDP      Is odd number?
+ <         Is the first input less than second?
+ >         Is the first input more than second?
+
+=== The EQUAL predicate ===
+
+EQUAL is a predicate for comparing two things to see if they are the same.
+
+CL also includes preicates named EQ, EQL and EQUALP whose behaviour is slightly different than EQUAL.
+
+=== Putting functions together ===
+
+Primitive functions or primitives: Built-in functions.
+
+We make new functions by putting primitives together in various ways.
+
+ ADD1     Create a function that gets an input and combine with + function and 1.
+ ADD2     Adding two times ADD1
+ TWOP     Create a function that gets an input and combine with EQUAL function and 2.
+ ONEMOREP Create a function that gets an input and combine with ADD1 function add EQUAL.
+
+=== The NOT predicate ===
+
+NOT is the opposite predicate. It turns "yes" to "no" and "no" into "yes".
+
+By convention, NIL is the only way to say "no" in Lisp. Everything else is treated as "yes". So NOT returns NIL for every input except NIL.
+This is not just an arbitrary convention. It turns out to be extremely useful to treat NIL as the only "false" object.
+
+=== Negating a predicate ===
+
+Suppose we want to make a predicate that tests whether two things are not equal. The opposite of the EQUAL predicate. We can build it by starting with EQUAL and running its output through NOT to get the opposite result.
+
+ NOT-EQUAL    Create a function that gets 2 inputs and combine them with EQUAL function, after that, combine them with NOT function.
+
+Truth function: is a function whose inputs and outputs are truth values, tht is, true or false. NOT is a truth function, even through NOT accepts other inputs besides T or NIL, it only cares if its input is true or not.
+
+=== Number of inputs to a function ===
+
+Some functions require a fixed number of inputs, such as ODDP, which accepts exactly one input, and EQUAL, which takes exactly two. But many functions accept a variable number of inputs, for example arithmetic functions +, -, * and /.
+
+=== Errors ===
+
+One error is to give a function the wrong type of data. For example the + function can add only numbers, it cannot add symbols.
+
+An error may occur because a function cannot do what it is requested of it. This is what happens when we try to divide a number by zero.
+
+== Lists ==
+
+Lists are important because they can be made to represent practically anything: sets, tables and graphs, and even english sentences. Functions can also be represented as lists.
+
+In its printed form, a list is a bunch of items enclosed in parenthesis. These items are called the elements of the list.
+
+ (RED GREEN BLUE)
+ (2 3 4 5)
+
+[IMAGE PAGE 32]
+
+=== Lists of one element ===
+
+A symbol and a list of one element are not the same.
+
+ (AARDVARK)    Is a list, represented by a cons cell, one of the cons cell pointers points to the symbol AARDVARK, the other points to NIL.
+ AARDVARK      Is a symbol
+
+[IMAGE PAGE 33]
+
+=== Nested lists ===
+
+We can make a list of them by enclosing them within another pair of parenthesis.
+
+ ((BLUE SKY) (GREEN GRASS) (BROWN EARTH))
+ or
+ ((BLUE SKY)
+     (GREEN GRASS)
+         (BROWN EARTH))
+
+[IMAGE 1 of 2 PAGE 34]
+
+=== Length of lists ===
+
+The length of a list is the number of elements it has (only to one level of parenthesis).
+
+ LENGTH    Primitive function that computes the length of a list
+
+=== NIL: The empty list ===
+
+Empty list: a list of zero elements. It has no cons cells, it is written as an empty pair of parenthesis.
+
+ ()
+
+Inside the computer the empty list is represented by the symbol NIL. This is the tricky point: the symbol NIL is the emtpy list, that's why it is used to mark the end of a cons cell chain.
+Since NILL and the empty list are identical, we are always free to write NIL instead of () and vice versa.
+
+=== Equality of lists ===
+
+Two lists are considered EQUAL if their corresponding elements are EQUAL.
+
+=== FIRST, SECOND, THIRD and REST ===
+
+Lisp provides primitive functions for extracting elements from a list.
+
+ FIRST    Returns the first element of the list
+ SECOND   Returns the second element of the list
+ THIRD    Returns the third element of the list
+ REST     Returns a list containing everything but the first element.
+
+Using just FIRST and one or more RESTs it is possible to construct our own versions of SECOND, THIRD, FOURTH and so on.
+
+=== Functions operate on pointers ===
+
+Suppose (THE BIG BOPPER) is supplied as input to REST. What actually receives is a pointer to the first cons cell. The pointer's location isn't specified, it does not live inside any cons cell, it lives elsewhere in the computer.
+
+[IMAGE 1 of 2 PAGE 42]
+
+The result returned by REST is a pointer to the second cons cell, which is the first cell of the list (BIG BOPPER). Where did this pointer come from? What REST did was extract the pointer from the right half of the first cons cell, and return that pointer as its result. So the result of REST is a pointer into the same cons cell chain as the input to REST. No new cons cells were created by REST when it returned (BIG BOPPER), all it did was extract and return a pointer.
+
+[IMAGE 2 of 2 PAGE 42]
+
+=== CAR and CDR ===
+
+Each half of a cons cell points to something.
+The left half is called the CAR.
+The right half is called the CDR.
+
+These names are relics from when Lisp first ran on a machine called IBM 704, it didn't have transistors, it used vacuum tubes, each of its "registers" was divided into several components, two of which were the address portion and the decrement portion.
+
+ CAR: Contents of Address Portion of register.
+ CDR: Contents of Decrement Portion of register.
+
+The CDR of a single-element list.
+
+[IMAGE 1 and 2 of PAGE 44]
+
+Since a list of length one is represented inside the computer as a single cons cell, the CDR of a list of length one is the list of length zero, NIL.
+
+ ((PHONE HOME))
+
+[IMAGE 1 of 2 PAGE 45]
+
+Since the CAR and CDR functions extract their respective pointers from the first cons cell of a list, the CAR of ((PHONE HOME)) is (PHONE HOME), and the CDR is NIL.
+
+[IMAGE 2 of 2 PAGE 45]
+
+=== Combinations of CAR and CDR ===
+
+ CADR    The CAR of a CDR of the list (FIRST of the REST).
+ CDAR    The CDR of a CAR of the list (REST of the FIRST).
+ CADDR   The CAR of the CDR of the CDR of the list (FIRST of the REST of the REST, the THIRD).
+ CDDR    The CDR of the CDR of the list (the REST of the REST).
+ CAADDR  The CAR of the CAR of the CDR of the CDR of the list (FIRST of the FIRST of the REST of the REST).
+ CADDDR  The CAR of the CDR of the CDR of the CDR of the list (FIRST of the REST of the REST of the REST, the FOURTH).
+
+=== CAR and CDR of nested lists ===
+
+CAR and CDR can be used to take apart nested lists.
+
+ ((BLUE CUBE) (RED PYRAMID))
+
+To get the first element that it is a list, we can do CAR and we get (BLUE CUBE).
+To get the first element of the first list, we can do CAAR and we get BLUE.
+
+=== CAR and CDR of NIL ===
+
+The CAR and CDR of NIL is defined as NIL. Before in some Lisp dialects it was actually an error, but experience shows that defining the CAR and CDR of NIL to be NIL has useful consequences in certain programming situations.
+
+== Eval notation ==
+
+== Conditionals ==
+
+== Variables and side effects ==
+
+== List data structures ==
+
+== Applicative programming ==
+
+== Recursion ==
+
+== Input/output ==
+
+== Assignment ==
+
+== Iteration and block structure ==
+
+== Structures and the type system ==
+
+== Arrays, hash tables and property lists ==
+
+== Macros and compilation ==
