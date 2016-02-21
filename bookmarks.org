@@ -707,7 +707,6 @@
 
 * New bookmarks
 * [[http://www.ataun.net/BIBLIOTECAGRATUITA/indice.html][D:\BIBLIOTECAGRATUITA]]
-* [[http://www.ataun.net/BIBLIOTECAGRATUITA/indice.html][D:\BIBLIOTECAGRATUITA]]
 * [[http://www.dominiopublico.es/][Dominio Público]]
 * [[https://www.epublibre.org/][epublibre - inicio]]
 * [[http://www.espaebook.com/][espaebook - epub gratis en español | libros gratis | ebooks gratis | libros para Kindle, Papyre, iPad, iPhone, Android, Nook, Sony]]
