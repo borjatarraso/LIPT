@@ -1,0 +1,29 @@
+To use gnu profiler just compile with -pg options using gcc (you might be interested in -O0 or no optimizations):
+
+ $ gcc -pg -o file file.c
+
+Then run:
+
+ $ ./file
+
+Then check the generated file:
+
+ $ ls -l gmon.out
+
+Run gprof:
+
+ $ gprof hello gmon.out -p
+
+Options:
+
+ -b : brief
+ -p : flat profile
+ -q : call graph
+ etc... check manpage for all the options
+
+Additional information:
+
+* http://www.ibm.com/developerworks/library/l-gnuprof.html
+* http://www.cs.utah.edu/dept/old/texinfo/as/gprof_toc.html
+* http://en.wikipedia.org/wiki/Gprof
+* http://stackoverflow.com/questions/375913/what-can-i-use-to-profile-c-code-in-linux/378024#378024

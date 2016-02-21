@@ -1,0 +1,16 @@
+KeepassX is a password manager for Linux, Windows, OS X, etc.
+
+== Installation and configuration ==
+
+ # apt-get install keepassx
+
+Also another good program for ncurses could be:
+
+ # apt-get install cpm
+
+== References ==
+
+* General info: [http://en.wikipedia.org/wiki/KeePass]
+* Official website: [http://www.keepassx.org/]
+* cpm info: [http://www.harry-b.de/dokuwiki/doku.php?id=harry:cpm]
+* cpm info2: [http://blog.larsstrand.no/2009/02/secure-password-management-using-cpm.html]

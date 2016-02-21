@@ -1,0 +1,41 @@
+Install:
+
+ # apt-get install sloccount
+
+Use:
+
+ $ sloccount file.c
+ or
+ $ sloccount directory
+
+Options:
+
+There are several options that control which files are selected for counting:
+
+ --duplicates   Count all duplicate files as normal files
+ --crossdups    Count duplicate files if they're in different data directory
+                children.
+ --autogen      Count automatically generated files
+ --follow       Follow symbolic links (normally they're ignored)
+ --addlang      Add languages to be counted that normally aren't shown.
+ --append       Add more files to the data directory
+
+There are many options for controlling the output:
+
+ --filecount     Show counts of files instead of SLOC.
+ --details       Present details: present one line per source code file.
+ --wide          Show "wide" format.  Ignored if "--details" selected
+ --multiproject  Assume each directory is for a different project
+                 (this modifies the effort estimation calculations)
+ --effort F E    Change the effort estimation model, so that it uses
+                 F as the factor and E as the exponent.
+ --schedule F E  Change the schedule estimation model, so that it uses
+                 F as the factor and E as the exponent.
+ --personcost P  Change the average annual salary to P.
+ --overhead O    Change the annual overhead to O.
+ --              End of options
+
+For additional information:
+
+* http://www.dwheeler.com/sloccount/sloccount.html
+* http://sourceforge.net/p/sloccount/wiki/Home/

@@ -1,0 +1,23 @@
+Run callgrind tool from valgrind (replace a.out by the binary if you want):
+
+ $ valgrind --tool=callgrind --instr-atstart=no ./a.out --nofork
+
+Another examples are:
+
+ $ valgrind --tool=callgrind -v --dump-every-bb=10000000 emacs
+ or
+ $ valgrind --tool=callgrind -v --dump-before=KonqMainWindow::slotReload konqueror
+ or
+ $ valgrind --tool=callgrind
+ and
+ $ callgrind_control -d
+
+With "-v", you get some output when shared libraries are loaded and when a profile trace dump is made
+
+And now load in kcachegrind:
+
+ $ kcachegrind callgrind.out.15303
+
+More information at:
+
+* http://kcachegrind.sourceforge.net/html/Usage.html

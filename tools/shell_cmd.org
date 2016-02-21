@@ -1,0 +1,643 @@
+== Trace tools ==
+
+=== ptrace ===
+
+=== strace ===
+
+ strace -fe trace=network binary
+
+=== ltrace ===
+
+=== xtrace ===
+
+=== ktrace ===
+
+=== SystemTap ===
+
+== Coreutils ==
+
+=== Intro ===
+
+Las coreutils es un paquete fundamental en sistemas GNU con los comandos y herramientas mas fundamentales que nos permiten trabajar con el sistema. Realmente es la combinacion de 3 paquetes anteriores: fileutils, shellutils y textutils. Como tenemos demasiadas herramientas fundamentales, nos centraremos en las que mas nos interesen para el desarrollo y tareas relacionadas.
+
+=== Comando file ===
+
+Muestra informacion detallada sobre el fichero binario u objeto (asi como otros ficheros). Indica el tipo de cabecera, por ejemplo ELF para ejecutables en sistemas gnu. Si el binario fue compilado para 32 o 64 bits. Si se usa LSB (Less Significant Bit o Little-Endian) o MSB (Most Significant Bit o Big-Endian). Si el ejecutable fue compilador para sistemas x86 u otros. La version de dicho formato interno. Si fue linkado de manera estatica o dinamica. Y finalmente si es stripped o no; en caso de no ser stripped, indica que el binario contendra la tabla de simbolos, esta se puede eliminar mediante el comando strip.
+
+=== Comando nm ===
+
+Con el comando nm podemos analizar la tabla de simbolos que puede estar tanto en ficheros ejecutables como en ficheros de codigo objeto. Generalmente cuando lanzamos el comando nm a.out o similar, buscaremos las letras T o U. la T indica que la funcion es definida en el mismo fichero y la U indica undefined, y que la direccion debe ser resuelta mediante el linkade de una lib externa.
+
+=== Comando ldd ===
+
+Cuando un programa es ejecutado mediante el uso de bibliotecas compartidas, se requiere la carga de estas de forma dinamica en tiempo de ejecucion para asi poder realizar las llamadas a las funciones empleadas. Con el comando ldd podemos examinar un ejecutable y obtener un listado de libs requeridas. Por ejemplo si lanzamos ldd a.out obtendremos las dependencias de este binario: la lib, el lugar donde se encuentra y el offset en memoria.
+
+=== Comandos de disco ===
+
+Checkear el uso del disco:
+
+ $ du -hs
+
+Checkear diskfree:
+
+ $ df -hT
+
+== binutils ==
+
+=== readelf ===
+
+La sintaxis siempre sera:
+
+ readelf [opcion] ficheroelf
+
+Opciones:
+
+ -a  --> Show all information
+ -h  --> Displays information contained in the ELF header.
+ -l  --> Displays information contained in the headers of file segment.
+ -S  --> Displays information contained in the headers of file section.
+ -g  --> Displays information contained in the groups of file section.
+ -t  --> Displays the detailed section information.
+ -e  --> Displays all the headers in the file.
+ -s  --> Displays entires in symbol table section of the file.
+ --dyn-syms  --> Displays the entries in symbol table section of the file.
+ -n  --> Displays the contents of the NOTE segments and/or sections.
+ -r  --> Displays the contents of the file's realocation section.
+ -u  --> Displays the contents of the file's unwind section.
+ -d  --> Displays the contents of the file's dynamic section.
+ -V  --> Displays the contents of the version sections of the file.
+ -A  --> Displays the architecture-specific information in the file.
+ -D  --> When displaying symbols, makes readelf use the symbol hash tables in the file's dynamic section instead symbol table section.
+ -x <number or name>  --> Displays the contents of the indicated section as an hex bytes or a number of a particular section index in section table.
+ -p <number or name>  --> Displays the contents of the indicated section as printable strings indicated by a particular section index in section table.
+ -R <number or name>  --> Displays the contents of the indicated section as a hex bytes, a number identify a particular section in the section table. The contents of the section will be realocated before they are displayed.
+ -c  --> Displays the file symbol index information contained in the header part of bynary archives.
+ -w[lLiaprmfFsoRt]   --> Displays the contents of the debug sections in the file. Dumps the info if present for any of the particular letters specified
+  --debug-dump[=rawline,=decodedline,=info,=abbrev,=pubnames,=aranges,=macro,=frames,=frames-interp,=str,=loc,=Ranges,=pubtypes,=trace_info,=trace_abbrev,=trace_aranges,=gdb_index]
+  --dwarf-depth=n --> Limit the dump of the .debug_info section to n children.
+  --dwarf-start=n --> Print only DIEs beginning with the DIE numbered n.
+ -I  --> Display a histogram of bucket list lengths when displaying the contents of the symbol tables.
+ -v  --> Show version of readelf.
+ -W  --> Dont break output lines to fit into 80 columns.
+ -H  --> Show help
+
+=== objdump ===
+
+Used to display various types of information stored in object files.
+
+* Display the header
+
+ $ objdump -f binaryfile
+
+* Display all the header info
+
+ $ objdump -x binaryfile
+
+* Information related to all the sections
+
+ $ objdump -s binaryfile
+
+* Display a particular section
+
+ $ objdump -s -j.section binaryfile
+
+* Accept the options from file instead as a parameter
+
+ $ objdump @options binaryfile
+
+* Other useful options
+
+ -a                      --> If any of the objfile files are archives, display the archive header information (in a format similar to ls -l). Besides the information you could list with ar tv, objdump -a shows the object file format of each archive member.
+ --adjust-vma=offset 	--> When dumping information, first add offset to all the section addresses. This is useful if the section addresses do not correspond to the symbol table, which can happen when putting sections at particular addresses when using a format which can not represent section addresses, such as a.out.
+ -C 	                --> Decode (demangle) low-level symbol names into user-level names. Besides removing any initial underscore perpended by the system, this makes C++ function names readable. Different compilers have different mangling styles. The optional demangling style argument can be used to choose an appropriate demangling style for your compiler.
+ -e 	                --> Like -g, but the information is generated in a format compatible with ctags tool.
+ -D 	                --> Like -d, but disassemble the contents of all sections, not just those expected to contain instructions. If the target is an ARM architecture this switch also has the effect of forcing the disassembler to decode pieces of data found in code sections as if they were instructions.
+ -EB, -EL                --> Specify the endianness of the object files. This only affects disassembly. This can be useful when disassembling a file format which does not describe endianness information, such as S-records.
+ -F                      --> When disassembling sections, whenever a symbol is displayed, also display the file offset of the region of data that is about to be dumped. If zeros are being skipped, then when disassembly resumes, tell the user how many zeros were skipped and the file offset of the location from where the disassembly resumes. When dumping sections, display the file offset of the location from where the dump starts.
+
+=== ar / archiver ===
+
+La herramienta GNU ar (archiver) esta intimamente relacionada con la seccion anterior de compiladores. Fundamentalmente se centra en combinar una coleccion de objetos en un solo fichero, tambien conocido como biblioteca o library.
+
+Creamos el fichero hello.c:
+
+ #include <stdio.h>
+ #include "hello.h"
+
+ void
+ hello (const char * name)
+ {
+     printf("hello %s\n", name);
+ }
+
+Creamos el fichero bye.c:
+
+ #include <stdio.h>
+ #include "hello.h"
+
+ void
+ bye (void)
+ {
+     printf("Goodbye\n");
+ }
+
+Creamos el fichero hello.h:
+
+ void hello (const char *);
+ void bye (void);
+
+Compilamos usando la herramienta GCC:
+
+ $ gcc -Wall -c hello.c
+ $ gcc -Wall -c bye.c
+
+Para insertar todo ello en un solo fichero a modo biblioteca debemos entonces usar ar con opcion cr (create and replace):
+
+ $ ar cr libhello.a hello.o bye.o
+
+Para ver la lista de objetos de una lib usariamos el comando ar con opcion t (table of contents):
+
+ $ ar t libhello.a
+
+Es importante distribuir los ficheros de cabecera o headers (.h) cuando vayamos a distribuir publicamente nuestras libs.
+
+Si quisieramos hacer uso de esta libreria en un programa fundamental podriamos hacerlo de la siguiente forma:
+
+ #include "hello.h"
+
+ int
+ main (void)
+ {
+     hello("everyone");
+     bye();
+     return 0;
+ }
+
+Y lo compilariamos de la siguiente forma:
+
+ $ gcc -Wall main.c libhello.a -o hello
+
+o bien sin necesidad de especificar la lib:
+
+ $ gcc -Wall -L. main.c -lhello.o -o hello
+
+== System statistics ==
+
+Install sysstat:
+
+ # apt-get install sysstat
+
+Now try statistics from CPU for I/O devices and partitions:
+
+ $ iostat
+
+Report processor related statistics:
+
+ $ mpstat
+
+Also try for virtual memory statistics:
+
+ $ vmstat
+
+Collect and report system activity information:
+
+ $ sar
+
+Report statistics for Linux tasks:
+
+ $ pidstat
+
+System activity grapher:
+
+ $ isag
+
+Display data collected in multiple formats:
+
+ $ sadf
+
+And to list open files:
+
+ $ lsof
+
+Check uptime and cpu load (part of procps):
+
+ $ uptime
+
+== Virtualization ==
+
+Alternatives to vmware:
+
+Virtualbox:
+
+ # apt-get install virtualbox virtualbox-source virtualbox-dkms virtualbox-guest-dkms virtualbox-guest-source virtualbox-guest-utils virtualbox-guest-x11
+ ... and run it ...
+ $ virtualbox
+
+Qemu:
+
+ # apt-get install qemu
+ # apt-get install qemu-kvm qemu-utils
+
+GNS3:
+
+First download and install the cisco emulator:
+
+ # apt-get install dynamips
+
+Install required packages for gns3:
+
+ # apt-get install python-qt4 python-qt4-dev
+
+Then download GNS3 from [http://www.gns3.net/download/]
+
+Download additional VMs (called appliances) from: [http://www.gns3.net/appliances/]
+
+== Image edition ==
+
+For RAW image post-processing:
+
+ # apt-get install rawtherapee rawtherapee-data
+
+Other applications for image editing or gallery processing:
+
+ shotwell
+ dolphin
+ gthumb
+ nautilus
+
+== Audio ==
+
+Convert from mp3 to wav for audio cd:
+
+ $ mpg123 -w myfile.wav myfile.mp3
+
+Record an audio cd:
+
+# Open k3b
+# Create new audio cd (if not the option of write audio cd will be disabled)
+# Move there all wav files
+# Burn CD
+
+Play audio cd in linux:
+
+ $ mplayer -cdrom-device /dev/cdrom cdda://
+ $ mplayer -cdrom-device /dev/sr0 cdda://
+
+Get around problem of buffering:
+
+ $ mplayer -cdrom-device /dev/sr0 cdda:// -cache 5000
+
+Play specific tracks:
+
+ $ mplayer -cdrom-device cdda://5 -cache 5000
+ or
+ $ mplayer -cdrom-device cdda://6-13 -cache 5000
+
+Keybindings:
+
+              <- and -> :  Seek backward/forward 10 seconds.
+              up and down : Seek forward/backward 1 minute.
+              pgup and pgdown : Seek forward/backward 10 minutes.
+              [ and ] : Decrease/increase current playback speed by 10%.
+              { and } : Halve/double current playback speed.
+              backspace : Reset playback speed to normal.
+              < and > : Go backward/forward in the playlist (not for audio cds).
+              ENTER : Go forward in the playlist, even over the end.
+              HOME and END : next/previous playtree entry in the parent list
+              p / SPACE : Pause (pressing again unpauses).
+              q / ESC : Stop playing and quit.
+              + and - : Adjust audio delay by +/- 0.1 seconds.
+              / and * : Decrease/increase volume.
+              9 and 0 : Decrease/increase volume.
+              ( and ) : Adjust audio balance in favor of left/right channel.
+              m :  Mute sound.
+              o : Toggle OSD states: none / seek / seek + timer / seek + timer + total time.
+
+* Set the config permanent:
+
+ $ emacs ~/.mplayer/config
+ ''... content ...''
+ # default cdrom
+ cdrom="/dev/sr0"
+ # cache setting
+ cache=5000
+ # set audio driver
+ ao=alsa
+ ''... content ...''
+
+Now play the videos like that:
+
+ $ mplayer cdda://
+ $ mplayer cdda://5
+
+
+== Video ==
+
+How can I convert AVI files into MPGs with ffmpeg?
+
+ $ ffmpeg -i file.avi -vcodec mpeg4 -f mpeg output.mp4
+
+How can I use ffmpeg to split MPEG video into 10 minute chunks for YouTube upload?
+
+ $ ffmpeg -i source-file.foo -ss 0 -t 600 first-10-min.m4v
+ $ ffmpeg -i source-file.foo -ss 600 -t 600 second-10-min.m4v
+ $ ffmpeg -i source-file.foo -ss 1200 -t 600 third-10-min.m4v
+
+
+== Record video capture from desktop or regions ==
+
+How to install needed application:
+
+ $ sudo apt-get install gtk-recordmydesktop
+
+Start using the application:
+
+ $ gtk-recordmydesktop
+
+== Compressed files ==
+
+For files .z01, z02, etc
+
+ $ cat 1.z01 1.z02 1.zip > combined.zip && unzip -FF combined.zip
+
+For tar.gz files:
+
+ $ tar xvfz file.tar.gz
+
+For tar.bz2 files:
+
+ $ tar xvjpf file.tar.bz2
+
+For tar.xz files (need to install xz-utils):
+
+ $ tar -xJf file.tar.xz
+
+For rar files:
+
+ $ unrar x file.rar
+
+Compress to .tar.gz:
+
+ $ tar cvfz file.tar.gz directory
+
+cpio for backups:
+
+ TODO
+
+dd command for create an iso image from a cdrom:
+
+ $ dd if=/dev/sr0 of=/home/overdrive/cdrom.iso bs=2048 conv=noerror,sync
+
+dd command to create an img from a hardrive:
+
+ $ dd if=/dev/sda of=~/disk1.img
+
+dd command to restore an img into a harddrive:
+
+ $ dd if=disk1.img of=/dev/sda
+
+dd command to copy the contents from sda to sdb:
+
+ $ dd if=/dev/sda of=/dev/sdb
+
+== Screenshots ==
+
+ $ xwd -root -screen > foo.xwd
+
+Or
+
+ $ shutter
+
+== Generating files ==
+
+To create 2 Mb of files all with zeros
+
+ $ dd if=/dev/zero of=a.log bs=1M count=2
+
+To create 2 Mb of files all with pseudo-random data
+
+ $ dd if=/dev/urandom of=a.log bs=1M count=2
+
+Differencies for random generation:
+
+* ''/dev/random'' delivers only "pure" random data, which is very, very slow to accumulate on a normal system.
+* ''/dev/urandom'', by contrast, delivers semi-random data generated by a PRNG which is fed by the trickle of real entropy from /dev/random
+
+Take a look to the contents with hexdump to ensure is random:
+
+ $ hexdump a.log |less
+
+
+== Generating ssh keys ==
+
+ $ ssh-keygen -t rsa -C "your_email@example.com"
+
+
+== Best programs for different tasks ==
+
+To read pdf, install okular:
+
+ # apt-get install okular
+ # apt-get install okular-backend-odp okular-extra-backends
+
+== Connectivity ==
+
+List usb devices (like N9):
+
+ $ usb-devices
+
+Check bluetooth devices:
+
+ $ bluez-test-device list
+
+Set trustable devices:
+
+ $ bluez-test-device trusted 5C:6B:32:0C:07:6F yes
+
+Copy stuff from N9:
+
+Enable media sharing and then open gthumb, device should appear.
+
+List all devices connected somehow to the laptop:
+
+ $ pinky
+
+== Encryption/cipher ==
+
+
+Create a partition as NTFS:
+
+ fdisk /dev/sdb
+ d -> for delete one by one
+ n -> to create
+ p -> primary
+ 1 -> first
+ enter -> from start
+ enter -> till the end
+ t -> type of partition
+ 7 -> for NTFS
+ w -> write changes
+ q -> quit
+
+Format the partition:
+
+ sudo mkfs.ntfs /dev/sdb1
+
+Check that it is possible to mount the partition:
+
+ sudo mount /dev/sdb1 /mnt
+ umount /mnt
+
+Install cryptsetup:
+
+ sudo apt-get install cryptsetup
+
+Create the encrypted harddrive:
+
+ sudo luksformat -t ntfs /dev/sdb1
+
+Verify the status:
+
+ sudo cryptsetup luksDump /dev/sdb1
+
+Add a password (up to 8 passwords):
+
+ sudo cryptsetup luksAddKey /dev/sdb1
+
+To remove the password:
+
+ sudo cryptsetup luksRemoveKey /dev/sdb1
+
+Encrypted partition to be active it must have an name entry (be initialized ) to /dev/mapper directory:
+
+ sudo cryptsetup luksOpen /dev/LUKS_partition  device_name
+ e.g.:
+ sudo cryptsetup luksOpen /dev/sdb1  encrypted_volume
+
+Check permissions:
+
+ ls –all /dev/mapper/encrypted_volume
+
+Check encryption status:
+
+ sudo cryptsetup –v status encrypted_volume
+
+To have available the partition (or just use directly nautilus):
+
+ sudo mount /dev/mapper/encrypted_volume /mnt
+
+Now you can write data there.
+
+To have unavailable the partition:
+
+ sudo umount /mnt
+ sudo cryptsetup luksClose encrypted_volume
+
+For more info check: http://www.tecmint.com/linux-hard-disk-encryption-using-luks/
+
+== Calendars ==
+
+Show calendar with week days:
+
+ $ ncal -w 2014
+
+== ToR ==
+
+ # apt-get install tor
+
+== Logs ==
+
+ $ dmesg           => messages generated by the kernel
+ /var/log/syslog   => collects messages of various programs and services including the kernel, and stores them, depending on setup
+ /var/log/messages => valuable, non-debug and non-critical messages. This log should be considered the "general system activity" log
+ /var/log/kern.log => captures only the kernel's messages of any loglevel
+ /var/log/auth.log => logs related with authentications
+ /var/log/mail.log => logs related with the mail
+
+== Run levels ==
+
+{| class="wikitable"
+|
+|-
+!ID
+!Name
+!Description
+|-
+|'''0'''
+|Halt
+|Shuts down the system.
+|-
+|'''1'''
+|Single-user Mode
+|Mode for administrative tasks.
+|-
+|'''2'''
+|Multi-user Mode
+|Does not configure network interfaces and does not export networks services.
+|-
+|'''3'''
+|Multi-user Mode with Networking
+|Starts the system normally.
+|-
+|'''4'''
+|Not used/User-definable
+|For special purposes.
+|-
+|'''5'''
+|Start the system normally with appropriate display manager.  ( with GUI )
+|Same as runlevel 3 + [[X display manager (program type)|display manager]].
+|-
+|'''6'''
+|Reboot
+|Reboots the system.
+|}
+
+Check the run level as root:
+
+ # runlevel
+
+Enter in another run level:
+
+ # telinit 5
+
+Check inittab has the following format:
+
+ id:runlevels:action:process
+
+Meaning:
+
+ id        ==> is a unique identifier of one to four characters. Older versions limited this to two characters, so you will often see only two characters used.
+ runlevels ==> lists the runlevels for which the action for this id should be taken. If no runlevels are listed, do the action for all runlevels.
+ action    ==> describes which of several possible actions should be taken
+ process   ==> tells which process, if any, should be run when the action on this line is performed.
+
+Table of action:
+
+ respawn	Restart the process whenever it terminates. Usually used for getty processes, which monitor for logins.
+ wait	        Start the process once when the specified runlevel is entered and wait for its termination before init proceeds.
+ once	        Start the process once when the specified runlevel is entered.
+ initdefault	Specifies the runlevel to enter after system boot.
+ ctrlaltdel	Execute the associated process when init receives the SIGINT signal, for example, when someone on the system console presses CTRL-ALT-DEL.
+
+Check more info at: www.ibm.com/developerworks/library/l-lpic1-v3-101-3/
+Check other runlevels at: http://en.wikipedia.org/wiki/Runlevel
+
+== Man pages ==
+
+ 1. Applications
+ 2. System Calls
+ 3. Library Functions
+ 4. Hardware Devices
+ 5. Configuration Files
+ 6. Games
+ 7. Overviews
+ 8. System Administration
+ 9. Commands
+
+== References ==
+
+* http://en.wikipedia.org/wiki/GNU_Binutils
+* http://en.wikipedia.org/wiki/GNU_Core_Utilities
+* http://en.wikipedia.org/wiki/List_of_Unix_programs
+* http://en.wikipedia.org/wiki/Util-linux
+* http://linuxcommando.blogspot.com/

@@ -1,0 +1,5 @@
+== Fast keys ==
+
+ R -> rectangle select
+ P -> pencil
+ [ or ] -> paintbrush size

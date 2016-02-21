@@ -1,0 +1,49 @@
+Install lcov (graphical front-end) as an addition of Gcov (gnu test code coverage):
+
+ # apt-get install lcov
+
+Then compile the source with this options (note that --coverage is a synonym for-fprofile-arcs, -ftest-coverage(compiling) ):
+
+ $ gcc -g -O0 --coverage -o file file.c
+ or
+ $ gcc -fprofile-arcs -ftest-coverage file.c
+
+This will create a instrumented binary. The option -ftest-coverage will add instructions to count the number of times every line is executed, while -fprofile-arcs will add instructions referring to the branching code and differents paths is following. Once executed the code, this will create 3 files in the current directory: .bb, .bbg, .da. Those will be analised with the gcov command.
+
+Run program:
+
+ $ ./file
+ or
+ $ ./a.out
+
+Run Gcov:
+
+ $ gcov file.c
+
+The file `hello.c.gcov' contains output from gcov. Will show:
+
+ #      -> means not executed line
+ number -> executed several times
+ -      -> informational? / joining the function (on leaving it says number of times executed until end?)
+
+Now call:
+
+ $ gcov -b file.c
+
+And check again the file.c.gcov file, that will shows different information.
+
+Collect coverage data with lcov from gcov:
+
+ $ lcov --capture --directory . --output-file coverage.info
+
+Also now we can generate graphical report via gcov:
+
+ $ genhtml coverage.info --output-directory out
+
+Additional information:
+
+* http://qiaomuf.wordpress.com/2011/05/26/use-gcov-and-lcov-to-know-your-test-coverage/
+* http://gcc.gnu.org/onlinedocs/gcc-3.0/gcc_8.html
+* http://en.wikipedia.org/wiki/Gcov
+* http://ltp.sourceforge.net/coverage/lcov.php
+* http://ltp.sourceforge.net/coverage/lcov/lcov.1.php

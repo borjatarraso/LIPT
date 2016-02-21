@@ -1,0 +1,125 @@
+== File layout ==
+
+[[File:../img/tools/elf/elf.png]]
+
+Each ELF file is made up of one ELF header, followed by file data.  The file data can include:
+
+* Program header table, describing zero or more [[Memory segmentation|segments]]
+* Section header table, describing zero or more sections
+* Data referred to by entries in the program header table or section header table
+
+The segments contain information that is necessary for runtime execution of the file, while sections contain important data for linking and relocation. Any byte in the entire file can be owned by at most one section, and there can be orphan bytes which are not owned by any section.
+
+=== File header ===
+The ELF header defines whether 32- or 64-bit addresses are to be used. The header itself contains 3 fields that are affected by this setting and offset other fields that follow them. The 64-bit header is 64 bytes long.
+
+{| class="wikitable"
+|-
+! colspan="2" | Offset!! colspan="2" | Size (Bytes) !! rowspan="2" | Field !! rowspan="2" | Purpose
+|-
+! 32-bit !! 64-bit !! 32-bit !! 64-bit
+|-
+| colspan="2" | 00 || colspan="2" | 4 || e_ident[EI_MAG0]
+~e_ident[EI_MAG3]
+|The first four bytes are always <code>0x7F</code> followed by <code>ELF</code> in [[ASCII]] and constitute the [[magic number (programming)|magic number]].
+|-
+| colspan="2" | 04 || colspan="2" | 1 || e_ident[EI_CLASS]
+|This byte is set to either <code>1</code> or <code>2</code> to signify 32- or 64-bit format, respectively.
+|-
+| colspan="2" | 05 || colspan="2" | 1 || e_ident[EI_DATA]
+|This byte is set to either <code>1</code> or <code>2</code> to signify little or big [[endianness]], respectively. This affects interpretation of multi-byte fields starting with offset <code>0x10</code>.
+|-
+| colspan="2" | 06 || colspan="2" | 1 || e_ident[EI_VERSION]
+|Set to <code>1</code> for the original version of ELF.
+|-
+| colspan="2" | 07 || colspan="2" | 1 || e_ident[EI_OSABI]
+|Identifies the target operating system [[application binary interface|ABI]].
+{| class="wikitable"
+|-
+!Value!!ABI
+|-
+|0x00||[[System V]]
+|-
+|0x01||[[HP-UX]]
+|-
+|0x02||[[NetBSD]]
+|-
+|0x03||[[Linux]]
+|-
+|0x06||[[Solaris (operating system)|Solaris]]
+|-
+|0x07||[[AIX]]
+|-
+|0x08||[[IRIX]]
+|-
+|0x09||[[FreeBSD]]
+|-
+|0x0C||[[OpenBSD]]
+|}
+It is often set to <code>0</code> regardless of the target platform.
+|-
+| colspan="2" | 08 || colspan="2" | 1 || e_ident[EI_ABIVERSION]
+|Further specifies the ABI version. Its interpretation depends on the target ABI. Linux kernel (after at least 2.6) has no definition of it. In that case, offset and size of EI_PAD are <code>8</code>.
+|-
+| colspan="2" | 09 || colspan="2" | 7 || e_ident[EI_PAD]
+|currently unused
+|-
+| colspan="2" | 10 || colspan="2" | 2 || e_type
+|<code>1</code>, <code>2</code>, <code>3</code>, <code>4</code> specify whether the object is relocatable, executable, shared, or core, respectively.
+|-
+| colspan="2" | 12 || colspan="2" | 2 || e_machine
+|Specifies target [[instruction set architecture]]. Some examples are:
+{| class="wikitable"
+|-
+!Value!!ISA
+|-
+|0x02||[[SPARC]]
+|-
+|0x03||[[x86]]
+|-
+|0x08||[[MIPS architecture |MIPS]]
+|-
+|0x14||[[PowerPC]]
+|-
+|0x28||[[ARM architecture|ARM]]
+|-
+|0x32||[[IA-64]]
+|-
+|0x3E||[[x86-64]]
+|-
+|0xB7||[[AArch64]]
+|}
+|-
+| colspan="2" | 14 || colspan="2" | 4 || e_version
+|Set to <code>1</code> for the original version of ELF.
+|-
+| colspan="2" | 18 || 4 || 8 || e_entry
+|This is the memory address of the entry point from where the process starts executing. This field is either 32 or 64 bits long depending on the format defined earlier.
+|-
+| 1C || 20 || 4 || 8 || e_phoff
+|Points to the start of the program header table. It usually follows the file header immediately making the offset <code>0x40</code> for 64-bit ELF executables.
+|-
+| 20 || 28 || 4 || 8 || e_shoff
+|Points to the start of the section header table.
+|-
+| 24 || 30 || colspan="2" | 4 || e_flags
+|Interpretation of this field depends on the target architecture.
+|-
+| 28 || 34 || colspan="2" | 2 || e_ehsize
+|Contains the size of this header, normally 64 bytes for 64-bit and 52 for 32-bit format.
+|-
+| 2A || 36 || colspan="2" | 2 || e_phentsize
+|Contains the size of a program header table entry. <!-- 0x38/0x20? -->
+|-
+| 2C || 38|| colspan="2" | 2 || e_phnum
+|Contains the number of entries in the program header table.
+|-
+| 2E || 3A || colspan="2" | 2 || e_shentsize
+|Contains the size of a section header table entry.
+|-
+| 30 || 3C || colspan="2" | 2 || e_shnum
+|Contains the number of entries in the section header table.
+|-
+| 32 || 3E || colspan="2" | 2 || e_shstrndx
+|Contains index of the section header table entry that contains the section names.
+|}

@@ -1,0 +1,13 @@
+== Predict and some other astronomy applications ==
+
+Install predict for satellites:
+ apt-get install predict
+
+Install gpredict:
+ apt-get install gpredict
+
+Install gsat (it is the command to run):
+ apt-get install predict-gsat
+
+Install stellarium:
+ apt-get install stellarium stellarium-data

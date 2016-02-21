@@ -1,0 +1,521 @@
+Generalmente crearemos un fichero llamado makefile (tambien puede ser Makefile o GNUMakefile) donde pondremos los targets a construir. De esta manera cuando lancemos el comando make, se compilara el codigo de esos targets. En caso de no tener ningun target desde el shell, se construira el target de default. Generalmente el objetivo sera compilar el codigo de algun programa, pero en algunos casos el codigo estara incompleto y se requeriran de herramientas como flex o bison. El siguiente paso ya sera compilar el codigo a binarios (.o en el caso de C/C++) y mas tarde enlazarlos con un linker (esto suele venir incluido ya de forma transparente en gcc).
+
+== Basics ==
+
+=== Formato basico de make ===
+
+En el fichero makefile tambien se determina la relacion que existe entre distintos ficheros fuente, ficheros intermedios y el ejecutable final. Todo esto quedara en este fichero, simplificando y optimizando el tiempo entre modificar codigo-compilar-debuggear.
+
+El comando make ejecutara la regla por defecto, que tiene las siguientes partes:
+
+* target : es el fichero resultante que se debe crear.
+* sus prerequisitos : son las dependencias o aquellos ficheros que existen antes del objetivo.
+* el comando : es el comando que generara ese objetivo con sus prerrequisitos.
+
+ target: prereq1, prereq2
+     comandos
+
+El ejemplo mas simple seria:
+
+ foo.o: foo.c
+ gcc -c foo.c
+
+Y otro ejemplo sencillo seria:
+
+ hello: hello.c
+ gcc -o hello hello.c
+
+Y un ejemplo teniendo nuestro fichero de cabecera seria:
+
+ hello: hello.c hello.h
+ gcc -o hello hello.c
+
+=== Como trabaja make ===
+
+La forma en la que make trabaja es la siguiente:
+
+# make evalua la regla.
+# comenzando por encontrar los ficheros de prerrequisitos.
+# si algunos de estos prerrequisitos estan asociados a alguna regla, make intentara actualizar esto primero.
+# si algunos de estos prerrequisitos estan asociados a una biblioteca de la forma -l, entonces make buscara un fichero con la forma libNAME.so y en caso de no encontrarlo lo buscara de la forma libNAME.a, para proceder al linkado.
+# Despues, si cualquiera de los prerrequisitos es mas nuevo que el target, entonces se volvera a reconstruir este target ejecutando los comandos enviados a un subshell.
+
+El orden de ejecucion de los comandos ejecutados en make, son inversos a como estan escritos en el fichero (estilo top-down). Siendo los comandos generales los primeros y los mas especificos a medida que se baja en el fichero.
+
+Aqui un ejemplo de makefile mas complejo:
+
+  Dependencia fast lex/flex (-lfl / libfl.a): count_words.c | lexer.l | makefile (para ejecutar: ./count_words < fichero.txt )
+
+Si modificasemos el fichero lexer.l (por ejemplo para crear nuevas reglas con palabras desconocidas) y lanzasemos de nuevo make, gnu/make minimizara las reconstrucciones y se cercionara que count_words.o es mas nuevo que count_words.c, por lo que no necesitara recompilarlo, por lo que al lanzar make de nuevo, veremos como obvia esta linea.
+
+Si quisieramos actualizar solo un target especifico, podriamos indicando el fuente al que nos referimos por ejemplo para lexer seria:
+
+ $ make lexer.c
+
+Si lexer.c tuviese algun prerrequisito o algunos ficheros fuera de fecha, esto se volveria a compilar, construir y actualizar en cuanto a fecha.
+
+=== Sintaxis basica en makefiles ===
+
+Otro tipo basico de sintaxis Makefile seria:
+
+ target1, target2, target3 : prerrequisito1, prerrequisito2
+     comando1
+     comando2
+     comando3
+
+Debemos tener muy en cuenta que los comandos deben tener como primer caracter un TAB, de esta forma make conoce si deben ser pasados como comando a un subshell o no.
+
+Por ultimo, las lineas que sean demasiado largas, las podremos partir mediante el uso del caracter '\'.
+
+Los comentarios vendran precedidos por # y seran ignorados.
+
+== Rules ==
+
+=== Explicit rules ===
+
+Especifica ficheros particulares como targets y prerequisitos. Una regla puede tener mas de 1 target.
+
+Si en nuestro makefile escribimos reglas tal que asi indicaremos que los 2 targets dependen del mismo set de prerrequisitos:
+
+ vpath.o variable.o: make.h config.h getopt.h gettext.h dep.h
+
+Si tenemos muchos prerrequisitos para un target, podremos distribuirlo en dos lineas para mejorar su legibilidad:
+
+ vpath.o: vpath.c make.h config.h getopt.h gettext.h dep.h
+ vpath.o: filedef.h hash.h job.h commands.h variable.h vpath.h
+
+Also different way (making sure some.c are created before other .c):
+
+ vpath.o: lexer.c          <-- Prereq always updated before...
+ ...
+ vpath.o: vpath.c          <-- ...target is updated
+          $(compile)...
+
+==== Willcards ====
+
+Also called globbing, uses the symbols than bash.
+
+ *.*    -> expand to all the files that contains a period
+ ?      -> any single char
+ [...]  -> character class
+ ^      -> opposite, example [^...]
+ ~      -> current home directory
+ ~user  -> user home directory
+ *.c    -> all *.c files
+
+Example:
+
+ prog: *.c
+
+Willcards are expanded with mp_make that look to the directories.
+
+* The expansion is performed by make when pattern appears as a target or a pre-req.
+* When pattern appears in a command, the expansion is performed by the subshell.
+* Make expands immediately when reading the makefile, while shell will expand the willcards in commands later when commands are executed.
+
+==== Phony targets ====
+
+Phony targets are always out of date, so they always execute. Targets that do not represent files are known as phony targets:
+
+ all:
+    ...
+ clean:
+    ...
+    rm -f *.o
+
+Make cannot distinguish between phony and file target. If by chance name of a phony target exists as a file, gmake will associate the file with a phony target in its dependency graph. To avoid this problem gmake includes a special target .PHONY to tell gmake that a target is not a real file:
+
+ .PHONY: clean
+ clean:             <-- is not a file anymore, even if exists a 'clean' file, the clean target will be executed always.
+     rm -f *.o
+
+Another example:
+
+ .PHONY: all
+ all: script1 script2...
+
+Printing current target:
+
+ $(Program): build_msg $(OBJECTS) $(BUILTINS_DEP) $(LIBDEP)
+     $(RM) $@
+     ...
+
+ :PHONY: build_msg
+ build_msg:
+     @printf "#\n# Building $(Program)\n#\n"
+
+Standard phony targets:
+
+ Target        Function
+ ------        --------
+ all           perform all tasks to build an application
+ install       create an installation of application from compiled binaries
+ clean         delete the binary files generated from sources
+ distclean     delete all the generated files that were not in the original src distribution
+ TAGS          (not standard really) create TAGS table
+ info          create gnu info files from texinfo sources
+ check         run any tests associated with this application
+
+
+==== Empty targets ====
+
+If we don't generate an output file and we want only to execute the target occasionally.
+
+ prog: size prog.o
+     $(CC) $(LDFLAGS) -o $@ $^
+ size: prog.o      <--- only executed when prog.o is updated, so only create the file "size" on that case
+     size $^
+     touch size
+
+Empty targets are useful combined with the automatic variable $?
+
+=== Variables ===
+
+Syntax:
+
+ $(variable_name)
+
+A single character variale name does not require parenthesis.
+
+==== Automatic variables ====
+
+Set by make after a rule is matched. They provide access to elements from the target and prerequisite lists, so you don't have to explicitly specify any filenames.
+
+ $@  -> filename representing the target
+ $%  -> filename element of an archive member specification
+ $<  -> filename of the first prereq
+ $?  -> Names of all prereq that are newer than the target, separated by spaces
+ $^  -> Filenames of all prereq separated by spaces, without duplicates
+ $+  -> Filenames of all prereq separated by spaces, with duplicates (ideal for linkers)
+ $*  -> Stem of the target filename (file without suffix)
+
+2 variants of above variables for compatibility:
+
+# Returns only the directory portion of the value. Indicated appending the D to the symbol: $(@D), $(<D)...
+# Returns only the file portion of the value. Indicated appending the F to the symbol: $(@F), $(<F)...
+
+=== Finding files with VPATH and vpath ===
+
+Typical source tree layout:
+
+ DIR
+  -- Makefile
+  -- include
+     -- counter.h
+     -- lexer.h
+  -- src
+     -- count_words.c
+     -- counter.c
+     -- lexer.l
+
+Then add to the Makefile:
+
+ VPATH = src
+
+Make cannot use the appropiate path to the src if you hardcode the filename. To fix this, we customize the implicit compilation rule with:
+
+ CPPFLAGS = -I include
+
+VPATH variable is a list of directories to search when make needs a file for targets and prereq (but not for file in sh scripts)
+
+Syntax of vpath directive:
+
+ vpath pattern directorylist
+
+So for the previous example:
+
+ vpath %.c src
+ vpath %.l src
+ vpath %.h include
+
+=== Pattern rules ===
+
+Represented by % character.
+
+ %.o: %.c
+     $(COMPILE.c) $(OUTPUT_OPTION) $<
+
+Special rule to generate a file with no suffix (an executable) from a .c file:
+
+ %: %.o
+     $(LINK.o) $^ $(LOADLIBS) $(LDLIBS) -o $@
+
+To look at make's default set of rules and variable execute:
+
+ make --print-data-base
+
+==== The patterns ====
+
+% pattern can be put everywhere but can occur only once.
+
+==== Static pattern rules ====
+
+A static pattern rule is one that applies only to a specific list of targets:
+
+ $(OBJECTS): %.o: %.c
+     $(CC) -c $(CFLAGS) $< -o $@
+
+Each object file in $(OBJECTS) is matched against the pattern %.o and its stem is extracted. The stem is then extracted and substituted into the pattern %.c to yield the targets prereq.
+
+==== Suffix rules ====
+
+Original and obsolete way of defining implicit rules. Consists of one or two suffixes concatenated and used as a targets.
+
+ .c.o:    <-- double suffix rule e.g. to :... %o: %.c
+     $(COMPILE.c) $(OUTPUT_OPTION) $<
+
+ .p:
+     $(LINK.p) $^ $(LOADLIBS) $(LDLIBS) -o $@    <-- equal to: %: %.p
+
+A special target .SUFFIXES is used to set the list of known suffixes. By default is:
+
+ .SUFFIXES: .out .a .ln .o .c .cc .C .cpp .p .f .F .r .y .l
+
+Add own suffixes putting on a Makefile:
+
+ .SUFFIXES: .pdf .html .xml
+
+To delete all the known suffixes simply:
+
+ .SUFFIXES:
+
+Or use the cmd line option:
+
+ --no-builtin-rules
+ OR
+ -r
+
+Also to ?????:
+
+ --no-builtin-variables
+ OR
+ -R
+
+=== The implicit rules database ===
+
+Gnumake 3.80 has about 90 builtin rules for C, C++, texinfo, TeX, Elisp, etc. To examine these rules use cmdline option:
+
+ --print-data-base
+ OR
+ -p
+
+==== Working with implicit rules ====
+
+Do not specify a cmd script when adding your target, this causes make to search its builtin database to satisfy the target.
+
+Warning: .l files being a high level implementation of Lisp, .c file in the same directory, make will think is a flex file, so will generate the .o file, and .c will overwrite this file because make will think it was a flex file (also .l). To fix that, delete 2 rules concerning flex from the builtin rule base; a pattern with no command script will remove the rule from make's database:
+
+ %.o: %.l
+ %.c: %.l
+
+Option tells make to report what actions it would perform without actually running them:
+
+ --just-print
+ OR
+ -n
+
+==== Rule structure ====
+
+Builtin rules have standard structure intended to make them easily customizable.
+
+ %.o: %.c
+     $(COMPILE.c) $(OUTPUT_OPTION) $<
+
+Two variables here, COMPILE.c is defined:
+
+ COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH)
+ CC = gcc
+ OUTPUT_OPTION = -o $@
+
+To define from cmd line:
+
+ $ make CPPFLAGS=-DDEBUG
+
+==== A simple help command ====
+
+When having too many targets difficult to remember, we can make the default target with a brief help command:
+
+ SCRIPT PAGE 29
+
+ make rule database is dumped <-- --print-data-base
+ running makefile recursively without infinite recursion <-- no-such-target (as a target)
+ Prevents make from running actual commands <-- --question
+
+Grep filters the target. Awk grabs every line representing a target that does not begin with a parent period???? shorted and printed in 4 columns.
+
+=== Special targets ===
+
+Syntax:
+
+ target: prerequisite
+
+Target here is not a file or normal phony, they are directives for modifying make's internal algorithm. 3 types of special targets:
+
+# Modifying behaviour of make when updating a target.
+# Global flags to make and ignore their targets.
+# .SUFFIXES special target for old fashioned suffix rules.
+
+The most relevant ones (apart from .PHONY):
+
+* INTERMEDIATE: prereq are treated as intermediate files. Creating and deleting the file or updating (if dists) but not deleting. Useful for building custom rule chains.
+* SECONDARY: prereq are treated as intermediate files but never deleted. Commonly used to mark object files stored in libraries.
+* PRECIOUS: When make is interrupted during execution, it deletes the target file that was updating if the file was modified since make started. If it is marked s previous it will not delete (ideally for large/computationally expenssive to create).
+* DELETE_ON_ERROR: Make will delete the target if any of the commands associated with the rule generates an error (make normally only deletes the target if it is interrumpted by a signal).
+
+=== Automatic dependency generation ===
+
+Writing a program to identify the relationships between files (to find dependencies between the object files and the header files) to do that we just do:
+
+ $ echo "#include <stdio.h> > stdio.c
+ $ gcc -M stdio.c
+
+The trick is to write a makefile target whose action runs gcc over all your source with -M option, saves the results in a dependency file, and re-runs make including the generated dependency file in the makefile. So it can trigget the updates we need:
+
+ depend: count_words.c lexer.c counter.c
+     $(CC) -M $(CPPFLAGS) $^ > $@
+ include depend
+
+Before running make (to build the program) you would first execute make depend to generate the dependencies. To ensure if any change dependencies and run make, update the dependencies we can fix by generating a .d file:
+
+ counter.o counter.d: src/counter.c include/counter.h include/lexer.h
+
+ SCRIPT PAGE 33 & explanation of page 32
+
+makefile with the automation dependency generation:
+
+ SCRIPT 2nd
+
+Then run with:
+
+ $ make --just-print
+
+The warning can be suppressed by preceding the include directive with a hyphen (-).
+
+=== Managing libraries ===
+
+libc.a contains low level C functions.
+
+Libs or archive libs can be created/modified with ar.
+
+Our lib consists in 2 files (counter.o and lexer.o), to create a lib:
+
+ $ ar rv libcounter.a counter.o lexer.o
+
+Where:
+
+ r                 <--- replace members of the archive with the object files listed
+ v                 <--- verbose
+ libcounter.a      <--- archive name
+ counter.o lexer.o <--- list of object files
+
+Using the replace option to ar allows to create/update an archive incrementally, the output of ar:
+
+ a                 <--- added
+ r                 <--- replaced
+
+A lib can be linked into an executable in several ways, the most straightforward by command line:
+
+ cc count_words.o libcounter.a /lib/libfl.a -o count_words
+
+CC will recognize as a libs and will search for undefined symbols. Other way with -l option (will look in library path):
+
+ cc countwords.o -lcounter -lfl -o count_words
+
+In systems with shared libraries (.so) will look first here.
+
+The search path can be changed by adding -L option.
+
+==== Creating and updating libraries ====
+
+ libcounter.a: counter.o lexer.o
+     $(AR) $(ARFLAGS) $@ $^
+
+Now, as a libcounter.a is a prereq of count_words, make will update our lib before linking the executable. All members of the archive are replaced even if they are not modified. This is waste, so we can do better:
+
+ libcounter.a: counter.o lexer.o
+     $(AR) $(ARFLAGS) $@ $?
+
+To refer a member of an archive:
+
+ libgraphics.a(bitblt.o): bitblt.o
+     $(AR) $(ARFLAGS) $@ $<
+                         ^
+                         Get only the 1st prereq
+
+An archive lib contains an index of the symbols it contains. This is updated automatically, but to create or update the index of an archive "ranlib" is used:
+
+ libcounter.a: libcounter.a(lexer.o) libcounter.a(counter.o)
+     $(RANLIB) $@
+ OR
+ libcounter.a: counter.o lexer.o
+     $(RM) $@
+     $(AR) $(ARFLAGS) $@ $^
+     $(RANLIB) $@
+
+==== Using libs as prereq ====
+
+Using the archive library:
+
+ xpong: $(OBJECTS) /lib/X11/libX11.a /lib/X11/libXaw.a
+     $(LINK) $^ -o $@
+
+Search 1st library and then archive lib:
+
+ xpong: $(OBJECTS) -lX11 -lXaw
+     $(LINK) $^ -o $@
+
+The pattern for recognizing libs from -l format is stored in .LIBPATTERNS.
+
+For circular reference we must use $+ instead $^ (to don't remove duplicates):
+
+ xpong: xpong.o libui.a libdynamics.a libui.a -lX11
+     $(CC) $+ -o $@
+
+==== Double colon rules ====
+
+Allows the same target to be updated with different commands:
+
+ file-list:: generate list-script
+     chmod +x $<
+     generate-list-script $(files) > file-list
+ file-list:: $(files)
+     generate-list-script $(files) > file-list
+
+== Variables y Macros ==
+
+Chapter 2 "targets and prereqs) as a 1st language describes dependency graphs.
+Chapter 3 "macro language" as a 2nd language performing textual sustitution.
+
+Conventions:
+
+ CONSTANT
+ ${var}
+ $(fun-call)
+
+e.g:
+
+ CC := gcc
+ source = *.c
+ assert-not-null = $(if $1,,$(error Illegal null value))
+
+== Variables y Macros ==
+
+== Funciones ==
+
+== Comandos ==
+
+== Manejando proyectos grandes ==
+
+== Makefiles portables ==
+
+== Makefiles: C y C++ ==
+
+== Mejorando el rendimiento de make ==
+
+== Ejemplos de Makefiles ==
+
+== Debuggeando Makefiles ==
+
+== Parametros de make ==
+
+== Estructuras de datos ==

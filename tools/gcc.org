@@ -1,0 +1,551 @@
+GCC, el mejor compilador bajo mi punto de vista y lo que es mas importante, de GNU.
+
+== Como funciona el compilador ==
+
+La secuencia es la siguiente:
+
+* Preprocesador: para expandir macros: $ cpp file.c >> file.i. El fichero resultante sera el codigo con las macros expandidas. La extension .i se empleara para ficheros C, mientras que la extension .ii se empleara para ficheros C++.
+* Compilacion: conversion de codigo fuente a lenguaje ensamblador: $ gcc -Wall -S file.i. Convertira el fichero preprocesado de codigo fuente en lenguaje ensamblador para dicho procesador especificamente. Generara el fichero file.s. Que puede tener llamadas (calls) a funciones externas.
+* Ensamblaje: conversion de lenguaje ensamblador a codigo maquina: $ as file.s -o file.o. Cuando hay llamadas a funciones externas, el ensamblador dejara dichas funciones como referencias indefinidas pero generara el resto como codigo objeto.
+* Linkaje: creacion del ejecutable final mediante el linkaje. Este proceso es realmente complejo en cuanto a sintaxis se refiere y seria tal que asi para un simple programa de hello world: $ ld -dynamic-linker  /lib/ld-linux.so.2 /usr/lib/crt1.o /usr/lib/crti.o /usr/lib/gcc/lib/i686/3.3.1/crtbegin.o -L/usr/lib/gcc-lib/i686/3.3.1 hello.o -lgcc -lgcc_eh -lc -lgcc -lgcc_eh /usr/lib/gcc-lib/i686/3.3.1/crtend.o /usr/lib/crtn.o o de forma mucho mas abreviada y transparente mediante gcc hello.o. (crt significa "compiler run-time).
+
+Aunque todos los pasos anteriores se pueden realizar en uno solo mediante el compilador GCC y asi ser transparente de cara al usuario.
+
+== GCC Basico ==
+
+'''Compilando y linkando con un solo comando'''
+
+Pero vayamos al grano, si tenemos un fichero simple podemos compilar mediante:
+
+$ gcc main.c -o main
+
+Compilando multiples ficheros con nuestras cabeceras propias (headers)
+
+Si en cambio tenemos el proyecto separado en ficheros de la forma mas simple posible:
+
+ main.c donde se incluya un func.h y algunos otros .h.
+ func.c donde estara la implementacion de funciones y donde incluira func.h.
+ func.h donde estaran los prototipos y macros
+
+
+ $ gcc main.c func.c -o binario
+
+'''Activando warnings'''
+
+Para activar los warnings podemos indicar la opcion -Wall siempre antes de indicar los ficheros .c, ya que sino el compilador intentaria interpretarlo ya bien como ficheros fuente o bien el binario resultante:
+
+ $ gcc -Wall main.c func.c -o binario
+
+'''Compilando sin enlazar (sin linkar - por defecto y aunque esto sea transparente al usuario, se linka con la libc)'''
+
+Tambien podemos compilar los ficheros de forma independiente y sin linkarlos mediante la opcion -c, de esta forma podemos ganar cierto tiempo de compilacion en caso de que tengamos estas necesidades. Esto dara un output con formato .o:
+
+ $ gcc  -c main.c
+
+'''Solo enlazando (linkando - por defecto y aunque esto sea transparente al usuario, se linka con la libc)'''
+
+Podemos a partir de aqui crear de nuevo los ejecutables mediante la opcion -o sobre estos ficheros .o creados justo en el comando anterior (aqui introducimos un nuevo codigo objeto ya compilado previamente):
+
+ $ gcc main.o func.o -o hello
+
+Cuando recompilemos varios ficheros mediante la opcion -c, se mirara el timestamp, en este caso solo se recompilaran los ficheros en el que su fichero .c sea posterior a su .o, ganando asi tiempo. Si creamos un Makefile (ver la sigiuente seccion) para ello, podremos ver como en distintos casos se reompilara algunas veces todos los ficheros .c y en otros casos no, dependiendo de si han sido modificados y compilados anteriormente.
+
+'''Libraries/Bibliotecas (enlazando estaticamente)'''
+
+Las bibliotecas externas (libraries - cuidado con el false friend, debemos hacer una analogia de una biblioteca (library o lib), que contiene muchos libros (libreria) y que cada libro en sus hojas tendria sus funciones e implemenaciones que serian las cabeceras) son guardadas en un fichero especial con extension .a, referiendose a librerias estaticas. Estas librerias estaticas son creadas mediante la herramienta GNU archiver ( ar ) y es usada por el enlazador para resolver las referencias a funciones en tiempo real.
+
+Las bibliotecas del sistema estandar se encuentran generalmente en los directorios /usr/lib y /lib, aunque para sistemas que soportan 32 y 64 bits indistintamente se suele crear  /usr/lib64 y /lib64 para 64 bits y /usr/lib y /lib para 32 bits.
+
+Por ejemplo la biblioteca matematica suele estar en /usr/lib/libm.a, sin embargo los prototipos se encuentran en /usr/include/math.h. La biblioteca estandar C se encuentra en /usr/lib/libc.a y contiene las funciones del estandar ANSI/ISO C (recordemos que por defecto, esta libreria siempre es enlazada o linkada). Si empleasemos la funcion sqrt() debemos no solo incluir el header math.h sino tambien linkar libmath, mediante el siguiente comando:
+
+ $ gcc -Wall calc.c /usr/lib/libm.a -o calc
+
+o bien gcc permite la opcion -l para linkar con librerias como shortcut (esta opcion tiene el formato -lnombre y buscara en las rutas mencionadas anteriormente con la extension .a):
+
+ $ gcc -Wall calc.c -lm -o calc
+
+Recordemos que el orden debe ser ese, ya que este codigo y tambien la biblioteca matematica son dependencias de calc (el orden debe ser fuente.c dependencia_para_fuente.c y no al reves), y en ningun caso podriamos poner -lm antes de calc.c. En casos como la biblioteca para Programacion Linear de GNU llamada libglpk.a la cual emplea la biblioteca matematica el orden seria algo asi:
+
+ $ gcc -Wall data.c -lglpk -lm
+
+La importancia de usar la opcion -Wall reside en que, si por alguna de aquellas se nos olvidase incluir math.h empleando la funcion pow() por ejemplo, lo que hariamos seria estar llamando a esta misma ya que las funciones serian encontradas (ya que si las habriamos linkado) pero sin tener en cuentra los prototipos de la cabecera, por ello el resultado de esta operacion seria totalmente incorrecto tomando los argumentos de un tipo invalido dependiendo de como se promocionasen en dicha arquitectura (de double a float, etc).
+
+== Opciones de compilacion ==
+
+'''PATHs'''
+
+GCC buscara por defecto para ficheros de cabecera (headers) en:
+
+ /usr/local/include/
+ /usr/include/
+
+ (cuando falte uno de estos ficheros o no se encuentre en este PATH el error sera del tipo fichero.h: No such file or directory)
+
+Y para bibliotecas (libs) en:
+
+ /usr/local/lib/
+ /usr/lib/
+
+ (cuando falte uno de estos ficheros o no se encuentre en este PATH el error sera del tipo /usr/bin/ld: cannot find library)
+
+Es posible que instalemos bibliotecas externas al sistema y que debamos extender los directorios donde estas se puedan encontrar para que posteriormente GCC pueda encontrarlas:
+
+ -I para anadir un PATH mas de los ficheros de cabeceras (includes o headers)
+ -L para anadir un PATH mas de las bibliotecas (lib o lib*.a)
+
+Generalmente, las variables de entorno deben ser asignadas (llamado en jerga angloespanola como setteadas) en un lugar apropiado como el .bash_profile, en c de la siguiente forma:
+
+ C_INCLUDE_PATH=/opt/gdbm-1.8.3/include
+
+ export C_INCLUDE_PATH
+
+Y en c++ de la siguiente forma:
+
+ CPLUS_INCLUDE_PATH=/opt/gdbm-1.8.3/include
+
+ export CPLUS_INCLUDE_PATH
+
+El comando export como bien sabeis es necesario para que la variable este disponible fuera de esta propia shell. De la misma forma, podemos anadir el PATH para las respectivas librerias:
+
+ LIBRARY_PATH=/opt/gdbm-1.8.3/lib
+
+ export LIBRARY_PATH
+
+Las busquedas se realizaran en el siguiente orden:
+
+# Primero se buscaran las bibliotecas y headers indicadas mediante linea de comando con las opciones -L y -I de izquierda a derecha y demas.
+# Despues se buscaran las bibliotecas y headers indicadas en las variables de entorno C_INCLUDE_PATH  (para c), CPLUS_INCLUDE_PATH (para c++) y LIBRARY_PATH.
+# Finlamente se buscaran en la lista de PATHs por defecto que mencionabamos antes.
+
+Es posible anadir multiples directorios separandolo por los dos puntos : (notese que tambien se puede especificar el directorio actual senalandolo como un punto):
+
+ C_INCLUDE_PATH=.:/opt/gdbm-1.8.3/include:/net/include
+
+ LIBRARY_PATH=.:/opt/gdbm-1.8.3/lib:/net/lib
+
+O si lo quisieramos para c++:
+
+ CPLUS_INCLUDE_PATH=.:/opt/gdbm-1.8.3/include:/net/include
+
+ LIBRARY_PATH=.:/opt/gdbm-1.8.3/lib:/net/lib
+
+Desde linea de comandos tambien podriamos indicarlo varias veces con el parametro -I por ejemplo:
+
+ $ gcc -I. -I/opt/gdbm-1.8.3/include -I/net/include -L. -L/opt/gdbm-1.8.3/lib -L/net/lib ...
+
+'''Dynamic linking'''
+
+Aunque los programas se hayan compilado y linkado correctamente, no significa que la ejecucion de estos puedan ser siempre exitosas, mas en los casos donde paquetes como GDBM requieren un tratamiento especial debido a que seran cargadas justo antes de que el ejecutable sea arrancado. A diferencia de las bibliotecas estaticas (.a) donde se copiaba el codigo maquina de los codigo objetos de la libreria al ejecutable final. En cambio, en las dinamicas (.so) donde se consigue que el ejecutable final sea mas pequeno, se emplea un tipo de enlace mas avanzado.
+
+Cuando se enlazan bibliotecas dinamicas realmente en algun lugar de la memoria existe una tabla de las funciones requeridas, en lugar del codigo maquina completo. Antes de que el binario comience a ejecutarse, el codigo maquina de dichas funciones es copiado en memoria desde el fichero de la biblioteca dinamica. A este proceso se le llama dynamic linking. De esta forma se conseguiran ejecutables mas pequenos y librerias compartidas por distintos ejecutables, alguno OS ademas tienen un mecanismo virtual de memoria para permitir una copiia de la biblioteca compartida en memoria fisica para reducir no solo el espacio del binario, sino tambien el uso de memoria en el disco.
+Para este tipo de bibliotecas tenemos tambien una variable para indicarle el PATH, de la siguiente manera:
+
+ LD_LIBRARY_PATH=/opt/gdbm-1.8.3/lib
+
+ export LD_LIBRARY_PATH
+
+Si el PATH anterior pudiese tener otras entradas podriamos crear algo asi:
+
+ LD_LIBRARY_PATH=/opt/gdbm-1.8.3/lib:$LD_LIBRARY_PATH
+
+ export LD_LIBRARY_PATH
+
+Si queremos que esto sea global a todos los usuarios tambien podemos modificar el fichero /etc/profile (que sera ejecutado para cualquier usuario al iniciar la sesion) o especificamente para este caso de bibliotecas dinamicas en /etc/ld.so.conf.
+
+En muchos casos nos encontraremos con que algunos de estos directorios contienen tanto ficheros .a como .so, es decir, que podremos linkar estatica o dinamicamente estas librerias. Podemos forzar para que se enlace de forma estatica mediante la opcion -static de GCC:
+
+ $ gcc -Wall -static  -I/opt/gdbm-1.8.3/include/ -L/opt/gdbm-1.8.3/lib/ dbmain.c -lgdbm
+
+Esto creara un ejecutable enlazado con la biblioteca estatic libgdbm.a y ya podremos ejecutar nuestro programa con ./a.out.
+
+Como podemos indicar directamente la dependencia podriamos indicar el fichero .a o .so directamente dependiendo de si queremos linkarlo de forma estatica o dinamica y cualquier biblioteca en particular.
+
+ $ gcc -Wall -I/opt/gdbm-1.8.3/include dbmain.c /opt/gdbm-1.8.3/lib/libgdbm.a (linkariamos de forma estatica)
+
+ $ gcc -Wall -I/opt/gdbm-1.8.3/include dbmain.c /opt/gdbm-1.8.3/lib/libgdbm.so (linkariamos de forma dinamica)
+
+'''ANSI/ISO C'''
+
+GCC es un compilador tan potente que tiene sus propias extensiones. Sin embargo es posible querer realizar un codigo que cumpla el estandar C (esto no siempre es posible debido a que hay implementaciones dependientes del OS - como el manejo de consola entre otras). Se pueden usar las siguientes opciones para obligar a GCC a que muestre errores de compilacion o muestre warnings en caso de no cumplir con el estandar, ya sea por el mal uso que se le ha dado al lenguaje o por el uso de extensiones:
+
+* -ansi : deshabilitara las extensiones GCC a la hora de compilar. Por ejemplo el uso de una variable llamada 'asm' no compilara por defecto ya que forma parte de un keyword en GNU/GCC extensions, sin embargo, con la opcion -ansi si compilara. (Esto mismo es aplicable para las keywords asm, inline, typeof, unix y vax. Se obtiene el efecto contrario con keywords como M_PI,  ya que no son parte del ANSI y si de GNU/GCC extensions).
+* -D : De esta forma podemos habilitar y deshabilitar extensiones GCC por separado, con la opcion -D.
+* -D_GNU_SOURCE :  habilita solo las extensiones propias de la biblioteca GNU C.
+* -D_POSIX_C_SOURCE : habilita extensiones POSIX.
+* -D_BSD_SOURCE : habilita extensiones BSD.
+* -D_SVID_SOURCE : habilita extensiones SVID (System V Interface Definition)
+* -D_OPEN_SOURCE :  habilita extensiones XOPEN.
+* -pedantic : en combinacion con -ansi, rechazara cualquier tipo de extension de GCC, no solo las incompatibles con el standard C. Esto hara que el programa sea portable. Por ejemplo un programa declarando int n = argc; double x[n]; compilaria con la opcion -ansi, pero no anadiendo la opcion -pedantic.
+* -std=c89 o -std=iso9899:1990 : Se restringe la compilacion al estandar ANSI/ISO C (ANSI X3.159-1989 ISO/IEC 9899:1990 con un par de correciones sobre el estandar original).
+* -std=iso9899:199409 : Enmienda ISO 1 publicada en 1994, tomada para internacionalizacion como el soporte multibyte para caracteres en la biblioteca C.
+* -std=c99 o -std=iso9899:1999 : Revision ISO/C publicada en 1999 (ISO/IEC 9899:1999).
+* -std=gnu89 : Se seleccionan las extensiones GNU/GCC89.
+* -std=gnu99 : Se seleccionan las extensiones GNU/GCC99.
+
+'''Warnings'''
+
+Es recomendable usar siempre la opcion -Wall ya que en muchos casos, nos permitira encontrar posibles fallos a nivel de programacion en nuestro codigo, que aunque puedan cumplir el estandar, en ciertos casos se pueden obtener errores en tiempo de ejecucion (estos son mucho mas complejos de detectar, y este es el primer y gran filtro para hacerlo):
+
+* -Wcomment : Warnings para comentarios anidados. La solucion elegante a los comentarios anidados se emplear directivas del preprocesador #if 0 ... #endif
+* -Wformat : Warnings en caso de que se empleen funciones con cadena de formato y se empleen de forma incorrecta segun sus argumentos, tipico con funciones como printf() o scanf()
+* -Wunused : Warnings para variables no usadas.
+* -Wimplicit : Warnings para funciones usadas sin previamente haber sido declaradas, esto ocurre tipicamente cuando nos olvidamos de algun #include
+* -Wreturn-type : Warnings para funciones que no devuelven nada y no han sido declaradas como void o funciones con return prematuros o sin ningun valor.
+* -Wall :incluye -Wcomment, -Wformat, -Wunused, -Wimplicit y -Wreturn-type (las anteriormente comentadas).
+* -W : Similar a -Wall pero que se centra en las posibles malas costumbres de programacion como -Wreturn-type o comparacion entre valores signed y unsigned. E.g.: if( x < 0) return 0; else return 1; Si x es unsigned, nunca ocurrira.
+* -Wconversion : Warnings para conversiones de tipo implicitas que puedan causar resultados inesperados. Por ejemplo conversiones entre float e int, entre signed y unsigned, entre distintos tamanos como long y short en enteros. Estas conversiones pueden ocurrir en expresiones, asignaciones o llamadas a funciones si no coinciden con el prototipo.
+* -Wshadow : Warnings si una variable ha sido redeclarada, lo que causa confusion entre el valor de la variable en ese preciso momento y el valor esperado.
+* -Wcast-qual : Warnings si algun puntero hace cast y elimina el cualificador de tipo como por ejemplo const.
+* -Wwrite-strings : Warning si alguna constante de cadena se intenta reescribir (el estandar ANSI/ISO C no define nada respecto a esto).
+* -Wtraditional : Warning si algunas partes del programa pueden ser interpretadas de manera distinta segun el estandar ANSI/ISO C y algun compilador pre-ANSI.
+* -Werror: Convierte los warnings en errores de compilacion.
+* -Wuninitialized : Warning si alguna variable no ha sido inicializada a lo largo de una funcion.
+
+== El preprocesador ==
+
+cpp es el preprocesador  de GNU C y que forma parte del paquete GCC. Fundamentalmente su trabajo es el de expandir macros antes de que el codigo sea compilado.
+
+* -DTEST : define una macro llamada TEST desde la linea de comandos, es el equivalente en codigo a #define TEST. Por defecto tomara el valor de 1.
+* -DTEST="" : define una macro que no tomara ningun valor por defecto.
+* -DNUM=100 : define una macro con un valor.
+* -DNUM="2+2" : define una macro con un valor. Las operaciones de cualquier tipo jamas seran realizadas por el preprocesador (ya que este solo realiza sustituciones) y se insertara como tal. Notese que en el codigo fuente es ideal poner las macros entre parentesis en caso de que puedan obtener valores asi, de esta forma siempre podremos respetar la prioridad de operadores para dentro de la macro cuando esta sea expandida y que no interfiera en la parte de la expresion fuera de la macro.
+* -DMESSAGE='"Hello world!"' : define una macro con comillas incluidas, para ello deberemos incrustarlas dentro de comillas simples.
+
+Algunas de estas macros son definidas por el compilador, generalmente estas comienzan por doble guion abajo _ _. Para mostrar todas las macros definidas por el compilador podemos ejecutar el siguiente comando (para ello nos sirve un fichero vacio como /dev/null):
+
+ $ cpp -dM /dev/null
+
+Obviamente estas macros seran deshabilitadas con la opcion -ansi.
+
+Es posible llamar directamente al preprocesador y ver la expansion de la siguiente forma, de la siguiente forma:
+
+ $ gcc -E test.c
+
+El formato de la salida sera indicando algo asi:
+
+ # numero_de_linea "fichero-fuente"
+
+De esta forma sera mucho mas facil poder entender la expansion que se ha producido y en que partes ha afectado. Como el output suele ser enorme, es posible usar la opcion -save-temps para redirigir la salida de manera mas apropiada que con >:
+
+ $ gcc -c -save-temps fichero.c
+
+Se guardara la siguiente informacion:
+
+ fichero.i : la salida del preprocesado.
+ fichero.s : los ficheros ensambladores.
+ fichero.o : ficheros objeto.
+
+== Compilacion para debugging ==
+
+Como los ejecutables no contienen ni el numero de linea, ni referencias al codigo original, o nombres de variables o funciones, sino que mas bien es una secuencia de codigo maquina producidas por el compilador, es realmente dificil depurar programas. Para ello tenemos la opcion -g de gdb, toda esta informacion es guardada en una tabla de simbolos dentro de los ficheros objetos y ejecutables.
+
+Cuando un programa crashee, esto generara un fichero core dump. Este fichero contendra el estado de la memoria del programa cuando el crash ocurrio. Aqui tenemos un codigo que en la mayoria de sistemas crasheara:
+
+ int foo (int *p);
+
+ int
+ main (void)
+ {
+     int *p = 0; /* NULL pointer */
+     return foo(p);
+ }
+
+ int
+ foo (int *p)
+ {
+     int y = *p;
+     return y;
+ }
+
+La ejecucion de este programa, causara un fichero llamado core en el directorio actual. El error que habra dado sera un segmentation fault, el cual se refiere a que se ha intentado acceder a un segmento de memoria fuera de la reservada para ello. Si el fichero core no fuese creado.
+
+* ulimit -c : muestra el tamano maximo del fichero core en caso de crearse. Si el limite esta establecido en 0, significa que no se crearan por  defecto estos ficheros.
+* ulimit -c unlimited : establece que el fichero core no tendra limite de tamano (en kilobytes). Esto sera setteado para la shell actual, recordemos la importancia de usar el .bash_profile.
+* ulimit -c numerodekbytes : establece el tamano del core a numerodekbytes.
+
+* gdb a.out : GDB cargara el ejecutable y la tabla de simbolos para depurar donde sea deseado.
+* gdb a.out core : GDB cargara el ejecutable junto con el core cargando la tabla de simbolos y mostrando cierta informacion lista para ser debuggeada.
+
+El uso de GDB sera explicado en secciones posteriores pero de momento es interesante saber las funciones basicas:
+
+* print variable : imprime el valor de una variable.
+* backtrace : muestra el stack trace. Pudiendose mover entre llamadas con up y down y viendo los valores en cada uno de estos lugares.
+* break main : anade un breakpoint. (Esto generalmente es cuando cargamos el binario sin el coredump).
+* run : arranca el programa desde GDB. (Esto generalmente es cuando cargamos el binario sin el coredump).
+* step : ejecuta la siguiente instruccion del programa (entrando en las funciones).
+* next : ejecuta la siguiente instruccion del programa (sin entrar en las funciones).
+* set variable p = malloc(sizeof(int)) : asigna un valor distinto en tiempo de ejecucion a una variable.
+* finnish : continua la ejecucion del programa hasta el final de la funcion actual.
+* continue : continua la ejecucion del programa hasta el final del programa.
+
+== Compilando con optimizaciones ==
+
+GCC permite optimizacion para incrementar los tiempos de ejecucion y reducir el tamano de los ficheros. Este proceso es realmente complejo dependiendo del set de instrucciones de cada procesador y de la forma en la que un compilador procese y convierta el codigo fuente en instrucciones de codigo maquina, los registros que se usen con resultados intermedios de calculos o guardando y extrayendo resultados de memoria cada vez. El orden de las expresiones cuando se escribe codigo, tambien influye para aplicar las tecnicas de optimizacion a nivel de codigo (ya que existen multiples niveles de optimizacion).
+
+=== Optimizacion del usuario a nivel de codigo ===
+
+'''Eliminacion de subexpresiones comunes'''
+
+Para ello debemos entender un minimo las expresiones y evitar que estas sean reevaluadas. Si tenemos:
+
+ x = cos(v)*(1+sin(u/2)) + sin(w)*(1-sin(u/2))
+
+Puede ser reescrito empleando la variable temporal t y eliminar una evaluacion extra innecesaria:
+
+ t = si(u/2)
+ x = cos(v)*(1+t) + sin(w)*(1-t)
+
+A esta tecnica se le llama Common Subexpression Elimination (CSE) o simplemente Eliminacion de Subexpresiones Comunes. El compilador las realizara automaticamente si las optimizaciones son activadas. Son realmente importantes, porque permiten reducir el tamano del codigo al mismo tiempo que es mas rapido el tiempo de ejecucion.
+
+'''Alineamiento de funciones (function inlining)'''
+
+Esta tecnica incrementa la eficiencia de aquellas funciones llamadas de manera frecuente. Esto es debido ya que para cada funcion la CPU debe guardar valores (apilar) como los argumentos a la nueva llamada y valor de retorno, todo esto en zonas de memoria y registros,  comenzar a ejecutar el codigo en esta nueva funcion proveyendo de las apropiadas paginas de memoria virtual en la memoria fisica o la cache de la CPU si fuese necesario, y por supuesto, teniendo que volver al punto original de la llamada para continuar con la ejecucion despues de esta llamada. A este problema se le conoce como function-call overhead.
+
+La optimizacion mediante function inlining evita toda esta sobrecarga, reemplazando la llamada por el codigo de la funcion en si mismo. Suele ser util cuando las funciones tienen pocas lineas y son llamadas multiples veces. Sin embargo, generalmente es posible reemplazar las funciones largas en funciones mas pequenas en muchos casos, siendo mas optimo. Un claro ejemplo seria el siguiente:
+
+ double
+ sq (double x)
+ {
+     return x * x;
+ }
+
+Como la funcion es tan pequena, carece de sentido hacer una llamada a ella pudiendo hacerla inline. Cuando la funcion tenga una sola linea, siempre sera optimo ponerla como inline. Si llamasemos a esta funcion en un for, podriamos ver la diferencia claramente.
+
+=== Optimizacion del compilador a nivel de codigo: Ventajas e inconvenientes de la velocidad en el espacio (speed-space tradeoffs) ===
+
+'''Bucle desenrollado (Loop unrolling)'''
+
+Incrementa la velocidad de los bucles mediante la eliminacion de "end of loop" en cada interaccion. Por ejemplo si un for va a ser ejecutado 8 veces, es posible ignorar la condicion del for de la siguiente forma:
+
+ for (i = 0; i < 8; i++)
+ {
+     y[i] = i;
+ }
+
+Sera mucho mas rapido esto:
+
+ y[0] = 0;
+ y[1] = 1;
+ y[2] = 2;
+ y[3] = 3;
+ y[4] = 4;
+ y[5] = 5;
+ y[6] = 6;
+ y[7] = 7;
+
+Por supuesto, el tamano del ejecutable aumentara, sin embargo la ejecucion sera mucho mas rapida. Esto tambien es posible y aplicable cuando la condicion del for no sea conocida aunque se emplean tecnicas mas complejas empleando el uso de modulos y con multiples loops.
+
+=== Optimizacion del compilador a nivel de instrucciones: Planificacion (Scheduling) ===
+
+Este nivel de optimizacion es el mas bajo, y es donde el compilador decide que instrucciones son mas apropiadas para la CPU y en que orden. Esto suele requerir de mas memoria cuando se realiza este proceso debido a su complejidad.
+
+'''Niveles de optimizacion'''
+
+Dependiendo del nivel de optimizacion se empleara mas o menos memoria..
+
+* -O0 (opcion por defecto): No se realiza ninguna optimizacion mas que convertir cada linea de codigo en sus correspondientes instrucciones, ideal cuando se quiere depurar un programa.
+* -O1 o -O : Activa las optimizaciones sin requerir de optimizaciones de speed-space tradeoffs ni scheduling. Los ejecutables seran mas pequenos y rapidos.
+* -O2 : Activa las optimizaciones rapidas, esto incluye las mismas que con -O1 y ademas de scheduling, pero no de speed space trade-offs. Por lo que el ejecutable no deberia aumentar de tamano.
+* -O3 : Activa las optimizaciones de -O1 y -O2, ademas de las inline y speed space trade-offs. Incrementara la velocidad del ejecutable, pero tambien su tamano.
+* -funroll-loops : Activa las optimizaciones para loop-unrolling. Incrementara el tamano del ejecutable final.
+* -Os :  Reducira el tamano del ejecutable final. En algunos casos puede ejecutarse mas rapido debido al mejor uso de la cache, pero basicamente prioriza el tamano reducido del fichero.
+
+Con el comando time, podemos ver el tiempo que tarda en ejecutarse cada aplicacion:
+
+ $ time ./a.out
+
+El valor de las columnas seran los siguientes:
+
+* real : total tiempo real necesitado para ejecutar el proceso.
+* user : tiempo que la CPU empleo para ejecutar el proceso.
+* sys : tiempo que sistema empleo teinendo cuenta otros procesos del sistema, tiempos de espera entre procesos, etc.
+
+Existen casos donde compilar con optimizaciones (mas especificamente -O2) o con la opcion -Wuninitialized :
+
+ int
+ sign (int x)
+ {
+     int s;
+
+     if (x > 0)
+         s = 1;
+     else if (x < 0)
+         s = -1;
+
+     return s;
+ }
+
+Este programa tiene un error y con las optimizaciones mencionadas anteriormente, podremos detectar cuando s no es inicializado, eso ocurrira cuando x valga 0. Gracias a una de estas 2 optimizaciones, podremos ver este bug en nuestro programa.
+
+== Compilando para c++ ==
+
+Las opciones descritas anteriormente son compatibles con g++ (el compilador de c++). Debemos siempre usar g++ para compilar programas c++ (que llevaran extension .C, .cc, .cpp, .cxx) ya que en caso contrario es posible que podamos compilar pero que al intentar linkar bibliotecas es muy probable que obtengamos undefined reference debido a que no encuentre la biblioteca correcta.
+
+Ademas g++ no traduce a c los programas c++ y luego los compila como hacen otros compiladores.
+
+Por supuesto existen opciones especificas en g++ que no se encuentran en gcc, ya que algunas son dependientes del lenguaje. Por ejemplo la opcion -ansi tendra en cuenta seguir el estandar c++  en lugar del estandar c.
+
+* -Wall o -W: incluye extra warnings especificos para c++ (para funciones miembro y clases virtuales).
+* -fno-default-inline : deshabilita por defecto el inline para las funciones miembro. Por defecto g++ intenta realizar dicha optimizacion incluso cuando no se ha puesto dicha palabra reservada. Esto es importante debido a que no es posible poner breakpoints en funciones inline.
+* -Weffc++ : informa sobre guidelines rotas en c++ siguiendo "Effective c++" y "More effective c++" de Scott Meyers. La libreria estandar de c++ no cumple estas guidelines, por lo que se suele usar en momentos de testing del propio codigo.
+* -Wold-style-cast :  resalta cualquier uso de castings en c++ como static_cast, dynamic_cast, reinterpreted_cast o const_cast.
+
+=== Templates ===
+
+Mediante templates o plantillas se provee la habilidad de definir clase en c++ para soporte generico en tecnicas de programacion. libstdc++ provee de un amplio contenedor de estas clases que anteriormente se encontraban en la STL pero que ahora forma parte la biblioteca estandar de c++.
+
+Se pueden crear templates propios y lo ideal para ello es seguir el modelo de compilacion de inclusion; donde la definicion de los templates estaran en los ficheros de cabeceras. Los ficheros de cabeceras pueden ser incluidos usando la directiva #include.
+
+ #ifndef BUFFER_H
+ #define BUFFER_H
+
+ template <class T>
+ class buffer
+ {
+ public:
+     Buffer (unsigned int n);
+     void insert (const T & x);
+     T get (unsigned int k) const;
+ private:
+     unsigned int i;
+     unsigned int size;
+     T *pT;
+ };
+
+ template <class T>
+ Buffer<T>::Buffer (unsigned int n)
+ {
+     i = 0;
+     size = n;
+     pT = new T[n];
+ };
+
+ template <class T>
+ void
+ Buffer<T>::insert (const T & x)
+ {
+     i = (i + 1) % size;
+     pT[i] = x;
+ };
+
+ template <class T>
+ T
+ Buffer<T>::get (unsigned int k) const
+ {
+     return pT[(i + (size -k)) % size];
+ };
+
+ #endif /* BUFFER_H */
+
+GNU Linker tendra en cuenta si existen simbolos duplicados, en lugar de como hacen otros linkers que devuelven "multiply defined symbol".  Es posible forzar la compilacion usando la opcion -fno-implicit-templates cuando se empleen linkers distintos a GNU Linker, ya que en muchos casos puede interesarnos compilar los templates por un lado pero no linkarlos hasta tiempo mas tarde. Con esta opcion nos aseguramos que para cada template aparecera solo un fichero objeto y sera compatible con linkers que no puedan eliminar definiciones duplicadas en ficheros objeto. Un ejemplo de este uso seria:
+
+ $ g++ -Wall -fno-implicit-templates -c tprog.cc
+ $ g++ -Wall -fno-implicit-templates -c templates.cc
+ $ g++ tprog.o templates.o
+ $ ./a.out
+
+De esta forma no habra codigo objeto para las funciones de template en tprog.o, pero si en templates.o. Pudiendo modificar asi o anadiendo nuevos templates en templates.cc. Sin embargo esto es una desventaja en proyectos grandes, ya que puede ser dificil saber que templates se deben usar o no en cada source.
+
+== Otras opciones del compilador ==
+
+=== Opciones especificas para plataformas ===
+
+Con la opcion -march=CPU podemos especificar el tipo de CPU que usamos, aunque de esta forma la compilacion no sera compatible con ninguna otra familia de procesadores, de esta forma el codigo se traducira a instrucciones optimizadas para el propio micro. Una alternativa es usar la opcion -mcpu=CPU o -mtune=CPU, que provee un compromiso entre velocidad y portabilidad; generando codigo para un micro especifico en terminos de scheduling, pero no usara instrucciones no disponibles en otras CPU de la familia x86.
+
+Existen distintas extensiones para x86:
+
+* -mmmx : activa extensiones MMX
+* -msse : activa extensiones SSE (solo permite operaciones de precision simple).
+* -msse2 : activa extensiones SSE2 (permite operaciones de precision doble).
+* -msse3 : activa extensiones SSE3
+* -m3dnow : activa extensiones 3DNOW
+* -mfpmath=sse : activa extensiones SSE para operaciones de punto flotante donde sea posible. (se requiere que se active tambien -msse y -msse2)
+
+Modelo de memoria (para micros de 64 bits):
+
+* -mcmodel=small : permite hasta 2 Gb para codigo y data.
+* -mcmodel=medium : permite ilimitada memoria para data.
+* -mcmodel=large : permite ilimitada memoria para data y codigo.
+* -mcmodel=kernel : se provee para codigo a nivel de sistema, como el kernel Linux.
+* -mno-red-zone : Para micros AMD64 (que se debe combinar con -mcmodel=kernel) ya que poseen a 128 bytes para el area de memoria reservados por debajo del puntero de pila para data temporal llamada "red-zone".
+
+Algunas plataformas pueden ejecutar codigo para una o mas arquitecturas por ejemplo, plataformas de 64 bits como AMD64, MIPS64, Sparc64 o PowerPC64 soportan codigo de 32 y 64 bits. Por defecto en estas plataformas se generara codigo de 64 bits, pero es posible forzarlo a 32 bits con la opcion -m32.
+
+Ademas de esto debemos tener en cuenta que las bibliotecas esten disponibles. Las bibliotecas de 64 bits suelen estar en /usr/lib64 y /lib64. Las de 32 bits suelen estarlo en /usr/lib o /lib.
+
+=== Problemas en operaciones de punto flotante ===
+
+El estandar IEEE754 define a nivel de bit el comportamiento en operaciones aritmenticas de punto flotante para todos los procesadores modernos. Sin embargo, existen ciertos problemas. Por ejemplo la unidad de punto flotante x87 (FPU) en procesadores x86 computa los resultados empleando de forma interna precision extendida (los valores son convertidos a precision doble solo cuando estos son almacenados en memoria). La mayoria del resto de procesadores importantes como SPARC, PA-RISC, Alpha, MIPS y PPC trabajan de forma nativa con valores de doble precision. Por lo que las comparaciones que envuelvan valores de precision extendida fallaran cuando se comparen con los de precision doble. Internamente x87 FPU ofrece precision doble a nivel de hardware para sus registros. Para activar esta doble precision a nivel de redondeo debemos enviar la directiva al micro fldcw (floating-point load control word) con el valor 0x27F. Podemos hacerlo de la siguiente forma:
+
+Y podemos realizar este codigo de prueba:
+
+ #include <stdio.h>
+
+ void
+ set_fpu (unsigned int mode)
+ {
+     asm ("fldcw %o" : : "m" (*&mode));
+ }
+
+ int
+ main(void)
+ {
+     double a = 3.0, b = 7.0, c;
+ #ifdef DOUBLE
+     set_fpu(0x27F); /* use double precision rounding */
+ #endif
+     c = a / b;
+     if ( c == a / b ){
+         printf("comparison succeeds\n");
+     } else {
+         printf("unexpected result\n");
+     }
+     return 0;
+ }
+
+Compilando el codigo con: gcc -Wall -DDOUBLE file.c conseguimos el redondeo a nivel de hardware con doble precision y por lo tanto un resultado esperado.
+
+El fldcw afecta a todo el entorno en general del proceso, incluyendo funciones de lib C, etc, tomando operaciones en doble precision en lugar de precision extendida. Afectando asi al comportamiento general de la FPU x87. Teniendo esto en cuenta, las instrucciones SSE y SSE2  seran siempre convertidas a precision doble de forma nativa. De esta forma empleando la forma gcc -Wall -msse2 -mfpmath=sse sera suficiente para eliminar los efectos de la precision extendida.
+
+=== Portabilidad en tipos signed y unsigned ===
+
+En C y C++ es posible tener chars de tipo signed o unsigned dependiendo de la plataforma y del compilador ,algunos de ellos por defecto usan signed y otros unsigned. Esto puede ser un problema a la hora de hacer codigo portable. Si por ejemplo hacemos un codigo tal que asi:
+
+ #include <stdio.h>
+
+ int
+ main (void)
+ {
+     char c = 255;
+     if (c > 128) {
+         printf("char is unsigned (c = %d)\n", c);
+     } else{
+         printf("char is signed (c = %d)\n", c);
+     }
+     return 0
+ }
+
+Debemos tener especial cuidado con esto debido a que muchas veces, podemos tener el error comun de realizar un codigo tal que asi:
+
+ #include <stdio.h>
+
+ int
+ main (void)
+ {
+     char c;
+     while (( c = getchar() ) != EOF) /* not portable */
+     {
+         printf("read c = '%c'\n", c);
+     }
+     return 0;
+ }
+
+Pudiendo leer el caracter con valor 255 o ÿ, que en caso de ser signed char tomaria el valor -1 (1 con el bit de signo cambiado). Este valor es especial y sirve para indicar EOF (EOF esta definido como -1). Por eso, debemos en lugar de emplear un char, un int o bien pasar como argumento a gcc algo asi: gcc -Wall -funsigned-char file.c. Otras opciones importantes a tener en cuenta referente a esto y mas especificamente a bitfields son: -fsigned-bitfields y -funsigned-bitfields.
+
+=== Troubleshooting ===
+
+GCC permite la opcion -v para que compilemos de forma detallada (verbose). Esto puede darnos cierta informacion sobre algunos errores de compilacion y ver como se sigue todo el proceso, mostrando ademas todos los PATH de bibliotecas o librerias.
+
+Con la opcion -g, GCC permitira compilar guardando informacion para el coredump en caso de producirse. O por ejemplo si entramos en un loop infinito, podemos sacar el PID del proceso y llamarlo mediante: gdb a.out y una vez dentro de gdb, hacer un attach 891 (siendo 891 el PID por ejemplo). Que ademas nos mostrara la linea actual en la que el proceso ha sido justo "adjuntado", pudiendo encontrar asi facilmente el loop infinito. Haciendo por ejemplo un print de la variable que nos interese o bien un kill para terminar el proceso desde el propio gdb. Con kill -3 PID crearemos un SIGQUIT en lugar de SIGKILL, de esta forma crearemos un coredump en caso de necesitarlo para investigaciones futuras.
+
+Por ultimo y para evitar excesivo uso de memoria de un proceso podemos usar el comando "ulimit -v 4096" dando asi 4 Mb de memoria virtual para un proceso. Con la opcion -p que limitaria el numero de procesos hijo. O la opcion -t que limitaria el numero de segundos de CPU de uso para un mismo proceso.

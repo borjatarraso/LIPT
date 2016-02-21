@@ -1,0 +1,24 @@
+To install cppcheck:
+
+ # apt-get install cppcheck
+
+Use:
+
+ $ cppcheck file.cc
+ or
+ $ cppcheck directory
+
+Add cppcheck on Makefiles:
+
+ static:
+ 	cppcheck main.cc
+
+Use with:
+
+ $ make static
+
+Additional info:
+
+* http://stackoverflow.com/questions/632057/c-c-free-alternative-to-lint
+* http://sourceforge.net/apps/mediawiki/cppcheck/index.php?title=Main_Page
+* http://en.wikipedia.org/wiki/Cppcheck

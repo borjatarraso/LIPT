@@ -1,0 +1,65 @@
+== Gkrellm ==
+
+Install gkrellm and some plugins:
+
+ apt-get install gkrellm
+ apt-get install gkrellm-leds gkrellm-reminder gkrellm-volume gkrellm-bfm gkrellm-thinkbat \
+ gkrellm-x86info gkrellmitime gkrellmoon gkrellmwireless gkrelltop gkrellweather gkrellxmms2 \
+ gkrellm-ibam gkrellm-hdplop
+
+Download manually gkrellsun as it is not available outside:
+
+ Gkrellsun: [http://gkrellsun.sourceforge.net/]
+
+Note that gkrellsun requires gtk+-2.0:
+
+ apt-get install gtk+-2.0
+
+Then uncompress the pluging gkrellsun in .gkrellm2/plugins/
+
+ cd ~/.gkrellm2/plugins/
+ tar xvfz gkrellsun-1.0.0.tar.gz
+ cd gkrellsun-1.0.0/
+ make
+ make install (as root)
+
+Or move where are the other plugins, in my case is:
+
+ mv gkrellsun.so /usr/lib/gkrellm2/plugins/
+
+Check data coords for weather, moon and sun:
+
+ The latitude and longitude for Helsinki is:
+ Lat: 61°15'N
+ Lon: 28°15'E
+
+For themes go to:
+
+ Gkrellm themes: [http://www.muhri.net/gkrellm/]
+
+Best ones are:
+
+  - CoplandOS.gkrellm.tar.gz
+  - invisible.tar.gz
+  - ZixSaw2-gkrellm.tar.gz
+
+Move them to the right place:
+
+  mv *.gz ~/.gkrellm2/themes/
+
+And uncompress there with tar xvfz:
+
+ cd ~/.gkrellm2/themes/
+ tar xvfz filetheme.tar.gz
+
+Open gkrellm now and check themes:
+
+ gkrellm &
+
+For gkrellmweather check the station here:
+
+ City codes: [http://koti.mbnet.fi/lauro/index.php?page=weather&cat=stations&continent=01]
+
+For helsinki the station id is:
+
+ - EFHK
