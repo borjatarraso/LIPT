@@ -59,6 +59,60 @@ TODO
 ** Auto-complete
 TODO
 
+* Xmonad
+Changed Mod by Win key (from Mod1 to Mod4) in .xmonad/xmonad.hs
+
+Move screen:
+
+ Win + w
+ Win + e
+ Win + r
+
+Move windows:
+
+ Win + g
+ Win + k
+
+Run menus:
+
+ Win + p
+
+Run 'minimenu':
+
+ Win + s
+
+Quit:
+
+ Win + shift + Q
+
+Lock:
+
+ Win + l
+
+Move to workspace:
+
+ Win + number
+
+Resize windows:
+
+ Win + l
+ Win + h
+
+Increase/decrease number of windows:
+
+ Win + ,
+ Win + .
+
+Change layout:
+
+ Win + space
+
+Move window to another workspace:
+
+ Win + shift + number
+
+* Tmux
+TODO
 * Fluxbox
  Alt + F2       ==> fbrun
  Windows + t    ==> terminal (funky)
