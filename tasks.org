@@ -2,10 +2,10 @@
 #+BEGIN_COMMENT’        LIPT TASKS ORG MODE FILE        ‘#+END_COMMENT
 #+BEGIN_COMMENT’        ========================        ‘#+END_COMMENT
 
-* [#A] Main tasks [0%]
+* [#A] Main tasks [20%]
   SCHEDULED: <2016-02-20 Sat> DEADLINE: <2016-03-12 Sat>
  - [ ] Port org files to github
- - [ ] Port shoutwiki to org files
+ - [X] Port shoutwiki to org files
  - [ ] Port blackhats info to org files
    - [ ] Scheme, CL and Elisp
    - [ ] Algortimia
