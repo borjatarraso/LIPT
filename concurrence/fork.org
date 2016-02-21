@@ -1,0 +1,54 @@
+Is the way Linux creates processes.
+
+* When a process dies, it does not go away completely. It's dead, no longer running, but small remnant is waiting around from the parent process to pick up.
+* The remnant contains the return value from the child process and some other goop.
+* After the parent process fork()'s a child process, it must wait() or waitpid().
+* The parent can ignore the SIGCHLD signal and then it will not have to wait() with; signal(SIGCHLD, SIG_IGN);
+* When a child process dies and has not been wait()ed on, it will usually show up in a ps listing as "<defunct>". It will remain this way until the parent wait()s on it, or it is dealt.
+* When the parent dies before it wait()s for the child (assuming it is not ignoring SIGCHLD), the child is reparented to the init process (PID 1). This is not a problem if the child is still living well and under control. However, if the child is already defunct, the process is zombie and init does not know how to wait(), but init periodically destroys all the defunct processes it owns. So make sure your parent process either ignores SIGHCLD, or wait()s for all the children it fork()s.
+* When the child finally calls exit(), the return value passed will arrive at the parent when it wait()s.
+* WEXITSTATUS() is a macro that extracts the child's actual return value from the value wait() returns.
+* You can specify exactly which child to wait for by calling waitpid() with your child's PID as an argument.
+* Each process has its own copy of all variables.
+* If you don't care what the return value of the child is: you just call wait() with NULL as the argument.
+
+Example:
+
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <errno.h>
+ #include <unistd.h>
+ #include <sys/types.h>
+ #include <sys/wait.h>
+
+ int main(void)
+ {
+     pid_t pid;
+     int rv;
+
+     switch(pid = fork()) {
+     case -1:
+         perror("fork");  /* something went wrong */
+         exit(1);         /* parent exits */
+
+     case 0:
+         printf(" CHILD: This is the child process!\n");
+         printf(" CHILD: My PID is %d\n", getpid());
+         printf(" CHILD: My parent's PID is %d\n", getppid());
+         printf(" CHILD: Enter my exit status (make it small): ");
+         scanf(" %d", &rv);
+         printf(" CHILD: I'm outta here!\n");
+         exit(rv);
+
+     default:
+         printf("PARENT: This is the parent process!\n");
+         printf("PARENT: My PID is %d\n", getpid());
+         printf("PARENT: My child's PID is %d\n", pid);
+         printf("PARENT: I'm now waiting for my child to exit()...\n");
+         wait(&rv);
+         printf("PARENT: My child's exit status is: %d\n", WEXITSTATUS(rv));
+         printf("PARENT: I'm outta here!\n");
+     }
+
+     return 0;
+ }

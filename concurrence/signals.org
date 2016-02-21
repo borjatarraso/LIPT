@@ -1,0 +1,161 @@
+Method for one process to bug another: one process can "raise" a signal and have it delivered to another process.
+
+* One process might want to stop another one, and this can be done by sending the signal SIGSTOP.
+* To continue, the process has to receive signal SIGCONT.
+* Many signals are predefined and the process has a default signal handler to deal with it.
+* Example of predefined signal is: SIGINT; a process receives when the user hits ^C. The default signal handler for SIGINT causes the process to exit.
+* Signal #9. typing "kill -9 PID" to kill a process (sending SIGKILL).
+* SIGKILL and SIGSTOP cannot be overrided.
+* kill command without arguments is sending SIGTERM.
+* There are two signals that are not reserved (not pre-defined behaviour): SIGUSR1 and SIGUSR2. Use using: "kill -SIGUSR1 PID".
+* There is a system call called kill() to send a signal: takes as arguments a signal number (defined in signal.h) and a process ID.
+* raise() which can be used to raise a signal within the same process.
+* call sigaction() and tell it all the details about which signal you want to catch and which function you want to call to handle it.
+
+ int sigaction(int sig, const struct sigaction *act, struct sigaction *oact);
+
+ - The first parameter, sig is which signal to catch. (can be a symbolic name from signal.h along the lines of SIGINT).
+ - act is a pointer to a struct sigaction which has a bunch of fields that you can fill in to control the behavior of the signal handler.
+ - oact can be NULL, but if not, it returns the old signal handler information that was in place before. This is useful if you want to restore the previous signal handler at a later time.
+
+Fields from struct sigaction:
+
+ - sa_handler 	The signal handler function (or SIG_IGN to ignore the signal).
+ - sa_mask 	A set of signals to block while this one is being handled.
+ - sa_flags 	Flags to modify the behavior of the handler, or 0.
+
+sa_mask field? When you're handling a signal, you might want to block other signals from being delivered, and you can do this by adding them to the sa_mask It's a "set", which means you can do normal set operations to manipulate them: sigemptyset(), sigfillset(), sigaddset(), sigdelset(), and sigismember().
+
+Example of signal ^C:
+
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <unistd.h>
+ #include <errno.h>
+ #include <signal.h>
+
+ void sigint_handler(int sig)
+ {
+     write(0, "Ahhh! SIGINT!\n", 14);
+ }
+
+ int main(void)
+ {
+     void sigint_handler(int sig); /* prototype */
+     char s[200];
+     struct sigaction sa;
+
+     sa.sa_handler = sigint_handler;
+     sa.sa_flags = 0; // or SA_RESTART
+     sigemptyset(&sa.sa_mask);
+
+     if (sigaction(SIGINT, &sa, NULL) == -1) {
+         perror("sigaction");
+         exit(1);
+     }
+
+     printf("Enter a string:\n");
+
+     if (fgets(s, sizeof s, stdin) == NULL)
+         perror("fgets");
+     else
+         printf("You entered: %s\n", s);
+
+     return 0;
+ }
+
+Set your sa_flags to include '''SA_RESTART'''. Some system calls are interruptible, and some can be restarted. It's system dependent.
+
+You have to be careful when you make function calls in your signal handler. Those functions must be "async safe", so they can be called without invoking undefined behavior. write() to output the message instead of printf(), because POSIX says that write() is async-safe (so is safe to call from within the handler), while printf() is not.
+
+Sync-safe functions are:
+
+ _Exit(), _exit(), abort(), accept(), access(), aio_error(), aio_return(), aio_suspend(), alarm(), bind(), cfgetispeed(), cfgetospeed(), cfsetispeed(), cfsetospeed(), chdir(),  chmod(), chown(), clock_gettime(), close(), connect(), creat(), dup(), dup2(), execle(), execve(), fchmod(), fchown(), fcntl(), fdatasync(), fork(), fpathconf(), fstat(), fsync(), ftruncate(), getegid(), geteuid(), getgid(), getgroups(), getpeername(), getpgrp(), getpid(), getppid(), getsockname(), getsockopt(), getuid(), kill(), link(), listen(), lseek(), lstat(), mkdir(), mkfifo(), open(), pathconf(), pause(), pipe(), poll(), posix_trace_event(), pselect(), raise(), read(), readlink(), recv(), recvfrom(), recvmsg(), rename(), rmdir(), select(), sem_post(), send(), sendmsg(), sendto(), setgid(), setpgid(), setsid(), setsockopt(), setuid(), shutdown(), sigaction(), sigaddset(), sigdelset(), sigemptyset(), sigfillset(), sigismember(), sleep(), signal(), sigpause(), sigpending(), sigprocmask(), sigqueue(), sigset(), sigsuspend(), sockatmark(), socket(), socketpair(), stat(), symlink(), sysconf(), tcdrain(), tcflow(), tcflush(), tcgetattr(), tcgetpgrp(), tcsendbreak(), tcsetattr(), tcsetpgrp(), time(), timer_getoverrun(), timer_gettime(), timer_settime(), times(), umask(), uname(), unlink(), utime(), wait(), waitpid(), and write().
+
+You also cannot safely alter any shared (e.g. global) data, with one notable exception: variables that are declared to be of storage class and type '''volatile sig_atomic_t'''. example that handles SIGUSR1 by setting a global flag, which is then examined in the main loop to see if the handler was called:
+
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <unistd.h>
+ #include <errno.h>
+ #include <signal.h>
+
+ volatile sig_atomic_t got_usr1;
+
+ void sigusr1_handler(int sig)
+ {
+     got_usr1 = 1;
+ }
+
+ int main(void)
+ {
+     struct sigaction sa;
+
+     got_usr1 = 0;
+
+     sa.sa_handler = sigusr1_handler;
+     sa.sa_flags = 0;
+     sigemptyset(&sa.sa_mask);
+
+     if (sigaction(SIGUSR1, &sa, NULL) == -1) {
+         perror("sigaction");
+         exit(1);
+     }
+
+     while (!got_usr1) {
+         printf("PID %d: working hard...\n", getpid());
+         sleep(1);
+     }
+
+     printf("Done in by SIGUSR1!\n");
+
+     return 0;
+ }
+
+Then use the '''kill -USR1''' in another window to kill it.
+
+Then in the other window, send it the signal SIGUSR1: '''kill -USR1 <PID_PRINTED_IN_PREV_COMMAND>'''
+
+The response should be immediate even if sleep() has just been called—sleep() gets interrupted by signals.
+
+* signal() that can be used to catch signals. It's not as reliable or as full-featured as sigaction()
+
+Signals at our disposal (Each signal has its own default signal handler, the behavior of which is defined in your local man pages):
+
+ Signal 	Description
+ SIGABRT 	Process abort signal.
+ SIGALRM 	Alarm clock.
+ SIGFPE 	Erroneous arithmetic operation.
+ SIGHUP 	Hangup.
+ SIGILL 	Illegal instruction.
+ SIGINT 	Terminal interrupt signal.
+ SIGKILL 	Kill (cannot be caught or ignored).
+ SIGPIPE 	Write on a pipe with no one to read it.
+ SIGQUIT 	Terminal quit signal.
+ SIGSEGV 	Invalid memory reference.
+ SIGTERM 	Termination signal.
+ SIGUSR1 	User-defined signal 1.
+ SIGUSR2 	User-defined signal 2.
+ SIGCHLD 	Child process terminated or stopped.
+ SIGCONT 	Continue executing, if stopped.
+ SIGSTOP 	Stop executing (cannot be caught or ignored).
+ SIGTSTP 	Terminal stop signal.
+ SIGTTIN 	Background process attempting read.
+ SIGTTOU 	Background process attempting write.
+ SIGBUS 	Bus error.
+ SIGPOLL 	Pollable event.
+ SIGPROF 	Profiling timer expired.
+ SIGSYS 	Bad system call.
+ SIGTRAP 	Trace/breakpoint trap.
+ SIGURG 	High bandwidth data is available at a socket.
+ SIGVTALRM 	Virtual timer expired.
+ SIGXCPU 	CPU time limit exceeded.
+ SIGXFSZ 	File size limit exceeded.
+
+Additional resources:
+
+* Nearly all of it. There are tons of flags, realtime signals, mixing signals with threads, masking signals, longjmp() and signals, and more.
+* Handling signals: sigaction() sigwait() sigwaitinfo() sigtimedwait() sigsuspend() sigpending()
+* Delivering signals: kill() raise() sigqueue()
+* Set operations: sigemptyset() sigfillset() sigaddset() sigdelset() sigismember()
+* Other: sigprocmask() sigaltstack() siginterrupt() sigsetjmp() siglongjmp() signal()

@@ -1,0 +1,94 @@
+A call to the pipe() function returns a pair of file descriptors. One of these descriptors is connected to the write end of the pipe, and the other is connected to the read end. Anything can be written to the pipe, and read from the other end in the order it came in.
+
+[[File:../img/concurrence/pipe.png]]
+
+* stdin is file descriptor "0".
+* stdout is "1".
+* stderr is "2".
+
+Any files you open using fopen() get their own file descriptor, although this detail is hidden. This file descriptor can be retrived from the FILE* by using the fileno() macro from stdio.h.
+
+Useless example:
+
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <errno.h>
+ #include <unistd.h>
+
+ int main(void)
+ {
+     int pfds[2];
+     char buf[30];
+
+     if (pipe(pfds) == -1) {
+         perror("pipe");
+         exit(1);
+     }
+
+     printf("writing to file descriptor #%d\n", pfds[1]);
+     write(pfds[1], "test", 5);
+     printf("reading from file descriptor #%d\n", pfds[0]);
+     read(pfds[0], buf, 5);
+     printf("read \"%s\"\n", buf);
+
+     return 0;
+ }
+
+Uselful example combining Pipes and fork(); get a child process to send the word "test" to the parent:
+
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <errno.h>
+ #include <sys/types.h>
+ #include <unistd.h>
+
+ int main(void)
+ {
+     int pfds[2];
+     char buf[30];
+
+     pipe(pfds);
+
+     if (!fork()) {
+         printf(" CHILD: writing to the pipe\n");
+         write(pfds[1], "test", 5);
+         printf(" CHILD: exiting\n");
+         exit(0);
+     } else {
+         printf("PARENT: reading from pipe\n");
+         read(pfds[0], buf, 5);
+         printf("PARENT: read \"%s\"\n", buf);
+         wait(NULL);
+     }
+
+     return 0;
+ }
+
+Implement "ls | wc -l":
+
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <unistd.h>
+
+ int main(void)
+ {
+     int pfds[2];
+
+     pipe(pfds);
+
+     if (!fork()) {
+         close(1);       /* close normal stdout */
+         dup(pfds[1]);   /* make stdout same as pfds[1] */
+         close(pfds[0]); /* we don't need this */
+         execlp("ls", "ls", NULL);
+     } else {
+         close(0);       /* close normal stdin */
+         dup(pfds[0]);   /* make stdin same as pfds[0] */
+         close(pfds[1]); /* we don't need this */
+         execlp("wc", "wc", "-l", NULL);
+     }
+
+     return 0;
+ }
+
+Clarification: close(1) frees up file descriptor 1 (standard output). dup(pfds[1]) makes a copy of the write-end of the pipe in the first available file descriptor, which is "1", since we just closed that. In this way, anything that ls writes to standard output (file descriptor 1) will instead go to pfds[1] (the write end of the pipe). The wc section of code works the same way, except in reverse.

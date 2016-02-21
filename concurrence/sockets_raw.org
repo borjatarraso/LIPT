@@ -1,0 +1,90 @@
+Required headers:
+
+ #include <sys/types.h> /* Basic system data types */
+ #include <sys/socket.h> /* Basic socket definitions */
+ #include <netinet/in.h> /* sockaddr_in{} and other internet definitions */
+ #include <arpa/inet.h> /* inet(3) functions */
+ #include <errno.h>
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+ #include <unistd.h>
+ #include <sys/wait.h>
+ #include <netinet/ip.h>
+
+Other possible headers:
+
+ #include <stdio.h>
+ #include <string.h>
+ #include <unistd.h>
+ #include <fcntl.h>
+ #include <pthread.h>
+ #include <stdint.h>
+
+== IP RAW server side ==
+
+# Create the socket descriptor with socket() syscall.
+# Fill the struct sockaddr_in for the server.
+# Receive data in this socket descriptor using the recvfrom() syscall.
+# Check the length of the IP header (that could be variable) and strip that one.
+# Dump the information somewhere
+# Close the socket descriptor when needs to stop receiving data.
+
+RAW Server side code:
+
+ int server_socket, tx_channel;
+ struct sockaddr_in servaddr;
+
+ tx_channel = socket(AF_INET, SOCK_RAW, YOUR_OWN_PROTO_AS_SHORT);
+
+ memset(&servaddr, 0, sizeof(servaddr));
+ servaddr.sin_family = AF_INET;
+ inet_pton(AF_INET, "10.10.2.3", &servaddr.sin_addr);
+
+ struct sockaddr_in sa;
+ socklen_t length;
+
+ struct iphdr *ip;
+ int hlen;
+ int numbytes;
+
+ uint8_t buffer[BUF_SIZE];
+
+ /* To check origin/destination of the packet */
+ char ipbuf[INET_ADDRSTRLEN];
+
+ while ((numbytes = recvfrom(server_socket, buffer, BUF_SIZE, 0, (struct sockaddr *) &sa , &length)) > 0) {
+ ip = (struct iphdr *) buffer;
+ hlen = ip->ihl << 2; /* length of IP header */
+
+ memcpy(&buf->length, buffer+hlen, numbytes-hlen);
+ close(server_socket);
+
+== IP RAW client side ==
+
+# Create the socket descriptor with socket() syscall.
+# Fill the struct sockaddr_in for the server.
+# Send data to the server with sendto(). Needs to take care about IP header offsets.
+# Close the socket descriptor with close() syscall.
+
+ int , tx_channel;
+ struct sockaddr_in servaddr;
+
+ server_socket = socket(AF_INET, SOCK_RAW, CSP_PROTO);
+
+ memset(&servaddr, 0, sizeof(servaddr));
+ servaddr.sin_family = AF_INET;
+ servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+
+ socklen_t length;
+
+ if (sendto(tx_channel, &packet->length, packet->length + sizeof(uint32_t) + sizeof(uint16_t), 0, (struct sockaddr *) &servaddr , sizeof(servaddr)) < 0)
+     perror("sendto");
+
+ close(tx_channel);
+
+Check:
+
+* http://sock-raw.org/papers/sock_raw
+* http://stackoverflow.com/questions/14774668/what-is-raw-socket-in-socket-programming
+* man7.org/linux/man-pages/man7/raw.7.html

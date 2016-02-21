@@ -1,0 +1,111 @@
+Thread operations include thread creation, termination, synchronization (joins,blocking), scheduling, data management and process interaction. A thread does not maintain a list of created threads, nor does it know the thread that created it. All threads within a process share the same address space.
+
+Threads in the same process share:
+* Process instructions
+* Most data
+* open files (descriptors)
+* signals and signal handlers
+* current working directory
+* User and group id
+
+Each thread has a unique:
+* Thread ID
+* set of registers, stack pointer
+* stack for local variables, return addresses
+* signal mask
+* priority
+* Return value: errno
+
+pthread functions return "0" if OK.
+
+Threads terminate by explicitly calling pthread_exit, by letting the function return, or by a call to the function exit which will terminate the process including any threads.
+pthread_create() create a new thread.
+
+ int pthread_create(pthread_t * thread,
+                    const pthread_attr_t * attr,
+                    void * (*start_routine)(void *),
+                    void *arg);
+
+Arguments:
+
+* thread: returns the thread id. (unsigned long int defined in bits/pthreadtypes.h)
+* attr: Set to NULL if default thread attributes are used.
+* void * (*start_routine): pointer to the function to be threaded. Function has a single argument in this case: pointer to void.
+* *arg: pointer to argument of function. To pass multiple arguments, send a pointer to a structure.
+
+Attr field can be:
+
+* detached state (joinable? Default: PTHREAD_CREATE_JOINABLE. Other option: PTHREAD_CREATE_DETACHED)
+* scheduling policy (real-time? PTHREAD_INHERIT_SCHED,PTHREAD_EXPLICIT_SCHED,SCHED_OTHER)
+* scheduling parameter
+* inheritsched attribute (Default: PTHREAD_EXPLICIT_SCHED Inherit from parent thread: PTHREAD_INHERIT_SCHED)
+* scope (Kernel threads: PTHREAD_SCOPE_SYSTEM User threads: PTHREAD_SCOPE_PROCESS Pick one or the other not both.)
+* guard size
+* stack address (See unistd.h and bits/posix_opt.h _POSIX_THREAD_ATTR_STACKADDR)
+* stack size (default minimum PTHREAD_STACK_SIZE set in pthread.h),
+
+pthread_join to wait for termination of another thread:
+
+ int pthread_join(pthread_t th, void **thread_return);
+
+Arguments:
+
+* th: thread suspended until the thread identified by th terminates, either by calling pthread_exit() or by being cancelled.
+* thread_return: If thread_return is not NULL, the return value of th is stored in the location pointed to by thread_return.
+
+pthread_exit to terminate the calling thread:
+
+ void pthread_exit(void *retval);
+
+Arguments:
+
+ retval: Return value of thread.
+
+Example of pthread creation and termination (remember compile with -lpthread):
+
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <pthread.h>
+
+ void *print_message_function( void *ptr );
+
+ main()
+ {
+      pthread_t thread1, thread2;
+      const char *message1 = "Thread 1";
+      const char *message2 = "Thread 2";
+      int  iret1, iret2;
+
+     /* Create independent threads each of which will execute function */
+
+      iret1 = pthread_create( &thread1, NULL, print_message_function, (void*) message1);
+      iret2 = pthread_create( &thread2, NULL, print_message_function, (void*) message2);
+
+      /* Wait till threads are complete before main continues. Unless we  */
+      /* wait we run the risk of executing an exit which will terminate   */
+      /* the process and all threads before the threads have completed.   */
+
+      pthread_join( thread1, NULL);
+      pthread_join( thread2, NULL);
+
+      printf("Thread 1 returns: %d\n",iret1);
+      printf("Thread 2 returns: %d\n",iret2);
+      exit(0);
+ }
+
+ void *print_message_function( void *ptr )
+ {
+      char *message;
+      message = (char *) ptr;
+      printf("%s \n", message);
+ }
+
+The threads library provides three synchronization mechanisms:
+
+* mutexes: Mutual exclusion lock: Block access to variables by other threads. This enforces exclusive access by a thread to a variable or set of variables.
+* joins: Make a thread wait till others are complete (terminated).
+* condition variables: data type pthread_cond_t.
+
+== Advanced threads ==
+
+More detailed info for the future at: https://computing.llnl.gov/tutorials/pthreads/

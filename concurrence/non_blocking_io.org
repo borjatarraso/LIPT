@@ -1,0 +1,114 @@
+Wait for user input, but at the same time, I want my other operations keep continue processing. Usually, people will think about using ncurses library. By using ncurses, you can easily perform non-blocking user input using timeout(0) and getch().
+
+I uses functions of termios and select, lets look at the functions one by one.
+
+ int kbhit()
+ {
+     struct timeval tv;
+     fd_set fds;
+     tv.tv_sec = 0;
+     tv.tv_usec = 0;
+     FD_ZERO(&fds);
+     FD_SET(STDIN_FILENO, &fds); //STDIN_FILENO is 0
+     select(STDIN_FILENO+1, &fds, NULL, NULL, &tv);
+     return FD_ISSET(STDIN_FILENO, &fds);
+ }
+
+This function perform non-blocking checking on the standard input (stdin) without timeout 0, tv.tv_sec and tv.tv_usec both set to zero. select usually uses in the case where there have multiple I/O need to process, or check at the same time.
+
+After select if user input is trigger, FD_ISSET will return non zero value, else return 0. So, we now can use it like this:
+
+ while(!kbhit())
+ {
+       //do certain operation..
+ }
+ //user hits enter.
+
+Due to the canonical mode of your terminal, you need to hit enter to confirm your user input. Canonical mode means it always wait for enter to confirms the user input. If that is not your case, bellow is another function to cater that.
+
+ void nonblock(int state)
+ {
+     struct termios ttystate;
+
+     //get the terminal state
+     tcgetattr(STDIN_FILENO, &ttystate);
+
+     if (state==NB_ENABLE)
+     {
+         //turn off canonical mode
+         ttystate.c_lflag &= ~ICANON;
+         //minimum of number input read.
+         ttystate.c_cc[VMIN] = 1;
+     }
+     else if (state==NB_DISABLE)
+     {
+         //turn on canonical mode
+         ttystate.c_lflag |= ICANON;
+     }
+     //set the terminal attributes.
+     tcsetattr(STDIN_FILENO, TCSANOW, &ttystate);
+
+ }
+
+What the function actually does is turn off the canonical mode for stdin. First, get the states of stdin of term. Next turn off the canonical by set 0 to the bits. The line of ttystate.c_cc[VMIN] is set the minimum number of user input to accept. If you set it as 2, the select will wait until 2 character is given, then it will capture as input. At last set the term state. The function actually does allow you to turn on and off the canonical mode.
+
+How it apply to work:
+
+ int main()
+ {
+     char c;
+     int i=0;
+
+     nonblock(NB_ENABLE);
+     while(!i)
+     {
+         usleep(1);
+         i=kbhit();
+         if (i!=0)
+         {
+             c=fgetc(stdin);
+             if (c=='q')
+                 i=1;
+             else
+                 i=0;
+         }
+
+         fprintf(stderr,"%d ",i);
+     }
+     printf("\n you hit %c. \n",c);
+     nonblock(NB_DISABLE);
+
+     return 0;
+ }
+
+Press ‘q’ will lead the program to quit, else you will see the print of ’0′ overwhelming the screen. Observed that I am using usleep(1) inside the loop, without putting usleep, the programs is more responsive, but it uses high CPU resources. On the other hand, putting usleep(1) reduces the CPU resources and also decreases responsiveness of the program. Depend on your needs, you may choose to put it in or not.
+
+ #include<stdio.h>
+ #include<curses.h>
+ #include<unistd.h>
+
+ int main ()
+ {
+     int i=0;
+
+     initscr();     //in ncurses
+     timeout(0);
+     while(!i)
+     {
+         usleep(1);
+         i=getch();
+         printw("%d ",i);
+         if(i>0)
+             i=1;
+         else
+             i=0;
+     }
+     endwin();
+     printf("\nhitkb end\n");
+     return 0;
+ }
+
+References:
+
+khbit: http://cc.byexamples.com/2007/04/08/non-blocking-user-input-in-loop-without-ncurses/
+non-blocking I/O sockets: http://publib.boulder.ibm.com/infocenter/iseries/v5r3/index.jsp?topic=%2Frzab6%2Frzab6xnonblock.htm

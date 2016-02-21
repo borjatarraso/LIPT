@@ -1,0 +1,677 @@
+== What it is a socket ==
+
+Everything in UNIX is a file; a file can be a FIFO pipe, terminal, real file on the disk or just a network connection.
+
+To get a this type of file descriptor we call socket().
+
+=== Data encapsulation ===
+
+A packet is born, the packet is wrapped (encapsulated) in a header (and sometimes in a footer) by L5 application protocol (e.g: TFTP), then is encapsulated again by the next L4 transport protocol (UDP or TCP), then enapsulated again by L3 internet protocol (IP), and then again to the L2 network access (Ethernet) and then send it over a physical medium itself (the cable).
+
+Image_data_encapsulation
+
+In the middle, the router strips the information until the IP header, consults the routing table and encapsulate again the Ethernet (or whatever technology) and send again to the medium. The switches only strips the Ethernet frames.
+
+When this is received in the other computer, it strips the Ethernet header, then the kernel strips the IP and UDP or TCP headers, then the application strips the TFTP (or other) header and finally gets the data.
+
+=== IP addresses, structs and data ===
+
+IP addresses are obviously used by IP layer.
+Port numbers are used by Transport layer.
+
+==== Ethernet Frame (802.3) ====
+
+{| class="wikitable" style="text-align: center;"
+|+ 802.3 Ethernet packet and frame structure
+|-
+! Layer !! Preamble !! Start of frame delimiter !! MAC destination !! MAC source !! [[802.1Q]] tag (optional) !! [[Ethertype]] ([[Ethernet II|Ethernet&nbsp;II]]) or length ([[IEEE&nbsp;802.3]])  !! Payload !! [[Frame check sequence]] (32‑bit [[cyclic redundancy check|CRC]]) !! [[Interpacket gap]]
+|-
+|
+| 7 [[Octet (computing)|octet]]s || 1 octet || 6 octets || 6 octets || (4 octets) || 2 octets  || {{nowrap|46(42)*–1500 octets}} || {{nowrap|4 octets}} || 12 octets
+|-
+| Layer 2 Ethernet frame
+| colspan="2" | || colspan="6"  style="background:#fdd;"| {{nowrap|← 64–1518(1522) octets →}} ||
+|-
+| Layer 1 Ethernet packet
+| colspan="8"  style="background:#fdd;"| {{nowrap|← 72–1526(1530) octets →}} ||
+|}
+
+ * Note: 42 octet minimum applies when 802.1Q is present. When absent, 46 octet minimum applies.
+
+The most common Ethernet frame is the Ethernet II:
+
+[[File:../img/concurrence/mostcommonethernetII.png]]
+
+<center> Reference: http://en.wikipedia.org/wiki/Ethernet_frame </center>
+
+==== IP header ====
+
+{| class="wikitable" style="margin: 0 auto; text-align: center;"
+|+IPv4 Header Format
+|-
+! style="border-bottom:none; border-right:none;"| ''Offsets''
+! style="border-left:none;"| [[Octet (computing)|Octet]]
+! colspan="8" | 0
+! colspan="8" | 1
+! colspan="8" | 2
+! colspan="8" | 3
+|-
+! style="border-top: none" | [[Octet (computing)|Octet]]
+! [[Bit]]
+! style="width:2.6%;"| 0
+! style="width:2.6%;"| 1
+! style="width:2.6%;"| 2
+! style="width:2.6%;"| 3
+! style="width:2.6%;"| 4
+! style="width:2.6%;"| 5
+! style="width:2.6%;"| 6
+! style="width:2.6%;"| 7
+! style="width:2.6%;"| 8
+! style="width:2.6%;"| 9
+! style="width:2.6%;"| 10
+! style="width:2.6%;"| 11
+! style="width:2.6%;"| 12
+! style="width:2.6%;"| 13
+! style="width:2.6%;"| 14
+! style="width:2.6%;"| 15
+! style="width:2.6%;"| 16
+! style="width:2.6%;"| 17
+! style="width:2.6%;"| 18
+! style="width:2.6%;"| 19
+! style="width:2.6%;"| 20
+! style="width:2.6%;"| 21
+! style="width:2.6%;"| 22
+! style="width:2.6%;"| 23
+! style="width:2.6%;"| 24
+! style="width:2.6%;"| 25
+! style="width:2.6%;"| 26
+! style="width:2.6%;"| 27
+! style="width:2.6%;"| 28
+! style="width:2.6%;"| 29
+! style="width:2.6%;"| 30
+! style="width:2.6%;"| 31
+|-
+! 0
+! 0
+| colspan="4"|[[#Version|Version]]
+| colspan="4"|[[#IHL|IHL]]
+| colspan="6"|[[#DSCP|DSCP]]
+| colspan="2"|[[#ECN|ECN]]
+| colspan="16"|[[#Total Length|Total Length]]
+|-
+! 4
+! 32
+| colspan="16"|[[#Identification|Identification]]
+| colspan="3"|[[#Flags|Flags]]
+| colspan="13"|[[#Fragment Offset|Fragment Offset]]
+|-
+! 8
+! 64
+| colspan="8"|[[#TTL|Time To Live]]
+| colspan="8"|[[#Protocol|Protocol]]
+| colspan="16"|[[#Header Checksum|Header Checksum]]
+|-
+! 12
+! 96
+| colspan="32"|[[#Source address|Source IP Address]]
+|-
+! 16
+! 128
+| colspan="32"|[[#Destination address|Destination IP Address]]
+|-
+! 20
+! 160
+| colspan="32" rowspan="4" style="background:#ffd0d0;"|Options (if IHL > 5)
+|}
+
+List of most common protocols in protocol field for an IP packet:
+
+{| class="wikitable" style="margin: 0 auto; text-align: center;"
+|-
+! Protocol Number !! Protocol Name !! Abbreviation
+|-
+| 1|| [[Internet Control Message Protocol]] || ICMP
+|-
+| 2|| [[Internet Group Management Protocol]] || IGMP
+|-
+| 6|| [[Transmission Control Protocol]]  || TCP
+|-
+| 17|| [[User Datagram Protocol]]  || UDP
+|-
+| 41|| [[IPv6#Tunneling|IPv6 encapsulation]] || ENCAP
+|-
+| 89|| [[Open Shortest Path First]] || OSPF
+|-
+| 132|| [[Stream Control Transmission Protocol]]  || SCTP
+|}
+
+<center> Reference: http://en.wikipedia.org/wiki/IPv4_header#Header </center>
+
+==== TCP header ====
+
+{| class="wikitable" style="margin: 0 auto; text-align:center"
+|+TCP Header
+|-
+! style="border-bottom:none; border-right:none;"| ''Offsets''
+! style="border-left:none;"| [[Octet (computing)|Octet]]
+! colspan="8" | 0
+! colspan="8" | 1
+! colspan="8" | 2
+! colspan="8" | 3
+|-
+! style="border-top: none" | Octet
+! <tt>[[Bit]]</tt>!!<tt>&nbsp;0</tt>!!<tt>&nbsp;1</tt>!!<tt>&nbsp;2</tt>!!<tt>&nbsp;3</tt>!!<tt>&nbsp;4</tt>!!<tt>&nbsp;5</tt>!!<tt>&nbsp;6</tt>!!<tt>&nbsp;7</tt>!!<tt>&nbsp;8</tt>!!<tt>&nbsp;9</tt>!!<tt>10</tt>!!<tt>11</tt>!!<tt>12</tt>!!<tt>13</tt>!!<tt>14</tt>!!<tt>15</tt>!!<tt>16</tt>!!<tt>17</tt>!!<tt>18</tt>!!<tt>19</tt>!!<tt>20</tt>!!<tt>21</tt>!!<tt>22</tt>!!<tt>23</tt>!!<tt>24</tt>!!<tt>25</tt>!!<tt>26</tt>!!<tt>27</tt>!!<tt>28</tt>!!<tt>29</tt>!!<tt>30</tt>!!<tt>31</tt>
+|-
+! 0
+!<tt> 0</tt>
+| colspan="16"| Source port || colspan="16"| Destination port
+|-
+! 4
+!<tt>32</tt>
+| colspan="32"| Sequence number
+|-
+! 8
+!<tt>64</tt>
+| colspan="32"| Acknowledgment number (if <tt>ACK</tt> set)
+|-
+! 12
+! <tt>96</tt>
+| colspan="4"| Data offset || colspan="3"| Reserved<br><tt>'''0 0 0'''</tt> || cellpadding="1"|<tt>N<br>S</tt>|||<tt>C<br>W<br>R</tt>|||<tt>E<br>C<br>E</tt>|||<tt>U<br>R<br>G</tt>|||<tt>A<br>C<br>K</tt>|||<tt>P<br>S<br>H</tt>|||<tt>R<br>S<br>T</tt>|||<tt>S<br>Y<br>N</tt>|||<tt>F<br>I<br>N</tt>|| colspan="16"| Window Size
+|-
+! 16
+!<tt>128</tt>
+|colspan="16"| Checksum || colspan="16" | Urgent pointer (if <tt>URG</tt> set)
+|-
+! 20<br />...
+!<tt>160<br />...</tt>
+| colspan="32" style="background:#ffd0d0;"| Options (if ''data offset'' &gt; 5. Padded at the end with "0" bytes if necessary.)<br />...
+|}
+
+<center> Reference: http://en.wikipedia.org/wiki/Transmission_Control_Protocol </center>
+
+==== UDP header ====
+
+{| class="wikitable" style="margin: 0 auto; text-align: center;"
+|+UDP Header
+|-
+! style="border-bottom:none; border-right:none;"| ''Offsets''
+! style="border-left:none;"| [[Octet (computing)|Octet]]
+! colspan="8" | 0
+! colspan="8" | 1
+! colspan="8" | 2
+! colspan="8" | 3
+|-
+! style="border-top: none" | Octet
+! <tt>[[Bit]]</tt>!!<tt>&nbsp;0</tt>!!<tt>&nbsp;1</tt>!!<tt>&nbsp;2</tt>!!<tt>&nbsp;3</tt>!!<tt>&nbsp;4</tt>!!<tt>&nbsp;5</tt>!!<tt>&nbsp;6</tt>!!<tt>&nbsp;7</tt>!!<tt>&nbsp;8</tt>!!<tt>&nbsp;9</tt>!!<tt>10</tt>!!<tt>11</tt>!!<tt>12</tt>!!<tt>13</tt>!!<tt>14</tt>!!<tt>15</tt>!!<tt>16</tt>!!<tt>17</tt>!!<tt>18</tt>!!<tt>19</tt>!!<tt>20</tt>!!<tt>21</tt>!!<tt>22</tt>!!<tt>23</tt>!!<tt>24</tt>!!<tt>25</tt>!!<tt>26</tt>!!<tt>27</tt>!!<tt>28</tt>!!<tt>29</tt>!!<tt>30</tt>!!<tt>31</tt>
+|-
+! 0
+!<tt> 0</tt>
+| colspan="16" style="background:#fdd;"| Source port || colspan="16"| Destination port
+|-
+! 4
+!<tt>32</tt>
+| colspan="16"| Length  || colspan="16" style="background:#fdd;"| Checksum
+|}
+
+<center> Reference: http://en.wikipedia.org/wiki/User_Datagram_Protocol </center>
+
+=== Byte order ===
+
+Some computers in some order, some others in other.
+
+How it is stored the bytes on the network is called Network byte order, how it is stored in the computers is called host byte order.
+
+The network stores in Network byte order (that it is big endian).
+The host stores in Host byte order (that could be big endian or little endian depending of the architecture)
+
+If b34f is stored like:
+
+ b3 4f -> Big Endian                                Host byte order: Motorola 68k
+ 4f b3 -> Little Endian                             Host byte order: intel 80x86 processors
+
+Short and long:
+
+ Short means 2 bytes
+ Long means 4 bytes
+
+Conversions are made by:
+
+ htons     host to network short
+ htonl     host to network long
+ ntohs     network to host short
+ ntohl     network to host long
+
+=== Structs ===
+
+Socket descriptor
+
+ int
+
+Recent invention, used to prepare the socket address structures:
+
+ struct addrinfo {
+     int              ai_flags;     // AI_PASSIVE, AI_CANONNAME, etc.
+     int              ai_family;    // AF_INET, AF_INET6, AF_UNSPEC
+     int              ai_socktype;  // SOCK_STREAM, SOCK_DGRAM
+     int              ai_protocol;  // use 0 for "any"
+     size_t           ai_addrlen;   // size of ai_addr in bytes
+     struct sockaddr *ai_addr;      // struct sockaddr_in or _in6
+     char            *ai_canonname; // full canonical hostname
+
+     struct addrinfo *ai_next;      // linked list, next node
+ };
+
+Load this struct up a bit and then call getaddrinfo(), it will return a pointer to a new linked list of these structures filled out with all the needs.
+
+ai_addr field in the struct addrinfo is a pointer to a struct sockaddr.
+
+Some structs are IPv4, some IPv6, some both.
+
+The struct sockaddr holds socket address information for many types of sockets:
+
+ struct sockaddr {
+     unsigned short    sa_family;    // address family, AF_xxx
+     char              sa_data[14];  // 14 bytes of protocol address, contains destination address and port number for the socket
+ };
+
+Programmers create a parallel struct for used on (in)ternet, so struct sockaddr_in can be cast to a pointer to a struct sockaddr and viceversa:
+
+ // (IPv4 only--see struct sockaddr_in6 for IPv6)
+ struct sockaddr_in {
+     short int          sin_family;  // Address family, AF_INET
+     unsigned short int sin_port;    // Port number, must be used in Network Byte Order (by using htons())
+     struct in_addr     sin_addr;    // Internet address
+     unsigned char      sin_zero[8]; // Same size as struct sockaddr
+ };
+
+The sin_addr field is a struct in_addr:
+
+ // (IPv4 only--see struct in6_addr for IPv6)
+ // Internet address (a structure for historical reasons)
+ struct in_addr {
+     uint32_t s_addr; // that's a 32-bit int (4 bytes)
+ };
+
+So we can refer to the IP address in Network Byte Order as astruct_sockaddr_in.sinaddr.s_addr.
+
+For IPv6 we have something similar:
+
+ // (IPv6 only--see struct sockaddr_in and struct in_addr for IPv4)
+ struct sockaddr_in6 {
+     u_int16_t       sin6_family;   // address family, AF_INET6
+     u_int16_t       sin6_port;     // port number, Network Byte Order
+     u_int32_t       sin6_flowinfo; // IPv6 flow information
+     struct in6_addr sin6_addr;     // IPv6 address
+     u_int32_t       sin6_scope_id; // Scope ID
+ };
+
+ struct in6_addr {
+     unsigned char   s6_addr[16];   // IPv6 address
+ };
+
+For both cases:
+
+  struct sockaddr_storage {
+     sa_family_t  ss_family;     // address family
+
+     // all this is padding, implementation specific, ignore it:
+     char      __ss_pad1[_SS_PAD1SIZE];
+     int64_t   __ss_align;
+     char      __ss_pad2[_SS_PAD2SIZE];
+ };
+
+So you can pass this structure and cast it to a struct sockaddr_in or struct sockaddr_in6 if you want.
+
+=== IP addresses ===
+
+There are a bunch of functions to manipulate the IP address:
+
+Presentation to network:
+
+inet_pton(), converts an IP address in numbers-and-dots notation into either a struct in_addr or a struct in6_addr depending on whether you specify AF_INET or AF_INET6.
+
+ struct sockaddr_in sa; // IPv4
+ struct sockaddr_in6 sa6; // IPv6
+
+ inet_pton(AF_INET, "192.0.2.1", &(sa.sin_addr)); // IPv4
+ inet_pton(AF_INET6, "2001:db8:63b3:1::3490", &(sa6.sin6_addr)); // IPv6
+
+inet_ntop() converts binary representation into string IP address.
+
+ // IPv4:
+ char ip4[INET_ADDRSTRLEN];  // space to hold the IPv4 string
+ struct sockaddr_in sa;      // pretend this is loaded with something
+
+ inet_ntop(AF_INET, &(sa.sin_addr), ip4, INET_ADDRSTRLEN);
+ printf("The IPv4 address is: %s\n", ip4);
+
+
+ // IPv6:
+ char ip6[INET6_ADDRSTRLEN]; // space to hold the IPv6 string
+ struct sockaddr_in6 sa6;    // pretend this is loaded with something
+
+ inet_ntop(AF_INET6, &(sa6.sin6_addr), ip6, INET6_ADDRSTRLEN);
+ printf("The address is: %s\n", ip6);
+
+Two macros conveniently hold the size of the string you'll need to hold the largest IPv4 or IPv6 address: INET_ADDRSTRLEN and INET6_ADDRSTRLEN.
+
+These functions only work with numeric IP addresses—they won't do any nameserver DNS lookup on a hostname, like "www.example.com". You will use getaddrinfo() to do that.
+
+=== From IPv4 to IPv6 ===
+
+1. Try to use getaddrinfo() to get all the struct sockaddr info, instead of packing the structures by hand. This will keep you IP version-agnostic, and will eliminate many of the subsequent steps.
+2. Any place that you find you're hard-coding anything related to the IP version, try to wrap up in a helper function.
+3. Change AF_INET to AF_INET6.
+4. Change PF_INET to PF_INET6.
+5. Change INADDR_ANY assignments to in6addr_any assignments.
+
+ struct sockaddr_in sa;
+ struct sockaddr_in6 sa6;
+
+ sa.sin_addr.s_addr = INADDR_ANY;  // use my IPv4 address
+ sa6.sin6_addr = in6addr_any; // use my IPv6 address
+
+6. The value IN6ADDR_ANY_INIT can be used as an initializer when the struct in6_addr is declared
+
+ struct in6_addr ia6 = IN6ADDR_ANY_INIT;
+
+7. Instead of struct sockaddr_in use struct sockaddr_in6. here is no sin6_zero field.
+8. Instead of struct in_addr use struct in6_addr, being sure to add "6" to the fields as appropriate.
+9. Instead of inet_aton() or inet_addr(), use inet_pton().
+10. Instead of inet_ntoa(), use inet_ntop().
+11. Instead of gethostbyname(), use the superior getaddrinfo().
+12. Instead of gethostbyaddr(), use the superior getnameinfo()
+13. INADDR_BROADCAST no longer works. Use IPv6 multicast instead.
+
+=== Syscalls for sockets ===
+
+ Prepare to launch: getaddrinfo()
+ Get the file descriptor: socket()
+ What port: bind()
+ Connecting: connect()
+ Listening: listen()
+ Accepting connection: accept()
+ Talking for stream: send() and recv()
+ Talking for datagram: sendto() and recvfrom()
+ Closing the connection: close() and shutdown
+ Check the peer: getpeername()
+ Check ourselves: gethostname()
+ Other checks: gethostbyname(), gethostbyaddr, getnameinfo()
+ Error handling: errno, perror(), strerror(),
+ Other functions: fcntl(), poll(), select(), setsockopt(), getsockopt()
+
+==== socket() syscall ====
+
+ Description:
+
+ Creates a file descriptor for a given domain, type and protocol.
+
+ Requires:
+
+ #include <sys/types.h>
+ #include <sys/socket.h>
+
+ Prototype:
+
+ int socket(int domain, int type, int protocol);
+
+ Possible values of arguments:
+
+ domain   -> AF_UNIX, AF_INET etc
+ type     -> SOCK_STREAM, SOCK_DGRAM, SOCK_RAW,
+ protocol -> 0
+
+ Example:
+
+ int s;
+ s = socket(AF_INET, SOCK_STREAM, 0);
+
+
+==== bind() syscall ====
+
+ Description:
+
+ Associates the socket with a port on the local machine. Kernel uses the port to associate the packet to a socket descriptor on the server side (is why is not needed on the client).
+
+ Requires:
+
+ #include <sys/types.h>
+ #include <sys/socket.h>
+
+ Prototype:
+
+ int bind(int sockfd, struct sockaddr *my_addr, int addrlen);
+
+ Possible values of arguments:
+
+ sockfd  -> the socket file descriptor returned by socket
+ my_addr -> pointer to struct sockaddr that contains info about your address namely, port and IP
+ addrlen -> is the length in bytes of that address
+
+ Example:
+
+ struct sockaddr_in servaddr;
+ memset(&servaddr, 0, sizeof(servaddr));
+ servaddr.sin_family = AF_INET;
+ servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+ servaddr.sin_port = htons(10000);
+ bind(sockfd, (struct sockaddr *)&servaddr, sizeof(servaddr));
+
+
+==== connect() syscall ====
+
+ Description:
+
+ Connects to a remote host
+
+ Requires:
+
+ #include <sys/types.h>
+ #include <sys/socket.h>
+
+ Prototype:
+
+ int connect(int sockfd, struct sockaddr *serv_addr, int addrlen);
+
+ Possible values of arguments:
+
+ sockfd    -> neighborhood socket file descriptor returned by socket() syscall.
+ serv_addr -> is the struct sockaddr containing the destination port and IP address.
+ addrlen   -> is the length in bytes of the server address
+
+ Example:
+
+ struct sockaddr_in servaddr;
+ memset(&servaddr, 0, sizeof(servaddr));
+ servaddr.sin_family = AF_INET;
+ inet_pton(AF_INET, "10.9.1.3", &servaddr.sin_addr);
+ servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+ servaddr.sin_port = htons(10000);
+ connect(sockfd, (struct sockaddr *) &servaddr, sizeof(servaddr));
+
+
+==== listen syscall ====
+
+ Description:
+
+ Wait for incoming connections
+
+ Requires:
+
+ #include <sys/types.h>
+ #include <sys/socket.h>
+
+ Prototype:
+
+ int listen(int sockfd, int backlog);
+
+ Possible values of arguments:
+
+ sockfd  -> the socket file descriptor from the socket system call on the server side.
+ backlog -> number of connections allowed on the incoming queue.
+
+ Example:
+
+ listen(sockfd, 10);
+
+
+==== accept() syscall ====
+
+ Description:
+
+ Accepts an incoming connection, returning a single new socket descriptor for this connection
+
+ Requires:
+
+ #include <sys/types.h>
+ #include <sys/socket.h>
+
+ Prototype:
+
+ int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);
+
+ Possible values of arguments:
+
+ sockfd  -> file descriptor used for the connection
+ addr    -> pointer to a local struct sockaddr or struct sockaddr_storage where the information about incoming information will go
+ addrlen -> size of the local struct sockaddr or struct sockaddr_storage
+
+ Example:
+
+ struct sockaddr_in sa;
+ socklen_t length;
+ int newfd = accept(sockfd, (struct sockaddr *)&sa, &length);
+
+
+==== send() syscall ====
+
+ Description:
+
+ Sends data using a file descriptor
+
+ Requires:
+
+ #include <sys/types.h>
+ #include <sys/socket.h>
+
+ Prototype:
+
+ ssize_t send(int sockfd, const void *msg, int len, int flags);
+
+ Possible values of arguments:
+
+ sockfd -> socket descriptor you want to send data
+ msg    -> pointer to the data you want to send
+ len    -> length of that data in bytes
+ flags  -> 0 for no special flags
+
+ Example:
+
+ char *message = "Testing";
+ int bytes_sent;
+ bytes_sent = send(sockfd, message, strlen(message), 0);
+
+
+==== recv() syscall ====
+
+ Description:
+
+ Reads data from a file descriptor
+
+ Requires:
+
+ #include <sys/types.h>
+ #include <sys/socket.h>
+
+ Prototype:
+
+ ssize_t recv(int sockfd, void *buf, int len, int flags);
+
+ Possible values of arguments:
+
+ sockfd -> socket descriptor you want to read data
+ buf    -> pointer to the buffer you want to dump the data
+ len    -> length of the data received in bytes
+ flags  -> 0 for no special flags
+
+ Example:
+
+ char buffer[128];
+ int bytes_received;
+ bytes_received = recv(newfd, &buffer, sizeof(buffer), 0);
+
+
+==== sendto() syscall ====
+
+ Description:
+
+ Sends data using a file description adding additional information for the missing information of datagram sockets
+
+ Requires:
+
+ #include <sys/types.h>
+ #include <sys/socket.h>
+
+ Prototype:
+
+ ssize_t sendto(int sockfd, const void *buf, size_t len, int flags,
+                const struct sockaddr *dest_addr, socklen_t addrlen);
+
+ Possible values of arguments:
+
+ first params (same as send)
+ dest_addr -> pointer to a struct sockaddr which contains the destination IP address and port.
+ addrlen   -> size of the previous struct (use sizeof)
+
+ Example:
+ sendto(sockfd, &buffer, 128, 0, (struct sockaddr *) &server_addr , sizeof (server_addr));
+
+
+==== recvfrom() syscall ====
+
+ Description:
+
+ Receives data from a socket descriptor adding additional information from the missing information of datagram sockets
+
+ Requires:
+
+ #include <sys/types.h>
+ #include <sys/socket.h>
+
+ Prototype:
+
+ ssize_t recvfrom(int sockfd, void *buf, size_t len, int flags,
+                  struct sockaddr *src_addr, socklen_t *addrlen);
+
+ Possible values of arguments:
+
+ first params (same as recv)
+ src_addr -> pointer to a struct sockaddr which contrains the source IP address and port.
+ addrlen  -> size of the previous struct (use sizeof)
+
+ Example:
+
+ numbytes = recvfrom(server_socket, &buffer, 128, 0, (struct sockaddr *) &sa , &length);
+
+
+==== close() syscall ====
+
+ Description:
+
+ Close the connection on your socket descriptor
+
+ Requires:
+
+ #include <unistd.h>
+
+ Prototype:
+
+ int close(int fd);
+
+ Possible values of arguments:
+
+ fd -> file descriptor wanted to shutdown
+
+ Example:
+
+ close(sockfd);
