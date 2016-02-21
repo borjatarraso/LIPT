@@ -37,6 +37,7 @@
    - [ ] W3M in emacs
    - [ ] Dired
    - [ ] Spell/flyspell/aspell
+   - [ ] Add keybindings for emacs.org
  - [ ] Emails refinement (3K emails)
  - [ ] Run
    - [ ] Print race styles, intervals, schedule running
@@ -77,6 +78,9 @@
  - [ ] Mecanography
  - [ ] Improve posts in buscando
 * [#C] Missing content in org files [0%]
+ - [ ] keybindings.org
+   - [ ] xmonad
+   - [ ] tmux
  - [ ] programming
    - [ ] datastructures.org
      - [ ] Lists
