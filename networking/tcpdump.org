@@ -1,0 +1,114 @@
+* tcpdump
+
+[[Basic filters:]]
+
+Show all traffic based on some IP address:
+
+ tcpdump host <ip>
+
+Show all traffic with some destination IP:
+
+ tcpdump dst <ip>
+
+Show all traffic with some source IP:
+
+ tcpdump src <ip>
+
+Show all traffic with involves some specific port:
+
+ tcpdump port <port>
+
+Show all traffic with some destination port:
+
+ tcpdump dst port <port>
+
+Show all traffic with some source port:
+
+ tcpdump src port <port>
+
+Show all traffic with involves some network:
+
+ tcpdump net <ip>/<netmask>
+
+Show all traffic with specific protocol:
+
+ tcpdump <protocol>
+
+[["and", "or" and "not" (not can be also used as !):]]
+
+Show all traffic for some protocol, from some source ip address with some destination port:
+
+ tcpdump <protocol> and src <ip> and dst port <port>
+
+Show all traffic coming from some network with some specific destination network or some other destination network:
+
+ tcpdump src net <ip_network_address>/<netmask> and dst net <ip_network_address>/<netmask> or <ip_network_address>/<netmask>
+
+Show all traffic to some destination host coming from some network and is not some specific protocol traffic:
+
+ tcpdump dst <ip> and src net <ip_network_address>/<netmask> and not <protocol>
+
+Show all traffic coming from some host and going to some destination port or some other destination port:
+
+ tcpdump 'src <ip> and (dst port <port> or <port>)'
+
+Show all tcp traffic ACK:
+
+ tcpdump 'tcp[13] & 16 != 0'
+
+Show all tcp traffic SYN:
+
+ tcpdump 'tcp[13] & 2 != 0'
+
+Show all tcp traffic FIN:
+
+ tcpdump 'tcp[13] & 1 != 0'
+
+Show all tcp traffic SYN-ACK:
+
+ tcpdump 'tcp[13] = 18'
+
+Display ipv6 traffic:
+
+ tcpdump ip6
+
+Display port range traffic:
+
+ tcpdump portrange <portfrom>-<portto>
+
+Display packets with smaller sizes:
+
+ tcpdump less <packetsize>
+ or
+ tcpdump < <packetsize>
+
+Display packets with bigger sizes:
+
+ tcpdump greater <packetsize>
+ or
+ tcpdump > <packetsize>
+
+[[Arguments important:]]
+
+ -n   --> names are not resolved
+ -nn  --> names and port names are not resolved
+ -X   --> show hex and ascii content of the packet
+ -XX  --> show hex and ascii content of the packet + ethernet header
+ -S   --> display from relative to absolute sequence numbers
+ -i   --> in which interface will sniff
+ -v   --> verbose
+ -vv  --> more verbose
+ -vvv --> super verbose
+ -c   --> packets to capture
+ -s   --> define the snap lenght (size) of the capture in bytes
+ -s0  --> get everything
+ -e   --> get ethernet header
+ -q   --> show less protocol information
+ -E   --> decrypt IPSEC traffic by providing an encryption key
+ -w   --> write the output in a cap file
+ -r   --> read a cap file
+ -t   --> dont print timestamp
+ -tt  --> print unformated timestamp
+ -ttt --> print delta micro second timestamp
+ -tttt  --> print a timestampt in default format
+ -ttttt --> print a delta micro second timestamp

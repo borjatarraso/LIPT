@@ -1,0 +1,2 @@
+* kernel implementation
+Kernel book: http://www.6test.edu.cn/~lujx/linux_networking/index.html?page=0131777203_ch14lev1sec4.html

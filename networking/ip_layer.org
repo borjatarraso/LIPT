@@ -1,0 +1,5 @@
+* ip layer
+
+Interesting websites: http://en.wikipedia.org/wiki/IP_fragmentation_attacks
+
+http://www.networksorcery.com/enp/topic/ipsuite.htm

@@ -1,0 +1,271 @@
+* vlan
+
+802.1Q IEEE : VLAN in Ethernet networks. But cisco has its own propietary protocol called ISL (Inter-Switch Link).
+
+This standard is quite huge, however there are two topics quite important:
+
+- Framing
+- Priorities
+
+Ethernet is a type of broadcast network. It means Ethernet will propagate everywhere. But if we have the following scenario:
+
+      /
+     |        +------------------------------------------------------+            X = switch
+     |        |                                                      |            H = host
+     |        |                +-----+            +-----+            |
+     |        |                |  H  |            |  H  |            |
+     |        |                +--+--+            +--+--+            |
+     |        |                   |                  |               |
+     |        |                   |                  |               |
+     |        |                   |                  |               |
+     |        |                +--+--+               |tag            |
+     |        |                |  X  +---------------+vlan2          |
+     |        |                +--+--+               |               |
+     |        |                   |                  |               | VLAN2
+     |        +-------------------+------------------+---------------+
+ LAN |                            |                  |
+     |   +------------------------+------------------+-------+
+     |   |                        |                  |       | VLAN1
+     |   |                        |               +--+--+    |
+     |   |                        |               |  X  |    |
+     |   |                        |               +--+--+    |
+     |   |                        |                  |       |
+     |   | +-----+             +--+--+               |<------|------ broadcast domain
+     |   | |  H  +-------------+  X  +---------------+       |
+     |   | +-----+             +-----+               |tag    |
+     |   |           untag                           |vlan1  |
+     |   |                                           |       |
+     |   |                                        +--+--+    |
+     |   |                                        |  H  |    |
+     |   |                                        +-----+    |
+     |   |                                                   |
+     |   +---------------------------------------------------+
+     |
+      \
+
+
+- VLAN will create different broadcast domains, so traffic will not propagate everywhere.
+- VLAN also can provide QoS.
+- VLAN allows to create more flexible networks.
+
+
+Ethernet frame is:
+
+ [ Destination Address | Source Address | Ethernet Type-Size | Payload]
+
+VLAN frame is:
+
+ [ Destination Address | Source Address | VLAN type | Ethernet Type-Size | Payload]
+                                              |
+                                           0x8100
+
+** VLAN Tags
+
+16 bits are used for VLAN TAG:
+
+ [VID | Priority | CF Flag]
+  12b      3b        1b
+
+- Meaning 16 bits in total, so from 0-4095 are the possible VLANS.
+- 0 is used for something else.
+- 1 reserved in some implementations.
+
+Untag VLAN means will not send any vlan tag, no matter CoS which will remove the VLAN when broadcast traffic to some port without VLAN and when traffic goes back.
+
+As VLAN has priorities and is not "normal ethernet", then we can have queues, etc... meaning "priorization of traffic".
+
+== VLAN Priority bits ==
+
+ [ TPID | TCI (PCP | DEI | VID) ]
+  16 bits       3     1     12     = 32 bits in total
+
+- Tag Protocol Identifier (TPID): a 16-bit field set to a value of 0x8100 in order to identify the frame as an IEEE 802.1Q-tagged frame. This field is located at the same position as the EtherType/Length field in untagged frames, and is thus used to distinguish the frame from untagged frames.
+
+- Tag Control Information (TCI)
+  - Priority Code Point (PCP): a 3-bit field which refers to the IEEE 802.1p priority. It indicates the frame priority level. Values are from 0 (best effort) to 7 (highest); 1 represents the lowest priority. These values can be used to prioritize different classes of traffic (voice, video, data, etc.). Check CoS.
+  - Drop Eligible Indicator (DEI): a 1-bit field. (formerly CFI) May be used separately or in conjunction with PCP to indicate frames eligible to be dropped in the presence of congestion.
+  - VLAN Identifier (VID): a 12-bit field specifying the VLAN to which the frame belongs. The hexadecimal values of 0x000 and 0xFFF are reserved. All other values may be used as VLAN identifiers, allowing up to 4,094 VLANs. The reserved value 0x000 indicates that the frame does not belong to any VLAN; in this case, the 802.1Q tag specifies only a priority and is referred to as a priority tag. On bridges, VLAN 1 (the default VLAN ID) is often reserved for a management VLAN; this is vendor-specific.
+
+ Priority tagged frames = [     | 0 |     ]
+                                  ^    ^
+                                  |     \- 2 bytes for VLAN ID
+                               VLAN ID
+                         (adds the priority)
+
+
+               igress side
+ Priorities ----------------> CoS (Class of Service)
+           \
+            \---------------> Routing VLAN ----------------->
+                                              egress side
+                                              (uses CoS)
+
+Problem: L2 and L3 should map the priority traffic: because is not nice switch ignoring the QoS and just drop 'left/right'.
+
+* QinQ (also called "Stacked VLAN") - VLAN inside VLAN
+
+ [DA | SA | VTAG | VID |   |   |   |   | payload ]
+              ^
+              |
+    1500 MTU -> ~1520 or so (If we want to keep the payload we must have additional bits for EFC, traillers, VLANs)
+
+* Routed VLAN
+
+
+      /
+     |        +------------------------------------------------------+            X = switch
+     |        |                                                      |            H = host
+     |        |                +-----+            +-----+            |            R = router
+     |        |                |  H  |            |  H  |            |
+     |        |                +--+--+            +--+--+            |
+     |        |                   |                  |               |
+     |        |                   |                  |               |
+     |        |                   |                  |               |
+     |        |                +--+--+               |tag            |
+     |        |                |  X  +---------------+vlan2          |
+     |        |                +--+--+               |               |
+     |        |                   |                  |               | VLAN2
+     |        +-------------------+------------------+---------------+
+ LAN |                            |                  |
+     |   +-----------------+------+------------------+-------+
+     |   |                 |      |                  |       | VLAN1
+     |   |                 |      |               +--+--+    |
+     |   |                 |      |               |  X  |    |
+     |   |                 |      |               +--+--+    |
+     |   |                 |      |                  |       |
+     |   | +-----+         |   +--+--+               |<------|------ broadcast domain
+     |   | |  R  +---------+---+  X  +---------------+       |
+     |   | +-----+   vlan  |   +-----+               |       |
+     |   |         untagged|   tag                   |       |
+     |   |                 |  vlan3                  |       |
+     |   |                 |                      +--+--+    |
+     |   |                 |                      |  H  |    |
+     |   |                 |                      +-----+    |
+     |   |                 |                                 |
+     |   +-----------------+---------------------------------+
+     |
+      \
+
+
+So there is not a problem for the router, because the router "should" understand and remove the tag, and add back again when the traffic goes back to the tagged vlan traffic.
+
+ [ DA | SA | VLAN TAG | VID | PRIO | Ethernet type | IP ... ]
+                                          ^
+                                           \- Means "ip type"
+
+ interface eth10 <--- untag on priority tagged
+                 ---> no tag
+
+ interface eth10 vlan 200 <--- route through incoming vlan id 200
+                          ---> vlan tag 200
+
+ interface eth10 vlan 300 --->
+
+* Inter VLAN routed
+
+
+                   -------------                                                                    -------------
+               ---/            \---                                                             ---/             \---
+           --/                     \--                                                      --/                      \--
+         -/                            \-                                                 -/                            \-
+        /          +---------+          \                                                /         +-----------+          \
+       /           |  Switch |..         \                                              /         .|  Switch   |           \
+      /            +----+----+ ......     \                                            /        ...+-----+-----+            \
+     /                  |              ..  \                +--------+                /       ...        |                   \
+    /                   |              ......\              |        |                /      ...         |                    \
+    |                   |                ..  +--------------+ ROUTER +---------------+ ......            |                    |
+    |                      |              .. |              |        |               | ..                |                    |
+    |                   |             ..     |              +--------+               |  ...              |                    |
+    \                   |              ..   /                                        \    ...            |                    /
+     \                  |         ...      /    ip route 10.0.0.0/24 20.0.0.1         \      ..          |                   /
+      \            +----+----+ ....       /                                            \       ... +-----+-----+            /
+     +-------------+  Switch |..         /                                              \         .|  Switch   |           /
+     |  \          +---------+          /                                                \         +-----------+          /
+     |   -\                            /-                                                 -\                            /-
+     |     --\                     /--                                                     --\                       /--
+     |       ---\            /---                                                            ---\               /---
+     |           -------------                                                                    -------------
+     |               VLAN                                                                              VLAN
+     |
+     +---+----+
+     |  Host  |
+     +--------+
+
+
+
+The routing table (inside the router) is global to all the VLANs, as router "cannot see the VLANs at all".
+
+Here it cames the concept of VR (Virtual Routing).
+
+* VRF (Virtual Routing Forwarding)
+
+If VR has L3 functionality that has some "IP address", for 2 different networks, then we are talking about VRF (Virtual Routing Forwarding).
+
+Then we can see an specific InterVlan routing case called "loopback stack":
+
+
+
+
+                            -------------                             +-----------+
+                       ----/             \----                        |  Router   |
+                    --/                       \--                     |           |
+                  -/                             \-                   +-----------+
+                -/                                 \-
+               /                                     \                    |    ^
+              /                                       \     traffic goes  |    |
+             /      +-------+                          \    back with     |    |
+            /       |       +---------------+           \   other VLAN    |    |
+           /        +-------+               |            \                |    |  traffic comes with one VLAN
+           |                             +--+---+   <----+----------------+    |
+           |                             |      |        |                     |
+           |                             +--+---+   -----+---------------------+
+           \                                |            /
+            \                               |           /
+             \      +-------+               |          /
+              \     |       +---------------+         /
+               \    +-------+                        /
+                -\                                 /-
+                  -\                             /-
+                    --\                       /--
+                       ----\             /----
+                            -------------
+
+1/2 offtopic but interesting: Cisco is providing 2 different CLI for both things:
+- Bridge Virtual Interface
+- Switch Virtual Interface
+
+== Bridge Virtual Interface (BVI) ==
+
+                  you can add VLAN here
+                  (adding complexity)
+                           |
+           -------         |      +------------+           +--------------+
+        --/       \--      |      |            o-----------|     LAN1     |
+       /             \     |      |            |           +--------------+
+      /               \    v      |            |
+ ---> |    Router     |-----------+   Bridge   |           +--------------+
+      \               /           |            o-----------+     LAN2     |
+       \             /      ^     |            |           +--------------+
+        --\       /--       |     |            o---
+           -------          |     +------------+   \----   +--------------+
+                            |                           \--+     LAN3     |
+                            |                              +--------------+
+                            |
+                    Virtual Interface
+                   \----------------/
+            called "Bridge Virtual Interface"
+
+When switch send broadcast MAC as MAC destination because is not set as a part of the CAM, this is called "framing".
+
+* VLAN Modes
+
+VLAN can be in two modes:
+
+- Trunk mode: will receive every traffic even if it is tag or untag.
+- Access mode: will receive only tagged traffic.
+
+Routed VLAN mode???
+
+* LAG: Link aggregation
+
+When we have more than one port for High Availability (HA) and are used as backup one from the other. This is called LAG. 2 phy ports, but seen as 1.

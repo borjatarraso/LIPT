@@ -1,0 +1,72 @@
+* TUN/TAP
+
+TAP devices or netdriver TAP, or just TUN/TAP are virtual network kernel devices. Those network devices are supported entirely in software. TAP simulates a link layer device and operates with L2 packets like Ethernet frames. TUN simulates a network layer device and it operates with L3 packets like IP packets. They are running on userspace.
+
+                                                     +----------------+                  +-----------------+
+                       ------------------------->    |   Relay app.   | ----------+      |   Network app.  |
+                      /        ------------------    +----------------+           |      +-----o-----o-----+
+                     /        /                                          <------+ |            ^     |
+             RX()   /        /         TX()                                     | |            |     |
+                   |        v                                                   | |            |     | sockets
+             +-------------------+                                              | |            |     |
+             |     ADK lib       |                                              | |            |     |
+             +-------------------+                                              | |            |     |
+                       ^                                                        | |            |     |
+                       |                                                        | |            |     |            user space
+   --------------------+--------------------------------------------------------+-+------------+-----+------------
+                       |                                                        | |            |     |            kernel space
+           +-----------+-----------+                                            | V            |     |
+           | +-------------------+ |                +------------+             +---+           |     |
+           | |        ADK        | |                | net driver |             |TAP|           |     |
+           | +---------+---------+ |                +------------+             +o-o+           |     |
+           |           |           |                                            ^ |            |     |
+           | +---------+---------+ |                                            | +------------+     |
+           | |        RTE        | |                                            |                    |
+           | +-------------------+ |                                            +--------------------+
+           +-----------------------+
+                       ^
+                       |
+                       |
+                   +---+---+                           +-----+-----------+-----+-----------+
+                   |  NPU  |                           | eth | ????????? | eth | payload   |
+                   +-------+                           +-----+-----------+-----+-----------+
+                                                          ^
+                                                          |
+                                                      ethernet
+                                                     backplane
+
+A network TAP is associated to a file stream in order to use it as traffic.
+
+Functions used for TAP devices in DPS (via Libnpa):
+
+- tx_thread: attach transfer thread to RTE (net dev conf)
+- rx_thread: attach receive thread to RTE (netdev conf)
+- rx_from_npu: receive with ncp_task_recv and write to the device
+- tx_to_npu: send with ncp_task_send
+- create_rx_thread: create receive thread for traffic from NPU
+- create_tx_thread: create transfer/send thread for traffic to NPU
+
+We are using:
+
+- netdev_attr_t type and globally netdev_table[eth_if_id].fd on Libnpa side.
+- The struct looks something like this:
+   typedef struct{
+     uint32_t eth_if_id; // 0 if not config
+     int fd;
+     uint16_t ifIndex;
+     char dev[IFNAMSIZ]; // IFNAMSIZ = 16
+     uint32_t rxPkts;
+     uint32_t txPkts;
+     uint32_t rxErrors;
+     uint32_t txErrors;
+     pthread_t tx_threadId;
+   } netdev_attr_t;
+
+Somewhere else we have: static netdev_attr_t netdev_table[HWI_MAX_ETHIFID+1] declared;
+
+** Additional information
+
+- http://en.wikipedia.org/wiki/TUN/TAP
+- http://en.wikipedia.org/wiki/Network_tap
+- http://www.kernel.org/doc/Documentation/networking/tuntap.txt
+- http://www.kernel.org/pub/linux/kernel/people/marcelo/linux-2.4/Documentation/networking/tuntap.txt

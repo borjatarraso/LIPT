@@ -1,0 +1,50 @@
+* ioctl
+** Properties of ioctl
+
+       +----------+           +----------+
+       |  Module  | <-------- |  Kernel  |
+       +----------+           +----------+
+                              | syscalls |
+                              | ----     |
+              +---+           | ----     |
+              +dev+ <-------- | ----<--\-+---- ioctl syscall
+              +---+           | ----   | |
+                              +--------+-+
+                        <-\              |
+                           \--           |
+                        bypass           |
+                                         |
+                                         |
+     \           k e r n e l   s p a c e |     /
+      \ ---------------------------------+------- /
+                 u s e r       s p a c e |
+                                         |
+                                         |
+                              +----------+
+                              |  source  |
+                              +----------+
+
+
+- Is a syscall for device specific I/O operations that cannot be expressed by regular syscalls.
+- Each device has a specific / dependent codes.
+- Syscalls are not appropiate to access non-standard HW peripheals. Ioctl is often used for terminals (pseudo-terminals), configuration of network interfaces.
+- ioctl provides a bridge between userspace and kernel space.
+ - For serial port is used TSETS / for terminals is used ENOTTY.
+ - Two other vectored add interfaces:
+   - fcntl (file control) to config open files and
+   - setsockopt to config network sockets.
+ - ioctl is async; provides socket queue to smooth the burst of message.
+
+** Structure of ioctl
+
+- 3 params for ioctl:
+ - file descriptor.
+ - Request code number.
+ - Integer value or pointer data (going or coming) user space to the driver.
+- Creation of ioctl might looks something like this: error = ioctl(if_socket, ioctl_type, &value_result);
+
+** Advantatges of ioctl over syscalls
+
+- Minimize complexity of the kernel syscalls interface, but complicate user-to-kernel API as thousands of ioctl calls required for hundred of syscalls.
+- Use different internal dispatching mechanism to developers.
+- libpcap and libdnet are 2 examples of third party wrapper unix library designed to mask the complexity of ioctl interfacem but not runtime libraries with magic numbers and argument structures.

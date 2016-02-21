@@ -1,0 +1,53 @@
+* fast path
+
+'''Slow path: (CPU/linux-software level)'''
+
+Slow path used in the following cases
+- packets like OSPF, admin protocols.
+- exceptions are packets cannot be handled.
+
+'''Fast path: (NPU/hardware level)'''
+
+Fast path used in the following cases:
+- When packet can be forwarded directly without looking inside.
+
+                                 Fast path:                    Slow path:
+
+                                   +------+                    +------+
+                                  /| NPU  \                    | CPU  |
+                                 / +------+\                   +-^----+
+                                /           \         -----------+slow path--------   exception packet
+                               /             \                   |
+                            +-/--+          --\--              +-+----+
+                            |Pkt |         ( rou )            /| NPU  \
+                            +----+          -----            / +------+\
+                                                            /           \
+                                                         +-/--+          \----+
+                                                         |Pkt |          |Pkt |
+                                                         +----+          +----+
+
+
+                       (does not look inside the packet)
+                       L2                 socket                                        +------------+
+               +------------------------------------------------------------------------>    APP     |
+               |                                                                        |            |
+               |                                                                        +------------+
+               |                          +---------------------------+                         ^
+               |                          |  +---------------------+  |                         |
+               |                          |  |   IP stack kernel   +--+-------------------------+
+               |             +------------+->|                     |  |
+               |             |            |  +---------------------+  |
+               |             |            |                           |
+               |        +----+----+       |                           |
+               +--------|   SW    |       |                           |
+                        | CPU-NPU |       |                           |
+                        +---------+       |                           |
+                             ^            |                           |
+                             +------------+--+---------------------+  |
+                                          |  |     NPU driver      |  |
+                                          |  |                     |  |
+                                          |  +---------------------+  |
+                                          +------------^--------------+
+                                                       |
+                                                       |
+          Kernel space                              packet

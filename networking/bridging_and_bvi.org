@@ -1,0 +1,14 @@
+* bridging and bvi
+
+Pre-req:
+
+Network segment: http://www.linfo.org/network_segment.html
+http://en.wikipedia.org/wiki/Network_segment
+http://en.wikipedia.org/wiki/Network_segmentation
+
+Bridging: http://en.wikipedia.org/wiki/Bridging_(networking)
+
+Network bridging BSD: http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/network-bridging.html
+
+BVI: http://serverfault.com/questions/254347/what-is-a-cisco-bvi-interface-what-is-it-used-for
+http://www.cisco.com/en/US/tech/tk389/tk815/technologies_tech_note09186a0080094663.shtml

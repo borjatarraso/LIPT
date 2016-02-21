@@ -1,0 +1,6 @@
+* icmp
+
+Interesting websites:
+http://www.networksorcery.com/enp/protocol/icmp.htm
+http://en.wikipedia.org/wiki/Internet_Control_Message_Protocol
+http://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml

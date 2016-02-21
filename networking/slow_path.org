@@ -1,0 +1,67 @@
+* slow path
+
+There are two cases:
+- exception
+ - TTL expired
+ - MTU size with fragment bit set to 1
+ - Other cases: etc.
+- packets to this host
+ - FIB -> Prefix
+
+              Lowpath
+             +-----------------+
+             | Low path        |  user process
+             |                 |
+             +-----------------+
+
+
+             +-----------------+   MTU
+ incoming pkt|         /----->[|]-------->
+     ------> [|]NPU--(X)------>[|]-------->
+             +-----------------+
+                   \-->[Local CPU]
+
+                                         +-------+
+        |                              /-+oOSPFd |
+        |    +-----------------+  /----  +-------+
+ Linux  |    |    sw handle   o+--
+        |    |    this RTE    o+-----    +-------+
+        |    +-----------------+     \---+oTelnet|
+        |                                +-------+
+                                 sockets connection
+                                                                                      +--------+    +--------+
+                                                                                      |  OSPF  |    |  RIP   |     etc...
+                                                                                      |        |    |        |
+                                                                                      +---/----+    +---/----+
+                                                                                         /            -/
+                                                                                        /           -/
+                                                                                       /          -/
+                                                                                      /         -/
+                                                                                     /         /
+                                                                                    /        -/
+                                                                                   /       -/
+                                                                                  /      -/
+                                                         +---+      +------------/------/----+
+                                                         | l |      |           v     v      |
+                                                         | i |      |  +------------------+  |       |
+                                                       />| b +------+->|     IP stack     |  |       |
+                                                     /-  | s |      |  +------------------+  |       |
+                                  +-------------+  /-    | t |      |         ^    |         |       |                   ifconfig
+                                  |             |/-      | a |      |         |    v         |       |
+                                  |   Process   X        +---+      |  +------+-----------+  |       |                 Physical ports
+                                  |             |\-                 |  |    netdriver     |  |       |      ARP            eth1
+                                  +-------------+  \     +---+      |  +------------------+  |       |    goes on          eth2
+                                                    \-   | l |      |           ^            |       |     that            eth3
+                                                     \-  | i |      |           |            |       |    direction        etc...
+                                                       \ | b |      |  +------------------+  |       |
+                                                        >| n +------+->|       RTE        |  |       v
+                                                         | p |      |  +------------------+  |
+                                                         | u |      |           ^            |
+                                                         +---+      +-----------+------------+
+                                                                                |
+                                Really libsta and libnpa are part of Process    |
+                                                                       +------------------+     -------->  ARP req
+                                                                       |       NPU        |
+                                                                       +------------------+     <--------  ARP reply
+
+Functionality of device from the point of view of user interface [linux kernel functionality] using file descriptor

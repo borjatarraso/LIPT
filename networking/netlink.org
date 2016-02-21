@@ -1,0 +1,98 @@
+* netlink
+** Netlink overview
+
+                   |              +-------------------+
+                   |              |      process      |
+                   |              +------------o------+
+     ------        |                           | using PID     [user space]
+    ( host )       |                           |
+     ------        |                           |
+                   |        -------------------+--------------
+     ------        |                           | netlink <-     [kernel space]
+    ( host o-------+------o                        |        \
+     ------  inet sockets                          |         \
+                   |                           | using PID    \ - designed to transfer misc networking information
+     ------        |              +------------o------+            as it is more flexible, replacing sophisticated ioctl
+    ( host )       |              |      process      |
+     ------        |              +------+------------+
+                   |                     |
+                   |                     |
+                   |                     |
+                   |              +------V------+
+                   |              |  struct     |
+                   |              |  nlmsghndr  |
+                   |              +-------------+
+                   |
+              inet | host
+
+
+** Netlink structure
+
+- Netlink comes with Linux 2.0, but new socket interface appeared in 2.2
+- Netlink uses both; SOCK_DGRAM and SOCK_RAW; e.g.: iproute2
+- Sock family is AF_NETLINK
+- Creation of netlink socket might be something like this: int socket(AF_NETLINK, SOCK_DGRAM or SOCK_RAW, protocol)
+- Protocol type needs to be added to netlink.h
+
+      0            15 16            31
+      |              |               |
+      v             v v              v
+      +------------------------------+
+ 0    |           msg len            |
+      +--------------+---------------+
+ 32   |     type     |     flags     |
+      +--------------+---------------+
+ 64   |         seq number           |
+      +------------------------------+
+ 96   |             PID              |
+      +------------------------------+
+ 128+ |            data              |
+      +------------------------------+
+                     \
+                      \
+                       V
+                 +------------------------+
+                 |                        |
+                 |                        |
+                 |                        |
+                 |                        |
+                 +------------------------+
+                 A                        A
+                 |                        |
+                 0                       31
+
+** Properties and advantatges of netlink
+
+- There is a syscall to send the netlink message and invokes the receiver's reception handler
+- Syscalls require sync processing.
+- Code in a syscall in the kernel is linked statically to the kernel in copilation time. So not apropiate (as dev drivers) to include a syscall in a LKM, with the netlink no compilation time dependency exists.
+- Netlink supports multicast; have a group of processes listen that group address; is a perfect mechanism to distribute from kernel to user space.
+- Syscalls/ioctl are simplex IPC (only possible to initiate IPC from userspace appications).
+- Applications periodically need to pool the kernel to set state changes, this is expensive. Netlink solves this, allowing to initiate sessions for.
+- Netlink is a BSD socket style.
+- Netlink socket provides full duplex communication between special kernel API for kerel modules and standard socket API for user process.
+
+** Netlink protocols
+
+- NETLINK_ROUTE: provides routing and link information. This information is used primarily for user-space routing daemons. Linux implements a large subset of messages:
+ -- Link Layer: RTM_NEWLINK, RTM_DELLINK, RTM_GETLINK, RTM_SETLINK
+ -- Address Settings: RTM_NEWADDR, RTM_DELADDR, RTM_GETADDR
+ -- Routing Tables: RTM_NEWROUTE, RTM_DELROUTE, RTM_GETROUTE
+ -- Neighbor Cache: RTM_NEWNEIGH, RTM_DELNEIGH, RTM_GETNEIGH
+ -- Routing Rules: RTM_NEWRULE, RTM_DELRULE, RTM_GETRULE
+ -- Queuing Discipline Settings: RTM_NEWQDISC, RTM_DELQDISC, RTM_GETQDISC
+ -- Traffic Classes used with Queues: RTM_NEWTCLASS, RTM_DELTCLASS, RTM_GETTCLASS
+ -- Traffic filters: RTM_NEWTFILTER, RTM_DELTFILTER, RTM_GETTFILTER
+ -- Others: RTM_NEWACTION, RTM_DELACTION, RTM_GETACTION, RTM_NEWPREFIX, RTM_GETPREFIX, RTM_GETMULTICAST, RTM_GETANYCAST, RTM_NEWNEIGHTBL,RTM_GETNEIGHTBL, RTM_SETNEIGHTBL
+- NETLINK_FIREWALL: provides an interface for a user-space app to receive packets from the firewall.
+- NETLINK_NFLOG: provides an interface used to communicate between used Netfilter and iptables.
+- NETLINK_ARPD: provides an interface to manage the ARP table from user space.
+- NETLINK_AUDIT: provides an interface to the audit subsystem found in kernel versions 2.6.6 and later.
+- NETLINK_IPV6_FW: provides an interface to transport packets from netfilter to userspace.
+- NETLINK_ROUTE6: provides routing and link information for IPv6.
+- NETLINK_TAPBASE: ?
+- NETLINK_TCPDIAG: ?
+- NETLINK_XFRM provides an interface to manage the IPsec security association and security policy databases. It is mostly used by Key Manager daemons when they are used in Internet Key Exchange protocol.
+- User-defined Netlink protocol: The user can add a netlink handler in their own kernel routines. This allows additional Netlink protocols to be developed to address new kernel modules.
+
+DTR (Data Terminal Ready): Control signal in RS232 serial console. Between DTE (Data Terminal) to DCE (Data Circuit-terminating device); e.g.: PC -> modem to indicate the terminal is ready for communications and modem  may initiate communications channel. The DTR signal is present on pin 20 of the 22-wire RS-232 interface using a DB-25 connector, and on pin 4 of a newer DE-9 serial port. The signal is asserted (logic 0) by raising the voltage of the pin from negative to positive. Dropping the signal back to its negative state indicates to the modem that the communications session shall be terminated.
