@@ -1,0 +1,6 @@
+* wifi attack
+# http://en.wikipedia.org/wiki/Wi-Fi_Protected_Access
+# http://en.wikipedia.org/wiki/EAP-FAST
+# http://en.wikipedia.org/wiki/IEEE_802.1X
+# http://www.esecurityplanet.com/views/article.php/3837976/The-Best-Security-for-Wireless-Networks.htm
+# https://www.cloudcracker.com/blog/2012/07/29/cracking-ms-chap-v2/

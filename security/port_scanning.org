@@ -1,0 +1,595 @@
+* NMAP
+
+** Basic usage
+
+ nmap hostname
+
+This will do the following steps:
+
+# Converts the target from a hostname into an IPv4 address using DNS.
+# Pings the host, by default with an ICMP echo request packet and a TCP ACK packet to port 80 to determine if it is up and running.
+# Converts the target IP address back to the name using reverse-DNS query.
+# Launches a TCP port scan of the most popular 1000 ports listed in nmap-services. A SYN stealth scan is usually used, but connect in case for no privileged users.
+# Prints the results to standard output.
+
+NMAP has different phases or stages:
+
+# '''Script pre-scanning:''' The Nmap Scripting Engine (NSE) uses a collection of special-purpose scripts to gain more information about remote systems.
+# '''Target enumeration:''' Nmap researches the host specifiers provided by the user. Nmap resolves these specifiers into a list of IPv4 or IPv6 addresses for scanning.
+# '''Host discovery:''' discovering which targets on the network are online and thus worth deeper investigation.
+# '''Reverse-DNS resolution:''' looks up the reverse-DNS names of all hosts found online by the ping scan. Sometimes a host's name provides clues to its function, and names make reports more readable than providing only IP numbers.
+# '''Port scanning:''' Probes are sent, and the responses (or non-responses) to those probes are used to classify remote ports into states such as open, closed, or filtered.
+# '''Version detection:''' If any ports are found to be open, Nmap may be able to determine what server software is running on the remote system. It does this by sending a variety of probes to the open ports and matching any responses against a database.
+# '''OS detection:''' measuring these differences it is often possible to determine the operating system running on a remote host.
+# '''Traceroute:''' Nmap contains an optimized traceroute implementation. It can find the network routes to many hosts in parallel.
+# '''Script scanning:''' Scripts running during this phase generally run once for each target host and port number that they interact with. They commonly perform tasks such as detecting service vulnerabilities, malware discovery, collecting more information from databases and other network services, and advanced version detection.
+# '''Output:''' Nmap collects all the information it has gathered and writes it to the screen or to a file.
+# '''Script post-scanning:''' scripts in this phase can process results and deliver final reports and statistics.
+
+Ways to specify multiple ports:
+
+ -p 22                  => specify a single port
+ -p ssh                 => specify a single port by protocol
+ -p 22,25,80            => specify a list of ports
+ -p80-85,443,8000-9000  => specify a range of ports
+ -p-100,60000-          => specify a range of ports from first until some number, and from some number until last
+ -p-                    => specify the whole range of ports (except 0)
+ -pT:21,23,U:111,137    => specify a list of ports based on protocol (TCP or UDP)
+ -p http*               => specify protocols following wildcards (this will match http (80), http-mgmt (280), https (443) and http-proxy (8080)
+ -p 1-1023,[1024-]      => brackets will specify a list of ports that will be scanned only if they are registered in nmap-services.
+
+Ways to specify output results:
+
+ -v               : increases the verbosity level. (use -vv or -vvv for more verbosity level).
+ -d               : increases the debugging level. (from level 1 to 9).
+ --packet-trace   : prints every packet send or received.
+ -oN < file >     : store the normal output in a file.
+ -oX < file >     : store the XML format in a file.
+ -oG < file >     : store the greppable format in a file.
+ -oA < basename > : store all scan results.
+ --resume <file>  : resume an aborted scan by specifying the normal or greppable output.
+ --append-output  : appends the results to any output file specified with normal or xml format.
+ --open           : only show open ports in the port tables.
+
+Miscelaneous options:
+
+ -6 => scan IPv6 host
+
+** Important commands
+
+ host hostname
+ host -t ns hostname   -> find nameservers for a host
+ host -t a hostname    -> resolve ip address for a host
+ host -t aaaa hostname -> resolve ipv6 address for a host
+ host -t mx hostname   -> find exchange email server for a host
+ host -t soa hostname  -> find State of Authority for a host
+
+ whois ip                         -> find the owner of some domain
+ dig @nameserver -t AXFR hostname -> ???
+
+** Host discovery
+
+Input from list (to scan a list of hosts):
+
+ nmap -iL file.txt -> scan from a list of hosts in file.txt
+ nmap -iL -        -> scan from a list of hosts from stdin
+
+ Note: the hosts format can be separated by: one or more spaces, tabs or newlines.
+ Note: formats of hosts can be: IP addresses, hostnames, CIDR, IPv6, octet ranges.
+
+Choose targets random:
+
+ nmap -iR <numtargets>
+
+ Note: pass the argument 0 for never-ending scan.
+
+Excluding targets:
+
+ nmap host --exclude host         -> exclude hosts
+ nmap host --excludefile file.txt -> exclude hosts from a file.txt
+
+*** IP allocation
+
+IP allocation companies seen in Regional DBs:
+
+ America         -> ARIN
+ EMEA and Europe -> RIPE
+
+Small allocation will not be visible on regional DBs, but many ISPs subdelegate customer range using Shared Whois (SWIP) or Referral Whois (RWhois). So it is possible to know the exact block size for a company.
+
+Checking BGP tables as is the core routing protocol of the internet in order to find more hosts. Entries like AS:
+
+ http://asn.cymru.com
+
+can be used to check AS from companies. Checking all IP prefixes which route this AS at:
+
+ www.robtext.com/as/
+
+will give additional information.
+
+Check routing data from actual routers doing:
+
+ telnet route-views.routeviews.org
+ or
+ http://routeviews.org
+
+Check names on DNS resolution to check type of device will also help for example:
+
+ fw or firewall  -> generally identifies firewall devices.
+ wap or wireless -> generally identifies wireless devices or access points.
+
+Option related in NMAP:
+
+ -PN                                    => will avoid host resolution.
+ -n                                     => no discovery resolution.
+ -R                                     => DNS resolution for all targets.
+ --system-dns                           => use system DNS resolver.
+ --dns-servers <server1,server2,...>    => servers used for reverse DNS.
+
+*** Host discovery controls
+
+- '''List scan (-sL)''' : just list without sending probes.
+- '''Ping scan (-sP)''' : better than trying ping broadcasts as some hosts may ignore broadcast requests. Send ICMP Echo + TCP ACK to port 80. For unprivileged users SYN packet uses TCP connect to 80. For local networks ARP requests are sent except if specified --send-ip.
+- '''Disable ping (-PN)''' : directly scan without pinging, is one way to find active machines not always responsive or firewalled. Useful if already know the host list to be scanned avoiding discovering phase.
+
+*** Host discovery techniques
+
+- '''TCP SYN ping (-PS<port_list>)''': sends an empty TCP packet with the SYN flag set. That tries to attempt to establish a connection. If port closed RST (reset) packet is sent back. If port open a TCP three way handshake begins. TCP SYN/ACK packet will be responded from our machine instead an ACK packet. This is sent by the kernel and not by Nmap, as a response of unexpected SYN/ACK. On UNIX boxes send RAW TCP packets requires privileges, so workaround is to use syscall connect() again target port, if connect returns success or ECONNREFUSED the TCP stack must receive a SYN/ACK or RST and host is marked available. If hanging until timeout, host marked as down. Default port is 80.
+
+- '''TCP ACK ping (-PA<port_list>)''': sends a TCP ACK packet when no connection exists, so remote host should always respond with a RST packet, disclosing their existence in the process. If an unprivileged user or IPv6 target is specified, the connect workaround will be used, this workaround is imperfect because connect is actually sending a SYN packet rather than an ACK. The reason of offering and SYN and ACK probes is to maximize the chances of bypassing firewalls, as many admins just block incoming SYN. Default port is 80.
+
+Netfilter/iptables state seen with the option --state, which categorizes packets based on connection state, that could be:
+ INVALID      => packet is associated with no known connection.
+ ESTABLISHED  => packet is associated with a connection which has seen packets in both directions.
+ NEW          => packet has started a new connection or otherwise associated with a connection which has not seen packets in both directions.
+ RELATED      => packet is starting a new connection, but associated with an existing connection, such as an FTP data transfer or ICMP error.
+
+- '''UDP ping (-PU<port_list>)''': sends an empty UDP packet to the given ports (except if --data-length is provided). UDP probe should elicit an ICMP port unreachable packet in return, meaning host is up and available. Other ICMP errors such as host/network unreachable or TTL exceeded are indicative of a down or unreachable host. If a port is reachable most services simply ignore, this is why a high default port is choosen. But some services like chargen could reply to an empty UDP packet disclosing the machine is available. Default port is 31338.
+
+- '''ICMP ping types (-PE,-PP,-PM)''': send ICMP type 8 (echo request) to the target, expecting a type 0 (echo reply) as a reply. Echo request can be sent with -PE option, -PP option will send an ICMP with timestamp request (that could receive a timestamp reply that it is ICMP code 14). -PM will send an ICMP with address mask query (that could receive an address mask reply that it is ICMP code 18).
+
+- '''IP protocol ping (-PO<protocol_list>)''': sends IP packets with a specified protocol number set in their IP header. If no protocols are specified, the default is to send multiple IP packets for ICMP (protocol 1), IGMP (protocol 2) and IP-in-IP (protocol 4). Note that for ICMP, IGMP, TCP (protocol 6), and UDP (protocol 17), the packets are sent with the proper protocol headers, while other protocols are sent with no additional data beyond the IP header (unless --data-length option is specified).
+
+- '''ARP scan (-PR)''': In an ethernet LAN, when Nmap tries to send a raw IP packet such as ICMP echo request, the OS must determine the destination hardware (ARP) address corresponding to the target IP, so it can address the ethernet frame properly. This requires it to issue a series of ARP requests. The --send-ip option tells Nmap to send IP level packets (rather than raw ethernet) even though it is a local network. So performing ARP scan could help in question of time and avoiding adding incomplete ARP entry on the kernel ARP cache. You can spoof your MAC address with --spoof-mac if you are using this scan in some conference room.
+
+Some other options:
+
+ -v OR --verbose                               => verbose, printing active and non-active hosts.
+ -g OR -source-port <portnum>                  => setting a constant port for ping scanning (TCP and UDP).
+ -n                                            => disables all DNS resolution.
+ -R                                            => enables DNS queries for all hosts, even down ones.
+ --dns-servers <server1,server2,...>           => servers to use reverse DNS queries.
+ --data-length <length>                        => adds <length> random bytes of data to every packet. (Several IDS like snort have alerts for 0 byte ping packets). 32 will emulate echo caming from Windows, while 56 will emulates the default Linux ping.
+ --ttl <value>                                 => set the outgoing TTL. This helps to ensure that scan does not propagate beyond the local network.
+ -T3 OR -T4 OR -T5 etc                         => Higher T values speed up ping scanning.
+ --max-parallelism OR --min-parallelism        => how many probes may be outstanding at once.
+ --min-rtt-timeout OR --max-rtt-timeout <time> => control how nmap waits for a response.
+ --initial-rtt-timeout <time>                  => same as above.
+ -iL <filename>                                => input from list.
+ -iR <number>                                  => random input.
+ -oA OR -oN OR -oG OR -oX, etc                 => output options (normal, grapable and XML).
+ --randomize-hosts                             => shuffling the host scan order to make the scan less conspicuous.
+ --reason                                      => specifies the reason why nmap consider a host up or not.
+ --packet-trace                                => shows every packet send and received by nmap.
+ -D <decoy1,decoy2,...>                        => camouflaging the true attacker.
+ -6                                            => TCP connect based ping (-PS option) but for IPv6 protocol.
+ -S < source > ,-e <sending device name>       => source address and sending device can be specified.
+
+** Port scanning basic techniques
+
+*** Possible port states
+
+- '''open''': an application is actively accepting TCP connections or UDP packets on this port.
+- '''closed''': accessible (it receives and responds to nmap probe packets), but there is no application listening on it.
+- '''filtered''': nmap cannot determine the port is open because packet filtering prevents its probes from reaching the port. The filtering could be from a dedicated firewall, router rules, or host-based firewall software.
+- '''unfiltered''': port is accessible, but nmap is unable to determine whether it is open or closed.
+- '''open|filtered''': nmap it is unable to determine whether a port is open or filtered. This occurs for scan types in which open ports give no response.
+- '''closed|filtered''': nmap is unable to determine whether whether a port is closed or filtered.
+
+*** Scan techniques
+
+- '''TCP SYN stealth (-sS)''': fastest way to scan ports, sending TCP SYN.
+- '''TCP connect (sT)''': sends a TCP SYN using the system call connect instead relying on raw packets.
+- '''UDP (-sU)''': sends UDP datagram.
+- '''TCP FIN, Xmas, null (-sF,-sX, -sN)''': used for sneaking firewalls setting the TCP FIN flag, Xmas or not setting any flag.
+- '''TCP ACK (-sA)''': sends TCP ACK to map out firewall rulesets.
+- '''TCP window (-sW)''': sends TCP that sets window.
+- '''TCP maimon (-sM)''': obscure firewall-evading scan using TCP with FIN and ACK flags set.
+- '''TCP idle (-sI < zombie_host >)''': exploit trusted IP address relationships.
+- '''IP protocol (-sO)''': determines which IP protocols are supported by the target machine.
+- '''TCP FTP bounce (-b < FTP bounce proxy >)''': tricks FTP servers into performing port scans by proxy.
+
+*** Timing related options
+
+- '''-T0 through -T5''': nmap speed (from slow to agressively).
+- '''--min-rtt-timeout, --max-rtt-timeout, --initial-rtt-timeout''': minimum, maximum and initial amount wait for a port scan probe response.
+- '''--host-timeout''': give up on hosts that take more than the given amount of time to scan.
+- '''--min-rate, --max-rate''': number of probes sent per second.
+- '''--max-retries''': number of probes retransmitted to a single port.
+- '''--min-hostgroup, --max-hostgroup''': set the minimum and maximum number of hosts that can be scanned in parallel.
+- '''--min-parallelism, --max-parallelism''': set the minimum and maximum number of port scan probes (across all hosts scanned concurrently).
+- '''--scan-delay, --max-scan-delay''': wait at least given amount of time between sending probes to any individual host.
+
+*** Additional scan techniques
+
+- '''-r''': randomizes the port scan order to make detection slightly harder.
+- '''-PN''': skip the ping test and simply scan every target host provided.
+- '''--reason''': adds a reason why nmap guess that the port is classified as such (just informational).
+
+** Port scanning advanced techniques and algorithms
+
+*** TCP SYN stealth scan (-sS)
+
+This scan never complete TCP connections.
+
+Example of port open:
+
+          ------------- SYN (request port 22 connection) -------------------->
+ blackhat <------------- SYN/ACK (it's open, go ahead) ----------------------- target
+          ------------------- RST (no, forget it!) -------------------------->
+
+Example of port closed:
+
+          ------------- SYN (request port 113 connection) ------------------->
+ blackhat <------------------ RST (sorry, port is closed) -------------------- target
+
+Example of port filtered:
+
+          ------------- SYN (request port 139 connection) ------------------->
+ blackhat ------------- SYN (try again. Anybody at home?) -------------------> target
+
+Nmap interpretation:
+
+{| class="wikitable"
+!Probe response !! State
+|-
+|TCP SYN/ACK response || open
+|-
+|TCP RST response || closed
+|-
+|No response || filtered
+|-
+|ICMP unreachable error (type 3, code 1,2,3,9,10 or 13) || filtered
+|}
+
+*** TCP connect scan (-sT)
+
+It uses connect syscall as this not require root privileges, however nmap has less control over the syscall connect than with raw packets. TCP connections usually end with another handshake involving the FIN flag, but Nmap asks the host OS to terminate the connection inmediately with a RST packet.
+
+
+          ------------- SYN (request port 22 connection) -------------------->
+          <------------- SYN/ACK (it's open, go ahead) -----------------------
+ blackhat --------------- ACK (connection established!) ---------------------> target
+          <------------------ Data: SSH banner string ------------------------
+          -------------------- RST (kill connection!) ----------------------->
+
+*** UDP scan (-sU)
+
+UDP scanning is generally slower and more difficult than TCP. UDP scan works by sending an empty (no data) UDP header to every targeted port. Based on the response or lack thereof, the port is assigned to one of four states.
+
+Nmap interpretation:
+
+{| class="wikitable"
+!Probe response !! State
+|-
+|Any UDP response from target port || open
+|-
+|No response received || open or filtered
+|-
+|ICMP port unreachable error (type 3, code 3) || closed
+|-
+|Other ICMP unreachable errors (type 3, code 1,2,9,10 or 13) || filtered
+|}
+
+Open ports rarely respond to this probes, as the TCP/IP stack simply passes the empty packet up to the listening application, which usually discards it immediately as invalid. So it is why nmap cannot determine whether the port is open or filtered when no response happens.
+
+UDP services generally define their own packet structure rather than adhering to some common general format that nmap could always send. So an SNMP packet looks completely different than a SunRPC, DHCP or DNS request packet. So to send a proper packet for every popular UDP service, nmap would need a large database defining their probe formats (located at nmap-service-probes). So if it is performed the version scanning with -sV, nmap will send UDP probes to every open|filtered or open ports.
+
+To speed up UDP scans (as they are extremely slow because normally probes are not replied and Linux is rate limiting to avoid flooding the network) it is suggested use options like: increase host paralellism (with --min-hostgroup 100), scan popular ports first (with --F option to scan the 100 most common UDP ports), add version detection scan against a given port number (with --version-intensity 0), scan from behind the firewall if possible (as they can slow down scans dramatically), skip slow hosts (with --host-timeout 900000), and use verbosity level enabled (with -v) to provide ETA for scan completion of each host.
+
+*** TCP FIN, NULL and Xmas scans (-sF, -sN, -sX)
+
+Based on the RFC 793 that says "if the [destination] port is CLOSED... an incoming segment not containing a RST causes a RST to be sent in response" and next page discusses packets send to open ports without the SYN, RST or ACK bits set saying "you are unlikely to get here, but if you do, drop the segment, and return". So when scanning systems compliant with this RFC, any packet not containing SYN, RST or ACK bits will result in a returned RST if the port is closed and no response at all if the port is open.
+
+- NULL scan will not set any bits (TCP flag header is 0).
+- FIN scan sets TCP FIN bit.
+- Xmas scan sets FIN, PSH and URG flags, lighting the packet like a Christmas tree.
+
+{| class="wikitable"
+!Probe response !! State
+|-
+|No response received || open or filtered
+|-
+|TCP RST packet|| closed
+|-
+|ICMP unreachable errors (type 3, code 1,2,9,10 or 13) || filtered
+|}
+
+The advantage of this kind of scans is that they can sneak certain non-statefull firewalls and packet filtering routers (because they are trying to block TCP connections with SYN bit set and ACK cleared).
+
+*** Custom scan types (--scanflags)
+
+- '''Custom SYN/FIN scan''': allows you specifying arbitrary TCP flags in order to bypass some firewalls. Possible flags can be used mashing together any of those combinations: URG, ACK, PSH, RST, SYN, FIN. For example this one sets everything (being the order irrelevant):
+
+ --scanflags URGACKPSHRSTSYNFIN
+
+In addition is possible to set the TCP scan type, telling nmap how to interpret responses.
+
+- '''PSH scan''': trying a customized PSH/URG or FIN/PSH scan, it gets a small chance of evading scan detection systems. So the idea is choosing FIN scan as a base type -sF and specifying one of those flags.
+
+*** TCP ACK scan (-sA)
+
+This is scan is used only to map out firewalls rules, determining if they are state-full or state-less and which ports are filtered.
+
+Its a probe packet that has only an ACK set, and when scanning systems:
+
+- open and closed ports returning a RST packet: nmap will label them as unfiltered (meaning that they are reachable but it is undetermined)
+- ports that don't respond or send some ICMP error back are labeled as filtered.
+
+Nmap interpretation:
+
+{| class="wikitable"
+!Probe response !! State
+|-
+|TCP RST response || unfiltered
+|-
+|No response received (even after retransmissions)|| filtered
+|-
+|ICMP unreachable errors (type 3, code 1,2,9,10 or 13) || filtered
+|}
+
+*** TCP window scan (-sW)
+
+This scan exploits an implementation detail of certain systems to differenciate open port from closed ones, rather than always printing unfiltered when a RST is returned (like it happens with ACK scan). This scan relies on an implementation detail of a minority of systems, so it is not always trustable, however in cases that FIN scan cannot distinguish between open and filtered ports, could help.
+
+Nmap interpretation:
+
+{| class="wikitable"
+!Probe response !! State
+|-
+|TCP RST response with non-zero window field|| open
+|-
+|TCP RST response with zero window field|| closed
+|-
+|No response received (even after retransmissions)|| filtered
+|-
+|ICMP unreachable errors (type 3, code 1,2,9,10 or 13) || filtered
+|}
+
+*** TCP maimon scan (-sM)
+
+Described a technique in Phrack magazine #49 when it was invented from Uriel Maimon. The technique is exactly the same than Xmas, NULL or FIN scan except that the probe is FIN/ACK.
+
+According to the RFC 793 (TCP), a RST packet should be generated in response to such a probe whether the port is open or closed. However, many BSD derived systems simply drop the packet if the port is open. So nmap is exactly looking at this.
+
+
+Nmap interpretation:
+
+{| class="wikitable"
+!Probe response !! State
+|-
+|No response received (even after retransmissions)|| open or filtered
+|-
+|TCP RST packet|| closed
+|-
+|ICMP unreachable errors (type 3, code 1,2,9,10 or 13) || filtered
+|}
+
+*** TCP idle scan (-sI)
+
+Antirez (author of hping2) published in Bugtraq a list of ingenious port scanning techniques, a way that scan a target without sending a single packet to the target from their own IP address, using a zombie host and having IDS detecting this one as an attacker.
+
+# Probe the zombie's IP ID and record it (every IP packet on the internet has a fragment identification number called IPID).
+# Create a SYN packet from the zombie and send it to the desired port on target. Depending on the port state, the target would increase the zombie's IP ID or not.
+# Probe the zombie's IP ID again. Compare the new IP ID with the one recorded in step 1.
+
+This will determine the port state:
+
+# an increase of 1 indicates that the zombie hasn't send out any packets, except for its reply to the attacker's probe, meaning that the port is not open. Because the target must have sent either a RST packet (which was ignored) or nothing at all.
+# an increase of 2 indicates that the zombie has sent out a packet between two probes. This extra packet usually means that the port is open. Because the target most presumably sent the zombie a SYN/ACK packet in response, which introduced a RST packet from the zombie.
+# in increase of more than 2, means is not a good zombie host, as has no predictable IP ID.
+
+This type of scan cannot distinguish between closed and filtered ports, so when nmap see an increase of 1, it marks the port closed or filtered.
+
+ 1. Probe the zombie's IP ID
+
+ blackhat ----------------------------- SYN/ACK -----------------------------> zombie
+ blackhat <------------ RST (as not expacting previous SYN/ACK) -------------- zombie
+
+ Result: Now we have the IP ID from the zombie
+
+ 2.A: Port is open
+
+ blackhat ------------- SYN (spoofing appearing from zombie) ---------.------> target
+   zombie <------------- SYN/ACK (it's open, go ahead) ----------------------- target
+   zombie ---------- RST (as zombie was not expecting this packet) ----------> target
+
+ Result: IP ID is incremented by 1 in zombie
+
+ 2.B: Port is closed
+
+ blackhat ------------- SYN (spoofing appearing from zombie) ---------.------> target
+   zombie <------------------------ RST (it's close) ------------------------- target
+
+ Result: IP ID is not incremented because RST packet is ignored by zombie
+
+ 2.C: Port is filtered
+
+ blackhat ------------- SYN (spoofing appearing from zombie) ---------.------> target
+   zombie                         No response happens                          target
+
+ Result: IP ID is not incremented because zombie did not received anything
+
+ 3. Probe the zombie's IP ID again
+
+ blackhat ----------------------------- SYN/ACK -----------------------------> zombie
+ blackhat <------------ RST (as not expacting previous SYN/ACK) -------------- zombie
+
+ Result: zombie increased again the IP ID for our new probe.
+
+To find a working idle scan zombie host, we need to find a one that assign IP ID packets incrementally on a global basis (instead per-host communication). It should be idle (is why is call nmap scan idle). Printer devices could be great to act as a zombie.
+
+Also it is suggested to use -PN in order to avoid first initial ping packet from our machine against the target. That would reveal our IP address. The -sV should never be specified as will show also the real IP address.
+
+It is possible to specify port on the zombie machine using semicolon:
+
+ nmap -PN -p- -sI zombie.machine.com:113 target.machine.com
+
+Nmap can parallelize idle scan by sending probes in groups up to 100 ports, and check IP ID is increased N times. Later is using a binary search in order to find port state.
+
+There are some cases IP ID is increased by 256 instead by 1, this is because some systems use little-endian when they don't convert IP ID to network byte order (big-endian).
+
+*** IP protocol scan (-sO)
+
+This scan allows you to determine which IP protocols (TCP, ICMP, IGMP, etc) are supported by target machines. It sends IP packet headers and iterates through the 8 bit IP protocol field, without any data. Protocol scan is looking for ICMP protocol unreachable messages.
+
+Nmap interpretation:
+
+{| class="wikitable"
+!Probe response !! State
+|-
+|Any response in any protocol from target host || open (for protocol used by response, not necessarily probe protocol)
+|-
+|ICMP protocol unreachable error (type 3, code 2) || closed
+|-
+|ICMP unreachable errors (type 3, code 1,3,9,10 or 13) || filtered (through they prove ICMP is open if sent from the target machine)
+|-
+|No response received (even after retransmissions) || open or filtered
+|-
+|}
+
+*** TCP FTP bounce scan (-b)
+
+FTP protocol specified by RFC959 has a feature called proxy FTP connections that allows a user to connect to one FTP server, then ask that files be sent to a third-party server. This is exploitable asking the FTP server to send a file to each port of a target in turn, the error message will describe whether the port is open or not.
+
+Syntax is (using -PN option to avoid):
+
+ nmap -PN -b < username > : < password > @ < server > : < port > . <server target >
+
+*** Algorithms used by nmap
+
+Nmap is using ultra_scan engine for all scan types and techniques (except for idle scan (-sI) and FTP bounce scan (-b) options). The engine is located in scan_engine.cc.
+
+- '''Network condition monitoring''': nmap marks each probe with sequence numbers, source or destination ports, ID fields or other data depending on probe type, allowing it to recognize responses and specially drops, adjusting in real-time its speed appropriately to stay as fast as the network allow without affecting the scan results.
+- '''Host and port parallelization''': nmap parallelizes its scans improving the speed by several orders of magnitude. When scanning multiple machines, nmap tries to spread the load between them efficiently based on dropped packets or latency increased.
+- '''Round trip time estimation''': every time a probe response is received, nmap calculates the microseconds elapsed since the probe was sent (this is called instance RTT) used in different way:
+  - '''srtt''': average round trip time, used for accurate RTT guess.
+  - '''rttvar''': observed variance or deviation in the round trip time, if the variance is high nmap will wait much longer than the srtt before sending a new probe because relatively slow responses are common.
+  - '''timeout''': amount of time nmap is willing to wait before giving up on a probe. When a probe times out, nmap will retransmit or assign the port state such as filtered. However state information will be saved for some time in case late response arrives while the overall scan stills in progress.
+- '''Congestion control''': 3 algorithms modeled after TCP to control how aggressive the scan is:
+  - '''Congestion window''': controls how many probes nmap may have outstanding at once.
+  - '''Exponential backoff''': when detected dropped packets nmap will slow down the scan.
+  - '''Slow start''': an algorithm that gradually increases the scan speed to determine the performance limits of the network.
+- '''Timing probes''': if nmap has found at least 1 port responsive on a heavily filtered host, it will send a probe to that port every 1.25 seconds, allowing nmap to conduct a sufficient level of monitoring to speed up or slow down its scans.
+- '''Inferred neighbor times''': in cases no any port is responsive, in this case nmap is using timing values that it maintains for the whole group of machines it is scanning at the same time, as long as 1 response is received from any machine in the group. Then nmap will track the timing variances between responsive hosts in a group, if they differ wildly, nmap infers long timeouts for neighboring hosts to be on the safe side.
+- '''Adaptive retransmission''': Nmap may retransmit only once whhen it fails to receive a probe response if no packet loss was detected before. When massive packet loss is evident (10 retransmissions), nmap will print a warning and give up on further retransmissions. Preventing malicious hosts from slowing down port scanning.
+- '''Scan delay''': Linux is rate limiting number of ICMP error messages to 1 per second. So if nmap found lots of these errors, will continually slowing down between each probe sent to a single target.
+
+** Optimizing Nmap performance
+
+*** Scan time reduction techniques
+
+Omit non-critical tests:
+
+- Specify ping scan (-sP) only when you need to determine what hosts are online.
+- Limit number of ports scanned, by default nmap scans 1000 most common ports. With -F (fast scan) with 100 of argument, will scan the most 100 popular ports or provide -p with custom list of ports.
+- Skip advanced scan types (-sC, -sV, --traceroute and -A). For -O (for OS fingerprint) we can specify --osscan-limit --max-os-tries 1 to avoid retry once fail to match.
+- Turn off DNS resolution when it isn't necessary: reverse DNS resolution is performed in case you skip ping step with -PN or -R, to avoid reverse DNS use -n option. With --system-dns NMAP will use host machine to handle resolution.
+
+Optimize timing parameters:
+
+- -T option, even it is possible to use Timing templates.
+
+Separate and optimize UDP scans:
+
+- UDP is concern much more of ICMP errors than TCP. So it is better separate scans when performance is critical.
+
+Upgrading NMAP often will help as new performance algorithms are delivered.
+
+Execute concurrent NMAP instances:
+
+- NMAP has its own parallelization that it will be faster than run several instances.
+
+Scan from a favorable network location:
+
+- Restrictive firewalls can turn a five second scan into a multi-hour.
+- Using less busy nameserver or directly query the authoritative nameservers (worth doing for huge scans).
+
+Increase available bandwidth and CPU time:
+
+- Avoid running applications that eat bandwidth like torrents.
+- Monitor the CPU and avoid applications using several CPU time simultaneously with the scans.
+- Run -v option to check bandwidth usage.
+
+
+*** Strategies for long scans
+
+Use multi-stage approach:
+
+# Security audit will include UDP and TCP of all ports, so it is better to specify -F to perform quick popular ports on known-online hosts first.
+# Meanwhile run -PN to scann of all TCP and UDP ports with version and OS detection in background.
+# Enable -v for really long scans in order to have some information about when the scan it will finish. By pressing <ENTER> you will always estimate the current host.
+
+*** Port selection data and strategies
+
+Most of the ports will be closed in a host, to catch 90% of the open ports, you need to scan 576 TCP ports and 11.307 UDP ports based on statistics.
+
+With the option --top-ports we can scan effectively cover most of the open ports.
+
+[table page 141]
+
+
+*** Low level timing controls
+
+[table page 142]
+
+*** Timing templates
+
+There are different templates that covers configurations from the timing controls (the first 2 are for the IDS evasion, and the default one is using -T3):
+
+[table page 142 and 143]
+
+*** Scanning 676.352 IP addresses in 46 h
+
+ nmap -O -PE -v -oX mayo.xml -iL ip_networks.txt
+
+so slow so...
+
+  nmap -O -T5 -PE -F --osscan-limit -v -oX mayo.xml -iL ip_networks.txt
+
+Still slow, so editing nmap-services, to trim down to 270 ports. The scan finished in 49 h and found 66.558 devices
+Improving a bit more:
+
+ nmap -O -T5 -PE -F --osscan-imit --max-rtt-timeout 100 --max-parallelism 100 --min-hostgroup 100 -oX mayo -iL ip_networks.txt
+
+** Port scanning service application version detection
+
+TODO
+
+** Port scanning remote OS detection
+
+TODO
+
+** Nmap engine
+
+TODO
+
+** Nmap detecting and bypassing firewalls and IDS
+
+TODO
+
+** Detect Nmap scans
+
+TODO
+
+** Zenmap
+
+TODO
+
+** Nmap output formats
+
+TODO
+
+** Nmap DB
+
+TODO

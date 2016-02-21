@@ -1,0 +1,31 @@
+* insecure programming
+
+Tools used for find bugs in source code of binaries versions:
+
+- Nessus
+- Metasploit
+- Inmunity tests/libsafe
+- Dictionary attack
+- Static Code Analysis (SCA) - Lint
+- Run-time Code Analysis (RCA?) - Valgrind
+- Static Application Security Testing (SAST)
+- Strace/ltrace/ptrace (check syscalls, libs and processes)
+- Lint/Splint/clint
+- DAM
+-- Efence (out DAM, r/w DAM, free not ptr)
+-- mcheck (heap violations and handle)
+-- mtrace (memory leaks)
+- Code injection
+- Underun/overrun overflows
+- Stress test
+- Defensive programming
+- Permissions / privileged minimized
+- Capabilities
+- Escape characters
+- Profiler
+- Network analysis (hping, nmap, scapy)
+- Model checking (reduce finite state by abstraction)
+- Data flow analysis (gathering info about possible set of values)
+- Abstract interpretation (behaviours of the system check incomplete)
+- Use of assertions
+- cppcheck, Blast, Frama-C, QA-C
