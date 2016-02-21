@@ -23,7 +23,7 @@ files, which has been split to avoid massive unrelated content.
     - nmap       file:security/port_scanning.org
   - Networking   file:networking/
   - Programming  file:programming/
-    - Algorithm  file:programming/algorithms.org
+    - Algorithm  file:programming/algorithms/
     - Datastruct file:programming/datastructures.org
     - Concur     file:programming/concurrence.org
     - C          file:programming/c.org
