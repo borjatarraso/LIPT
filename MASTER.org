@@ -25,7 +25,8 @@ files, which has been split to avoid massive unrelated content.
   - Programming  file:programming/
     - Algorithm  file:programming/algorithms/
     - Datastruct file:programming/datastructures/
-    - Concur     file:programming/concurrence.org
+    - Concur     file:programming/concurrence/
+    - Lisp       file:programming/lisp.org
     - C          file:programming/c.org
     - C++        file:programming/cpp.org
     - Python     file:programming/python.org
