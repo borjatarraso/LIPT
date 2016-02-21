@@ -1,0 +1,5333 @@
+* Viope course
+
+** Introduction
+
+** Differences
+
+1.1 The main differences between Python 2 and Python 3
+
+Python 3 is the newest major version of the Python programming language. Python 3 was released at December of 2008, and the newest subversion, 3.1.3, was launched at 27th of November 2010. The largest differences between the second and the third versions is that the Python 3 streamlines the language syntax and improves some functionalities such as input handling. However, the changes have made the Python 3 backwards incompatible with the earlier versions of the Python source code. However, the reason for breaking backwards compatibility has paid off in several ways. For example, the syntax has been cleaned for almost all of the special cases such as print-command, which now operates as a function. Similarly, the old datatype-specific input-function has been eliminated, and replaced with the raw_input. The main differences can be summarized as follows:
+
+Print-command functions like a proper function, and accepts additional arguments to define the end-line and division characters.
+
+Comparison between two different sequences (for example list and tuple) with logical operators raises TypeError, instead of returning Boolean character defined with the the arbitrary and confusing comparison rules which existed in the Python 2. In Python 3, if the operands do not have a meaningful natural ordering, they cannot be compared against each other besides with == and != operators.
+
+String formatting with %-operator is deprecated starting with the version 3.1. There is a new method for string formatting, operating as a format-method for string-datatypes.
+
+Input handling is solely done via function called input, which operates exactly as the raw_input in the Python 2. There is no separate raw_input in Python 3.
+
+Division operator (/) returns float, even with two interger values, if the result has non-zero decimals. The old division operator can be used with syntax "//", like results = 10//3.
+
+The full list of changes made to Python 3 (compared to Python 2.6) is available online at http://docs.python.org/py3k/whatsnew/3.0.html
+
+** Printing (outputs)
+
+Python 2-print command:
+ print "Welcome to the course!",
+
+Same code in Python 3:
+ print("Welcome to the course!",end = "")
+
+** Reading (inputs)
+
+In Python 2, the input is taken as follows:
+ value = input("Please insert value: ")
+
+or alternatively:
+ value = int(raw_input("Please insert value: "))
+
+Same command with Python 3:
+ value = int(input("Please insert value: "))
+
+** Purposes
+
+PHP is really well-suited for creating web services, whilst Java is excellent in building platform-independent software and C++ can beat almost any language in the pure performance and code optimization. Basically the selection of the language is the same as using the right tool for the job: creating a C++-based browser application or an embedded Java program for hardware system is really difficult or at least laborous, because the languages aren't supposed to be used for that sort of purposes.
+
+Other way to differentiate between the different languages is the division to high-level and low-level languages, based on how much abstraction is available between the machine code presentation and programming language.
+
+Python, the details are left for the interpreter or compiler to worry about, while the programming tasks focus on more high-level activities, such as defining how the GUI should look, or what kind of data is searched from the database.
+
+Besides high and low level programming the different programming languages also support different programming styles, which are also called paradigms. The programming paradigms mean the fundamental way of how the source code is implemented: in procedural programming, the source code is made of functions and variables, whereas in object-orientation the code is mostly objects and methods. In procedural programming the program functions so that there is a function which performs the action, and arguments or variables, which exchange the knowledge between the functions. In object-orientation, the activities are made inside self-contained classes, from which a group of objects are created to perform different tasks. Anyhow, there are different programming paradigms which define how the code is made; in mathematics, there is an functional paradigm which focuses on defining what is modified instead of how it is modified,
+
+Python, the programming language used in this course, can be used with procedural, object-oriented, and event-driven paradigm. By expanding the command library, it can be argued that even functional programming becomes possible. This is possible because of high level of abstraction; because Python is a high-level language, the syntax and logic behind the language is not that restrictive and the source code can be made to work in several ways. In low level languages, the restrictions usually cause the language to select one programming paradigm, but implement it very well.
+
+** Python comparation with other languages
+
+Originally the Python language was created as an extension for a language called ABC, with features taken from languages such as Modula-3, Haskell, Lisp and Perl. In the later development, there are distinct similarities with C and Java. The original implementation of Python interpreter, CPython, was programmed with C-language. The main features of Python can be summarized as follows:
+
+Instead of brackets { and }, Python uses indentation as the divider for logical source code blocks.
+
+Variables are dynamically typed, se their contents can be redefined without any restrictions; a string can be given as a value to a variable which previously had an integer. There also is no need to separately declare the variables, they can be created "on-the-fly" when needed within the source code.
+
+The syntax is primarily designed to be understandable, simple and minimalistic. This is the reason why one of the most common application areas for Python is as the first taught language in the introductory programming courses.
+
+Even though Python is originally an object-oriented language, the syntax is designed to allow procedural programming and ignore the object-oriented stuff such as class declarations. In addition, with additional libraries the language can be extended to allow several other programming paradigms.
+
+Python is deliever with "everything including the kitchen sink": The standard installation package comes with an extensive module library and all of the needed software to get started. There is no need for separate function libraries, editor packages or other stuff to try and start with the language.
+
+There are several strong suites within the Python core functionalities: extensive structured data types, several data manipulation methods and especially strong string operators.
+
+On several occasions, the Python has been said to combine the straightforwardness of scripts with the possibilities of programming languages. However, it should be noted that Python is not a scripting language, but rather a high-level programming language which can, and is, used to create a commercial, complete software.
+
+The main design principles of the Python langauge have also been expressed as a poem:
+
+ Beautiful is better than ugly.
+ Explicit is better than implicit.
+ Simple is better than complex.
+ Complex is better than complicated.
+ Flat is better than nested.
+ Sparse is better than dense.
+ Readability counts.
+ Special cases aren't special enough to break the rules.
+ Although practicality beats purity.
+ Errors should never pass silently.
+ Unless explicitly silenced.
+ In the face of ambiguity, refuse the temptation to guess.
+ There should be one-- and preferably only one --obvious way to do it.
+ Although that way may not be obvious at first unless you're Dutch.
+ Now is better than never.
+ Although never is often better than *right* now.
+ If the implementation is hard to explain, it's a bad idea.
+ If the implementation is easy to explain, it may be a good idea.
+ Namespaces are one honking great idea -- let's do more of those!
+
+This poem is usually called the Python Zen which lays the foundation for the further development of the language. This, and many other design principles and commentation on the existing features can be found at the Python Enhancement Proposals, which are publicly available at http://www.python.org/dev/peps/.
+
+Python short example code:
+
+ from tkinter import *
+ import sys
+
+ def endme():
+     window.destroy()
+     sys.exit(0)
+
+ window = Tk()
+
+ text_window = Label(window, text = "Tkinter in action")
+ text_window.pack()
+
+ endme_button = Button(window, text = "Quit", command = endme)
+ endme_button.pack(side = BOTTOM)
+
+ window.mainloop()
+
+This small snippet of source code defines a program, which has a window, a text box with a short description and a button that has a functionality, which ends the program. Also, because Python is a platform independent programming language, this program works in all of the different operating systems (for example Windows Vista/7, OSX, Linux distributions...) for which the Python interpreter and the standard module library is implemented.
+
+Besides easy GUI generation, the ability to modify strings has been a large marketing point; the ability to edit and slice character strings and dynamic structures is exceptionally well-implemented and easy to use. For example, one fairly common exercise in string comparisons is the palindrome test. In Python, the actions required to turn the string backwards and compare it against the original makes this exercise almost trivial:
+
+ 01  # -*- coding: cp1252 -*-
+ 02
+ 03  while True:
+ 04      word = input("Give the tested string: ")
+ 05
+ 06      #test if the string backwards is same as the original
+ 07      if word == word[::-1]:
+ 08          print("Given string,",word,"is a palindrome!")
+ 09      else:
+ 10          print("String is not a palindrome.")
+ 11
+ 12
+ 13      decision = input("Test another? (Y/N): ")
+ 14
+ 15      if decision == ("N" or "n"):
+ 16          print("Program has been terminated.")
+ 17          break
+
+** Python interpreter
+
+The development and distribution of the Python interpreter is done by the non-profit organization called Python Software Foundation (http://www.python.org)
+
+This installation package includes all of the essential tools for basic programming; an interpreter, debugging tools for finding errors from the software and most importantly, a source code editor called IDLE. I
+
+** Additional module libraries
+
+- Python Imaging Library: Python Imaging Library (http://www.pythonware.com/products/pil/) is a group of extra modules, which enables Python to create and edit basically any image format available. This module has an extensive selection of different picture manipulation tools and different filters for doing pretty much anything any good picture editing software would be able to do. Currently the Python 3 version is not available, but there is a promise on the module home site that it will be "released later".
+
+- Python Cryptography toolkit: Python Cryptography toolkit (http://www.amk.ca/python/code/crypto) is a toolset meant for working with different cryptography algortihms and coding schemes. Somewhat hard to find on the Internet, as several countries still restrict the distribution and usage of said functions.
+
+- Numeric Python: Numeric Python (http://numpy.scipy.org/) has even more tools for scientific calculations and engineering calculus. Other notable feature is the ability to do matrix calculations, similarly as in Matlab. Available for Python 3.2.
+
+- PyGame: PyGame (http://www.pygame.org/) is a module library, which is intended to help with the creation process of computer games.
+
+- Python Win32 Extensions: Python Win32 Extensions (http://python.net/crew/mhammond/win32/) is a group of extra modules and features which integrates the Python interpreter even more deeply to the Windows system.
+
+- Py2Exe: Py2exe (http://www.py2exe.org/) is a module which allows the programmer to compile (more like to wrap) the Python source code to an executable package, which does not need a separate Python interpreter to work in a Windows workstation. Python 3 version is in development, but the project currently seems a tad bit deceased.
+
+- Django: Django (http://www.djangoproject.com/) is a large module which is almost a separate entry for programming languages itself. Django makes the Python able to create and maintain websites, something that was previously lacking from the Python language itself, but readily available in one of the most important competitors of Python, Ruby programming language (with Ruby on Rails framework). A version for Python 3 is currently "in development".
+
+** More about interpreter
+
+The easiest way of testing whether the installation was successful is to write a command import sys to this window. This command imports a library module called sys, which has several system-related functions. If the command is successful, no error message is given, then the interpreter should have everything in satisfactory condition:
+
+ >>> import sys
+
+
+* Fundamentals
+
+** Comments in source code
+
+ # This here is simply comment, the code to come does stuff
+
+ print("This is important!") #Comment!
+
+
+** Variables
+
+ >>> value = 100
+ >>> print(value)
+ 100
+ >>> value = "FluffyTheTerrible"
+ >>> print(value)
+ FluffyTheTerrible
+
+ >>> stringline = "Teapot"
+ >>> number = 1100
+ >>> print(stringline)
+ Teapot
+ >>> print(number)
+ >>> number + 150
+ 1250
+
+
+ 09  word = "blueberries."
+ 10  print("I would like to have ice cream and",word)
+
+** Reserved words
+
+ and    elif    import  return
+ as     else    in      try
+ assert except  is      while
+ break  finally lambda  with
+ class  for     not     yield
+ continue       from    or
+ def    global  pass
+ del    if      raise
+
+** Variable names
+
+Otherwise the name has to be composed of normal, lower or uppercase letters of the English dictionary (a,b,c...,z, A,B,C...,Z) or numbers (0...9). In addition, underscore ( _ ) can be used to separate different parts of the name, as the variable name cannot have whitespace characters such as space (' '). Other characters, such as dollar signs ($) or percents (%) or non-English letters (Å, Ä, Æ, Ü ...) cannot be used, and the first character cannot be a number, even if they are otherwise allowed.
+
+ Variable name     Will it work?
+ -------------     -------------
+ flag              Yes it will, it fulfills all of the requirements.
+ conTROl           Yes it will, there are no technical restrictions on mixing lower and uppercase characters.
+ setting_2         Yes it will, numbers are allowed as long as they are not the first character, as is the underscore.
+ _sign             Yes it will, underscore can be the first character.
+ 10th_item         No it won't, the name cannot begin with number.
+ two-parter        No it won't, the normal dash is not allowed.
+ %checksum         No it won't, there is non-allowed character (%).
+ hääyöaie          No it won't, the letters should be from English vocabulary.
+
+Names which start with two underscores (like __doc__). These variables are internal, automatically generated names which are usually related to the objects and classes. These variables are usually meant only for the internal use, and should not be edited manually.
+
+** Printing techniques
+
+ >>> variable = 4
+ >>> print("There are",variable,"lights.")
+
+
+ >>> variable = "F"
+ >>> print("You got a grade",variable,"!")
+ You got a grade F !
+ >>>
+
+
+ >>> yell = "Go team"
+ >>> print(yell+"!")
+ Go team!
+ >>>
+
+
+** Printing without end of line
+
+ print("This line will not have automated line break. ",end="")
+ print("So this becomes right after that last one.")
+
+** Printing using different sepparator between tokens
+
+ >>> number = 4
+ >>> print("In a quartet, there are",number,"players.", sep="")
+ In a quartet, there are4players.
+ >>>
+
+the separating spaces have to be defined in the code. As a final note, it should be mentioned that these operators can be any string, they are not limited to one character:
+
+ >>> print("Well eat soup.", end = " And spam!")
+ Well eat soup. And spam!
+ >>>
+
+** Presenting data
+
+if the string has modification characters such as line change (\n) or indentation (\t), and the program is requested to present these characters without actually using them, the line can be modified to show these characters with a function repr():
+
+ >>> text = "This text has a line change.\n"
+ >>> print(text)
+ This text has a line change.
+
+
+ >>> rawtext = repr(text)
+ >>> print(rawtext)
+ 'This text has a line change.\n'
+ >>>
+
+The function rounds the given decimal to the amount of meaningful numbers as expressed by the integer number:
+
+ number1 = 3.5
+ number2 = 4.123123
+ number3 = 1234.1231513
+
+
+ number1 = round(number1)
+ number2 = round(number2,2)
+ number3 = round(number2,4)
+ rprint(number1, number2, number3)
+
+
+ >>>
+ 4 4.12 1234.1232
+ >>>
+
+** Presening strings
+
+ print("This is a very big and long, even annoying command which takes way too much space and is irritating to handle.")
+
+Were Python a normal text editor, the line could be divided like this:
+
+ NO!
+ print("This is a very big and long, even annoying command
+  which takes way too much space and is irritating to handle.")
+
+
+ YES!
+ print("This is a very big and long, even annoying \
+ command which takes way too much space and is irritating to handle.")
+
+Indentation is ignored when \ so:
+
+ if True:
+     print("This is a very big and long, even annoying \
+ command which takes way too much space \
+ and is irritating to handle. And now its full \
+ of holes.")
+
+** Predefined string
+
+This is the so-called predefined string, which can be defined by using triple quotations:
+
+ """This thing here is predefined"""
+
+or optionally
+
+ '''predefined strings can be also made with citatition marks.'''
+
+
+The interpreter does understand everything as a part of the string until new (""") is given. The predefined string also conserves everything, including manually made indentations and such.
+
+** Escape sequence for layout characters
+
+The line connector character "\" has also other use besides allowing the user to divide source code to several lines, it also tells the interpreter to disregard the following layout-affecting function of the character combination, or bypass the next quotation mark and continue the string.
+
+ print("So are we supposed to see \
+ '\\'-this or what? What does this \ do?")
+ So are we supposed to see '\'-this or what? What does this \ do?
+ >>> print("\n")
+
+
+ >>> print("\\n")
+ \n
+ >>>
+
+
+ print('He said "Dish is best served cold."')
+ He said "Dish is best served cold."
+ >>>
+
+
+ >>> print("\t1\t2\n\t3\t4\n\t5\t6")
+     1  2
+     3  4
+     5  6
+ >>>
+
+** Handling inputs
+
+ >>> givenvalue = input("Write something: ")
+ Write something: Hello Python
+ >>> print(givenvalue)
+ Hello Python
+ >>>
+
+
+ 03  # creates an variable, and saves the user-written
+ 04  # text as a value to the variable
+ 05  nimi = input("What is your name?: ")
+ 06
+ 07  print("Hello",nimi+"!")
+ 08  print("Nice to see you.")
+
+** Type conversions, str(), int() and float()
+
+ >>> value = input("Give some number: ")
+ Give some number: 313
+ >>> 42 + value
+ Traceback (most recent call last):
+   File "", line 1, in
+     42 + value
+ TypeError: unsupported operand type(s) for +: 'int' and 'str'
+ >>>
+
+
+ >>> value = "42"
+ >>> print(value)
+ 42
+
+
+ >>> value = int(value)
+ >>> value + 10
+ 52
+ >>> value * 5
+ 210
+ >>>
+
+** Other type of conversion functions
+
+ Name            Explanation
+ ----            -----------
+ int(variable)   Returns the variable as an integer, causes ValueError if the conversion is not possible. Does not round the number correctly, just drops the decimal part.
+ str(variable)   Returns the variable contents as a string.
+ float(variable) Returns the variable as an floating point number (decimal), causes ValueError if the conversion is not possible.
+
+
+ >>> number = 4.9995
+ >>> int(number)
+ 4
+ >>>
+
+** Editing strings
+
+The function len(), it returns the length of a string as an integer. However, it should be noticed that while len returns the actual length of the string, the last character is always in place length - 1
+
+ >>> bigstring = "auxiliaryemergencyfirepreventionsystem"
+ >>> len(bigstring)
+ 38
+ >>>
+
+ (37 is the character m)
+
+For referencing to one character:
+
+ >>> bigstring[0]
+ 'a'
+ >>> bigstring[1]
+ 'u'
+
+
+ >>> bigstring[-1]
+ 'm'
+ >>> bigstring[-2]
+ 'e'
+ >>> bigstring[-0]
+ 'a'
+ >>>
+
+Ranges of strings:
+
+ >>> bigstring[0:15]
+ 'auxiliaryemerge'
+ >>> bigstring[3:19]
+ 'iliaryemergencyf'
+ >>>
+
+
+All chars until the end except the last one...:
+
+ >>> bigstring[20:-1]
+ 'repreventionsyste'
+
+From character -30 until the end except 10:
+
+ >>> bigstring[-30:-10]
+ 'yemergencyfirepreven'
+
+It is also possible to define a third number in the slice. This number defines the step size taken between characters.
+
+Changing the step size to 2 only shows the every second character, step size 3 every third.
+
+ >>> bigstring[0:37:2]
+ 'axlaymrecfrpeetosse'
+ >>> bigstring[0:37:3]
+ 'aiaernfeenoye'
+ >>>
+
+A special feature in the step length is the step size -1. This is an easy way to turn the string around:
+
+ >>> bigstring[38:0:-1]
+ 'metsysnoitneverperifycnegremeyrailixu'
+ >>>
+
+its also possible to use varibles to define the size of the slice:
+
+ >>> bigstring[number1:number2]
+ 'mergencyfi'
+ >>> bigstring[1:number2]
+ 'uxiliaryemergencyfi'
+ >>>
+
+Its also possible to use default values when using the slices. If the start point is not given, the interpreter sets it to the first character. Similarly if the ending point is not given, the interpreter uses the last character. The default for step is 1. To apply default values, it simply is left away from the slice:
+
+ >>> bigstring[10:]
+ 'mergencyfirepreventionsystem'
+ >>> bigstring[:15]
+ 'auxiliaryemerge'
+ >>> bigstring[:30:2]
+ 'axlaymrecfrpeet'
+ >>> bigstring[10::2]
+ 'mrecfrpeetosse'
+ >>> bigstring[::-1]
+ 'metsysnoitneverperifycnegremeyrailixua'
+ >>>
+
+The slice [::-1] is especially nifty feature. It turns the entire string around, showing also the first character, which was missing from the slice [38:0:-1].
+
+** Observations of string slices
+
+The error IndexError is pretty common with the slices. This happens, when the slice references to a character place beyond the string size:
+
+ >>> bigstring[313]
+ Traceback (most recent call last):
+   File "", line 1, in
+     bigstring[313]
+ IndexError: string index out of range
+ >>>
+
+There is one expection to the rule: if the slice is defined so that it has start and end points, this error is deprecated, even if both of the points are outside string size. In these cases, the interpreter returns the part that was in the defined area, or if the slice was completely outside string, an empty string "":
+
+ >>> bigstring[313:939]
+ ''
+ >>> bigstring[30:101243]
+ 'onsystem'
+ >>>
+
+ # -*- coding: cp1252 -*-
+
+ bigstring = "Damn the torpedoes, full speed ahead!"
+ length = len(bigstring)
+ print("The length if the string is",length,"characters.")
+
+
+ slice_1 = bigstring[:15]
+ slice_2 = bigstring[15:]
+ slice_3 = bigstring[::2]
+
+ slice_4 = bigstring[1]
+ slice_5 = bigstring[5:26]
+ slice_6 = bigstring[::-1]
+
+ slice_7 = bigstring[-10:]
+ slice_8 = bigstring[:-10]
+ slice_9 = bigstring[4:30:2]
+
+ print("slice_1: ",slice_1)
+ print("slice_2: ",slice_2)
+ print("slice_3: ",slice_3)
+ print("slice_4: ",slice_4)
+ print("slice_5: ",slice_5)
+ print("slice_6: ",slice_6)
+ print("slice_7: ",slice_7)
+ print("slice_8: ",slice_8)
+ print("slice_9: ",slice_9)
+
+** String methods
+
+Capital letters:
+
+ >>> text = "whatnow?"
+ >>> text.upper()
+ 'WHATNOW?'
+ >>> "really?".upper()
+ 'REALLY?'
+ >>>
+
+
+ >>> text = "whatnow?"
+ >>> result = text.isdigit()
+ >>> result
+ False
+ >>> text = "testing"
+ >>> result = text.isalpha()
+ >>> result
+ True
+ >>>
+
+In the following table are the most common string methods:
+
+ Name                          Explanation                                                                                           Other
+ ----                          -----------                                                                                           -----
+ string_a.startswith(string_b) Returns True if the string_a starts with the given string_b.                                          The string_b can be anything, number or string as the result is matched based on characters.
+ string_a.endswith(string_b)   Returns True if the string_a ends with the given string_b.                                            The string_b can be anything, number or string as the result is matched based on characters.
+ string_a.find(string_b)       Returns the place of the first character in string_a, from whereon the string_b first appears.        Returns a value -1 if the string_b cannot be found from string_a
+ string.isalnum()              Returns True, if all characters in the tested string are either letters or numbers.                   abs123 returns True, Hep-122 returns False, because dash is neither letter nor number
+ string.isalpha()              Returns True, if all characters in the string are letters.
+ string.isdigit()              Returns True, if all characters in the string are numbers.
+ .lower()                      Returns the string with all characters in lower-case letters.
+ .upper()                      Returns the string with all characters in upper-case letters.
+ .replace(char1,char2)         Replaces all occurances of the char1 in the string with char2.
+
+
+ >>> "hello".replace("l","z")
+ 'hezzo'
+ >>>
+
+A complete list of methods can be found for example here: http://docs.python.org/py3k/library/index.html, following link "Build-in types"->"Sequence types..." from point "String methods" onwards.
+
+* Conditional structure if-elif-else
+
+ 07  if color == "Blue":
+ 08      print("Blue is nice.")
+
+For example, in code:
+
+ 01  if mode == "free":
+ 02      print("Its free, go ahead.")
+ 03      print("What are you waiting for?")
+
+The second print-command in line 3 is executed only if the if-segment is executed, as the indentation sets it inside the if-segment. If this code is changed to this way:
+
+ 01  if mode == "free":
+ 02      print("Its free, go ahead.")
+ 03  print("What are you waiting for?")
+
+The other thing to remember is to always use the indentation levels of 4 spaces per level. Besides being the "Python standard", it also makes the source code much more understandable:
+
+ 01  if word_1 == "Oolated":
+ 02      if word_2 == "Squigg":
+ 03          if word_3 == "Soup":
+
+and:
+
+ 01  if word_1 == "Oolated":
+ 02   if word_2 == "Squigg":
+ 03    if word_3 == "Soup":
+
+Are technically exactly the same source codes. The only difference is in that the latter has only one space difference between the logical segments, making it virtually impossible to differentiate between two levels.
+
+ 07  if color == "Blue":
+ 08      print("Blue is also my personal favorite.")
+ 09
+ 10  else:
+ 11      print(color,"is also nice.")
+
+
+ 03  color = input("What is your favorite color?: ")
+ 04
+ 05  if color == "Blue":
+ 06      print("Blue is also my personal favorite.")
+ 07
+ 08  elif color == "Red":
+ 09      print("Red looks good on a sports car.")
+ 10
+ 11  elif color == "Salmon":
+ 12      print("Most would say that salmon is a fish, but I guess it also counts as a color.")
+ 13
+ 14  else:
+ 15      print(color,"is also nice.")
+
+
+ 03  if (value_1 == 10) and (value_2 == "Engage"):
+ 04      print("Its alive!")
+
+
+ 03  if (value_1 == 10) or (value_2 == "Run away!"):
+ 04      print("Its alive!")
+
+
+ 03  if not (value_2 == "Run Away!"):
+ 04      print("Its alive!")
+
+
+ 03  value_3 = "Testing"
+ 04
+ 05  if (value_1 == 10) and (value_2 == "Engage") and \
+ 06  (calue_3 == "Testing"):
+ 07      print("It works!")
+ 08  else:
+ 09      print("Nothing happened.")
+
+
+ 01  if (True == 1 and False == 1) or (False == 0):
+ 02      print("It works!")
+
+In python:
+ False is 0
+ True is 1
+
+** Logical expressions and Boolean values
+
+ >>> 5 > 3
+ True
+ >>>
+
+
+ >>> 4 < 1
+ False
+ >>>
+
+
+ >>> 1 == True
+ True
+ >>> 0 == False
+ True
+ >>>
+
+
+ >>> (5 * 100 < 1000) == 1
+ True
+ >>>
+
+
+ >>> (5 * 100 < 1000) == True
+ True
+ >>>
+
+
+** Operators in python
+
+Logical operators
+
+ Operator       Explanation                                                             Example
+ --------       -----------                                                             -------
+ X or Y         Or-operator; if X or Y is True, the results is also True.               A = 1 and B = 0, A or B == 1
+ X and Y        And-operator; If X and Y are both True, the results is also True.       A = 1, B = 0, A and B == 0
+ not X          Not-operator; If X is True, the result is False.                        A = 1, not A == 0
+ X = 1          Assignment operator; Sets the value of X to the given value.            X = 15; X == 15 is True
+
+Comparison operators
+
+ Operator       Explanation                                                                             Example
+ --------       -----------                                                                             -------
+ X == Y         Equality operator; If X is same as Y, the result is True.                               A == 0 and B == 1; A == B is False
+ X != Y         Inequality operator; If X is not Y, the result is True.                                 X = 1 and Y = 0; X != Y is True.
+ X < Y          Smaller than -operator: If X is less than Y, the result is False.                       X = 1 and Y = 3; X < Y is True.
+ X <= Y         Smaller or same than-operator; If X is same or less than Y, the result is True.         X = 1 and Y = 1; X <= Y is True.
+ X > Y          Larger than: If X is larger than Y, the result is True.                                 X = 5 and Y = 3; X > Y is True.
+ X >= Y         Larger or same than; If X is the same or larger than Y, the result is True.             X = 2 and Y = 2; X >= Y is True.
+ X is Y         Object comparison; If X is same object than Y, the result is True.                      X = "2" and Y = 2; X is Y is False.
+ X in Y         Item test; If X is equal or same as any item in the structure Y, the result is True.    X = 2 and Y = [1,2,3,4] X in Y is True.
+
+Mathematical operators
+
+ Operator       Explanation                                                                                             Example
+ --------       -----------                                                                                             -------
+ X + Y          Addition; Returns a float point number if any of the numbers is a decimal, otherwise integer.           X = 2 and Y = 5; X + Y == 7
+ X - Y          Substraction; Returns a float if any of the operands is a decimal number, otherwise integer.            X = 5 and Y = 2; X - Y == 3
+ X * Y          Multiplication: Returns a float if any of the operands is a decimal number, otherwise integer.          X = 5 and Y = 2; X * Y == 10
+ X / Y          Division; Always returns a float, even if both numbers are integers and the division has no remainder.  X = 6 and Y = 2; X / Y == 3.0
+ X // Y         Quotient; Returns the times the Y goes to X.                                                            X = 13 and Y = 5; X // Y == 2
+ X % Y          Remainder; Returns the remainder from the division of X/Y.                                              X = 5 and Y = 2; X % Y == 1
+ X ** Y         Exponentation; Returns a float if any of the operands is a decimal number, otherwise integer.           X = 4 and Y = 2; X ** Y == 16
+ -X             Negative; Returns the negative equivalent of operand, same as multiplying with -1.                      X = 10; - X == -10
+ +X             Positive; does not actually do anything, equivalent of multiplying with 1.                              X = 10, Y = -10; +X == 10 +Y == -10
+
+Priority of operators
+
+ Command                        Explanation
+ -------                        -----------
+ Slicing operator               [x:y:z]                 Slicing a string or list
+ Selection of an item           listvariable[x]         Selecting item or character
+ Negativity:                    -value                  Turns value to negative
+ Multiplication and division    *, /, //, %             All operators related to multiplication and division
+ Addition and substraction      +, -                    Addition and substraction operators
+ Comparisons                    <, <=, >, >=, !=, ==    Comparison operators in a conditional argument
+ Operators is, is not                                   Operators is and is not in a conditional argument
+ Operators in, not in                                   Operators in and not in in a conditional argument
+ Operator not                                           Operator not in a conditional argument
+ Operator and                                           Operator and in in a conditional argument
+ Operator or                                            Operator or in a conditional argument
+
+Full list is available for example in http://docs.python.org/py3k/
+
+So-called "normal" brackets can be used to manually change the order the commands are executed.
+
+
+** Simple conditional structure
+
+ if [selection argument]: [executed command]
+
+For example
+
+ value = 1
+ if value == 1: result = True
+
+
+ value = 1
+ if value == 1: result = True
+ else: result = False
+
+
+* Iterations
+
+** While
+
+ 11  while nowround < totalrounds:
+ 12      print("Now is the round",nowround)
+ 13
+ 14      #The amount of done rounds adds 1
+ 15      nowround += 1
+
+** For-iteration
+
+ 04  series = int(input("How many rounds are calculated?: "))
+ 05
+ 06  result = int(1)
+ 07  for turn in range(1,series+1):
+ 08      result = result*turn
+ 09      print("At turn",turn,"the result is",str(result)+".")
+
+** Ranges
+
+ range()
+
+As mentioned earlier, the amount of iterations with for-structure is defined as a length of the list or other structur which is given as the iteration indicator. To create these lists easily and effectively, Python has the command range(), which is helpful in creating these types of lists. Range is used to that it is given the first position and last position, and the step length, similarly as in slicing:
+
+ range(first,last, step)
+
+
+ >>> for i in range(5):
+ print(i)
+
+ 0
+ 1
+ 2
+ 3
+ 4
+ >>>
+
+Or similarly
+
+ >>> for i in range(104,108):
+ print(i)
+
+ 104
+ 105
+ 106
+ 107
+ >>>
+
+** While
+
+ 01  keepgoing = True
+ 02
+ 03  while keepgoing:
+ 04      userwrote = input("Write something: ")
+ 05
+ 06      if userwrote == "End":
+ 07          keepgoing = False
+ 08      else:
+ 09          print(userwrote)
+
+
+
+** Break
+
+ startpoint = int(input("Give the starting point: "))
+
+ while True:
+     if startpoint % 13 == 0:
+         print("We found a number divisible by 13!")
+         break
+     else:
+         print("Currently we are at",startpoint)
+         startpoint += 1
+
+
+** Continue
+
+ total = 0
+ i = 0
+ rounds = int(input("How many rounds?: "))
+
+ while i < rounds:
+     i += 1
+     #If the i is not round number, skip it
+     if i % 2 != 0:
+         continue
+
+     print("Added ",i,".", sep="")
+     total = total + i
+
+ print("The sum was ",total,".", sep="")
+
+
+** Pass
+
+ if name == "Jeeves":
+     pass
+ else:
+     print("Now executing else-segment")
+
+This works, because the if-segment still exists, although it does not do anything. In graphical user interface (GUI) definitions with Tkinter-module, the pass also has another function; it serves as a stub for action. With Tkinter, and also in general, if the program needs to have a function, but there is no functionality in it, a stub like:
+
+ def superfunction(parameters):
+     pass
+
+** Else segment
+
+ start = int(input("Enter starting position: "))
+ end = int(input("Enter ending position: "))
+
+ options = range(start,end)
+
+ for i in options:
+     if i == 42:
+         print("We found 42!")
+         break
+
+ #Notice that this else is connected to for, not if
+ else:
+     print("Seems that there was no answer in there.")
+
+The basic idea of iteration and loops in general is to do serial tasks like do calculations, print lists, or search through data. To enable more control over the resulting outcome, the iterations also a bit surprisingly allow using else-segment in the structure.
+
+In iteration, the else is defined as the last code segment, in the same "level" as the while (or for)-command, just like with conditional structures. However, unlike conditionals, the else-segment is not automatically executed when the iteration is skipped. With iterations, the execution of else-segment is tied to the break-command; if the iteration is ended with the control command break, the else is not executed. If the iteration expires "naturally" by ending with the iteration argument going False, the else is used. The logic behind this is in the application of break. If break is used, it can be assumed that the loop served its purpose as it was terminated prematurely. If the iteration ends with the iteration argument closing, the loop did not find what it was looking for, and the else-segment is used instead.
+
+
+* External files in Python
+
+** Reading files
+
+ sourcefile = open("example.txt","r")
+
+- read(length) returns the entire contents of the file as a one string. . There also is an optional parameter length, which takes an integer value and denotes the maximum amount of characters, which will be read from the file.
+
+- readline() returns one line from the file. The interpreter considers the one line to be the part from the beginning of the file to the first line break (\n), from one line break to another, or from line break to the end of file.
+
+- readlines() returns the entire contents of the file as a one list, where the lines are separated to list items following the same logic as in the command readline().
+
+ 03  readfile = open("example.txt","r")
+ 04  content = readfile.readlines()
+ 05
+ 06  print(content)
+ 07  for i in content:
+ 08      print(i)
+ 09
+ 10  readfile.close()
+
+** End of line
+
+Under normal circumstances this would be the extra line break "\n"
+
+ print(variable, end = '')
+
+Other possibility is to slice the last character from the read string with slicing command
+
+ readline = readline[:-1]
+
+** Another example of reading a file
+
+ handle = open("example.txt","r")
+ filetext = handle.read()
+ print(filetext)
+ handle.close()
+
+** Handling and closing the files
+
+ 01  def readfile(name):
+ 02      try:
+ 03          readfile = open(name,'r')
+ 04          content = readfile.read()
+ 05          readfile.close()
+ 06          return content
+ 07      except IOError:
+ 08          return False
+
+** Pointer in the file: seek and tell
+
+- seek(place) -function moves the file handler to the parameter-defined place on the file. The parameter place is an integer value, indicating how many characters from the beginning of the file the pointer is placed.
+
+- tell() tells the amount of characters from the beginning of file the file pointer has advanced so far.
+
+ 01  readfile = open('example.txt','r')
+ 02
+ 03  content = readfile.readline()
+ 04  location = readfile.tell()
+ 05  print(content[:-1]+"; The pointer is now at",location)
+ 06
+ 07  print("Return to character number 10:")
+ 08  readfile.seek(10)
+ 09  content = readfile.read()
+ 10  print(content)
+ 11
+ 12  readfile.close()
+
+** File modes
+
+ Mode    Definition
+ ----    ----------
+ r       Read mode: if the file name does not match any known file, raises IOError. Handles the data as characters.
+ w       Write mode; If the file name does not match any known file, creates a new file. If it does, empties the file before writing. Handles data as characters.
+ a       Adding mode; If the file name does not match any known file, creates a new file. If it does, adds the new text to the end of the existing file. Handles data as characters.
+ rb      bit-read; if the file name does not match any known file, raises IOError. Handles the data as bit values.
+ wb      bit-write; If the file name does not match any known file, creates a new file. If it does, empties the file before writing. Handles data as bit values.
+
+** Read and write files
+
+ 03  number = 1024
+ 04
+ 05  readfile = open("numberfile.txt","w")
+ 06  readfile.write( str(number) )
+ 07  readfile.close()
+ 08
+ 09  readnumber = 0
+ 10  readfile = open("numberfile.txt","r")
+ 11  readnumber = int(readfile.readline())
+ 12  readfile.close()
+ 13
+ 14  print("A number",readnumber," was read and converted to a number:")
+ 15  readnumber = readnumber *2
+ 16  print(readnumber)
+
+** Writing to a file
+
+ 01  def delist(mylist):
+ 02      stringdata = ""
+ 03      for i in range(0,len(mylist)):
+ 04          stringdata = stringdata + "€$€" + str(mylist[i])
+ 05
+ 06      return stringdata
+
+
+ 03  myfile = open("writings.txt","w")
+ 04
+ 05  mytext = "First line!\nSecond line!\nLast in line!"
+ 06  print(mytext)
+ 07
+ 08  myfile.write(mytext)
+ 09  myfile.close()
+
+** Appendixing to a file
+
+ 03  myfile = open("writings.txt","a")
+ 04
+ 05  addedtext = "Added line!\n This goes to writings.txt! \
+ 06  which was created earlier.\n"
+ 07
+ 08  print(addedtext)
+ 09
+ 10  myfile.write(addedtext)
+ 11  myfile.close()
+
+** Handling data in a bit-state
+
+It means that the numbers 1 (True) and 0 (False)
+
+ 01     is 0*2 + 1*1               meaning 1
+ 10     is 1*2 + 0*1               meaning 2
+ 11     is 1*2 + 1*1               meaning 3
+ 100    is 1*4 + 0*2 + 0*1         meaning 4
+ 110    is 1*4 + 1*2 + 0*1         meaning 6
+ 1011   is 1*8 + 0*4 + 1*2 + 1*1   meaning 11
+ 10011  is 1*16 + 1*2 + 1*1        meaning 19
+
+A binary value 01000001 is 65 in decimal value, meaning a character "A" based on the ASCII chart. Similarly, "B" would be 66 and "C" 67. This is also the reason why Python has hard time understanding the connection between lowercase and uppercase letters; uppercase letters from A-Z are values 65-90, whereas lowercase a-z are 97-122. Other special characters (#,?,%,& ...) also have a numeric value based on the ASCII. In fact, that numeric value is the method the Python uses as a backbone in sorting and comparison operations between characters.
+
+For non-english-speaking world, the ASCII-chart has one huge weakness: it only covers purely english letters, not having any of the more uncommon letters from scandinavian, german or cyrillic alphabet. This also is the reason why the ASCII table was later revised with supplemental Extended ASCII charts, which were meant to be localized based on the user needs. This also is the fundamental reason why it was (and in many places still is) hard to get the special characters to show properly.
+
+** Selecting the code page
+
+ # -*- coding: cp1252 -*-
+
+This tells the interpreter, that the current code applies codepage 1252, which in Windows operating system means the extended ASCII-chart for western and northern Europe. This enables the system to correctly show characters like Å or Ö, which are common in for example Swedish and Finnish. This also is the cause for error characters which are sometimes seen; not all systems support the extended code pages, which leads to the different error characters.
+
+There also is a fix for this problem, called UTF-8. This new codepage technology allows over eight million individual characters, allowing all different character sets from greek, cyrillic, arabic, japanese, korean and chinese alphabets. This is also meant to end once and for all all the problems with the different characters. The Python language already understands this codepage system, and it can be used by giving the code page declaration.
+
+ # -*- coding: UTF8 -*-
+
+Unfortunately, many operating systems still in use does not fully support UTF8.
+
+
+* Functions and subfunctions
+
+Create and call a function:
+
+ def hellofunction():
+     print("This print is from the function!")
+
+ hellofunction()
+
+Create and call a function with parameters:
+
+ 01  def Comparison(number_1, number_2):
+ 02      """This function takes two integers."""
+ 03
+ 04      if number_1 == number_2:
+ 05          print("The numbers are equal.")
+
+** Parameters, main function and subfunction
+
+ #Lets define a subfunction
+ def printerfunction(word1,word2):
+     print("We got parameters",word1,"and",word2)
+
+ #This is the main function
+ def main():
+     string_1 = "Blues record"
+     string_2 = "Artichoke"
+
+     #Lets call the subfunction here
+     printerfunction(string_1, string_2)
+
+ #This code tells the interpreter the name
+ #of the main function which starts the program.
+
+ if __name__ == "__main__":
+     main()
+
+Unlike in some languages such as C, there actually is no restriction on what the name of the main function should be. However, using the name "main" for the main function is probably the most clearest one, and definately makes it easier for the non-Python-expert to understand the code.
+
+** Return value
+
+The functions are also capable of returning data to the main function with a return value.
+
+ 01  def change_price(value):
+ 02      price = 250 + value
+ 03      return price
+
+
+ >>> pricenow = 100
+ >>> pricenow = change_price(pricenow)
+ >>> print(pricenow)
+ 350
+ >>>
+
+Another example:
+
+ 01  def divider(number1,number2):
+ 02      if number2 == 0:
+ 03          return False
+ 04      else:
+ 05          result = number1/number2
+ 06          return result
+
+
+ >>> results = divider(100,0)
+ >>> print(results)
+ False
+ >>> results = divider(100,20)
+ >>> print(results)
+ 5.0
+
+** True and false
+
+It is usual that the method returns either a value 1 (True) if the requested action was successful and 0 (False) if the action was unsuccessful.
+
+ 01  def getlength(testme):
+ 02      if len(testme) < 42:
+ 03          return 0
+ 04      else:
+ 05          return 1
+ 06
+ 07  result = getlength("ohgodwhydoesthisstringhavetobesolongicanteverrememberthis")
+ 08  if result == True:
+ 09      print("This string is long enough.")
+ 10  else:
+ 11      print("This string is too short.")
+
+
+ # -*- coding: cp1252 -*-
+
+ def calculator(distance,gas,mpg):
+     price = gas*(distance/mpg)
+
+     price = int(price)
+     return price
+
+ def main():
+     gasprice = float(input("How much is one gallon of gas?: "))
+     tripdistance = int(input("How many miles will be driven?: "))
+     averagempg = float(input("How many mpg does the car get?: "))
+
+     total_sum = calculator(tripdistance,gasprice,averagempg)
+     print("The trip will cost",total_sum,"euroes.")
+
+ if __name__ == "__main__":
+     main()
+
+** Default values in parameters
+
+The default values of parameters are simply values assigned to the parameters in the function definition:
+
+ def printstuff(charline = "Defaults!"):
+     print(charline)
+
+When this function is called, it can be called without any given parameters as every parameter has a value:
+
+ >>> printstuff("Testing my function!")
+ Testing my function!
+ >>> printstuff()
+ Defaults!
+ >>>
+
+If there are several parameters with a default value, it is also possible to decide which parameters are given:
+
+ 01  def printstuff(parameter1 = "First", parameter2 = "Last"):
+ 02      print(parameter1+"----"+parameter2)
+
+
+ >>> printstuff(parameter2 = "Stonewall")
+ First----Stonewall
+ >>> printstuff(parameter1 = "Moat")
+ Moat----Last
+ >>>
+
+
+With this assignment syntax the ordoer of parameters is irrelevant.
+
+ 01  def printstuff(value = 1024, parameter1 = "First", parameter2 = "Last"):
+ 02      print(parameter1+"----"+parameter2)
+ 03      print(value)
+
+ >>> printstuff(parameter2 = "Black", parameter1 = "Red", value = 256)
+ Red----Black
+ 256
+ >>>
+
+Advanced example:
+
+ def square(width= float(5.0), height = float(8.0)):
+     area = width*height
+     return area
+
+ def main():
+     #Since we now have default values,
+     #we can leave some of the parameters out.
+     area1 = square()
+     area2 = square(4.0,3.0)
+     area3 = square(10.0)
+     area4 = square(height = 11.0)
+
+     print("Four different ways of calling our function...")
+     print("And they all work:")
+     print(area1,area2,area3,area4)
+
+ if __name__ == "__main__":
+     main()
+
+** Observations regarding the subfunctions in use
+
+Visibility of these variables inside, outside and between the functions.
+
+We should discuss in more details are the namespaces, in other words the areas of source code where the different variable names are seen.
+
+ 01  def print_price():
+ 02      print(price)
+ 03
+ 04  price = 100
+ 05  print_price()
+
+The upper code works, because the subfunction print_price() does not define a new variable price, nor does it take a parameter of the said name. In this special case, the interpreter is able to see the namespace of the main level code, and read the variable from the main level.
+
+The variable cannot be changed with the code inside function, only read.
+
+The functions are also not able to see variables from anywhere else besides the main level; not from the calling function, or main function if that is declared, only from the main level.
+
+** Global variables
+
+The main idea in a global variable is that it can be accessed from anywhere in the program, from the main level, main function or any of the subfunctions to read and store data. In Python, a global variable is is first defined by creating a variable into the main level:
+
+ commonvariable = ""
+
+
+ global [variable name]
+
+
+ 01  def printlabels():
+ 02      global postnumber
+ 03      if postnumber == "00102":
+ 04          print("Parliament house: 00102")
+ 05      postnumber = "99999"
+ 06
+ 07  postnumber = "00102"
+ 08  printlabels()
+ 09  if postnumber == "99999":
+ 10      print("North Pole:",postnumber)
+
+
+ >>>
+ Parliament house: 00102
+ North Pole: 99999
+ >>>
+
+When one function sets the variable to one position, it not only overwrites the data set by some other function, but also may affect the way the other functions which rely on the global variable work. Sooner or later this usually ends up in a synchronization problem;
+
+** Creating and using the main function
+
+The first thing understand is the division between the code in main function, main level and subfunctions:
+
+ 01  # -*- coding: cp1252 -*-
+ 02  #This is MAIN LEVEL code
+ 03  print("Main level code!")
+ 04
+ 03  def subfunction():
+ 04      #This is SUBFUNCTION code:
+ 05      print("Subfunction code!")
+ 07
+ 08  def main():
+ 09      #This is MAIN FUNCTION code:
+ 10      print("Main function code!")
+ 11
+ 12  #This if-structure tells the interpreter
+ 13  #which of the functions is the main function
+ 14  if __name__ == "__main__":
+ 15      main()
+
+There are three distinquishable types of code; the main level, main function and subfunctions.
+
+- The main level code is all of the code which is written on the "root" of the source code file, without indentation outside all function stuctures.
+
+- The subfunction code is the code inside any function besides main function, which is one of the functions in the source file, defined by the special if-structure similar to the one above.
+
+- The main function is also the one which is responsible for starting and terminating the program in a controllable manner.
+
+
+ if __name__ == "__main__":
+     main()
+
+Which basically means that if the program is started as the file which is executed (the __main__ -thing in the conditions) instead of imported, the function called main() is executed. If the file is imported as a module (discussed more in the next chapter) the program does not start autonomously, so the subfunctions can be used in the other program. Otherwise the if-structure is completely normal conditional structure; the reason why it is left last is practicality; if there is any code in the main level after this call, it is executed after the main function closes, usually meaning after the program has basically ended. If there was something like a declaration for global variable after this structure, it will not be available for the main function, or any function the main function starts.
+
+** Lambda-functions
+
+These functions are a kind of miniature functions, which enable the programmer to do small changes to a variable with small modifiable function call. This action can be basically any operator, and it is defined in the following way:
+
+ def [functionname}([parameter]):
+     return lambda [2. parameter]: [2. parameter] [operator] [parameter]
+
+For example like this:
+
+ def adder(n):
+     return lambda total: total + n
+
+Which is created and used like this:
+
+ >>> smalladder = adder(5)
+ >>> smalladder(10)
+ 15
+ >>> smalladder(20)
+ 25
+ >>>
+
+* Modules
+
+The large array of different types of modules in the module library is one of the strong points of Python; it simply covers several topics such as GUI building, mathematics, randomization, using internet connection and even using audio files.
+
+** Using the modules
+
+ import random
+
+This simple command informs the interpreter that the program will use a module called random. The module random is a library module, which includes several different functions to pick random selections or random numbers or elements.
+
+ 03  import random
+ 07  number = random.randint(0,100)
+ 09  print("Program picked a number",number)
+
+As can be observed from the example, the functions within the modules imported with import command are used with syntax
+
+ modulename.functionname()
+
+This notation is used to avoid situations, where the two modules have a function that has the same name.
+
+Related to the naming conventions, is a command dir([module name]), which can be used to browse module contents and help([function name]) which prints the document strings and additional instructions within the functions.
+
+This command pair is also a nice tool for browsing the module library, as the functions within the standard library modules are rather well documented and explained. Heres and ecample on how the dir()-command works:
+
+ >>> import math
+ >>> dir(math)
+ ['__doc__', '__name__', '__package__', 'acos', 'acosh', 'asin', 'asinh',
+ 'atan', 'atan2', 'atanh', 'ceil', 'copysign', 'cos', 'cosh', 'degrees', 'e', 'exp',
+ 'fabs', 'factorial', 'floor', 'fmod', 'frexp', 'hypot', 'isinf', 'isnan', 'ldexp',
+ 'log', 'log10', 'log1p', 'modf', 'pi', 'pow', 'radians', 'sin', 'sinh', 'sqrt',
+ 'sum', 'tan', 'tanh', 'trunc']
+ >>>
+
+** Python standard module library
+
+ Name            Summary
+ ----            -------
+ random          Random numbers, random selection
+ math            Mathematical functions, matrix
+ pickle          A support module used to read and write the dynamic structures such as list or class to a file.
+ sys             Functions related to the operating system services.
+ zipfile         Module which can be used to create and manipulate the zip-archive files.
+ tkinter         Creation of graphical user interfaces (see book chapter 11)
+ winsound        module which can play sound files (Only available for Windows-operating systems.)
+ time            Timing, calendar and time calculation functions
+ os              Separate module for the additional operating system-related functions.
+
+The complete list of modules delievered with the Python 3 interpreter is available at the documentation, available online in address http://docs.python.org/3.0/library/
+
+It is possible to get the instructions written to the module itself:
+
+ help([module name].[function name])
+
+
+ >>> import random
+ >>> help(random.randint)
+ Help on method randint in module random:
+
+ randint(self, a, b) method of random.Random instance
+     Return random integer in range [a, b], including both end points.
+
+ >>>
+
+Ending program, sys-module:
+
+ 01  # -*- coding: cp1252 -*-
+ 02
+ 03  import sys
+ 04
+ 05  startprice = int(input("Please input the price: "))
+ 06  if startprice < 0:
+ 07      print("Please, no negative numbers.")
+ 08      sys.exit(0)
+ 09  else:
+ 10      tax = int(input("Please insert the VAT % (0-100): "))
+ 11  if tax < 0:
+ 12      print("VAT cannot be less than 0.")
+ 13      sys.exit(0)
+ 14  print("Final price is",startprice*(tax/100)+startprice)
+
+If this happens, the interpreter passes a notification which resebles an error message.
+
+** Mathematical functions, math-module
+
+ 02  import math
+ 03
+ 04  side_1 = 1.5
+ 05  side_2 = 3.5
+ 06
+ 07  print(math.sin(1.5 / 3.5))
+ 08  print(math.pi)
+
+Unlike other methods, the math.pi is not a function or method, but more like a fixed variable. It can be used as a normal variable in the calculations, with the exeption that it should not be altered.
+
+ 03  import random
+ 04
+ 05  numbers = []
+ 06  #picks 7 random numbers from 1 to 39
+ 07  while True:
+ 08      if len(numbers) == 7:
+ 09          break
+ 10      pick = random.randint(1,39)
+ 11      if pick not in numbers:
+ 12          numbers.append(pick)
+ 13
+ 14  numbers.sort()
+ 15  print("The program picked the following numbers:")
+ 16
+ 17  for i in numbers:
+ 18      print(i, end = ' ')
+
+** Special import methods, from import
+
+For importing modules there are some special cases. For example, if the size of the final program is limited, or the program only needs one functionality from a huge module, it is also possible to import individual funtions instead of the entire module. This can be done with syntax
+
+ from [module name] import [function name]
+
+For example
+
+ from math import sqrt
+
+Another example:
+
+ 01  # -*- coding: cp1252 -*-
+ 02
+ 03  from random import randint
+ 04  import sys
+ 05
+ 06  def numbergame():
+ 07      number = randint(0,100)
+ 08      while True:
+ 09
+ 10          guess = int(input("Give a number between 0-100: "))
+ 11          if guess < 0:
+ 12              print("Bad guess!")
+ 13              print("Program is terminated.")
+ 14              sys.exit(0)
+ 15          if guess == number:
+ 16              print("You guessed correctly!")
+ 17              break
+ 18          elif guess < number:
+ 19              print("The number is larger than that.")
+ 20          else:
+ 21              print("The number is smaller than that.")
+ 22
+ 23  if __name__ == "__main__":
+ 24       numbergame()
+
+The entire module can be imported to operate directly without name reference with command:
+
+ from <module name> import *
+
+This way of importing the entire module is usually done with the modules which are large, complete overhauls which alter the entire programming paradigm. From the standard module library, the GUI-producing module Tkinter is one of this type of modules. It changes the programming style to a degree where it is plausible to argue that the tkinter funtionalities become the program core, so importing it this way is acceptable.
+
+** Creating own module
+
+In Python, any function written into any source code file can be used in another source file simply by importing it.
+
+ 01  def average(int a, int b):
+ 02      """Calculates the average between the two integers."""
+ 03      ave = (a + b) / 2.0
+ 04      return ave
+
+Assume that there is another source code, in which this function is needed. To be able to use this function, we simply need to copy this file to the same directory as the new source code file so that the interpreter finds the correct source file, and add to the new file a import-command:
+
+ import calculator
+
+Which basically is the the name of the imported source file without the .py-file extension. After this command, the function average can be used in the new file with name calculator.average().
+
+mymodule.py-source code:
+
+ 01  def taxcalculator(salary,percentage):
+ 02      """Parameters salary (int) and percentage (0-100)
+ 03      returns the final salary after taxes as a integer """
+ 04
+ 05      final = (salary * ((100 - percentage) / 100))
+ 06      return final
+
+The actual example source code:
+
+ 01  # -*- coding: cp1252 -*-
+ 02
+ 03  import mymodule
+ 04
+ 05  def main():
+ 06      salary = int(input("Give monthly salary: "))
+ 07      tax = int(input("Give tax percentage (0-100): "))
+ 08
+ 09      sum = mymodule.taxcalculator(salary,tax)
+ 10
+ 11      print("You'll get", sum,"euroes.")
+ 12
+ 13  if __name__ == "__main__":
+ 14      main()
+
+At this point the difference between the main level and main function becomes apparent: in the main level, the code cannot be used in any meaningful way, but with main function, the module can be started by simply calling the main function. However, there is one exception to this rule: the variables defined in the main level can be used as fixed values:
+
+mymodule.py, which has the following code:
+
+ 01  fixedvalue = 100
+ 02  def printout():
+ 03      print("Fixed value is:",fixedvalue)
+
+Fixedvalue-variable can be used by importing the module mymodule, where it can either be used directly:
+
+ 01  import mymodule
+ 02
+ 03  print(mymodule.fixedvalue)
+ 04  mymodule.printout()
+
+This is also the reason why the module fixed values (such as math.pi) should never be modified: The values can be used within the module itself. By changing the value of math.pi, it is probable that every single calculation, which has anything to do with the value of pi will give wrong answers, but in some modules, it can cause instability or altogerher crash the program.
+
+* Exception handling
+
+** Catching exceptions
+
+ >>> 3 + "string"
+ Traceback (most recent call last):
+ File "", line 1, in
+
+ 3 + "string"
+ TypeError: unsupported operand type(s) for +: 'int' and 'str'
+ >>>
+
+When writing the source code, the main way to prepare for user-caused problems is to think of all the possibilities which could happen, and create expection handlers or instructions for all of these situations.
+
+It is a good practice in development to at least try to fix all errors and prevent possible problems.
+
+Because the language is interpreted, it can actually pinpoit errors rather accurately, usually highlighting the cause, not a symptom of the error.
+
+ File "", line 1, in
+
+This line tells that the error happened in the python shell (interpreter window), on line 1.
+
+ 3 + "string"
+ TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+These lines tell that the command which caused the error was the command 3 + "string", where a TypeError occurred.
+
+** Try-except
+
+In this logically two-phased structure the vulnerable code is written into the try-segment, which is followed by the except-segments, which define the actions taken, if that type of error occures.
+
+If this segment goes through the interpreter without any errors, the exception handler is exited and the program continues at the next logical line after the handler. If there were an error in the try-sefment, the interpreter starts to look for a suitable handler. The execution of the source code at try-segment ends at the line, which caused the problem, and the interpreter moves to the beginning of the first suitable except-segment. When except-segment is done, the program continues at the next logical line of source code after the exception handler. Also, if the exception handler does not have a suitable except-segment, the interpreter raises a normal error message, similarly as in the situation where no exception handler structure was used.
+
+ 03  #Lets ask a value for mynumber
+ 04  mynumber = input("Give a numeric value: ")
+ 05
+ 06  #convert the value to integer
+ 07  try:
+ 08      mynumber = int(mynumber)
+ 09      print("You gave a number",mynumber)
+ 10
+ 11  #In case any error happens, the Exception
+ 12  #-named exception segment is run
+ 13  except Exception:
+ 14      print("That was not a number!")
+
+The exception handler is constructed by inserting the vulnerable code to the try-segment. In this case, the code inserted into the try-segment is a typical case of vulnerable code, a type conversion from the user-given input to a numberic value.
+
+** Catching different types of errors
+
+ except Exception:
+
+This error class (Exception) acts as an umbrella, which catches every other error type, but the user-raised keyboard interruption Ctrl-Z and the SystemExit, which is raised by the sys.exit()-function.
+
+ 03  def getnumber():
+ 04      mynumber = input("Give a numeric value: ")
+ 05      return mynumber
+ 06
+ 07  def main():
+ 08      number1 = getnumber()
+ 09      number2 = getnumber()
+ 10      try:
+ 11          result = int(number1) / int(number2)
+ 12
+ 13      except ZeroDivisionError:
+ 14          print("Its not possible to divide with 0.")
+ 15
+ 16      except (TypeError, ValueError):
+ 17          print("Its not possible to calculate letters.")
+ 18
+ 19      else:
+ 20          print("The result is",result)
+ 21
+ 22  if __name__ == "__main__":
+ 23      main()
+
+** Error classes in Python
+
+ Error class         Definition
+ -----------         ----------
+ ZeroDivisionError   An error caused by division with zero.
+ AttributeError      Errors caused by the faulty calls of methods and attributes.
+ ImportError         Errros associated to importing external modules and library modules.
+ NameError           Errors caused by a reference to a variable that does not exist.
+ TypeError           Errors caused by incompatible variable types.
+ ValueError          Errors caused by the unsuitable values of variables.
+ IOError             Errors associated to the file handling.
+ IndexError          Errors caused by a direct reference to outside the dynamic structure; for example reference listitem[300], when listitem has only 20 items.
+ Exception           General error class, which is used to catch all "common" error types.
+ UnboundLocalError   The varible is not defined and it cannot be created at this point; for example defining the iterator variable first time at the iteration argument.
+
+The common error types of Python:
+
+ Warning class         Definition
+ -------------         ----------
+ DeprecationWarning    Program applies a syntax or structure which will be deprecated (i.e. removed) from the Python language in the upcoming version updates.
+ SyntaxWarning         Source code structure is ambiguous, sometimes caused by mixing tabulator and space in the indentation.
+ RuntimeWarning        Program causes instability in the interpreter.
+ FutureWarning         Program applies a syntax or structure which will change its behavior in the future version update.
+
+Warnings are relatively rare, and are usually only encountered in special circumstances. However, the DeprecationWarning and FutureWarning are worth mentioning; they usually indicate that the offending feature should be replaced with something more suitable, as the program may stop working at the next interpreter update, or at least in a near future.
+
+Name, Type and ValueError are relatively common as they are related to working with the variables.
+
+A full list of Python errors and warnings can be accessed at http://docs.python.org/3.0/library/exceptions.html.
+
+** Else-segment
+
+The exception handler also allows an else-segment. In the exception handler, the else-segment is defined as the last segment, after all of the except-segments. If the handler does not execute any of the except-segments, meaning that the try-segment was done without errors, the else-segment is executed.
+
+ 03  number = input("Give a number value: ")
+ 04
+ 05  try:
+ 06      number = int(number)
+ 07  except Exception:
+ 08      print("That was not a number.")
+ 09  #else happens if no except is used
+ 10  else:
+ 11      print("You gave a number",number)
+
+The else is used when no except-segment is activated. The else is most suitable in the situations, where the program has to do something with the data defined in the try-segment; If an error happens and it is caught, the data changes in the try-segment is never recorded, as if the code never happened. In that situation, a print-command after the exception handler would cause an error.
+
+** Controlled takedown, Try-Finally
+
+try-finally is not meant to prevent the program from crashing, but to offer a controlled method for ending the program on an error. This gives the program an option to shut all open files or inform the host end of the program that the client program is closing and the host should shut the connection.
+
+ 03  #lets ask for an input
+ 04  number = input("Give a value: ")
+ 05
+ 06  #lets try to convert the input to an integer
+ 07  try:
+ 08      number = int(number)
+ 09      print("You gave a value",number)
+ 10
+ 11  #if anything happens, finally is executed
+ 12  finally:
+ 13      print("There was an error in the program!")
+
+Asking for a numeric value:
+
+ 03  def numbergetter():
+ 04      while True:
+ 05          try:
+ 06              numbervalue = input("Give a numeric value: ")
+ 07              numbervalue = float(numbervalue)
+ 08              return numbervalue
+ 09          except Exception:
+ 10              print("Erroneous input, try again.")
+ 11
+ 12  def main():
+ 13      print("Please type in the full salary")
+ 14      salary = numbergetter()
+ 15      print("Input the amount of taxes (0-100)")
+ 16      taxes = numbergetter()
+ 17      leftover = salary * ((100 - taxes) / 100)
+ 18      print("You are left with",leftover,"euroes.")
+ 19
+ 20  if __name__ == "__main__":
+ 21      main()
+
+The only way to not give an input is to terminate the program with the escape sequence Ctrl-C, which raises a KeyBoardInterrupt-error, which by default is not catched by the default except Exception-handler.
+
+** Self-made error classes and generating the error
+
+In the Python language, every error type is inherited from the class Exception. In practice this means that to define an error class, the programmer simply needs to make a following class type:
+
+ class MyError(Exception):
+        def __init__(self,value):
+                self.value = value
+        def __str__(self):
+                return repr(self.value)
+
+This code creates an error class MyError, which is initialized to take the given error message as an argument and used if the error is raised. If the program confronts the error the self-defined error message should be used, it can be raised with the following command:
+
+ >>> raise MyError("There are four lights.")
+ Traceback (most recent call last):
+   File "", line 1, in
+
+    raise MyError("There are four lights.")
+ MyError: 'There are four lights.'
+ >>>
+
+** raise, Manually raising an error
+
+ raise [error type]
+
+
+ >>> raise SyntaxError
+ Traceback (most recent call last):
+   File "", line 1, in
+     raise SyntaxError
+   File "", line None
+ SyntaxError:
+ >>>
+
+
+* Advanced datastructures
+
+** List
+
+The list is probably the most common advanced datatype in Python. The list basically is a normal variable, but instead of one item at a time, it can have several items, which can be refered to with a syntax similar to single characters in a string.
+
+ [name of the list] = []
+
+This command creates an empty list, which has zero items. After the list is created, it can get new values as items with method .append() and remove existing items with command .remove()
+
+ >>> mylist = []
+ >>> mylist.append("oneitem")
+ >>> mylist.append(123131)
+ >>> mylist
+ ['oneitem', 123131]
+ >>> mylist.remove("oneitem")
+ >>> mylist
+ [123131]
+ >>>
+
+The method .remove() is a bit troublesome, as it requires the content of the item as an argument. Better method for removing items is .pop(), which only requires the item place number insted of content to remove it from the list. As with string slices, the first item is at place 0, so listname[0] refers to the first item in the list, and will be removed with command listname.pop(0).
+
+ >>> mylist = ["First", "Second", "Third"]
+ >>> mylist.pop(1)
+ 'Second'
+ >>> mylist
+ ['First', 'Second']
+ >>>
+
+If method .pop() is not given any argument, it removes the last item in the list. The method also returns the value of the deleted item as a return value, so it can be also used to "check out" one item from the list to a variable.
+
+** Creating and using a list
+
+ 03  #List as a variable
+ 04  #Create mylist, notice the line break in the definition
+ 05  mylist = ["Apples","Milk",
+ 06           "Beer","Squigg"]
+ 07  print(mylist)
+ 08
+ 09  #Lets add one item
+ 10  mylist.append("Pineapple")
+ 11  print(mylist)
+ 12
+ 13  #Lets remove the item 1
+ 14  mylist.pop(1)
+ 15
+ 16  #This prints the mylist
+ 17  for i in mylist:
+ 18    print(i)
+
+Slicing techniques:
+
+ >>> mylist = [1,2,3,4,5,6,7,8]
+ >>> mylist[2:5]
+ [3, 4, 5]
+ >>> mylist[:6]
+ [1, 2, 3, 4, 5, 6]
+ >>> mylist[::-1]
+ [8, 7, 6, 5, 4, 3, 2, 1]
+ >>> mylist[3]
+ 4
+ >>>
+
+The contents of the list items can be tested with several methods, such as index and count. Index tells the first instance of the item, which has the same value as the given argument. Count tells how many such items are in a one list.
+
+ >>> mylist = ["Shovel", "Sledgehammer", "Drill", "Sledgehammer"]
+ >>> mylist.index("Drill")
+ 2
+ >>> mylist.count("Sledgehammer")
+ 2
+ >>> mylist.index("Screwdriver")
+ Traceback (most recent call last):
+   File "", line 1, in
+     mylist.index("Screwdriver")
+ ValueError: list.index(x): x not in list
+ >>>
+
+With index-method it should be mentioned that if there is no item, which corresponds to the given argument, a ValueError is raised. Anyway, index and count are not the only list methods:
+
+ Name             Definition                                                                    Observations
+ ----             ----------                                                                    ------------
+ .append(X)       Adds value X as the last item in the list.
+ .insert(I,X)     Adds argument X as the item number I.
+ .remove(X)       Removes the first list item, which has the value X.
+ .pop(I)          Removes the list item number I.
+ .index(X)        Returns the item number of the first item, which has the value X.             Raises a ValueError if none of the items match X.
+ .count(X)        Returns the amount of times the X appears as a list items.
+ .sort()          Sorts the list items based on their value.                                    Values are primarily dictated by the list character ASCII-value.
+ .reverse()       Reverses the list items, first becomes the last, last the first.
+
+The full list of different list methods can be accessed at the Python documentation online, at address http://docs.python.org/3.0/library/stdtypes.html#sequence-types-str-bytes-bytearray-list-tuple-range starting from the point "Mutable Sequence Types".
+
+One easy way to test if some value is within the list is to use the operator in:
+
+ >>> basket = ["Apples", "Orange","Kiwifruit","Banana"]
+ >>> "Cauliflower" in basket
+ False
+ >>> "Apples" in basket
+ True
+ >>>
+
+For-structure has the limitation that it wants the amount of iterations calculated beforehand, which usually requires the programmer to use len() and range() to create this action. Hoever, with lists this range(0,len(something))-monster can be simply replaced with the list itself:
+
+ >>> mylist = [1,2,3,4]
+ >>> for i in mylist:
+     print(i)
+ 1
+ 2
+ 3
+ 4
+
+
+ >>> newlist = []
+ >>> for i in mylist:
+     newlista.append(i+10)
+
+ >>> newlist
+ [11, 12, 13, 14]
+ >>>
+
+** Dictionary
+
+The dictionary is a special type of list, where the items can be given names instead of just numbers, meaning that it is possible to, for example, couple a string "Apples" to a item name "A".
+
+ >>> dictio = {"A":"Apples", "O":"Oranges"}
+ >>> dictio["A"]
+ 'Apples'
+ >>>
+
+It is possible to give a name to the item, instead of just using the item number.
+
+The dictionary is a useful tool for example in saving settings data, or when the system needs to systematically replace or look out data based on input.
+
+ 03  def morsecoder(word):
+ 04      #Lets define some letters
+ 05      alphabet = { 'a' : '.-', 'b' : '-...',
+ 06                   'c' : '-.-.', 'd' : '-..',
+ 07                   'e' : '.', 'f' : '..-.',
+ 08                   'g' : '--.', 'h' : '....',
+ 09                   'i' : '..', 'j' : '.---',
+ 10                   'k' : '-.-', 'l' : '.-..'}
+ 11
+ 12      result = ""
+ 13      for i in range(0,len(word)):
+ 14          result = result + alphabet[word[i]]+"/"
+ 15
+ 16      print("Word",word,"in Morse code is")
+ 17      print(result)
+ 18
+ 19  worde_1 = "cliff"
+ 20  worde_2 = "bach"
+ 21  morsecoder(worde_1)
+ 22  morsecoder(worde_2)
+
+The need for dictionaries in source code is really sporadic. The dictionary has a few big advantages, and a few application areas where it is irreplaceable, but in everyday programming it really is uncommon feature. As dictionary also does not have the editing methods of a list - a restriction it shares with tuple - it really becomes mostly a special case of lists.
+
+** Tuple
+
+Once the tuple is defined, it can be used as a list in references, but unlike list, it is not possible to add, remove or change the individual items in the structure without redefining the entire tuple.
+
+ >>> place = (124,124)
+ >>> place
+ (124, 124)
+ >>> place[0]
+ 124
+ >>> place[0] = 200
+ Traceback (most recent call last):
+   File "", line 1, in
+     place[0] = 200
+ TypeError: 'tuple' object does not support item assignment
+ >>>
+
+The tuple is created in a same way than list, with the sole exception of using the "normal" parenthesis "(" and ")". It is possible to reference only one tuple item, but the items cannot be changed or removed. In fact, only two of the list methods are available in tuple, count and index.
+
+With multiple assignments this structure offers a easy way of delievering parameter values to a subfunction:
+
+ >>> part1 = "It"
+ >>> part2 = "Is"
+ >>> part3 = "Glorious"
+ >>> tuplelist = part1,part2,part3
+ >>> tuplelist
+ ('It', 'Is', 'Glorious')
+ >>> one, two, three = tuplelist
+ >>> three
+ 'Glorious'
+ >>>
+
+This increases the security of delievering parameters, and ensuring that the values do not accidentally change. As tuple is kind of a write-proctection for values it has its uses. This is especially true in programs, which has interwined or parallelly ececuted code.
+
+Example of tuple program:
+
+ 01  def tupleprint(data):
+ 02    part1, part2, part3 = data
+ 03    print(part1+":")
+ 04    print(part2+" :: "+part3)
+ 05
+ 06  name = "Old Jolly"
+ 07  address = "Mountaintop 1, FI-99999 Korvatunturi"
+ 08  phone = "555-1234567"
+ 09
+ 10  datatuple = (name, address, phone)
+ 11
+ 12  tupleprint(datatuple)
+
+The ability of delievering the entire group of parameters as a one bundle, which also is write-protected is nice.
+
+** Set
+
+Set, which also is an extension, or special case, of list. A Python set is similar to the sets familiar from the logic. A set can be created from any group of items, such as strings or numbers, and it includes all of the unique items, as in set there cannot be two items which are identical.
+
+ >>> basket = {"apple","carrot","apple","milk","potato"}
+ >>> print(basket)
+ {'carrot', 'apple', 'milk', 'potato'}
+ >>> names = ["John", "Paul","George","Stuart","Pete","Paul","John"]
+ >>> players = set(names)
+ >>> print(players)
+ {'Pete', 'Paul', 'John', 'George', 'Stuart'}
+ >>> letters = set("acrabadabra")
+ >>> print(letters)
+ {'a', 'c', 'r', 'b', 'd'}
+ >>> moreletters = set("emphasis")
+ >>> letters - moreletters
+ {'c', 'r', 'b', 'd'}
+ >>> letters | moreletters
+ {'a', 'c', 'b', 'e', 'd', 'i', 'h', 'm', 'p', 's', 'r'}
+ >>> letters & moreletters
+ {'a'}
+ >>>
+
+The first possibility is to use the "wave" parenthesis ("{" and "}"), which work similarly to the way the normal list is defined. Other way is to use a dedicated type conversion function set(), which takes a list or string and makes a set out of it. In both cases, multiple instances of a same item are deleted from the resulting set.
+
+ Operator       Explanation
+ -------         -----------
+ A - B          Set complement; leaves items, which are in A but not in B.
+ A | B          Set union; Leaves all items, which are in either A or B or both
+ A & B          Set intersection; Leaves items, which are both in A and B
+ A^B            Negative set intersection; Leaves items, which are in either A or B, but not in both.
+ X in A         Item belonging; Returns True, if X is a item of a set A.
+
+** pickle-module
+
+The possibility of just dumping the dynamic data structures to a file, without having to manually deconstruct them for example to a CSV (comma separated value) format.
+
+To be able to use pickle, the file has to be opened to a bit-writing mode bw. This is important, as pickle cannot use normal character-files! If the pickle gives a following error:
+
+ Traceback (most recent call last):
+ File "C:/Users/Jussi/Desktop/koodit/8ePickleTallenna.py", line 8, in
+ pickle.dump(lista,tiedosto)
+ File "C:\Python30\lib\pickle.py", line 1315, in dump
+ Pickler(file, protocol).dump(obj)
+ File "C:\Python30\lib\io.py", line 1421, in write
+ s.__class__.__name__)
+ TypeError: can't write bytes to text stream
+
+It means that the file handle was created incorrectly. In any case, the pickle uses a dedicated function to write dynamic structure to a file handle. This function is named pickle.dump(), and it is used like this:
+
+ pickle.dump([structure name],[file handle])
+
+This makes the pickle to write the structure and its items into the file opened to the file handle in a datagram, which can be restored to a variable with the corresponding loading function. Pickle can save all of the dynamic structures mentioned
+
+Dumping dynamic structure to a file as a datagram:
+
+ 03  import pickle
+ 04
+ 05  listexample = ["Pineapple", "Atlas", ("Shaft", "Blade"), 1150]
+ 06  filename = open("saveme.dat","wb")
+ 07  print(listexample)
+ 08  pickle.dump(listexample,filename)
+ 09
+ 10  filename.close()
+
+
+ >>>
+ ["Pineapple", "Atlas", ("Shaft", "Blade"), 1150]
+ >>>
+
+This file cannot be read or edited normally with editor like IDLE or Notepad, as it has non-printable bit-mode data. If the file is opened in a normal editor, this bit data cause the uncomprehensible "scribble" in the file.
+
+Never, ever manually edit any file which is written in the bitmode "bw". This breaks the file completely beyond any hope for repairing it.
+
+Obviously as the datagram can be written, there also exists a method of loading it. That function is pickle.load(), and it works as follows:
+
+ pickle.load([file handle])
+
+The file handle here has to be opened in mode bit-read, br. Also, there can be only one dynamic structure saved as a datagram per file, meaning that it is not possible to write or read from one file more than once. If there is a need to save more than one list to one file, the lists have to be merged before and dumped as a one big list or by using several files.
+
+Reading datagram:
+
+ 03  import pickle
+ 04
+ 05  filename = open("saveme.dat","rb")
+ 06  justread = pickle.load(filename)
+ 07
+ 08  print("Following was just read: ",justread)
+ 09  print(justread[2],justread[3])
+ 10  filename.close()
+
+
+ >>>
+ Following was just read: ["Pineapple", "Atlas", ("Shaft", "Blade"), 1150]
+ ('Shaft', 'Blade') 1150
+ >>>
+
+
+* Object-oriented programming and Python
+
+In the newer programming languages such as C++, Java or .NET-environment, the approachs is closer to object-orientation than procedural programming.
+
+The fundamental difference between procedural and object-orientation is the application of classes and objects. Instead of functions and variables, the data is stored in objects, which are able to modify the data by themselves. In objects, there are internal variables and methods - kind of functions - and in a some sense they are dynamic structures.
+
+- Procedural program: activities are in functions, while data is in variables. Functions are called in order to manipulate variables.
+- Object-oriented program; data and methods reside in objects, which are kind of an independent units based on classes.
+
+All strings, classes and file handles with their manipulating methods are actually objects. In fact Python is a full object-oriented language, with possibility to do "old-fashioned" procedural programming. Inside the interpreter, every variable and command is actually an object.
+
+The big invention in object-oriented programming are the classes.
+A class is a kind of dynamic structure, which has variables to save data and internal methods to manipulate these said variables.
+
+The other important feature is the class inheritance: . From one class, person, the abilities can be inherited to more specific types of classes, such as employer, manager, customer. When creating a new class by inheriting an existing class, its possible to only define the new, or changed abilities, while rest of the class is copied from the old one.
+
+This is one of the reasons why classes are considered a great invention; they enable a great reuse value for existing code.
+
+** Creating a class
+
+When creating an object with attributes and methods, the first thing to do is to define a class.
+
+The class is a kind of prototype or schematics for an object, and defines the different methods and attributes the class - and subsequent object - will have. This is done by writing the class declaration
+
+ class Switch:
+     pass
+
+Keyword pass, which is required because similarly as def or any stucture, also class begins a new code segment.
+
+The more common way of creating a class is something like this:
+
+ class Switch:
+     """Switcher-class, returns a Boolean."""
+     __mode = False
+
+     def get_mode(self):
+         return self.__mode
+
+     def switch_mode(self):
+         if self.__mode == False:
+             self.__mode = True
+         else:
+             self.__mode = False
+
+To test this class, the next thing needed is an object created based on the class. :
+
+ >>> Lamp = Switch()
+
+This command creates a new object called Lamp, which basically is the functional implementation of the class Switch. The Lamp has the internal attribute mode, and the two methods get_mode and switch_mode:
+
+ >>> Lamp.get_mode()
+ False
+ >>> Lamp.switch_mode()
+ >>> Lamp.get_mode()
+ True
+ >>>
+
+The only way to affect the variable mode is to use the methods which are inside the class, so there cannot be any foul play or mistakes with the variable assignments. In addition, the class also has a document string, which explains the usage of the class to the user. This feature works exactly like with the functions.
+
+** Class attributes
+
+Class attributes are a kind of variables, which exist inside the class and are are owned by the objects created from the class.
+
+ class Customer:
+     name = "John Johnsson"
+     total = 1000
+     paymenttype = "Masterexpress"
+     number = "1234-5678-9012345"
+
+Python also allows a special case of class, an open class. In this class type, the class does not have any particular attributes or methods, but it can take new attributes simply by introducing them:
+
+ class Example:
+    pass
+
+The class Example has no defined structure. To add new attributes to the class, one can simply start stuffing the class with variables simply by defining them on-the-fly:
+
+ >>> Randomstuff = Example()
+ >>> Randomstuff.value = "I got this."
+ >>> print(Randomstuff.value)
+ I got this.
+ >>>
+
+This creates a new object Randomstuff and gives it an attribute value, which is saved to the object and even available later to print out. However, this added attribute does not show up anywhere else besides in the object Randomstuff:
+
+ >>> MoreRandomstuff = Example()
+ >>> print(MoreRandomstuff.value)
+ Traceback (most recent call last):
+   File "", line 1, in
+     print(MoreRandomstuff.value)
+ AttributeError: 'Example' object has no attribute 'value'
+ >>>
+
+Because the new objects only get the attributes and methods defined in the class.
+
+However, this is important to understand, as this means that it is possible to add attributes to the objects on the go, so basically the non-internal attributes are not as save and secure as they at first might seem.
+
+** Using class attributes
+
+ class delievery:
+     """Class defines a delievery package"""
+     item = ""
+     name = ""
+     address = ""
+
+ def addnew():
+     customer = input("Customer name:")
+     place = input("Delievery address:")
+     stuff = input("What is the package: ")
+
+     packet = delievery()
+     packet.item = stuff
+     packet.name = customer
+     packet.address = place
+     return packet
+
+ def main():
+
+     round = []
+     total = int(input("How many packages?:"))
+
+     for i in range(0,total):
+         deliever = addnew()
+         round.append(deliever)
+
+     print("Drop-off places:")
+
+     for i in range(0,total):
+         print(round[i].name+":"+round[i].address+":"+round[i].item)
+
+ if __name__ == "__main__":
+     main()
+
+Run:
+
+ >>>
+ How many packages?:3
+ Customer name:John & Sons Inc.
+ Delievery address:Harbour Street 10
+ What is the package: Anvil
+ Customer name:Guitars on the go
+ Delievery address:Opera House Street 20
+ What is the package: Grand piano
+ Customer name:Old Mom's and Pop's Coffee shop
+ Delievery address:Red Light Street 25
+ What is the package: Undisclosed items
+ Drop-off places:
+ John & Sons Inc.:Harbour Street 10:Anvil
+ Guitars on the go:Opera House Street 20:Grand piano
+ Old Mom's and Pop's Coffee shop:Red Light Street 25:Undisclosed items
+ >>>
+
+** Class methods
+
+If attribute was a class-specific variable, then the methods are basicall class-specific functions. In fact, they are made with the same syntax, only difference being that the first parameter (and if neccessary, only parameter) is the "self", which is required by the interpreter.
+
+Please notice that the "self" is not in fact a syntax keyword, only a naming convention similarly as the main function called "main". Techically this first parameter can have any name, but Python documentation usually recommends and uses the name self, so it is the one that should be used for this activity.
+
+ class [Name]:
+     [attribute_1] = [default value]
+     ...
+     [attribute_N] = [defaul value]
+     def [method name](self,[parameters]):
+         [function code]
+
+The methods are defined after the attributes, not only because that makes the class more understandable, but also takes care of the problem of missing attributes, or accidentally overwriting an actual value with the default. If the last example class Customer is extended to print out data form, it would be dome with a method with code somewhat like this:
+
+ class Customer:
+     name = "John Johnsson"
+     total = 1000
+     paymenttype = "Masterexpress"
+     number = "1234-5678-9012345"
+
+     def printout(self):
+         print("Name: ", self.name)
+         print("Total: ", self.total)
+         print("Payment type: ", self.paymenttype)
+         print("Card/Bill number: ", self.number)
+
+As observable from the example class above, the only real difference is the addition of "self" as the first parameter, and the way of addressing the class attributes with the syntax
+
+Which basically tells the interpreter that the meant variable name is the attribute from the object being used (as in, variable in the object), not from for example global variables or main level code.
+
+** Using class methods
+
+ 02  class Cart:
+ 03      """This class manages the shopping cart. """
+ 04
+ 05      shoppingcart = []
+ 06      def addstuff(self):
+ 07          esine = input("What will be added?: ")
+ 08          self.shoppingcart.append(esine)
+ 09
+ 10      def checkout(self):
+ 11          print("Following objects were added:")
+ 12          for i in range(0,len(self.shoppingcart)):
+ 13              print(self.shoppingcart[i], end = " ")
+ 14
+ 15  def main():
+ 16      customer = Cart()
+ 17      while True:
+ 18          selection = input("Add more or go to checkout?: ")
+ 19          if selection == "checkout":
+ 20              customer.checkout()
+ 21              break
+ 22          else:
+ 23              customer.addstuff()
+ 24
+ 25  if __name__ == "__main__":
+ 26      main()
+
+Run:
+
+ >>>
+ Add more or go to checkout?: add
+ What will be added?: Oil
+ Add more or go to checkout?: add
+ What will be added?: Squidd
+ Add more or go to checkout?: add
+ What will be added?: Banana
+ Add more or go to checkout?: checkout
+ Following objects were added:
+ Oil Squidd Banana
+ >>>
+
+** Private attributes
+
+The private attribute is, simply put, a attribute that is only modifiable from inside the class itself.
+
+ 01  class Score:
+ 02      points = 0
+ 03      def results(self):
+ 04          return self.points
+
+The class is a placeholder for the attribute which tells the current points of a player, and it has a separate method which for any reason returns the amount of points as a return value. If the attribute points is a normal attribute, it means that the points can be added like this:
+
+ >>> Red.points =+ 1
+
+Obviously requiring that there is a object called Red with this class. This adds one point to Red:
+
+ >>> Red.results()
+ 1
+ >>>
+
+But lets say that there is a minute error in the system; in one uncommon scenario, where the red team would get a point there is a code
+
+ >>> Red.points = 1
+
+Private attribute in Python is an attribute, which can only be changed with the classes own methods. A private attribute is defined exactly like normal attribute, but the name has to begin with at least two underscores:
+
+ __[attribute name]
+
+
+ 01  class Score:
+ 02      __points = 0
+ 03      def getpoints(self):
+ 04          return self.__points
+
+
+ >>> Blue = Score()
+ >>> Blue.points = 5
+ >>> Blue.getpoints()
+ 0
+ >>> Blue.__points = 5
+ >>> Blue.getpoints()
+ 0
+ >>>
+
+Obviously there is immediately a new problem. Now that the attribute is secure, it no longer can be changed simply by assigning it a value. However, this is not a problem, as the methods within the class have no problem accessing the private attribute:
+
+ 01  class Score:
+ 02      __points = 0
+ 03      def getpoints(self):
+ 04          return self.__points
+ 05      def addpoints(self, value = 1):
+ 06           self.__points =+ value
+
+
+ >>> Blue = Score()
+ >>> Blue.addpoints(3)
+ >>> Blue.getpoints()
+ 3
+ >>>
+
+However, unlike some languages, the privatization of class attribute is not completely bulletproof. As the private attribute is simply a shorthand for little behind-the-scenes magic with interpreter, it can be directly accessed by calling it with name
+
+ _[classname]__[variablename]
+
+** Class initialization and other class attributes
+
+Ok, so the variable with two underscores in the beginning is a private attribute
+
+If there is a reason to run a certain code block every time an object is created, its possible to define a method named __init__ (two leading and trailing underscores) and define a code block there. That method is always automatically called when new object is created, i.e. initialized. If no __init__-method is defined, interpreter simply slaps on the class definition an empty one.
+
+Other really common automated attribute is the the __doc__. This attribute is created from the document string at the beginning of structure:
+
+ class Empty:
+     """This class is empty."""
+     pass
+
+This attribute either includes the document string of the class, or is left empty. This attribute can actually be addressed:
+
+ >>> Keg = Empty()
+ >>> Keg.__doc__
+ 'This class is empty.'
+ >>>
+
+The third interesting automatically generated class is the __class__. This attribute stores the name of the class whgich was used to create this object. The name also stores the name of the module which created the object; being either the source file name as with the modules was explained or __main__ if the creator was the module which was executed.
+
+ >>> Teccco = Customer()
+ >>> Teccco.__class__
+ <class '__main__.Customer'>
+ >>>
+
+** Class inheritance
+
+The class inheritance means that the class is able to take an existing class, copy its attributes and methods and simply redefine and add the new functionalities needed for the class. In more common terms, the new type of class inherits the abilities of the existing class.
+
+ class [Newclassname] ([Inherited class name]):
+     [New class attributes]
+     ...
+     [New calss methods]
+     ...
+
+Basically the inheritance is just declared at the definition of a new class.
+
+ 01  class Customer:
+ 02      name = "John Johnsson"
+ 03      total = 1000
+ 04      paymenttype = "Masterexpress"
+ 05      number = "1234-5678-9012345"
+ 06
+ 07      def printout(self):
+ 08          print("Name: ", self.name)
+ 09          print("Total: ", self.total)
+ 10          print("Payment type: ", self.paymenttype)
+ 11          print("Card/Bill number: ", self.number)
+
+And add the new, inheriting class named Regular like this:
+
+ 01  class Regular(Customer):
+ 02      bonuscard = "ABCD-1234"
+ 03      bonusaccount = 0
+ 04      def bonusdata(self):
+ 05           print("This client has",self.bonusaccount,"bonus points.")
+
+The new object is created by using the more advanced Regular-class to create customer objects with the bonus-collecting abilities. As Regular has inherited all the attributes and methods of the Customer, this new object has both the old and the new abilities:
+
+ >>> Dave = Regular()
+ >>> Dave.name = "Dave Davidsson"
+ >>> Dave.printout()
+ Name:  Dave Davidsson
+ Total:  1000
+ Payment type:  Masterexpress
+ Card/Bill number:  1234-5678-9012345
+ >>> Dave.bonusdata()
+ This client has 0 bonus points.
+ >>>
+
+With inheritance, the first instinct is probably to worry about the possible overwrites of the inherited class methods and attributes.
+
+If the new class defines a method or attribute that has the same name as one of the inherited class, then the system uses the definition of a new class.
+
+ 01  class VIPcustomer(Customer):
+ 02      def printout(self):
+ 03           print("VIP client data is confidential!")
+
+Then we create a new object from this class, the class has all the attributes of the original Customer, but the method printout() is replaced with the one from VIPcustomer:
+
+ >>> Madonna = VIPcustomer()
+ >>> Madonna.printout()
+ VIP client data is confidential!
+ >>> Madonna.name
+ 'John Johnsson'
+ >>>
+
+The object had preserved all of the attributes and their default values, but the method had changed to the new definition.
+
+Another big example:
+
+ class Cart:
+     """This class manages the shopping cart. """
+
+     shoppingcart = []
+     def addstuff(self):
+         esine = input("What will be added?: ")
+         self.shoppingcart.append(esine)
+
+     def checkout(self):
+         print("Following objects were added:")
+         for i in range(0,len(self.shoppingcart)):
+             print(self.shoppingcart[i], end = " ")
+
+ class SmallerCart(Cart):
+     """This is a small cart with limited space"""
+     size = 2
+     def checkout(self):
+         print("Following was added: ")
+         for i in range(0,self.size):
+             print(self.shoppingcart[i])
+         if len(self.shoppingcart) > self.size:
+             print("Some items were left out.")
+
+ def main():
+     customer = SmallerCart()
+     while True:
+         selection = input("Add more or go to checkout?: ")
+         if selection == "checkout":
+             customer.checkout()
+             break
+         else:
+             customer.addstuff()
+
+ if __name__ == "__main__":
+     main()
+
+Output:
+
+ >>>
+ Add more or go to checkout?: add
+ What will be added?: Anvil
+ Add more or go to checkout?: add
+ What will be added?: Squigg
+ Add more or go to checkout?: add
+ What will be added?: Oil
+ Add more or go to checkout?: add
+ What will be added?: Bananas
+ Add more or go to checkout?: checkout
+ Following was added:
+ Anvil
+ Squigg
+ Some items were left out.
+ >>>
+
+** Inheriting several classes
+
+ class NewClassName (Firstinherited, Secondinherited):
+     [new attributes]
+     [new methods]
+
+For example it is possible to combine the two customer classes Regular and VIPCustomer:
+
+ class VIPRegular(VIPcustomer, Regular):
+     idnumber = "00001"
+
+This new class and the objects created from it actually have all of the abilities of Customer, Regular, VIPCustomer and VIPRegular:
+
+ >>> Elton = VIPRegular()
+ >>> Elton.name
+ 'John Johnsson'
+ >>> Elton.bonusdata()
+ This client has 0 bonus points.
+ >>> Elton.printout()
+ VIP client data is confidential!
+ >>> Elton.idnumber
+ '00001'
+ >>>
+
+In many cases the multiple inheritance is not very good idea. Usually the multiple inheritance causes the object to grow almost uncontrollably, causing problems in the long run. For example, if there are several methods and attributes with the same name, which ones end up in the final object?
+
+** Short introduction to the design patterns
+
+Historically the design patters were developed in the 80's, when the size and complexity of the computer programs clearly surpassed the capability of individual programmers or small teams to understand thoroughly. Before this time the programming had been a profession of either individual "artist" programmers or small highly specialized groups, but now there was a need for some plan or general design principles for making working software.
+
+The design patterns are still interesting things which help with the classes when the programs start to become larger.
+
+Design patterns are a plan for implementing classes in a pattern that is known to be feasible to implement or generally a good idea. Basically this means that a design pattern is a package solution similar to the architecture solutions for architects or builders.
+
+Design patterns have basically three things: a problem, solution and the requirements. This means that the pattern removes a problem X with a solution Y; provided that the requirements are met. Usually the design patterns are either related to the structure of the program, behavior of the program or creation of the different data models. In short, they are a group of "good ideas" which are known to work well if implemented correctly.
+
+Besides patterns, there also are antipatterns, which quite humorously define ideas which may at first seem great but in practice do not work. These antipatterns for example are "class with too many methods" or "yoyo-model", where class inheritances form a loop or otherwise untraceable tract. Basically, antipattern is a model for programmers "dont try this at home", or more precisely, "dont try this at all.".
+
+* Exercises
+
+** Regarding the course
+
+***  Exercise 1.1: Hello word!, First program
+Assignment
+
+    Traditionally the first program in any programming course is the one where the system is made to print the words "Hello World!", in one variation or another. So unsurprisingly the first programming exercise in this course does exactly that. In the last pages of the chapter there were detailed instructions on how to test the interpreter installation and make the first program, which printed some text. In this exercise, the aim is to replicate that example.
+    So in short, by following the instructions from the chapter, make a program which prints the following text:
+
+    Hello World!
+
+    This here is a Python program.
+
+    Also, remember to add the the code page definition to the source file, so that Python knows which language the code was written in. That disclaimer can be for example this:
+
+    # -*- coding: cp1252 -*-
+
+Your answer
+
+ print("Hello World!")
+ print("This here is a Python program.")
+
+** Fundamentals of the Python language
+
+*** Exercise 2.1: Defining a variable and printing values
+
+Assignment
+
+    The first exercise in this chapter is an easy warm-up exercise to get things rolling. The objective is to create a variable by giving it thecorrect name, and assign it the string "string-type content" as a value. Then insert this variable into a print command so that the program prints out following text:
+
+    Our variable has a value which is string-type content. Isn't that nice?
+
+    The trailing period can be added easily by editing the print command parameter sep. Other changes, such as the situation with the aposthrope can be done in the string given to the print command.
+
+Your answer
+
+ foo = "Our variable has a value which is string-type content. Isn't that nice?"
+
+ print(foo)
+
+*** Exercise 2.2: Counting with variables
+
+Assignment
+
+    The second exercise continues with the basics of using variables. In this exercise, define two variables and assign them values of 1000 and 24. After this, make the interpreter do the calculation number1+number2+15 and then take the 2nd exponent (**2) of the result. Save this final result to a new variable, and make the program print the result in the following way:
+
+    The final results of the calculation was: 1079521
+
+Your answer
+
+ foo = 1000
+ bar = 24
+ foobar = int(foo) + int(bar) + int(15)
+
+ print("The final results of the calculation was: ", foobar **2)
+
+***  Exercise 2.3: Type Conversions
+
+Assignment
+
+    In this exercise the aim is to try out different datatypes. Start by defining two variables, and assign the first variable the float value 10.6411. The second variable gets a string "Stringline!" as a value.
+
+    Convert the first variable to an integer, and multiply the variable with the string by 2. After this, finalize the program to print out the results in the following way:
+
+    Integer conversion cannot do roundings: 10
+    Multiplying strings also causes trouble: Stringline!Stringline!
+
+Your answer
+
+ foo = 10.6411
+ bar = "Stringline!"
+
+ print("Integer conversion cannot do roundings: ", int(foo))
+ print("Multiplying strings also causes trouble: ", bar*2);
+
+*** Exercise 2.4: Using layout characters
+
+Assignment
+
+    In this program the objective is to understand how the layout-characters (\t and \n} and print in general works. By using only the print command, make the interpreter to print out the following text:
+
+    >>>
+    This here is divided to several lines:
+    I am still in the same print-command.
+    	Name:	Peter
+    	Job:	Babysitter
+    >>>
+
+    With the first two lines it is possible to just use the line break. On the latter two tabulation is also needed.
+
+Your answer
+
+ print("This here is divided to several lines:\
+ I am still in the same print-command.\
+ \tName:\tPeter\
+ \tJob:\tBabysitter")
+
+*** Exercise 2.5: Calculator, taking an input
+
+Assignment
+
+    In this exercise, the objective is to try taking input for the first time. The idea is to create a simple program which takes two numbers and perfoms an addition. So, take two numbers from the user with input(), calculate the result and make the program present the result in the following way:
+
+    Calculator
+    Give the first number: 100
+    Give the second number: 25
+    The result is: 125
+
+    In this exercise it is OK to expect that the user wont give faulty inputs, such as strings or something else non-calculatable. This exercise is also the starting point for the course's two "on-going" exercises, meaning that this code will be supplemented with new features in the future. Therefore it may be worthwhile to start commenting the source code.
+
+Your answer
+
+ print("Calculator")
+ n1 = input("Give the first number: ")
+ n2 = input("Give the second number: ")
+ print("The result is: ", int(n1) + int(n2))
+
+*** Exercise 2.6: String slices
+
+Assignment
+
+    The last exercise in this chapter focuses on string slices. Define a variable and assign it a string "desserts" as a value. Then create three new variables, and assign them values by slicing the A) first 4 characters B) the last 4 characters and C) the entire string backwards as given values. Then make the program print the answers in the following way:
+
+    The first 4 characters were: dess
+    The last 4 characters were: erts
+    The string backwards was: stressed
+
+Your answer
+
+ foo = "desserts"
+
+ print("The first 4 characters were: ", foo[0:4])
+ print("The last 4 characters were: ", foo[-4:])
+ print("The string backwards was: ", foo[::-1])
+
+** Conditional structure if-elif-else
+
+*** Exercise 3.1: The basic if-structure
+
+Assignment
+
+    The exercises of the third chapter, as well as the third chapter itself, focus on the conditional if-structure. In the first exercise the objective is to create a simple if-structure. The program should first ask a number from the user and save it to a variable. Then if the number is even (possible to divide by 2), the program should print the text "The given number was even.". The best way to do this is to use the operator remainder. The program should print the following:
+
+    Give a number: 24
+    The given number was even.
+
+    or alternatively
+
+    Give a number: 11
+
+    Meaning that the program should not print anything if the number is odd.
+
+
+Your answer
+
+ number = input("Give a number: ")
+
+ if int(number) % 2 == 0 :
+     print("The given number was even.")
+ #else :
+ #    print("The given number was odd.")
+
+*** Exercise 3.2: Structures within structures
+
+Assignment
+
+    The second exercise takes another step towards more realistic programming structures. In this exercise the idea is to create an if-structure, which has another if-structure inside it. Basically the idea is to implement the following structure:
+
+    if [selection]:
+    	[code]
+    	if [selection]:
+    		[code]
+    	else:
+    		[code}
+    else:
+    	[code]
+
+    The idea is to create a program which asks for a user name and password. If the given name is wrong, the program prints "The given name is wrong". If the name is acceptable, the program asks for the password. If the password is correct, the system prints "Both inputs are correct!", otherwise "The password is incorrect.". The correct inputs should be "John" and the password "ABC123". Overall, the program should print the following:
+
+    Give name: Peter
+    The given name is wrong.
+
+    or alternatively
+
+    Give name: John
+    Give password: Monkeys?
+    The password is incorrect.
+
+    or alternatively
+
+    Give name: John
+    Give password: ABC123
+    Both inputs are correct!
+
+Your answer
+
+ name = input("Give name: ")
+
+ if name != "John" :
+     print("The given name is wrong.")
+ else :
+     password = input("Give password: ")
+     if password != "ABC123" :
+         print("The password is incorrect.")
+     else :
+         print("Both inputs are correct!")
+
+*** Exercise 3.3: Complete if-structure
+
+Assignment
+
+    The third exercise is to create a conditional structure which prints a line depending on the given selection. The program asks a number between 1 and 3, and based on the number prints the following: 1 prints "You selected one.", 2 prints "You selected two." and 3 prints "You selected three.", like this:
+
+    Select a number (1-3): 1
+    You selected one.
+
+Your answer
+
+ option = input("Select a number (1-3): ")
+
+ if option == "1" :
+     print("You selected one.")
+ elif option == "2" :
+     print("You selected two.")
+ else :
+     print("You selected three.")
+
+*** Exercise 3.4: Using several parameters
+
+Assignment
+
+    In the fourth exercise the idea is to define an if-structure which decides the action based on several inputs. The program asks for two numbers. If both of the numbers are even, the program prints "Both numbers are even." If only one of the numbers is even, the program prints "One of the numbers is even.". Finally, if neither of the numbers is even, the program prints "Both numbers are odd". When correct, the program works as following:
+
+    Give a number: 10
+    Give another number: 11
+    One of the numbers is even.
+
+    or alternatively
+
+    Give a number: 12
+    Give another number: 20
+    Both numbers are even.
+
+    or alternatively
+
+    Give a number: 15
+    Give another number: 21
+    Both numbers are odd.
+
+Your answer
+
+ number1 = input("Give a number: ")
+ number2 = input("Give another number: ")
+
+ if (int(number1) % 2 == 0) and (int(number2) % 2 == 0) :
+     print("Both numbers are even.")
+ elif (int(number1) % 2 != 0) and (int(number2) % 2 != 0) :
+     print("Both numbers are odd.")
+ else :
+     print("One of the numbers is even.")
+
+*** Exercise 3.5: Calculator, different types of calculations
+
+Assignment
+
+    The last exercise of chapter 5 continues the exercise made in the previous chapter. In this exercise, expand the calculator so that the user can select what kind of calculation is done. If the user chooses 1, the calculator does addition as earlier. If 2, the calculator does substraction, if 3, it does multiplication, if 4, division.
+
+    Also add the instructions for the user to know what to do as shown in the example below. Also, if the user selects anything else besides 1-4, the program prints "Selection was not correct.". When working correctly, the progam looks like the following:
+
+    Calculator
+    Give the first number: 100
+    Give the second number: 25
+    (1) +
+    (2) -
+    (3) *
+    (4) /
+    Please select something (1-4): 3
+    The result is: 2500
+
+    If the user selects something else besides 1-4, it prints the following:
+
+    Calculator
+    Give the first number: 320
+    Give the second number: 225
+    (1) +
+    (2) -
+    (3) *
+    (4) /
+    Please select something (1-4): 100
+    Selection was not correct.
+
+    Errors such as the user giving input which is not a number, or division by 0, can be ignored at this point.
+
+Your answer
+
+ print("Calculator")
+ number1 = input("Give the first number: ")
+ number2 = input("Give the second number: ")
+
+ print("(1) +")
+ print("(2) -")
+ print("(3) *")
+ print("(4) /")
+ option = input("Please select something (1-4): ")
+
+ if option == "1" :
+     print("The result is:",  int(number1)+int(number2))
+ elif option == "2" :
+     print("The result is:",  int(number1)-int(number2))
+ elif option == "3" :
+     print("The result is:",  int(number1)*int(number2))
+ elif option == "4" :
+     print("The result is:",  int(number1)/int(number2))
+ else :
+     print("Selection was not correct.")
+
+** Iteration and Iterative structures
+
+*** Exercise 4.1: While-structure
+
+Assignment
+
+    The first exercise in the fourth chapter is a basic while-iteration. The assignment is simple: create a program which on each turn prints the round number. Start by the round number 0 and make the iteration continue for four loops. When the program works correctly, it prints out something like this:
+
+    This is lap 0
+    This is lap 1
+    This is lap 2
+    This is lap 3
+    This is lap 4
+
+    The best way to approach this is probably by making two variables. The first one has the current lap number, and the other one marks the point where the iteration is stopped.
+
+Your answer
+
+ i = 0
+
+ while i <= 4:
+  print("This is lap", i)
+  i += 1
+
+*** Exercise 4.2: While-structure with ending criteria
+
+Assignment
+
+    The second exercise tries to elaborates on the first task. The idea is to create an iteration where the user is able to define when the loop ends by testing the input which the user gave.
+
+    Create a program which, for every loop, prompts the user for input, and then prints it on the screen. If the user inputs the string "quit", the program prints "Bye bye!" and shuts down. When the program is working correctly it should print out something like this:
+
+    >>>
+    Write something: What?
+    What?
+    Write something: Fight the power.
+    Fight the power.
+    Write something: quit
+    Bye bye!
+    >>>
+
+    It is probably a good idea to implement the entire program within one "while True" code block, and define the ending criteria so that the program uses a selection criteria and break command.
+
+Your answer
+
+ text = ""
+
+ while text != "quit":
+     text = input("Write something: ")
+     if text != "quit":
+         print(text)
+
+ print("Bye bye!")
+
+*** Exercise 4.3: for in range
+
+Assignment
+
+    The third progam tests a for-iteration. In this program, build a calculator, which asks the user for a number, and calculates the sum of all positive numbers from 0 to the usergiven input. If the user gives the number 4, the program calculates the sum 0+1+2+3, if 7, the calculation is 0+1+2+3+4+5+6. Finally, the program produces an answer with the printout "The sum was:" and an answer.
+
+    When working correctly, the program prints something like this:
+
+    >>>
+    Give a number: 3
+    The sum was: 3
+    >>>
+    Give a number: 5
+    The sum was: 10
+    >>>
+
+    Keep in mind, that with the for in range-approach, there is always a variable which knows the current round number. Also, in this exercise it is allowed to assume that the user does not give faulty inputs such as letters or empty lines.
+
+Your answer
+
+ number = int(input("Give a number: "))
+
+ sum = 0
+
+ for i in range(1,number):
+     sum += i
+
+ print("The sum was: ", sum)
+
+*** Exercise 4.4: Calculator: Several options, changing the number
+
+Assignment
+
+    The last exercise in this chapter continues with the exercise from the last chapter, the calculator. In this exercise, expand the existing code by implementing the following new features: (A) Calculator does not automatically quit when the result is given, allowing user to do new calculations. The user has to select "6" in the menu to exit the program. (B) The calculator shows the selected numbers in the main menu by printing "Current numbers:" and the user-given input. By selecting "5" in the calculator menu, the user can change the given numbers. When implemented correctly, the program prints out following:
+
+    Calculator
+    Give the first number: 100
+    Give the second number: 25
+    (1) +
+    (2) -
+    (3) *
+    (4) /
+    (5) Change numbers
+    (6) Quit
+    Current numbers: 100 25
+    Please select something (1-6): 5
+    Give the first number: 10
+    Give the second number: 30
+    (1) +
+    (2) -
+    (3) *
+    (4) /
+    (5) Change numbers
+    (6) Quit
+    Current numbers: 10 30
+    Please select something (1-6): 1
+    The result is: 40
+    (1) +
+    (2) -
+    (3) *
+    (4) /
+    (5) Change numbers
+    (6) Quit
+    Current numbers: 10 30
+    Please select something (1-6): 6
+    Thank you!
+    >>>
+
+    Again, implement the program within one large while True-segment, which is terminated with break if the user selects the option "6".
+
+Your answer
+
+ option = ""
+
+ print("Calculator")
+ first = input("Give the first number: ")
+ second = input("Give the second number: ")
+
+ while option != "6":
+
+     print(" (1) +")
+     print(" (2) -")
+     print(" (3) *")
+     print(" (4) /")
+     print(" (5) Change numbers")
+     print(" (6) Quit")
+     print("Current numbers: ", first, second)
+     option = input("Please select something (1-6): ")
+
+     if option == "1":
+         print("The result is: ", int(first) + int(second))
+     elif option == "2":
+         print("The result is: ", int(first) - int(second))
+     elif option == "3":
+         print("The result is: ", int(first) * int(second))
+     elif option == "4":
+         print("The result is: ", int(first) / int(second))
+     elif option == "5":
+         first = input("Give the first number: ")
+         second = input("Give the second number: ")
+     else:
+         print("Thank you!")
+         break
+
+** External files in Python
+
+*** Exercise 5.1: Reading a file
+
+Assignment
+
+    The first exercise in the fifth chapther is a straightforward file reading exercise. There is a file in the same directory with the exercise source code called "facts.txt", which has a long strip of text. Create a program which reads the entire content of the file and prints it on the screen with the text "Following was read from the file:". When working correctly, the program prints something like this:
+
+    >>>
+    Following was read from the file: Proin enim leo, tincidunt eget, sollicitudin a, aliquam sit amet, nisl. Proin dapibus tortor eu lectus. Curabitur in risus nec arcu pretium aliquam. In hac habitasse platea dictumst. Integer sit amet lacus sit amet pede blandit mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut odio. Nullam nisl sem, adipiscing id, auctor eu, pulvinar et, nulla. Aenean convallis erat. Aliquam iaculis mauris sed sem.
+
+    Fusce ultricies urna sed orci. Suspendisse accumsan ipsum egestas est. Pellentesque nisl. Quisque sodales ligula quis mi. In pede sapien, molestie vel, aliquet sit amet, malesuada a, magna. Nulla ipsum.
+
+    >>>
+
+Your answer
+
+ print("Following was read from the file:" )
+
+ handle = open("facts.txt","r")
+ filetext = handle.read()
+ print(filetext)
+ handle.close()
+
+*** Exercise 5.2: Writing to a file
+
+Assignment
+
+    Unsurprisingly, the second exercise in this chapter discusses the task of writing to a file. Create a program which prompts the user for a file name "Give a file name: " and then for an input "Write something: ". After this, the program writes the string given by the user to the file and reports "Wrote [input] to the file [name].". When working correctly, the program prints something like this:
+
+    >>>
+    Give a file name: log.txt
+    Write something: Attencion, attencion. 10, 10, 22, 33, Adios.
+    Wrote Attencion, attencion. 10, 10, 22, 33, Adios. to the file log.txt.
+    >>>
+
+Your answer
+
+ filename = input("Give a file name:: ")
+ text = input("Write something: ")
+
+ readfile = open(filename,"w")
+ readfile.write( str(text) )
+ readfile.close()
+
+ print("Wrote", text, "to the file", filename)
+
+*** Exercise 5.3: Filtering the file contents
+
+Assignment
+
+    In the third program, we take a look into the classification of file contents. In the same directory with the source code is a file "strings.txt", which has random strings in several lines. The lines can be divided into two groups: those which only have letters (a-z, A-Z) and numbers (0-9), and those which also have random special characters (?,&,@, $ ...).
+
+    Create a program which reads all of the lines from the file and tests the lines. If the line has only letters and/or numbers, the program prints "[line] was ok.". If the line has special characters, the program should print "[line] was invalid.". When the program works, it prints out something like this:
+
+    >>>
+    5345m345ö34l was ok.
+    no2no123non4 was ok.
+    noq234n5ioqw#% was invalid.
+    %#""SGMSGSER was invalid.
+    doghdp5234 was ok.
+    sg,dermoepm was invalid.
+    43453-frgsd was invalid.
+    hsth())) was invalid.
+    bmepm35wae was ok.
+    vmopaem2234+0+ was invalid.
+    gsdm12313 was ok.
+    bbrbwb55be3"?"#? was invalid.
+    "?"#%#"!%#"&"?%%"?#?#"?" was invalid.
+    retrte#%#?% was invalid.
+    abcdefghijklmnopqrstuvxy was ok.
+    >>>
+
+    It is advisable to read the lines one at a time, test them with the isalmun() string test and go on from there. Also remember that the strings may also end in a line break (\n), which is allowed, but fails the .isalnum() test if not sliced away.
+
+Your answer
+
+ file = open("strings.txt","r")
+ for line in file.readlines():
+
+    if not line:
+        break
+
+    #line = line[:-1]
+
+    if line[:-1].isalnum():
+        print(line[:-1]+ " was ok.")
+    else:
+        print(line[:-1]+ " was invalid.")
+
+ file.close()
+
+*** Exercise 5.4: Notebook: Read and write to the notebook
+
+Assignment
+
+    The last exercise in this chapter is the first part of the second multi-part assignment of this course, the notebook. In this notebook the user is able to add, read and delete notes from a separate note file "notebook.txt".
+
+    Create a program which allows the user to
+    (1) Read the contents of the notebook
+    (2) Add notes to the file or
+    (3) Delete all of the notes.
+    If the user selects 1, the entire notebook file is printed to the screen, if 2 then the program prompts "Write a new note: ", and adds the written note as the last line into the file with a trailing line break "\n". If the player selects 3, the file is emptied and the message "Notes deleted" will be shown. Also add the option (4) Quit, which ends the program, printing "Notebook shutting down, thank you.". With other selections the program prompts "Incorrect selection". When working, the program prints following:
+
+    >>>
+    (1) Read the notebook
+    (2) Add note
+    (3) Empty the notebook
+    (4) Quit
+    Please select one: 2
+
+    Write a new note: Buy new tires
+
+    (1) Read the notebook
+    (2) Add note
+    (3) Empty the notebook
+    (4) Quit
+    Please select one: 2
+
+    Write a new note: Buy new headlights
+
+    (1) Read the notebook
+    (2) Add note
+    (3) Empty the notebook
+    (4) Quit
+    Please select one: 1
+
+    Buy new tires
+    Buy new headlights
+
+    (1) Read the notebook
+    (2) Add note
+    (3) Empty the notebook
+    (4) Quit
+    Please select one: 3
+
+    Notes deleted.
+
+    (1) Read the notebook
+    (2) Add note
+    (3) Empty the notebook
+    (4) Quit
+    Please select one: 4
+
+    Notebook shutting down, thank you.
+    >>>
+
+    Notice that the fastest way to delete a file's contents is to open it with mode "w" and close it immediately.
+
+Your answer
+
+ import os
+
+ while 1:
+
+     print("(1) Read the notebook")
+     print("(2) Add note")
+     print("(3) Empty the notebook")
+     print("(4) Quit\n")
+
+     option = input("Please select one: ")
+
+     if option == "1" :
+         # Read notes
+         file = open("notebook.txt","r")
+
+         print("", end="")
+
+         content = file.readlines()
+
+         for i in content:
+             i = i.rstrip('\n') # or -1 index
+             print(i)
+
+         file.close()
+         print("")
+     elif option == "2" :
+         note = input("Write a new note: ")
+         # append to the file
+         file = open("notebook.txt","a")
+         file.write(note + "\n")
+         file.close()
+     elif option == "3" :
+         # Empty the notebook
+         # This is for delete: os.remove("notebook.txt")
+         open("notebook.txt", 'w').close()
+         print("Notes deleted.")
+     else:
+         break
+
+ print("Notebook shutting down, thank you.")
+
+** Functions and subfunctions
+
+*** Exercise 6.1: Basic subfunction
+
+Assignment
+
+    The first assignment in this chapter is easy: create a program with a main function and a separate subfunction called hello, which when called prints "Hello there!". The subfunction does not take any parameters or return any value, just prints the line. Then, to the main function, add a call to the subfunction and two print commands, the first one before the call which says "Lets call the subfunction:", and one after the subfunction call, a print command which prints "Quitting.". If implemented correctly, the program will print the following:
+
+    >>>
+    Lets call the subfunction:
+    Hello there!
+    Quitting.
+    >>>
+
+    Also remember to add this main function call to the main level:
+
+    if __name__ == "__main__":
+        main()
+
+Your answer
+
+ def hello():
+     print("Hello there!")
+
+ def main():
+     print("Lets call the subfunction:")
+     hello()
+     print("Quitting.")
+
+ if __name__ == "__main__":
+     main()
+
+*** Exercise 6.2: Using parameters
+
+Assignment
+
+    In the second exercise the idea is to try out parameters between functions. Create a program which has the main function and a subfunction "poweroftwo". The main function prompts the user for a number "Give a number: " and then this number is sent to the subfunction as a parameter. The subfunction calculates the n:th power of 2 of the number (if given 3, 2*2*2; if 5, 2*2*2*2*2 and so on, 2**[number]) and prints it out with the message "The result was [result]". When working correctly, the program prints:
+
+    >>>
+    Give a number: 5
+    The result is 32
+    >>>
+
+    Or possibly
+
+    >>>
+    Give a number: 8
+    The result is 256
+    >>>
+
+    Also remember to add this main function call to the main level:
+
+    if __name__ == "__main__":
+        main()
+
+Your answer
+
+ def poweroftwo(number):
+     print("The result is ", 2**number)
+
+ def main():
+     number = int(input("Give a number: "))
+     poweroftwo(number)
+
+ if __name__ == "__main__":
+     main()
+
+*** Exercise 6.3: Default parameters
+
+Assignment
+
+    The third exercise tests out the default values of parameters. Create a program which has a main function and a subfunction called tester. The main function prompts user for an input "Write something (quit ends): " and sends this input to the subfunction as a parameter.
+
+    Define the subfunction tester so that it has one parameter called "givenstring", which has the default value "Too short". If the user input is less than 10 characters, the program uses the default value and if 10 or more, it prints the usergiven input. If the user inputs "quit", the program is terminated. When working correctly, the program will print out something like this:
+
+    >>>
+    Write something (quit ends): what?
+    Too short
+    Write something (quit ends): What do you mean?
+    What do you mean?
+    Write something (quit ends): Ok thats it
+    Ok thats it
+    Write something (quit ends): I am out of here
+    I am out of here
+    Write something (quit ends): quit
+    >>>
+
+    The easiest way of testing the length of a string is by using the function len().
+
+Your answer
+
+ def tester(givenstring = "Too short"):
+     if givenstring == "quit":
+         exit()
+
+     elif len(givenstring) < 10:
+         print("Too short")
+     else:
+         print(givenstring)
+
+ def main():
+     while 1:
+         something = input("Write something (quit ends): ")
+         tester(something)
+
+ if __name__ == "__main__":
+     main()
+
+*** Exercise 6.4: Return value
+
+Assignment
+
+    The last exercise in this chapter extends the previous exercise, but it is also possible to make it completely independently. Modify the function tester so that, besides testing if the length of the given string is more than ten characters, it also tests if there is the character "X" (capital X) in the given string. If the string is longer than 10 characters and it has X in it, the tester subfunction returns a value True to the main function, otherwise False.
+
+    If the subfunction returns True to the main function, the program prints "X spotted!". As earlier, if the user inputs "quit", the program terminates. When working correctly, the program prints something like this:
+
+    >>>
+    Write something (quit ends): Hello
+    Too short
+    Write something (quit ends): Ok a bit longer then?
+    Ok a bit longer then?
+    Write something (quit ends): Is Xavier here?
+    Is Xavier here?
+    X spotted!
+    Write something (quit ends): OMG
+    Too short
+    Write something (quit ends): quit
+    >>>
+
+Your answer
+
+ def tester(givenstring = "Too short"):
+     if givenstring == "quit":
+         exit()
+
+     elif len(givenstring) < 10:
+         print("Too short")
+     else:
+         print(givenstring)
+         pos = givenstring.find("X")
+         if givenstring[pos].isupper():
+             return True
+
+     return False
+
+ def main():
+     while 1:
+         something = input("Write something (quit ends): ")
+         if tester(something) == True:
+             print("X spotted!")
+
+ if __name__ == "__main__":
+     main()
+
+** Modules
+
+*** Exercise 7.1: The random module, coin flipping
+
+Assignment
+
+    The first exercise in this chapter consists of simple module library operations. In the chapter, a module called random was introduced. This module consists of several functions which can be used to get random numbers. The idea here is to create a program, which simulates coin flips by randomly selecting 0 (Tails) or 1 (Heads) and printing out the result. When working correctly, the program prints out something like this:
+
+    >>>
+    Heads!
+
+    Obviously, as the program applies random activities, it may give any combination of five heads or tails. For example, running the program a second time resulted in this:
+
+    5 coin flips:
+    Tails!
+    Heads!
+    Heads!
+    Tails!
+    Heads!
+    >>>
+
+Your answer
+
+ import random
+
+ pick = random.randint(0,1)
+
+ if pick == 0:
+     print("Tails!")
+ else:
+     print("Heads!")
+
+*** Exercise 7.2: Nuke-foot-cockroach
+
+Assignment
+
+    The second exercise in this chapter continues with random selection. In this exercise the objective is to develop a game called nuke-foot-cockroach, which is pretty similar to the more popular variant, paper-rock-scissors. The rules are simple: both players select either nuke, foot or cockroach, and the winner is determined in the following way: Foot beats cockroach, nuke beats foot and cockroach beats nuke. If both the player and the AI select the same, it's a tie, except if both choose nuke, then both lose.
+
+    Implement the game so that the other player is computer controlled, and chooses randomly either foot(number 1), cockroach(number 3) or nuke(number 2). Also implement a feature which keeps the score, calculating both rounds the player won, and ties. If the player wins, print "You WIN!", if they loose "You LOSE!". If the round was a tie, either "It is a tie!" or "Both LOSE!", depending on if the tie was caused by a nuke or not. If the player selects "quit", the game ends and the final score is given. When the game works correctly, it prints the following:
+
+    >>>
+    Foot, Nuke or Cockroach? (Quit ends): Nuke
+    You chose: Nuke
+    Computer chose: Foot
+    You WIN!
+
+    Foot, Nuke or Cockroach? (Quit ends): Nuke
+    You chose: Nuke
+    Computer chose: Nuke
+    Both LOSE!
+
+    Foot, Nuke or Cockroach? (Quit ends): Cockroach
+    You chose: Cockroach
+    Computer chose: Nuke
+    You WIN!
+
+    Foot, Nuke or Cockroach? (Quit ends): Foot
+    You chose: Foot
+    Computer chose: Nuke
+    You LOSE!
+
+    Foot, Nuke or Cockroach? (Quit ends): Spaceshuttle
+    Incorrect selection.
+
+    Foot, Nuke or Cockroach? (Quit ends): Foot
+    You chose: Foot
+    Computer chose: Nuke
+    You LOSE!
+
+    Foot, Nuke or Cockroach? (Quit ends): Quit
+
+    You played 5 rounds, and won 2 rounds, playing tie in 0 rounds.
+    >>>
+
+Your answer
+
+ import random
+
+ rounds = 0
+ win = 0
+ tie = 0
+
+ while 1:
+     user_option = input("Foot, Nuke or Cockroach? (Quit ends):")
+
+     if user_option == "Quit":
+         break
+     if user_option != "Foot" and user_option != "Nuke" and user_option != "Cockroach":
+         print("Incorrect selection.")
+         continue
+
+     rounds += 1
+
+     random_option = random.randint(1,3)
+     if random_option == 1:
+         computer_option = "Foot"
+     elif random_option == 2:
+         computer_option = "Nuke"
+     else:
+         computer_option = "Cockroach"
+     #computer_option = random.choice("Foot","Nuke","Cockroach")
+
+     print("You chose: ", user_option)
+     print("Computer chose: ", computer_option)
+
+     if user_option == "Foot":
+         if computer_option == "Foot":
+             print("It is a tie!")
+             tie += 1
+         elif computer_option == "Nuke":
+             print("You LOSE!")
+         elif computer_option == "Cockroach":
+             print("You WIN!")
+             win += 1
+     elif user_option == "Cockroach":
+         if computer_option == "Foot":
+             print("You LOSE!")
+         elif computer_option == "Nuke":
+             print("You WIN!")
+             win += 1
+         elif computer_option == "Cockroach":
+             print("It is a tie!")
+             tie += 1
+     elif user_option == "Nuke":
+         if computer_option == "Foot":
+             print("You WIN!")
+             win += 1
+         elif computer_option == "Nuke":
+             print("Both LOSE!")
+         elif computer_option == "Cockroach":
+             print("You LOSE!")
+
+ print("You played " + str(rounds) + " rounds, and won " + str(win) + " rounds, playing tie in " + str(tie) + " rounds.")
+
+*** Exercise 7.3: Creating own module
+
+Assignment
+
+    The third exercise of this chapter goes back from game programming to a more serious line, and discusses the creation of self-made modules. Unlike other exercises, in this exercise the idea is not to create a full program, but only to write a module for existing software.
+
+    In the exercise, we already have the main program in the module, which is as follows:
+
+    # -*- coding: cp1252 -*-
+    import mymodule
+
+    mymodule.printme("Exampleline")
+
+    The objective is to implement this mymodule-module applied in the exercise. Create a module, which has a function printme, which prints the given parameter with the disclaimer "I got:" and after that, "The parameter was [length] characters long." When the module is implemented correctly, the program prints out the following:
+
+    >>>
+    I got: Exampleline
+    The parameter was 11 characters long.
+    >>>
+
+Your answer
+
+ def printme(astring):
+     print("I got: " + str(astring))
+     print("The parameter was " +  str(len(astring)) + " characters long.")
+
+*** Exercise 7.4: Your own module with several parameters
+
+Assignment
+
+    The fourth exercise in this module elaborates on the idea applied in the last exercise. In the exercise the idea is once again to create a module for an existing main program. The module tests the feasibility of different user-given inputs for a password. The existing code which uses the module is as follows:
+
+    # -*- coding: cp1252 -*-
+    import inspector
+
+    while True:
+        userinput = input("Give a string for testing: ")
+        tulos = inspector.testme(userinput)
+
+        if tulos == True:
+            print("This string fits for a password!")
+            break
+
+        else:
+            print("The module says no.")
+
+    The idea is to create the module inspector and the function testme which receives the user-given candidate for a password. If the given input is shorter than 6 characters, contains only letters or only numbers, the module should reject the candidate and return False. If the input is longer than 6 characters and has both numbers and letters, it should be accepted. In this case the module should return True. When the program works correctly, it prints the following:
+
+    >>>
+    Give a string for testing: Test
+    The module says no.
+
+    Give a string for testing: 234234
+    The module says no.
+
+    Give a string for testing: Youhavetobekiddingme1234
+    This string fits for a password!
+    >>>
+
+    The program does not have to be able to distinguish normal numbers and letters (a-z, A-Z) from special characters (#,?,%, $ etc.), but only ensure that the tested string is at least 5 long. Also, it may be worthwhile to check out the different types of string operators from the Chapter 2.
+
+Your answer
+
+ def testme(input_pass):
+     if len(input_pass) < 5 or input_pass.isalpha() or input_pass.isdigit():
+         return False
+     else:
+         return True
+
+*** Exercise 7.5: Calculator: math-library
+
+Assignment
+
+    This exercise expands on the calculator, which was made in chapter 4, exercise 4. In this exercise, add sin() and cos() -calculations from the library module math to the calculator. Add these actions as selections 5 and 6, simultaneously moving the "change numbers" feature to 7 and "Quit" to 8. When the user calls either of the new features, the first number is the divident and second the divider like this: sin(number_1/number2). When correctly implemented, the program prints the following:
+
+    >>>
+    Calculator
+    Give the first number: 1
+    Give the second number: 2
+    (1) +
+    (2) -
+    (3) *
+    (4) /
+    (5)sin(number1/number2)
+    (6)cos(number1/number2)
+    (7)Change numbers
+    (8)Quit
+    Current numbers: 1 2
+    Please select something (1-6): 5
+
+    The result is: 0.479425538604203
+
+    (1) +
+    (2) -
+    (3) *
+    (4) /
+    (5)sin(number1/number2)
+    (6)cos(number1/number2)
+    (7)Change numbers
+    (8)Quit
+    Current numbers: 1 2
+    Please select something (1-6): 6
+
+    The result is: 0.8775825618903728
+
+    (1) +
+    (2) -
+    (3) *
+    (4) /
+    (5)sin(number1/number2)
+    (6)cos(number1/number2)
+    (7)Change numbers
+    (8)Quit
+    Current numbers: 1 2
+    Please select something (1-6): 8
+
+    Thank you!
+    >>>
+
+Your answer
+
+ import math
+
+ option = ""
+
+ print("Calculator")
+ first = input("Give the first number: ")
+ second = input("Give the second number: ")
+
+ while option != "8":
+
+     print(" (1) +")
+     print(" (2) -")
+     print(" (3) *")
+     print(" (4) /")
+     print(" (5)sin(number1/number2)")
+     print(" (6)cos(number1/number2)")
+     print(" (7) Change numbers")
+     print(" (8) Quit")
+     print("Current numbers: ", first, second)
+     option = input("Please select something (1-6): ")
+
+     if option == "1":
+         print("The result is: ", int(first) + int(second))
+     elif option == "2":
+         print("The result is: ", int(first) - int(second))
+     elif option == "3":
+         print("The result is: ", int(first) * int(second))
+     elif option == "4":
+         print("The result is: ", int(first) / int(second))
+     elif option == "5":
+         print("The result is: ", math.sin(int(first) / int(second)))
+     elif option == "6":
+         print("The result is: ", math.cos(int(first) / int(second)))
+     elif option == "7":
+         first = input("Give the first number: ")
+         second = input("Give the second number: ")
+     else:
+         print("Thank you!")
+         break
+
+*** Exercise 7.6: Notebook: Adding dates to the system
+
+Assignment
+
+    The last exercise in this chapter adds a small feature to the other continuous exercise project, the notebook. In this exercise, add a feature which includes the date and time of the written note to the program. The program works as earlier, but saves data in the form "[note]:::[date and time]" meaning that there is a three-colon separator between the note and timestamp. The timestamp can be generated as follows:
+
+    >>> import time
+    >>> time.strftime("%X %x")
+    '19:01:34 01/03/09'
+    >>>
+
+    This returns the date and time in a nice, compact string. When working correctly, the program prints the following:
+
+    >>>
+    (1) Read the notebook
+    (2) Add note
+    (3) Empty the notebook
+    (4) Quit
+    Please select one: 2
+
+    Write a new note: Call mom.
+
+    (1) Read the notebook
+    (2) Add note
+    (3) Empty the notebook
+    (4) Quit
+    Please select one: 1
+
+    Call mom.:::11:44:41 04/25/11
+
+    (1) Read the notebook
+    (2) Add note
+    (3) Empty the notebook
+    (4) Quit
+    Please select one: 4
+
+    Notebook shutting down, thank you.
+    >>>
+
+Your answer
+
+ import time
+ import os
+
+ while 1:
+
+     print("(1) Read the notebook")
+     print("(2) Add note")
+     print("(3) Empty the notebook")
+     print("(4) Quit\n")
+     option = input("Please select one: ")
+     if option == "1" :
+         # Read notes
+         file = open("notebook.txt","r")
+         print("", end="")
+         content = file.readlines()
+         for i in content:
+             i = i.rstrip('\n')
+             print(i)
+         file.close()
+         print("")
+     elif option == "2" :
+         timestamp = time.strftime("%X %x")
+         note = input("Write a new note: ")
+         # append to the file
+         file = open("notebook.txt","a")
+         file.write(note + ":::" + timestamp + "\n")
+         file.close()
+     elif option == "3" :
+             # Empty the notebook
+             # This is for delete: os.remove("notebook.txt")
+             open("notebook.txt", 'w').close()
+             print("Notes deleted.")
+     else:
+         break
+
+ print("Notebook shutting down, thank you.")
+
+** Catching Exceptions
+
+*** Exercise 8.1: Basic exception handler
+
+Assignment
+
+    The first exercise in this chapter discusses the most common problem with programs in Python: getting a numeric value as input without a problem or constant fear of TypeError. Simply put, create a program, which asks the user for input and tries to convert it to an integer value. If the conversion happens without problems, the program prints "The input was suitable!". If the user gives something which does not convert, like letters or special characters, the program avoids the error with an exception handler and prints "The input was malformed.". When working correctly, the program prints out the following:
+
+    Give a number: Monkeys?
+    The input was malformed.
+
+    or alternatively
+
+    Give a number: 234
+    The input was suitable!
+
+    Probably the best way of implementing this exercise is to use the generic error class Exception, as there are some special cases where the interpreter actually raises something else than TypeError, like ValueError or NameError. Also keep in mind, that there can be an else-segement in the exception handler.
+
+Your answer
+
+ try:
+     number = int(input("Give a number: "))
+
+ except Exception:
+     print("The input was malformed.")
+     #else happens if no except is used
+ else:
+     print("The input was suitable!")
+
+*** Exercise 8.2: Catching several errors at once
+
+Assignment
+
+    The second exercise combines several normal error scenarios into one program. In this exercise, create a program which prompts the user for a file name. Based on user input, open the given file and read the contents into one big string. Then convert this string to an integer and divides the number 1000 with the number. Finally, print out the result from the division.
+
+    The idea here is that no matter what the user input is, the program works. If the file cannot be found, the program prints "There seems to be no file with that name.", if the conversion fails, "The file contents are unsuitable.", in other errors "There was a problem with the program." or if everything went correctly, "The result was [result].". In any case (besides KeyboardInterruption with Ctrl-C), the program should be impossible to break with user input. If everything works as intended, it prints the following:
+
+    >>>
+    Give the file name: hahaha...NO
+    There seems to be no file with that name.
+    >>>
+    Give the file name: notebook.txt
+    The file contents were unsuitable.
+    >>>
+    Give the file name: number.txt
+    The result was 3.194888178913738
+    >>>
+
+Your answer
+
+ # If the file cannot be found, the program prints "There seems to be no file with that name.",
+ # if the conversion fails, "The file contents are unsuitable.",
+ # in other errors "There was a problem with the program."
+ # if everything went correctly, "The result was [result].".
+ # In any case (besides KeyboardInterruption with Ctrl-C),
+
+ try:
+     filename = input("Give the file name: ")
+     myfile = open(filename,"r")
+
+ except IOError:
+     print("There seems to be no file with that name.")
+
+ else:
+     content = myfile.readline()
+     try:
+         number = 1000 / float(content)
+
+     except (TypeError, ValueError):
+         print("The file contents were unsuitable.")
+
+     except Exception:
+         print("There was a problem with the program.")
+
+     else:
+         number = "%.11f" % number
+         print("The result was " + str(number))
+         myfile.close()
+
+*** Exercise 8.3: Calculator: Checking input validity
+
+Assignment
+
+    The third exercise in the chapter continues with the calculator exercises done earlier. This time the idea is to finally take out the annoying problems with numbers, input validity and the stability problems caused by type conversion funvtion.
+
+    Make the following changes to the calculator: Every time the user gives numbers to the program, the system asks for the numbers with the prompt "Give a number: " and continues until a valid number is given. If the number is not correct, the system gives an error message "This input is invalid.". If the calculator works correctly, it prints out the following:
+
+    >>>
+    Calculator
+    Give a number: hah, NEVER
+    This input is invalid.
+    Give a number: What?
+    This input is invalid.
+    Give a number: 100
+    Give a number: Just kidding
+    This input is invalid.
+    Give a number: 50
+    (1) +
+    (2) -
+    (3) *
+    (4) /
+    (5)sin(number1/number2)
+    (6)cos(number1/number2)
+    (7)Change numbers
+    (8)Quit
+    Current numbers: 100 50
+    Please select something (1-6): 2
+    The result is: 50
+
+    (1) +
+    (2) -
+    (3) *
+    (4) /
+    (5)sin(number1/number2)
+    (6)cos(number1/number2)
+    (7)Change numbers
+    (8)Quit
+    Current numbers: 100 50
+    Please select something (1-6): 8
+
+    Thank you!
+    >>>
+
+    The easiest way of implementing this feature is probably to define a separate function to call when asking numbers. In this function, an iteration keeps asking a number as long as the user decides to joke around. If the input is valid, iteration terminates with break and the function returns an acceptable value.
+
+Your answer
+
+ import math
+
+ def read_int():
+     while 1:
+         try:
+             value = int(input("Give a number: "))
+         except ValueError:
+         # Error handling + Jump back to input line.
+             print("This input is invalid.")
+             continue
+         else:
+             return value
+
+ def main():
+
+     option = ""
+     print("Calculator")
+
+     first = read_int()
+     second = read_int()
+
+     while option != "8":
+
+         print(" (1) +")
+         print(" (2) -")
+         print(" (3) *")
+         print(" (4) /")
+         print(" (5)sin(number1/number2)")
+         print(" (6)cos(number1/number2)")
+         print(" (7) Change numbers")
+         print(" (8) Quit")
+         print("Current numbers: ", first, second)
+         option = input("Please select something (1-6): ")
+
+         if option == "1":
+             print("The result is: ", int(first) + int(second))
+         elif option == "2":
+             print("The result is: ", int(first) - int(second))
+         elif option == "3":
+             print("The result is: ", int(first) * int(second))
+         elif option == "4":
+             print("The result is: ", int(first) / int(second))
+         elif option == "5":
+             result = "%.12f" % math.sin(int(first) / int(second))
+             print("The result is: ", str(result))
+         elif option == "6":
+             result = "%.12f" % math.cos(int(first) / int(second))
+             print("The result is: ", str(result))
+         elif option == "7":
+             first = read_int()
+             second = read_int()
+         else:
+             print("Thank you!")
+             break
+
+ if __name__ == "__main__":
+     main()
+
+*** Exercise 8.4: Notebook: Changing the written file
+
+Assignment
+
+    Also the other continuous project, the notebook, has relied on user actions in the sense that it would have broken down if the user had decided to read the file without writing anything to it. In this exercise we fix this, and add the possiblity of changing the used notebook file while the program is running.
+
+    First of all, make the program start by checking if there is a file "notebook.txt" and create one if there is none. If this has to be done, also inform the user with the warning "No default notebook was found, created one.".
+
+    When this feature works, add a fourth selection to the notebook, "(4) Change the notebook". If the user selects this option, the user is prompted for a new file "Give the name of the new file: ". If there is an existing file, it is opened and loaded into the notebook program, while the old notebook file is closed. If the new notebook file does not exist, the system informs the user "No notebook with that name detected, created one." and makes a new file. Also add a note of the used notebook file to the main menu, "Now using file [filename]". If everything is implemented correctly, the program works as follows:
+
+    >>>
+    No default notebook was found, created one.
+    Now using file notebook.txt
+    (1) Read the notebook
+    (2) Add note
+    (3) Empty the notebook
+    (4) Change the notebook
+    (5) Quit
+    Please select one: 2
+
+    Write a new note: Buy milk.
+    Now using file notebook.txt
+
+    (1) Read the notebook
+    (2) Add note
+    (3) Empty the notebook
+    (4) Change the notebook
+    (5) Quit
+    Please select one: 4
+
+    Give the name of the new file: otherbook.txt
+    No notebook with that name detected, created one.
+    Now using file otherbook.txt
+
+    (1) Read the notebook
+    (2) Add note
+    (3) Empty the notebook
+    (4) Change the notebook
+    (5) Quit
+    Please select one: 2
+
+    Write a new note: Buy pineapples.
+    Now using file otherbook.txt
+
+    (1) Read the notebook
+    (2) Add note
+    (3) Empty the notebook
+    (4) Change the notebook
+    (5) Quit
+    Please select one: 4
+
+    Give the name of the new file: notebook.txt
+    Now using file notebook.txt
+
+    (1) Read the notebook
+    (2) Add note
+    (3) Empty the notebook
+    (4) Change the notebook
+    (5) Quit
+    Please select one: 1
+
+    Buy milk.:::12:05:23 04/25/11
+    Now using file notebook.txt
+
+    (1) Read the notebook
+    (2) Add note
+    (3) Empty the notebook
+    (4) Change the notebook
+    (5) Quit
+    Please select one: 5
+
+    Notebook shutting down, thank you.
+    >>>
+
+    The best way to approach the required changes in this exercise is to first rewrite the code so that it stores the name of the used notebook file in a variable, and that this variable is changed as needed. Also, the easiest way of testing if a file exists is to open it to a file handle inside exception handler. If an IOError was generated, then there was no file with that name and write mode can be used to create such file.
+
+Your answer
+
+ # reimplement later using exceptions for files
+
+ import time
+ import os
+
+ name = "notebook.txt"
+
+ while 1:
+
+     if not os.path.isfile(name):
+         open(name, 'a').close()
+         print("No default notebook was found, created one.")
+     print("Now using file", name)
+
+     print("(1) Read the notebook")
+     print("(2) Add note")
+     print("(3) Empty the notebook")
+     print("(4) Change the notebook")
+     print("(5) Quit\n")
+     option = input("Please select one: ")
+     if option == "1" :
+         # Read notes
+         file = open(new_name,"r")
+         print("", end="")
+         content = file.readlines()
+         for i in content:
+             i = i.rstrip('\n')
+             print(i)
+         file.close()
+         print("")
+     elif option == "2" :
+         timestamp = time.strftime("%X %x")
+         note = input("Write a new note: ")
+         # append to the file
+         file = open(name,"a")
+         file.write(note + ":::" + timestamp + "\n")
+         file.close()
+     elif option == "3" :
+         # Empty the notebook
+         # This is for delete: os.remove(name)
+         open(name, 'w').close()
+         print("Notes deleted.")
+     elif option == "4":
+         new_name = input("Give the name of the new file: ")
+         if not os.path.isfile(new_name):
+             open(new_name, 'a').close()
+             print("No notebook with that name detected, created one.")
+         name = new_name
+     else:
+         break
+
+ print("Notebook shutting down, thank you.")
+
+** Advanced datastructures
+
+*** Exercise 9.1: Creating a list
+
+Assignment
+
+    The exercise in the 9th chapter focuses on one of the most powerful tools in the Python language, the datatype list, and the first assignment is a simple exercise to create. Define a list which has four items, strings "Blue","Red","Yellow" and "Green". After this, make a slice from the list which contains only the first item of the list (list place 0), and print out all of the items with one for-structure. When the code works properly, the program prints the following:
+
+    >>>
+    The first item in the list is: Blue
+    The entire list printed one item a time:
+    Blue
+    Red
+    Yellow
+    Green
+    >>>
+
+Your answer
+
+ mylist = ["Blue","Red","Yellow", "Green"]
+
+ print("The first item in the list is: ", mylist[0] )
+ print("The entire list printed one item a time:")
+ for i in mylist:
+     print(i)
+
+*** Exercise 9.2: Using the list
+
+Assignment
+
+    In the second exercise the idea is to create a small grocery shopping list with the list datastructure. In short, create a program that allows the user to (1) add products to the list, (2) remove items and (3) print the list and quit.
+
+    If the user adds something to the list, the program asks "What will be added?: " and saves it as the last item in the list. If the user decides to remove something, the program informs the user about how many items there are on the list (There are [number] items in the list.") and prompts the user for the removed item ("Which item is deleted?: "). If the user selects 0, the first item is removed. When the user quits, the final list is printed for the user "The following items remain in the list:" followed by the remaining items one per line. If the user selects anything outside the options, including when deleting items, the program responds "Incorrect selection.". When the program works correctly it prints out the following:
+
+    >>>
+    Would you like to
+    (1)Add or
+    (2)Remove items or
+    (3)Quit?: 1
+
+    What will be added?: Apples
+
+    Would you like to
+    (1)Add or
+    (2)Remove items or
+    (3)Quit?: 1
+
+    What will be added?: Beer
+
+    Would you like to
+    (1)Add or
+    (2)Remove items or
+    (3)Quit?: 1
+
+    What will be added?: Carrots
+
+    Would you like to
+    (1)Add or
+    (2)Remove items or
+    (3)Quit?: 2
+
+    There are 3 items in the list.
+
+    Which item is deleted?: 3
+    Incorrect selection.
+
+    Would you like to
+    (1)Add or
+    (2)Remove items or
+    (3)Quit?: 2
+
+    There are 3 items in the list.
+
+    Which item is deleted?: 2
+
+    Would you like to
+    (1)Add or
+    (2)Remove items or
+    (3)Quit?: 2
+
+    There are 2 items in the list.
+
+    Which item is deleted?: 0
+
+    Would you like to
+    (1)Add or
+    (2)Remove items or
+    (3)Quit?: 4
+
+    Incorrect selection.
+
+    Would you like to
+    (1)Add or
+    (2)Remove items or
+    (3)Quit?: 3
+
+    The following items remain in the list:
+    Beer
+
+    >>>
+
+Your answer
+
+ mylist = []
+
+ while 1:
+     print("Would you like to")
+     print("(1)Add or")
+     print("(2)Remove items or")
+     option = input("(3)Quit?: ")
+
+     if option == "1":
+         addto = input("What will be added?: ")
+         mylist.append(addto)
+     elif option == "2":
+         print("There are ", str(len(mylist)), " items in the list.")
+         deleteto = int(input("Which item is deleted?: "))
+         try:
+             mylist.pop(deleteto)
+         except Exception:
+             print("Incorrect selection.")
+         #    print("ELEMENT DOES NOT EXIST!!")
+
+     elif option == "3":
+         print("The following items remain in the list:")
+         for i in mylist:
+             print(i)
+         break
+     else:
+         print("Incorrect selection.")
+
+*** Exercise 9.3: More list methods
+
+Assignment
+
+    The third exercise also revolves around list methods, this time doing data manipulation. In the same folder as the source code, there is a file named "words.txt", which has a randomly selected set of words. Build a program, which reads all of the words from the file, sorts them in alphabetic order and prints out the list with the statement "Words in an alphabetical order:". When correctly implemented, the program prints out the following:
+
+    >>>
+    Words in an alphabetical order:
+    aardvark
+    beercase
+    buzz
+    hammer
+    house
+    lion
+    nail
+    roadworks
+    salesman
+    shovel
+    table
+    xenon
+    >>>
+
+    All the words in the file are written in lowercase letters, and do not have any special characters or numbers.
+
+Your answer
+
+ mylist = []
+
+ readfile = open("words.txt","r")
+ content = readfile.readlines()
+
+ print("Words in an alphabetical order:")
+ for i in content:
+     mylist.append(i)
+
+ mylist.sort()
+
+ for i in mylist:
+     print(i)
+
+ readfile.close()
+
+*** Exercise 9.4: Notebook: Using list with the notebook, pickle
+
+Assignment
+
+    As this is the last exercise for procedural programming, this exercise is also a sort of final project, which implements all of the things discussed during the course. Also, even this if this exercise is marked as an exercise for the continuing notebook program, the changes made in the program will be rather excessive, so it may be a good idea to start from a clean plate.
+
+    In this exercise the idea is to build a notebook which applies the Python data structure list as a note manipulation method when the program is executed, and saves the data in a bitwise mode with pickle. The program has the following features:
+    A) It is possible to add notes, with similar timestamps as earlier.
+    B)It is possible to edit a note by selecting it from the list, and rewriting it with new data.
+    C) It is possible to delete notes separately based on the selection and
+    D) Notebook loads an existing notebook file from the file "notebook.dat" if such a file exists.
+
+    When the program starts, the system should check for a notebook datafile "notebook.dat" and load it with pickle. If no such file exists, or there was a problem with the file, a new file is created and the user is notified "No default notebook was found, created one.". After this the basic main menu works as in the earlier notebook:
+
+    >>>
+    No default notebook was found, created one.
+
+    (1) Read the notebook
+    (2) Add note
+    (3) Edit a note
+    (4) Delete a note
+    (5) Save and quit
+
+    Please select one: 2
+
+    Write a new note: Buy birdseed.
+
+    (1) Read the notebook
+    (2) Add note
+    (3) Edit a note
+    (4) Delete a note
+    (5) Save and quit
+
+    Please select one: 1
+
+    Buy birdseed.:::16:41:40 04/25/11
+
+    If the user is not pleased with a note, it is possible to change one note with the option 3. Then the program asks for the edited note (0 is the first one on the list) with the prompt "The list has [number] notes.\nWhich of them will be changed?:". After giving an input, the user is then printed the selected note and asked for a new note "Give the new note:". This new note replaces the old note on the list:
+
+    (1) Read the notebook
+    (2) Add note
+    (3) Edit a note
+    (4) Delete a note
+    (5) Save and quit
+
+    Please select one: 3
+
+    The list has 1 notes.
+
+    Which of them will be changed?: 0
+
+    Buy birdseed.:::16:41:40 04/25/11
+
+    Give the new note: Buy pig food.
+
+    (1) Read the notebook
+    (2) Add note
+    (3) Edit a note
+    (4) Delete a note
+    (5) Save and quit
+
+    Please select one: 1
+
+    Buy pig food.:::16:42:03 04/25/11
+
+    Deleting a note is done similarly as editing. The only real difference is that the deleted note is printed to the user with the notification "Deleted note [deleted note]".
+
+    (1) Read the notebook
+    (2) Add note
+    (3) Edit a note
+    (4) Delete a note
+    (5) Save and quit
+
+    Please select one: 4
+
+    The list has 1 notes.
+
+    Which of them will be deleted?: 0
+
+    Deleted note Buy pig food.:::16:42:03 04/25/11
+
+    Finally, when the user decides to quit, the current notebook is saved as a datagram to the file "notebook.dat", with the notification "Notebook shutting down, thank you.".
+
+    (1) Read the notebook
+    (2) Add note
+    (3) Edit a note
+    (4) Delete a note
+    (5) Save and quit
+
+    Please select one: 5
+
+    Notebook shutting down, thank you.
+
+    Also, if there already is a notebook datagram file, it should be loaded at startup, and otherwise normally used in the notebook program:
+
+    >>>
+    (1) Read the notebook
+    (2) Add note
+    (3) Edit a note
+    (4) Delete a note
+    (5) Save and quit
+
+    Please select one: 1
+
+    Buy gas:::16:45:51 04/25/11
+
+    (1) Read the notebook
+    (2) Add note
+    (3) Edit a note
+    (4) Delete a note
+    (5) Save and quit
+
+    Please select one: 4
+
+    The list has 1 notes.
+
+    Which of them will be deleted?: 0
+
+    Deleted note Buy gas:::16:45:51 04/25/11
+
+    (1) Read the notebook
+    (2) Add note
+    (3) Edit a note
+    (4) Delete a note
+    (5) Save and quit
+
+    Please select one: 2
+
+    Write a new note: Call tow truck
+
+    (1) Read the notebook
+    (2) Add note
+    (3) Edit a note
+    (4) Delete a note
+    (5) Save and quit
+
+    Please select one: 5
+
+    Notebook shutting down, thank you.
+    >>>
+
+    This program is probably the most difficult exercise in this course, but it is possible to implement it with roughly 50 to 60 lines of code when applying the things taught during this course. When you get this program to work, it is time to congratulate yourself, as that means that you have been able to use most, if not all, of the main topics from this course efficiently!
+
+Your answer
+
+ # reimplement later using exceptions for files
+ # OK #A) It is possible to add notes, with similar timestamps as earlier.
+ #B) It is possible to edit a note by selecting it from the list, and rewriting it with new data.
+ #C) It is possible to delete notes separately based on the selection and
+ # OK #D) Notebook loads an existing notebook file from the file "notebook.dat" if such a file exists.
+
+ # OK #When the program starts, the system should check for a notebook datafile "notebook.dat" and load it with pickle. If no such file exists, or there was a problem with the file, a new file  is created and the user is notified "No default notebook was found, created one."
+
+ import time
+ import os
+ import pickle
+
+ name = "notebook.dat"
+
+ # Without exceptions
+ # If file does not exist, create a new one
+ #if not os.path.isfile(name):
+
+ try:
+     open(name, "rb").close()
+ except IOError:
+     print("No default notebook was found, created one.")
+     open(name, "wb").close()
+     #open(name, 'a').close()
+
+ while 1:
+     print("(1) Read the notebook")
+     print("(2) Add note")
+     print("(3) Edit a note") # NEW OPTION
+     print("(4) Delete a note") # NEW OPTION
+     print("(5) Save and quit") # NEW OPTION
+     print("")
+     option = input("Please select one: ")
+     if option == "1" :
+
+         # Read notes
+         try:
+             filename = open(name,"rb")
+             justread = pickle.load(filename)
+
+         except Exception: # EOFerror?
+             # File corrupted
+             filename.close()
+             open(name, "wb").close()
+             continue
+
+         for i in justread:
+             print(i)
+         filename.close()
+     elif option == "2" :
+         justread = []
+         # Read the file content
+         try:
+             filename = open(name,"rb")
+             justread = pickle.load(filename)
+             # We just read the content, so close the file
+             filename.close()
+         except Exception:
+             # Dont do anything, is just an empty file
+             pass
+
+         # Create the new note
+         timestamp = time.strftime("%X %x")
+         note = input("Write a new note: ")
+
+         # Append new note into the pickle
+         justread.append(note + ":::" + timestamp + "")
+
+         # Write the content again
+         filename = open(name,"wb")
+         pickle.dump(justread,filename)
+         filename.close()
+
+     elif option == "3" :
+         # Read the file content
+         filename = open(name,"rb")
+         justread = pickle.load(filename)
+         filename.close()
+
+         print("The list has " + str(len(justread)) + " notes.")
+         notenumber = int(input("Which of them will be changed?: "))
+         print(justread[notenumber])
+
+         newnote = input("Give the new note: ")
+
+         # from now, delete and create
+         timestamp = time.strftime("%X %x")
+
+         # Append new note into the pickle on the same position
+         justread[notenumber] = newnote + ":::" + timestamp + ""
+
+         # Write the content again
+         filename = open(name,"wb")
+         pickle.dump(justread,filename)
+         filename.close()
+
+     elif option == "4":
+         # Read the file content
+         filename = open(name,"rb")
+         justread = pickle.load(filename)
+         filename.close()
+
+         # List number of notes
+         print("The list has " + str(len(justread)) + " notes.")
+         notenumber = int(input("Which of them will be deleted?: "))
+
+         if notenumber >= len(justread) and len(justread) == 1:
+             # Range out of list, try to delete the first element if exists
+             notenumber = 0
+
+         print("Deleted note " + justread[notenumber])
+
+         # Delete item selected
+         justread.pop(notenumber)
+
+         # Write the content again
+         filename = open(name,"wb")
+         pickle.dump(justread,filename)
+         filename.close()
+
+     else:
+         # write some bullshit
+         #bullshit = "��]q."
+
+         # Write the content again
+         #filename = open(name,"wb")
+         #pickle.dump(bullshit,filename)
+         #filename.close()
+
+         break
+
+ print("Notebook shutting down, thank you.")
+
+** Object-oriented programming and Python
+
+*** Exercise 10.1: Creating a class and an object
+
+Assignment
+
+    The first exercise is related to basic class definition. Create a program which has a class Player, which has two attributes, teamcolor and points. Then create a main function which creates an object from this class, gives its attributes values "Blue" and "300". After this, make the program print the object data in the form "The [color] contender has [points] points!" like this:
+
+    >>>
+    The Blue contender has 300 points!
+    >>>
+
+Your answer
+
+ class Player:
+     __teamcolor = "Blue"
+     __points = "300"
+
+     def setattr(self, nteamcolor, npoints):
+         self.__teamcolor = nteamcolor
+         self.__points = npoints
+
+     def printout(self):
+         print("The " + self.__teamcolor + " contender has " + self.__points + " points!")
+
+ def main():
+     aPlayer = Player()
+     aPlayer.printout()
+
+ if __name__ == "__main__":
+     main()
+
+*** Exercise 10.2: Creating a method
+
+Assignment
+
+    This exercise continues with the code made in the last exercise. In the last exercise one of the objectives was to create a class with two attributes, teamcolor and points. Now, add two methods called "tellscore" and "goal". When the method "tellscore" is called, the objects prints out "I am [teamcolor], we have [points] points!", and if the method goal is called, the object adds one point to the attribute points. Also make the attribute points a private attribute, and to accommodate that change, make the neccessary changes to get the class to work properly.
+
+    Then modify the program's main function so that instead of printing the data itself, the main function first calls the method "goal" and then the method "tellscore". If everything went correctly, the program should print out this:
+
+    >>>
+    I am Blue, we have 1 points!
+    >>>
+
+Your answer
+
+ class Player:
+     __teamcolor = "Blue"
+     __points = 0
+
+     def setattr(self, nteamcolor, npoints):
+         self.__teamcolor = nteamcolor
+         self.__points = npoints
+
+     def tellscore(self):
+         print("I am " + self.__teamcolor + ", we have " + str(self.__points) + " points!")
+
+     def goal(self):
+         self.__points += 1
+
+ def main():
+     aPlayer = Player()
+     aPlayer.goal()
+     aPlayer.tellscore()
+
+ if __name__ == "__main__":
+     main()
+
+*** Exercise 10.3: Initializing a class
+
+Assignment
+
+    In the third exercise we make one final adjustment to the class by adding initialization data and a docstring. First add a docstring "Player-class: stores data on team colors and points.". After this, add an initializing method __init__ to the class, and make it prompt the user for a new player color with the message"What color do I get?: ".
+
+    Edit the main function to first create two player objects from the class, player1 and player2. After this, make the program call player1's method "goal" twice and player2's goal once. After this, call both objects with the method "tellscore". If everything went correctly, the program should print something like this:
+
+    >>>
+    What color do I get?: Blue
+    What color do I get?: Red
+    I am Blue, we have 2 points!
+    I am Red, we have 1 points!
+    >>>
+
+Your answer
+
+ class Player:
+     """Player-class: stores data on team colors and points."""
+     __teamcolor = "Blue"
+     __points = 0
+
+     def setattr(self, nteamcolor, npoints):
+         self.__teamcolor = nteamcolor
+         self.__points = npoints
+
+     def tellscore(self):
+         print("I am " + self.__teamcolor + ", we have " + str(self.__points) + " points!")
+
+     def goal(self):
+         self.__points += 1
+
+     def __init__(self,value):
+         self.__teamcolor = value
+
+ def main():
+     color1 = input("What color do I get?: ")
+     color2 = input("What color do I get?: ")
+
+     aPlayer1 = Player(color1)
+     aPlayer2 = Player(color2)
+
+     aPlayer1.goal()
+     aPlayer1.goal()
+     aPlayer2.goal()
+
+     aPlayer1.tellscore()
+     aPlayer2.tellscore()
+
+ if __name__ == "__main__":
+     main()
+
+*** Excercise 10.4: Inheritance
+
+Assignment
+
+    The last exercise in chapter 10, and at the same time the course tries out inheritance. In this exercise, your task is to define a new class which will be inherited from the class Customer defined in the chapter's theory part.
+
+    01  class Customer:
+    02      name = "John Johnsson"
+    03      total = 1000
+    04      paymenttype = "Masterexpress"
+    05      number = "1234-5678-9012345"
+    06
+    07      def printout(self):
+    08          print("Name: ", self.name)
+    09          print("Total: ", self.total)
+    10          print("Payment type: ", self.paymenttype)
+    11          print("Card/Bill number: ", self.number)
+
+    Define a new class called ManageCustomer which has the following abilities:
+    1) A method "addbill", which increases the attribute total by 50, and
+    2) a method "payment" which decreases the attribute total by 100.
+
+    Remember that you only need to write the new inheriting class ManageCustomer. The system will test the class, but in the submitted answer only the class definition is needed. If the class is defined correctly, the program will print the following:
+
+    >>>
+    Name:  Homer Griffin
+    Total:  850
+    Payment type:  Masterexpress
+    Card/Bill number:  1234-5678-9012345
+    >>>
+
+Your answer
+
+ class ManageCustomer(Customer):
+     def addbill(self):
+         self.total += 50
+
+     def payment(self):
+         self.total -= 100
+
+* Codacademy course
+
+** Math library
+
+Max, min and abs:
+
+ def biggest_number(*args):
+     print max(args)
+     return max(args)
+
+ def smallest_number(*args):
+     print min(args)
+     return min(args)
+
+ def distance_from_zero(arg):
+     print abs(arg)
+     return abs(arg)
+
+** Types
+
+ print type(42)
+ print type(4.2)
+ print type('spam')
+
+** Dictionaries
+
+Empty dictionaries, initializing and adding entries to a dictionary,
+and print dictionaries, also len of a dictionary is the number of
+keypairs it has:
+
+ menu = {} # Empty dictionary
+ menu['Chicken Alfredo'] = 14.50 # Adding new key-value pair
+ print menu['Chicken Alfredo']
+
+ # Your code here: Add some dish-price pairs to menu!
+ menu['Meat'] = 9.90
+ menu['Fish'] = 15.90
+ menu['Duck'] = 22.15
+
+ print "There are " + str(len(menu)) + " items on the menu."
+ print menu
+
+*** Delete dictionaries
+
+ # key - animal_name : value - location
+ zoo_animals = { 'Unicorn' : 'Cotton Candy House',
+ 'Sloth' : 'Rainforest Exhibit',
+ 'Bengal Tiger' : 'Jungle House',
+ 'Atlantic Puffin' : 'Arctic Exhibit',
+ 'Rockhopper Penguin' : 'Arctic Exhibit'}
+ # A dictionary (or list) declaration may break across multiple lines
+
+ # Removing the 'Unicorn' entry. (Unicorns are incredibly expensive.)
+ del zoo_animals['Unicorn']
+
+ # Your code here!
+ del zoo_animals['Sloth']
+ del zoo_animals['Bengal Tiger']
+
+ print zoo_animals
+
+*** Changing a value in a dictionary
+
+ zoo_animals['Rockhopper Penguin'] = 'Artic Exhibit'
+
+*** Remove an entry from a dictionary
+
+ backpack = ['xylophone', 'dagger', 'tent', 'bread loaf']
+
+ backpack.remove("dagger")
+
+*** Add, remove, modify and sort dictionaries
+
+ inventory = {
+     'gold' : 500,
+     'pouch' : ['flint', 'twine', 'gemstone'], # Assigned a new list to
+ 'pouch' key
+     'backpack' : ['xylophone','dagger', 'bedroll','bread loaf']
+ }
+
+ # Adding a key 'burlap bag' and assigning a list to it
+ inventory['burlap bag'] = ['apple', 'small ruby', 'three-toed sloth']
+
+ # Sorting the list found under the key 'pouch'
+ inventory['pouch'].sort()
+
+ # Your code here
+ inventory['pocket'] = ['seashell', 'strange berry', 'lint']
+ inventory['backpack'].sort()
+ inventory['backpack'].remove('dagger')
+ inventory['gold'] = inventory['gold'] + 50
+
+*** Loops For in dictionaries
+
+Note that dictionaries are unordered, meaning that any time you loop
+through a dictionary, you will go through every key, but you are not
+guaranteed to get them in any particular order.
+
+ webster = {
+     "Aardvark" : "A star of a popular children's cartoon show.",
+     "Baa" : "The sound a goat makes.",
+     "Carpet": "Goes on the floor.",
+     "Dab": "A small amount."
+ }
+
+ # Add your code below!
+ for i in webster:
+     print webster[i]
+
+*** For loop
+
+ for letter in "Codecademy":
+     print letter
+
+*** Create unitialized values for a dictionary
+
+ lloyd = {
+     "name": "Lloyd",
+     "homework": [],
+     "quizzes": [],
+     "tests": []
+ }
+
+*** List of dictionries and accessing their values
+
+ lloyd = {
+     "name": "Lloyd",
+     "homework": [90.0, 97.0, 75.0, 92.0],
+     "quizzes": [88.0, 40.0, 94.0],
+     "tests": [75.0, 90.0]
+ }
+ alice = {
+     "name": "Alice",
+     "homework": [100.0, 92.0, 98.0, 100.0],
+     "quizzes": [82.0, 83.0, 91.0],
+     "tests": [89.0, 97.0]
+ }
+ tyler = {
+     "name": "Tyler",
+     "homework": [0.0, 87.0, 75.0, 22.0],
+     "quizzes": [0.0, 75.0, 78.0],
+     "tests": [100.0, 100.0]
+ }
+
+ students = [lloyd, alice, tyler]
+
+ for i in students:
+     print i["name"]
+     print i["homework"]
+     print i["quizzes"]
+     print i["tests"]
+
+*** Passing a list of dictionaries to a function
+
+ get_class_average([lloyd, alice, tyler])
+
+*** Remove element from a list by position or index
+
+ del(n[0])
+
+*** Range syntax
+
+ range(stop)
+ range(start, stop)
+ range(start, stop, step)
+
+
+*** List of lists
+
+ list_of_lists = [[1,2,3], [4,5,6]]
+
+ for lst in list_of_lists:
+     for item in lst:
+         print item
+
+** BATTLESHIPS game implementation in python
+
+ from random import randint
+
+ board = []
+
+ for x in range(5):
+     board.append(["O"] * 5)
+
+ def print_board(board):
+     for row in board:
+         print " ".join(row)
+
+ print "Let's play Battleship!"
+ print_board(board)
+
+ def random_row(board):
+     return randint(0, len(board) - 1)
+
+ def random_col(board):
+     return randint(0, len(board[0]) - 1)
+
+ ship_row = random_row(board)
+ ship_col = random_col(board)
+ print ship_row
+ print ship_col
+
+ turn = 0
+
+ for turn in range(4):
+     # Everything from here on should go in your for loop!
+     # Be sure to indent four spaces!
+     print "Turn", turn + 1
+     guess_row = int(raw_input("Guess Row:"))
+     guess_col = int(raw_input("Guess Col:"))
+
+     if guess_row == ship_row and guess_col == ship_col:
+         print "Congratulations! You sunk my battleship!"
+         break
+     else:
+         if (guess_row < 0 or guess_row > 4) or (guess_col < 0 or guess_col > 4):
+             print "Oops, that's not even in the ocean."
+         elif(board[guess_row][guess_col] == "X"):
+             print "You guessed that one already."
+         else:
+             print "You missed my battleship!"
+             board[guess_row][guess_col] = "X"
+         # Print (turn + 1) here!
+         print_board(board)
+         if turn == 3:
+             print "Game Over"
+
+** While/else loops
+
+ from random import randint
+
+ # Generates a number from 1 through 10 inclusive
+ random_number = randint(1, 10)
+
+ guesses_left = 3
+ # Start your game!
+ while guesses_left > 0:
+     guess = raw_input("Guess: ")
+     if guess == random_number:
+         print "You win!"
+         break
+     guesses_left -= 1
+ else:
+     print "You lose."
+
+** More dictionaries
+
+ d = {'a': 'apple', 'b': 'berry', 'c': 'cherry'}
+
+ for key in d:
+     # Your code here!
+     print key, d[key]
+
+** More lists
+
+ choices = ['pizza', 'pasta', 'salad', 'nachos']
+
+ print 'Your choices are:'
+ for index, item in enumerate(choices):
+     print index+1, item
+
+** Zip
+
+zip will create pairs of elements when passed two lists, and will stop at the end of the shorter list.
+
+zip can handle three or more lists as well!
+
+ list_a = [3, 9, 17, 15, 19]
+ list_b = [2, 4, 8, 10, 30, 40, 50, 60, 70, 80, 90]
+
+ for a, b in zip(list_a, list_b):
+     # Add your code here!
+     if a > b:
+         print a
+     else:
+         print b
+
+** Check types
+
+ def is_int(x):
+     if x == int(x):
+         return True
+     else:
+         return False
+
+** Working with dictionaries
+
+ my_dict = {
+     "Name": "Borja",
+     "Age": 32,
+     "License": True
+ }
+
+ #print my_dict.items()
+ print my_dict.keys()
+ print my_dict.values()
+
+---
+
+ my_dict = {
+     "Name": "Borja",
+     "Age": 32,
+     "License": True
+ }
+
+ for i in my_dict:
+     print i, my_dict[i]
+
+---
+
+ evens_to_50 = [i for i in range(51) if i % 2 == 0]
+ print evens_to_50
+
+---
+
+ even_squares = [x**2 for x in range(1,11) if x % 2 == 0]
+
+---
+
+ List slices, access only to a part of a list:
+
+ l = [i ** 2 for i in range(1, 11)]
+ # Should be [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+ print l[2:9:2]
+
+---
+
+Omitting indices:
+
+ to_five = ['A', 'B', 'C', 'D', 'E']
+
+ print to_five[3:]
+ # prints ['D', 'E']
+
+ print to_five[:2]
+ # prints ['A', 'B']
+
+ print to_five[::2]
+ # print ['A', 'C', 'E']
+
+---
+
+ to_one_hundred = range(101)
+ # Add your code below!
+
+ backwards_by_tens = [x for x in to_one_hundred[::-1] if x % 10 == 0]
+ print backwards_by_tens
+
+----
+
+Print Middle third in a list:
+
+ to_21 = range(1,22)
+ odds = to_21[::2]
+ middle_third = to_21[len(to_21)/3:len(to_21)/3*2:]
+
+ print middle_third
+
+---
+
+** Lambda
+
+ lambda x: x % 3 == 0
+
+ Is the same as
+
+ def by_three(x):
+     return x % 3 == 0
+
+Only we don't need to actually give the function a name; it does its work and returns a value without one. That's why the function the lambda creates is an anonymous function.
+
+ my_list = range(16)
+ print filter(lambda x: x % 3 == 0, my_list)
+
+---
+
+ squares = [x**2 for x in range(1,11)]
+
+ print filter(lambda x: x >= 30 and x <= 70, squares)
+
+---
+
+ garbled = "IXXX aXXmX aXXXnXoXXXXXtXhXeXXXXrX sXXXXeXcXXXrXeXt mXXeXsXXXsXaXXXXXXgXeX!XX"
+
+ message = filter(lambda x: x != "X" , garbled)
+
+ print message
+
+---
+
+** Bitwise operations
+
+ print 5 >> 4  # Right Shift
+ print 5 << 1  # Left Shift
+ print 8 & 5   # Bitwise AND
+ print 9 | 4   # Bitwise OR
+ print 12 ^ 42 # Bitwise XOR
+ print ~88     # Bitwise NOT
+
+---
+
+ print 0b1,    #1
+ print 0b10,   #2
+ print 0b11,   #3
+ print 0b100,  #4
+ print 0b101,  #5
+ print 0b110,  #6
+ print 0b111   #7
+ print "******"
+ print 0b1 + 0b11
+ print 0b11 * 0b11
+
+---
+
+ print int("1",2)
+ print int("10",2)
+ print int("111",2)
+ print int("0b100",2)
+ print int(bin(5),2)
+
+---
+
+ def flip_bit(number, n):
+     mask = (0b1 << n-1)
+     desired = number ^ mask
+     return bin(desired)
+
+---
+
+** Classes
+
+*** basic class
+
+ class Fruit(object):
+     """A class that makes various tasty fruits."""
+     def __init__(self, name, color, flavor, poisonous):
+         self.name = name
+         self.color = color
+         self.flavor = flavor
+         self.poisonous = poisonous
+
+     def description(self):
+         print "I'm a %s %s and I taste %s." % (self.color, self.name, self.flavor)
+
+     def is_edible(self):
+         if not self.poisonous:
+             print "Yep! I'm edible."
+         else:
+             print "Don't eat me! I am super poisonous."
+
+ lemon = Fruit("lemon", "yellow", "sour", Fals)
+
+ lemon.description()
+ lemon.is_edible()
+
+*** inheritance
+
+ class Customer(object):
+     """Produces objects that represent customers."""
+     def __init__(self, customer_id):
+         self.customer_id = customer_id
+
+     def display_cart(self):
+         print "I'm a string that stands in for the contents of your shopping cart!"
+
+ class ReturningCustomer(Customer):
+     """For customers of the repeat variety."""
+     def display_order_history(self):
+         print "I'm a string that stands in for your order history!"
+
+ monty_python = ReturningCustomer("ID: 12345")
+ monty_python.display_cart()
+ monty_python.display_order_history()
+
+*** overload methods
+
+ class Employee(object):
+     """Models real-life employees!"""
+     def __init__(self, employee_name):
+         self.employee_name = employee_name
+
+     def calculate_wage(self, hours):
+         self.hours = hours
+         return hours * 20.00
+
+ # Add your code below!
+ class PartTimeEmployee(Employee):
+     """Models part-time employees!"""
+     def __init__(self):
+         self.employee_name = employee_name
+
+     def calculate_wage(self, hours):
+         self.hours = hours
+         return hours * 12.00
+
+*** subclass and superclass
+
+sometimes you'll be working with a derived class (or subclass) and realize that you've overwritten a method or attribute defined in that class' base class (also called a parent or superclass) that you actually need. Have no fear! You can directly access the attributes or methods of a superclass with Python's built-in super call
+
+ class Employee(object):
+     """Models real-life employees!"""
+     def __init__(self, employee_name):
+         self.employee_name = employee_name
+
+     def calculate_wage(self, hours):
+         self.hours = hours
+         return hours * 20.00
+
+ # Add your code below!
+ class PartTimeEmployee(Employee):
+     """Models part-time employees!"""
+     def __init__(self, employee_name):
+         self.employee_name = employee_name
+
+     def calculate_wage(self, hours):
+         self.hours = hours
+         return hours * 12.00
+
+     def full_time_wage(self, hours):
+         return super(PartTimeEmployee, self).calculate_wage(hours)
+
+ milton = PartTimeEmployee("John")
+
+ print milton.full_time_wage(10)
+
+*** Adding properties inside the class, before init...
+
+ class Triangle(object):
+     number_of_sides = 3
+
+     def __init__(self, angle1, angle2, angle3):
+         self.angle1 = angle1
+         self.angle2 = angle2
+         self.angle3 = angle3
+
+     def check_angles(self):
+         sum = self.angle1 + self.angle2 + self.angle3
+
+         if sum == 180:
+             return True
+         else:
+             return False
+
+*** More classes, assigning attributes from derived class to attributes of base class
+
+ class Triangle(object):
+     number_of_sides = 3
+
+     def __init__(self, angle1, angle2, angle3):
+         self.angle1 = angle1
+         self.angle2 = angle2
+         self.angle3 = angle3
+
+     def check_angles(self):
+         sum = self.angle1 + self.angle2 + self.angle3
+
+         if sum == 180:
+             return True
+         else:
+             return False
+
+ class Equilateral(Triangle):
+     angle = 60
+
+     def __init__(self):
+         self.angle1 = self.angle
+         self.angle2 = self.angle
+         self.angle3 = self.angle
+
+ my_triangle = Triangle(90,30,60)
+
+ print myt_riangle.number_of_sides
+ print my_triangle.check_angles()
+
+*** Print variables in formats
+
+ class Car(object):
+     condition = "new"
+     def __init__(self, model, color, mpg):
+         self.model = model
+         self.color = color
+         self.mpg   = mpg
+
+     def display_car(self):
+         return "This is a %s %s with %d MPG." % (self.color, self.model, self.mpg)
+
+ my_car = Car("DeLorean", "silver", 88)
+ print my_car.condition
+ print my_car.display_car()
+
+*** More inheritance
+
+ class Car(object):
+     condition = "new"
+     def __init__(self, model, color, mpg):
+         self.model = model
+         self.color = color
+         self.mpg = mpg
+     def displayCar(self):
+         print "This is a " + self.color + \
+         " " + self.model + " with" + \
+         " " + str(self.mpg) + " MPG."
+     def driveCar(self):
+         self.condition = "used"
+
+ class ElectricCar(Car):
+     def __init__(self, model, color, mpg, battery_type):
+         self.battery_type = battery_type
+         super(ElectricCar, self).__init__(model, color, mpg)
+     def displayCar(self):
+         super(ElectricCar,self).displayCar()
+         print self.battery_type
+
+ my_car = ElectricCar("Kia", "black", 40, "molten salt")
+ my_car.displayCar()
+
+*** Printing variables from classes
+
+ class Point3D(object):
+     def __init__(self, x, y, z):
+         self.x = x
+         self.y = y
+         self.z = z
+
+     def __repr__():
+         return "(%d, %d, %d)" % (self.x, self.y, self.z)
+
+ my_point = Point3D(1,2,3)
+ print my_point
+
+** Files
+
+*** Write on a file
+
+ my_list = [i**2 for i in range(1,11)]
+ # Generates a list of squares of the numbers 1 - 10
+
+ f = open("output.txt", "w")
+
+ for item in my_list:
+     f.write(str(item) + "\n")
+
+ f.close()
+
+*** Iterating reading from a file
+
+ my_file = open("output.txt", "r")
+
+ print my_file.read()
+
+ my_file.close()
+
+*** Read lines from a file
+
+ my_file = open("text.txt", "r")
+
+ print my_file.readline()
+ print my_file.readline()
+ print my_file.readline()
+
+ my_file.close()
+
+*** Open as
+
+ Not needed to close the file!, with/as does for you!
+
+ with open("text.txt", "w") as textfile:
+ 	textfile.write("Success!")
+
+*** check if file is not closed
+
+ with open("text.txt", "w") as my_file:
+ 	my_file.write("Success!")
+
+ if my_file.closed == False:
+     my_file.close()
+
+ print my_file.closed
+
+* Puppet info
+
+- http://en.wikipedia.org/wiki/Puppet_%28software%29
+- https://docs.puppetlabs.com/pe/latest/quick_start.html
+- https://docs.puppetlabs.com/pe/latest/
+
+* References
+# Viope
+# http://docs.python.org/2/library/pdb.html
+
+* Python tutorials
+
+- BASIC
+  - Python 2: https://docs.python.org/2/tutorial/
+  - Python 3: https://docs.python.org/3.4/tutorial/
+- INTERMEDIATE
+  - https://www.orchardup.com/
+- EXPERT
+  - http://www.pythonchallenge.com/
+- OTHERS
+  - http://www.swaroopch.com/notes/python/
+  - http://www.learningpython.com/
+  - http://rgruet.free.fr/PQR25/PQR2.5.html
+  - http://www.greenteapress.com/thinkpython/thinkpython.html
+- EXERCISES
+  - http://icpc.baylor.edu/challenge/
+  - http://www.pythonchallenge.com/
+  - http://www.hackthissite.org/
+  - http://web.archive.org/web/20100808125507/http://cse.ucdavis.edu/~chaos/courses/nlp/Software/PythonProgramming.html
+  - http://www.ling.gu.se/~lager/python_exercises.html
+  - http://codingbat.com/python

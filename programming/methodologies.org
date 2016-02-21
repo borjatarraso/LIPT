@@ -1,0 +1,1352 @@
+* Extreme programming explained
+
+** What it is XP?
+
+XP is a style of sw development focusing on excellent application of programming techniques, clear communication and teamwork which allows us to accomplish things.
+
+XP is a path of improvement to excellence for people coming together to develop sw.
+
+- XP is lightweight.
+- XP is a methodology based on addressing constraints in sw development.
+- XP can work with teams of any size.
+- XP adapts to vague or rapidly changing requirements.
+
+** Learning to drive
+
+Example of driving: driving is not about getting the car going in the right direction. Driving is about constantly paying attention, making a little correction this way, a little correction that way.
+
+This is the paradigm for XP: Stay aware, adapt, change.
+
+** Values, principles and practices
+
+Example of gardener: you can learn the basic techniques of gardening quickly from a book, but that doesn't make you a gardener. What are the differences? A gardener knows more techniques than I do, and he's better at the techniques we both know.
+
+Practices are the things you do day-to-day.
+Values are the roots of the things we like and don't like in a situation. Values are the large scale criteria we use to judge what we see, think and do.
+Principles is the gap between values and practices. Principles are domain-specific guidelines for life.
+
+** Values
+
+XP embrace 5 values to guide development:
+
+# Communication: creates sense of team and effective cooperation.
+# Simplicity: gives much less to communicate about.
+# Feedback: the sooner as you know, the sooner you can adapt.
+# Courage: if you know what the problem is, do something about it. Courage seek real, concrete answers creates feedback.
+# Respect: each person of the team should be respected, also the project. Otherwise nothing can save it.
+# Others: depending of organization and team other values could be important like; safety, security, predictability and quality of life.
+
+** Principles
+
+# Humanity: often, sw development doesn't meet human needs. This is not good for business either. So it is good:
+## Basic safety: freedom from hunger (job loss threat).
+## Accomplishment: ability to contribute to their society.
+## Belonging: ability to identify with a group to its shared goals.
+## Growth: opportunity to expand skills.
+## Intimacy: understand and being understood.
+# Economics: make sure your sw development has a business value as somebody has to pay for all this.
+# Mutual benefit: not always there is mutual benefit (extensive documentation is an example that violates this). To solve this:
+## Write automated test that helps in design and implementation. this helps the maintainers also.
+## Refactor to remove accidental complexity. This will help to have fewer defects and making the code easier to understand.
+## Choose coherent names and explicit set of metaphors which speeds my development and future new programmers.
+# Self-similarity: copying the structure that it works into another context or even in different scales. Sometimes it will not work, but this does not mean that it is bad, as the situation may really call for a unique solution.
+# Improvement: there is no perfect process, design or stories, however you can perfect your process, design and your stories. The cycle is to do the best you can today, it doesn't mean waiting for perfection in order to begin.
+# Diversity: conflict is inevitable companion of diversity. But two ideas of design present an opportunity, not a problem.
+# Reflection: good teams think about how they are working and why they are working.
+# Flow: continuous flow of activities rather than discrete phases. Sw development has long delivered value in big chunks, "big bang" integration reflects this tendency.
+# Opportunity: learn to see problems as opportunity for change. It maximizes the strengh and minimizes weaknesses.
+# Redundancy: be careful not to remove redundancy that serves a valid purpose. Eliminate only when it is proven redundant in practice by not finding any defects several deployments in a row.
+# Failure: Isn't a failure waste? no, not if it is imparts knowledge.
+# Quality: quality is not a control variable. Projects don't go faster by accepting lower quality. They don't go slower by demanding higher quality. Also people need to do work they are proud of.
+# Baby steps: What's the least you could do that is recognizably in the right direction? Are expressed in practices like test-first programming, which proceeds one test at a time, and continuous integration.
+# Acceptance responsibility: responsibility cannot be assigned, it can only be accepted. If somebody tries to give you responsability, only you can decide if you are responsible or if you aren't. With responsibility comes authority.
+
+** Practices
+
+The things you'll see XP teams doing day-to-day. Practices themselves are barren unless given purpose by values, they become rote.
+
+Practices are situation dependent, if situation changes, you choose different practices, but values do not have to change.
+
+Practices can be divided in Primary practices (independent of what you are doing) and Corollary practices.
+
+** Primary practices
+
+*** Sit together
+
+Develop in an open space big enough for the whole teem. But also having privacy and owned space by having small private spaces nearby.
+
+Spent half a day programming in a conference room.
+
+*** Whole team
+
+People need a sense of team:
+- We belong.
+- We are in this together.
+- We support each others' work, growth and learning.
+
+*** Informative workspace
+
+Make your workspace about your work: stories in the wall, team workspace.
+
+*** Energized work
+
+Work only as many hours as you can be productive.
+
+Turn off the phones and email notification and just program for two hours.
+
+*** Pair programming
+
+Write all production programs with 2 people sitting together at one machine.
+
+- Keep each other on task.
+- Brainstorm refinements to the system.
+- Clarify ideas.
+- Take initiative when their partner is stuck, thus lowering frustration.
+- Hold each other accountable to the team's practices.
+
+*** Weekly cycle
+
+Plan work a week at a time. Having a meeting at the beginning of every week:
+# Review progress to date.
+# Have the customers pick a week's worth of stories to implement this week.
+# Break stories into tasks and estimate them.
+
+*** Quarterly cycle
+
+Plan work a quarter at a time:
+# Identify bottlenecks.
+# Initiate repairs.
+# Plan the theme or themes for the quarter.
+# Pick a quarter's worth of stories to address those themes.
+# Focus on the big picture, where the project fits in the organization.
+
+*** Slack
+
+In any plan, include some minor tasks that can be dropped if you get behind. You can always add more stories later and deliver more than you promised.
+
+*** Ten-minute build
+
+Automatically build the whole system and run all of the tests in 10 minutes. A build that takes longer than 10 minutes will be used much less often, missing the opportunity for feedback. Shorter build doesn't give you time to drink coffee.
+
+*** Continuous integration
+
+Integrate and test changes after no more than a couple of hours. Team programming is a divide, conquer and integrate problem.
+
+*** Test-first programming
+
+Write a failing automated test before chaning any code, this will address many problems at once:
+# Scope creep: stating explicitly and objectively what the program is supposed to do.
+# Coupling and cohesion: if it is hard to write a test, it's a signal that you have a design problem, not a testing problem.
+# Trust: it's hard to trust the author of code that doesn't work. Writing clean code that works and demonstrating your intentions with automated tests, you give your team mates a reason to trust you.
+# Rhythm: When programming test-first, it's clearer what to do next, either write anothr test or make the broken test work ending with test, code refactor and so on.
+
+*** Incremental design
+
+Invest in the design of the system every day. Make the design of the system an excellent fit for the needs of the system that day, so you will understand the best possible design leaps forward.
+
+Not minimize the design investment over the short run, but to keep the design investment in proportion to the needs of the system so far. Incremental design suggests that the most effective time to design is in the light of experience.
+
+How to design, and where the system to improve the design are typical questions.
+
+** Getting started
+
+Start a weekly cycle for yourself. Take time at the beginning of the week to write down everything you think you can accomplish in the week. If there is too much to do, align your priorities with the team's needs.
+
+As it is hard to apply all at once, start by doing just one practice, embrace one value and apply one principle. If you add too much, you have risk to end up in all practices and values.
+
+For example: "automate the build", "test first all day", "pair program with somebody for 2 hours", etc.
+
+Change begins with awareness. Awareness of the need for change comes from feelings, instincts, facts or feedback from outsiders. Metrics can lead to awareness.
+
+Once you are aware of the need for change, you can begin to change. And change always starts at home. The only person you can actually change is yourself.
+
+** Corollary practices
+
+*** Real customer involvement
+
+Make people whose lives and business are affected by your system part of the team. Visionary customers can be part of quarterly and weekly planning. They can have a budget, percentage of the available development capacity.
+
+The point of customer involvement is to reduce wasted effort by putting the people with the needs in direct contact with the people who can fill those needs.
+
+*** Incremental deployment
+
+When replacing a legacy system, gradually take over its workload beginning very early in the project.
+
+*** Team continuity
+
+Keep effective teams together. There is a tendency in large organizations to abstract people to things, plug-compatible programing units. Value in software is created not just by what people know and do but also by their relationships and what they accomplish together. Ignoring the value of relationships and trust just to simplify the scheduling problem is false economy.
+
+Small organizations does not have this problem, there is only one team. Once you gel, you earn and offer trust, nothing short of shared calamity can pull the team apart. Large organizations often ignore the value in teams, adopting instead a fluid metaphor for "programming resources".
+
+Keeping gelled teams together does not mean that teams are entirely static.
+
+*** Shrunking teams
+
+As a team grows in capability, keep its workload constant but gradually reduce its size. This frees people to form more teams. When team has too few members, merge it with another too-small team.
+
+*** Root-cause analysis
+
+Every time a defect is found after development, eliminate the defect and its cause. The goal is not just that this one defect will not ever recur, but that the team will never make the same kind of mistake again. In XP the process for responding to a defect:
+
+# Write an automated system-level test that demonstrates the defect, including the desired behaviour.
+# Write a unit test with the smallest possible scope that also reproduces the defect.
+# Fix the system so the unit test works. This should cause the system test to pass also. If not, return to step 2.
+# Once the defect is resolved, figure out why the defect was created and wasn't caught. Initiate changes to prevent this kind of defect in the future.
+
+Ask five times why a problem ocurred, for example:
+
+# Why did we miss this defect? because we didn't know the balance could be negative overnight.
+# Why didn't we know? because only Mrs Crosby knows and she isn't a part of the team.
+# Why isn't she part of the team? because she is still supporting old system and no one else knows how.
+# Why doesn't anyone else know how? because it isn't a management priority to teach anymore.
+# Why isn't it a management priority? because they didn't know that a 20.000 $ investment could have saved us 500.000 $.
+
+After 5 whys, you find the people problem lying at the heart of the defect (and it is almost always a people problem).
+
+*** Shared code
+
+Anyone on the team can improve any part of the system at any time. If something is wrong with the system and fixing it is not out of scope for what I'm doing right now, I should go ahead and fix it.
+
+One objection I have heard is that if no one person is responsible for a piece of code, then everyone will act irresponsibly.
+
+*** Code and tests
+
+Maintain only the code and the tests as permanent artifacts. Generate other documents from the code and tests.
+
+*** Single code base
+
+There is only one code stream. You can develop in a temporary branch, but never let it live longer than a few hours. Multiple code streams are an enormous source of waste in sw development.
+
+Don't make more versions of your source code. Rather than add more code bases, fix the underlying design problem that is preventing you from running from a single code base.
+
+*** Daily deployment
+
+Put new sw into production every night. Any gap between what is on a programmer's desk and what is in production is a risk. A programmer out of sync with the deployed sw risks making decissions without getting accurate feedback about those decisions.
+
+*** Negotiated scope contract
+
+Write contracts for sw development that fix time, costs and quality but call for an ongoing negotiation of the precise scope of the system. Reduce risk by signing a sequence of short contracts instead of long one.
+
+*** Pay-per-use
+
+With pay-per-use systems, you change for every time the system is used. Money is the ultimate feedback. Not only is concrete, you can also spend it. Connecting money flow directly to sw development provides accurate, timely information with which to drive improvement.
+
+** The whole XP team
+
+* Testers: Testers on an XP team help customers choose and write automated system-level tests in advance of implementation and coach programmers on testing techniques. On XP teams much of the responsibility for catching trivial mistakes is accepted by the programmers.
+
+* Interaction designers: Interaction designers on an XP team choose overall metaphors for the system, write stories, and evaluate usage of the deployed system to find opportunities for new stories. Mutual benefit is possible between interaction design and the rest of an XP team without separating development into phases. On an XP team, interaction designers work with customers, helping to write and clarify stories. Interaction designers can use all their usual tools during this process. They also analyze actual usage of the system to decide what the system needs to do next.
+
+* Architects: Architects on an XP team look fro and execute large-scale refactorings, write system-level tests that stress the architecture and implement stories. Another task for architects on an XP team is partitioning systems. Rather than divide and conquer, an XP team conquers and divides. First a small team writes a small system, then they find the natural fracture lines and divide the system into relatively independent parts of the expansion. The architects help choose the most appropiate fracture lines and then follow the system as awhole, keeping the big picture in mind.
+
+* Project managers: Project managers on an XP team facilitate communication inside the team and coordinate communication with customers, suppliers and the rest of the organization.
+
+* Product managers: In XP product managers write stories, pick themes and stories in the quarterly cycle, pick stories in the weekly cycle, and answer questions as implementation uncovers under-specified areas of stories. A plan in XP is an example of what could happen, not a prediction of what will happen. The product manager helps the team decide priorities by analyzing the differences between actual and assumed requirements.
+
+* Executives: Executives provide an XP team with courage, confidence and accountability. The strength of an XP team, shared progress toward shared goals. Another job for executives sponsoring or overseeing XP teams is monitoring, encouraging, and facilitating improvement. Executives have a right to see not just good sw coming from the team, but continuing improvement as well.
+
+* Technical writers: the role of technical publications on an XP team is to provide early feedback about features and to create closer relationships with users. The second part of the role is creating closer relationships with users. XP teams should get feedback from actual usage, if the manuals are online at your site, then you can monitor usage. If users never look at a certain kind of documentation, stop writing it, you can find better ways to invest that time.
+
+* Users: Users on an XP team help write and pick stories and make domain decisions during deployment.
+
+* Programmers: Programmers on an XP team estimate stories and tasks, break stories into tasks, write tests, write code to implement features, automate tedious development process, and gradually improve the design of the system.
+
+* Human resources: HR does reviews and hiring. Evaluating XP team members individually need not be much different from evaluating them before applying XP. In XP valuable employees; act respectful, play well with others, take initiative, deliver on their commitments.
+
+Roles on a mature XP team are not fixed and rigid. The goal is to have everyone contribute the best he has to offer to the team's success. There is no mapping between one person and one role: a programmer may be a bit of an architect, a user may grow into a product manager, a technical writer can also test.
+
+** The theory of constraints
+
+XP is not intended to solve marketing, sales or management problems. It's not that non-sw bottlenecks aren't important, it's just that XP doesn't spread that thin.
+
+The theory of constraints says that in any system there is one constraint at a time (occasionally two). To improve overall system throughput you have to first find the constraint.
+
+When we eliminate a constraint we create another. Micro-optimization is never enough. To improve our results we must look at the whole situation before deciding what to change.
+
+If integration is the constraint, I first look to make sure integration is going as smoothly as it can given its inputs and its environment. Perhaps people could be shifted from implementation to integration.
+
+The theory of constraints is a good way to become aware of your process. Draw your current process as a series of linked activities and look for where work piles up. The theory of constraints can help find bottlenecks, but what if the bottleck has nothing to do with sw?
+
+If the bottleneck exists outside of sw development, the answer must come from outside of sw development.
+
+From the theory of constraint perspective, the team's improved performance shifted the constraint elsewhere in the organization.
+
+Executive sponsorship and strong relationships with people outside the team are crucial to applying XP, precisely because applying XP will shift the structure of work in the rest of the organization as soon as sw development gets its act together.
+
+** Planning: managing scope
+
+Planning makes goals and directions clear and explicit. Planning in XP starts with putting the current goals, assumptions, and facts on the table.
+
+This model doesn't work well in practice. Tme and costs are generally set outside the project. That leaves quality as the only variable you can manipulate. The variable left out of this model is scope. If we make scope explicit then:
+
+* We have a safe way to adapt.
+* We have a way to negotiate.
+* We have a limit to ridiculous and unnecessary demands.
+
+Plan at every timescale with these four steps:
+
+# List the items of work that may need to be done.
+# Estimate the items.
+# Set a budget for the planning cycle.
+# Agree on the work that needs to be done within the budget. As you negotiate, don't change the estimates or the budget.
+
+Complete means ready for deployment: including all the testing, implementation, refactoring and discussions with the users. As your knowledge of similar stories increases, your estimates will improve.
+
+At first, these estimates can be wildly wrong. Estimates based on experience are more accurate. It is important to get feedback as soon as possible to improve your estimates. If you have a month to plan a project in detail, spend it on four one-week iterations developing while you improve your estimates. If you have one week to plan the project hold five one day iterations.
+
+There is a limit to how much work can be done in a day. Paying attention to this real limit allows you to plan effectively and deliver successfully. Saying that programmers should just accomplish twice as much doesn't work. They can gain skills and effectiveness, but they cannot get more done on demand.
+
+Write stoeis on index cards and put the cards on a prominent wall. Many teams try to skip this step and go straight to a computerized version of the stories. I've never seen this work. Nobody believes stories more because they are on a computer. It is the iteration around the stories that makes them valuable. The cards are a tool. The interaction and alignment of goals, shared belief in the stories, are the valuable part. You can't automate relationships.
+
+** Testing: early, often and automated
+
+Defects destroy the trust require for effective sw development. The customers need to be able to trust the sw. The managers need to be able to trust reports of progress. The programmers need to be able to trust each other.
+
+Testing in XP is a technical activity that directly addresses defects. XP applies two principles to increase the cost-effectiveness of testing: double-checking and the Defect Cost Increase.
+
+Defect Cost Increase (DCI) is the second principle applied in XP to increase the cost-effectiveness of testing.
+
+XP uses DCI in reverse to reduce both the cost of fixing defects and the number of deployed defects. By bringing automated testing into the inner loop of programming, XP attempts to fix defects sooner and more cheaply.
+
+If programmers write tests, there may still be the need for another perspective on the system. A programmer or even a pair bring to their code and tests a singular point of view on the functioning of the system, losing some of the value of double-checking. Double-checking works best when two distinct processes arrive at the same answer.
+
+To gain the full benefits of double-checking, in XP there are two sets of tests: one set is written from the perspective of the programmers, testing the system's components exxhaustively, and another set is written from the perspective of customers or users, testing the operation of the system as a whole.
+
+With manual testing, the more stressed the team, the more mistakes the team members make in both coding and testing. With automated testing, running the tests themselves is a stress-reliever.
+
+If there are forms of testing, like stress and load testing, that find defects after development, is complete, bring them into the development cycle. Run load and stress tests continuously and automatically.
+
+Static verification is a valid form of a double-checking, particularly for defects that are hard to reproduce dynamically. For static checking to be most valuable it must become faster, part of the inner loop of development.
+
+[IMAGE PAGE 102]
+
+** Designing: the value of time
+
+Part of what makes incremental design valuable in sw is that we are often writing applications for the first time. Even if this is the umpteenth variation on a theme, there is always a better way to design the sw.
+
+Sw design is curious in that there are usually many designs that are good enough for the sw to be successful. Design quality doesn't ensure success, but design failure can ensure failure.
+
+One factor to take into consideration in deciding when to design is the value available through the different strategies.
+
+Another factor in deciding when to design is the cost. If you design early the initial cost of the design is simply the time you spend.
+
+In summary, the shift to XP style design is a shift in the timing of design decisions. Design is deferred until it can be made in the light of experience and the decisions can be used immediately. This allows the team to:
+
+* Deploy sw sooner.
+* Make decisions with certainty.
+* Avoid living with bad decisions.
+* Maintain the pace of development as the original design assumptions are superseded.
+
+XP teams prefer simple solutions where possible. Here are 4 criteria used to evaluate the simplicity of a design:
+
+# Appropiate for the intended audience.
+# Communicative.
+# Factored (duplication of logic makes code hard to understand or modify).
+# Minimal.
+
+** Scaling XP
+
+The number of people on a project is not the only measure of scale for sw development. Sw development scales along many dimensions:
+
+* Number of people
+* Investment
+* Size of the entire organization
+* Time
+* Problem complexity
+* Solution complexity
+* Consequence of failure
+
+*** Number of people
+
+This is the dimension most people seem to mean when they talk about scaling. When faced with a big problem I work in three steps:
+
+# Turn the problem into smaller problems.
+# Apply simple solutions.
+# Apply complex solutions if any problem is left.
+
+The goal of conquer-and-divide is to have teams that can each be managed as if they are the only team to limit coordination costs. Even so, the whole system needs to be integrated frequently.
+
+In summary, faced with the apparent need for a large team, first ask if a small team can solve the problem. If that doesn't work, being the project with a small team, then split the work among autonomous teams.
+
+*** Investment
+
+If you are starting large-scale sw development XP style, find an ally in finance early on to help you navigate these issues. Each company seems to account for sw a little differently.
+
+*** Size of organization
+
+The goal is neither to hide the new workings of the team nor to force others to change. Be sure to maintain communication with the rest of the organization in the forms they are accustomed to.
+
+*** Time
+
+Long-running XP projects work well because the tests prevent many of the common maintenance mistakes and tell the story of the development process. The simple case of scaling in time is if the team maintains continuity throughout the project. Then automated testing and incremental design serve to keep the system alive and capable of further growth.
+
+The tests included in the build prevent maintainers from falling into pits while they learn their way around the system.
+
+*** Problem complexity
+
+One challenge at the beginning of such projects is getting everyone to work in concert while learning a bit about each others' specialities.
+
+*** Solution complexity
+
+Sometimes systems grow big and complicated, out of proportion to the problem they solve. The challenge is to stop making the problem worse. It is difficult for a struggling team to keep going when every defect fixed createss three more.
+
+Once the team had stopped digging itself in deeper, it began to climb out by eliminating excess complxity while also fixing defects. Cheap away at the complexity while continuing to deliver.
+
+*** Consequences of failure
+
+For example, refactorings have to preserve the security of the system as well as its functionality.Auditing should happen early and often.
+
+** Taylorism and software
+
+Limitations come from 3 simplifying assumptions:
+
+* Things usually go according to plan.
+* Micro-optimization leads to macro-optimization.
+* People are mostly interchangeable and need to be told what to do.
+
+The first step of social engineering in Taylorism is the separation of planning from execution. It is the educated engineers who decide how work is to be done and how long it will take.
+
+The second step of Taylorism social engineering is the creation of a separate quality department. Taylor assumed that workers would "soldier" whenever possible (work slowly or badly but not so slowly or badly as to be noticed). He created a separate quality control department to ensure that workers not only worked at the right pace but in the specified way, in order to achieve the right level of quality.
+
+Many sw development organizations are directly (and even proudly) Taylorist in having a separate quality organization. Have a separate quality department sends the message that quality is exactly as important as engineering as marketing or sales. No one in engineering is responsible for quality, someone else is.
+
+** Applying XP
+
+Once teams start applying XP there is always the danger of reverting to the old way of doing things. Programmers who know better still change code without writing a failing test first. Managers who know better who have experienced the benefits of clear and honest communication still demand more of teams than anyone believes is possible.
+
+The way to begin organizational change is still to start with yourself. Leading by example is a powerful form of leadership.
+
+The strategy of learning skills and putting them into service works at many scales:
+
+* You learn test-first programming, then share it with your team.
+* Your team learns to estimate and develop story by story, then invites internal customers to pick stories.
+* Your organizational learns to deploy solid sw predictably, then invites external customers to be part of planning.
+
+[IMAGE PAGE 141]
+
+[IMAGE PAGE 142]
+
+I have seen teams turn themselves around in weeks. Conditions that facilitate sudden turnarounds are:
+
+* Aligned values: The team and organization are willing to accept work with the XP values.
+* Pain: The team has been through a recent loss like layoffs or a failed deployment.
+
+[IMAGE PAGE 143]
+
+*** Choosing a coach
+
+A couch notices bottlenecks in communication and deals with them. A coach reminds teams to do the simple thing when they are listening to their fears. A coach motivates teams to use the practices. A coach models effective values and practices. A coach is responsible for the process as a whole, keeping the team working at a sustainable pace and continuing to improve. A coach communicates what he sees in such a way that the team can address problems.
+
+** Purity
+
+XP as a theory, predicts that if you sit together, you will get better results.
+
+Saying that your team is extreme sets other people's expectations for your style of communication, your development practices, and the speed and quality of your results.
+
+Another topic on the same general theme is certification, of either individuals or teams. With a certification process the certifying agency is staking its reputation on the suitability of certified individuals and accepting some responsibility for the person certified.
+
+If a certifying authority isn't willing to stand behind its certification, it is just printing certificates and collecting money.
+
+** Offshore development
+
+No matter the reason for considering multi-site development, it always comes down to a business decision: weighing whether the waste created by not sitting together is more than offset by other advantages.
+
+The values of XP are just as suited to multi-site development as they are to teams that sit together. Embrace feedback more tightly because of the natural isolation created by distance. Nurture communication more because of the unavailability of face to face.
+
+Maintain a sense of conversation and to avoid situations in which one site dictates what another site must do. Beware of abandoning practices just because they seem difficult.
+
+** The timeless way of programming
+
+With more experience I began to see the opposite imbalance, where business concerns dominated development. Deadlines and scope set only for business reasons do not maintain the integrity of the team. The concerns of users and sponsors are importance, but he needs of the developers are also valid. All three need to inform each other.
+
+There is no absolute power. The power of XP evaporates if misused. Each manipulated estimate, each job rushed through without pride, puts the team that much further from its potential power. XP relies on each member of the team, including executives, managers and customers. A team working together can accomplish more than the sum of its members' separate effort. Sharing power is pragmatic, not idealistic.
+
+** Community and XP
+
+Community is important because everyone needs support sometimes. Relationships provide a safe, stable place to experiment.
+
+Communities can also be a place to study together. XP includes many skills that improve with practice. There are local area XP groups that study topics of interest to the participants. If there isn't such a group in your area, consider starting one.
+
+* The pragmatic programmer
+
+** Preface
+
+What makes a pragmatic programmer?
+
+* '''Early adopter/fast adapter''': you have an instinct for technologies and techniques, and you love trying things out.
+* '''Inquisitive''': tend to ask questions.
+* '''Critical thinker''': rarely take things as given without first getting the facts.
+* '''Realistic''': try to understand the underlying nature of each problem you face.
+* '''Jack of all trades''': be familiar with a broad range of technologies and environments and new developments.
+
+'''tip 1: Care about your craft.'''
+
+'''tip 2: Think! about your work.'''
+
+** A pragmatic philosophy
+
+*** The cat ate my source code
+
+Take responsibility. We can be proud of our abilities, but we must be honest about our shortcomings, our ignorance as well as our mistakes. Don't blame someone or something else, or make up an excuse. Don't blame all the problems on a vendor, a programming language, management or your coworkers. Any and all of these may play a role, but it is up to you to provide solutions, not excuses. If there was a risk that the vendor wouldn't come through for you, then you should have had a contingency plan. If the disk crashes, taking all your source code with it, and if you don't have a backup, it's your fault. Telling your boss "the cat ate my source code" just won't cut it.
+
+'''tip 3: provide options, don't make lame excuses.'''
+
+*** Software entropy
+
+Entropy is a term from physics that refers to the amount of disorder in a system. When disorder increases in sw, programmers call it software rot. There are many factors that can contribute to sw rot. The most important one seems to be the psychology or culture.
+
+A broken window left unrepaired for any substantial length of time, instills in the inhabitants of the building. So another window gets broken, people start littering, graffiti appears, serious structural damage begins. In a relatively short space of time, the building becomes damaged beyond the owner's desire to fix it, and the sense of abandonment becomes reality.
+
+'''tip 4: Don't live with broken windows.'''
+
+Don't leave broken windows (bad designs, wrong decisions, or poor code) unrepaired. Fix each one as soon as it is discovered.
+
+*** Stone soup and boiled frogs
+
+Three soldiers returning ome from war were hungry. When they saw a village they were sure the villagers would give them a meal. But they found the doors locked and the windows closed. After many years of war, the villagers were short of food, and hoarded what they had. The soldiers boiled a pot of water and carefully place three stones into it. The amazed villagers came out to watch. "This is a stone soup" soldiers explained. "Is that all you put in it?" asked the villagers. "Absolutely - although some say it tastes even better with a few carrots...". A villager ran off, returning in no time with a basket of carrots from his hoard. A couple of minutes later the villagers again asked "Is that it?". "Well, a couple of potatoes give it body". Off ran another villager. Eventually they had produced a large pot of steaming soup.
+
+The soldiers tricked the villagers using their curiosity to get food from them, but more important; the soldiers act as a catalyst, bringing the village together so they can jointly produce something that they couldn't have done by themselves. Eventually everyone wins.
+
+'''Tip 5: Be a catalyst for change.'''
+
+If you take a frog and drop it into boiling water, it will jump straight back out again. However if you place the frog in a cold water, then gradually heat it, the frog won't notice the slow increase in temperature and will stay put until cooked. So constantly review what's happening around you, not just what you personally are doing (if not you will not notice the changes until late). In the broken window, you notice, here not.
+
+'''Tip 6: Remember the big picture.'''
+
+*** Good-Enough software
+
+US company that places an order for 100.000 integrated circuits with a Japanese manufacturer. Part of the specification was the defect rate: one chip in 10.000. A few weeks later the order arrived: one large box containing thousands of ICs and a small one containing just 10 with the faulty ones.
+
+You can discipline yourself to write software that's good enough, good enough for users, for maintainers, for your own peace of mind.
+
+'''Tip 7: Make quality a requirements issue.'''
+
+*** Your knowledge portfolio
+
+They are expiring assets. Your knowledge becomes out of date as a new techniques, languages and environments are developed. Changing market forces may render your experience obsolete or irrelevant.
+
+* '''Invest regularly''': invest in your knowledge portfolio regularly.
+* '''Diversify''': The more different things you know, the more valuable you are.
+* '''Manage risk''': do not pull all your technical eggs in one basket.
+* '''Buy low, sell high''': learning an emerging technology before it becomes popular.
+* '''Review and rebalance''': in a very dynamic industry like sw and it. Maybe you need to check that database technology you haven't used for a while, or trying to learn another language for some job position.
+
+'''Tip 8: Invest regularly in your knowledge portfolio.'''
+
+* Goals
+** Learn at least one new language every year
+** Read a technical book each quarter
+** Read nontechnical books too
+** Take classes (university courses, etc)
+** Participate in local user groups
+** Experiment with different environments
+** Stay current (magazines))
+** Get wired (surf web for papers, commercial sites, newgroups, user experiences, etc)
+
+Critical thinking: the last important point is to think critically about what you read and hear. You need to ensure the knowledge in your portfolio is accurate and unswayed by either vendor or media hype.
+
+'''Tip 9: Critically analyze what you read and hear.'''
+
+*** Communicate
+
+* Know what you want to say: working out exactly what it is you want to say.
+* Know your audience: understand the needs, interests and capabilities of your audience.
+* Choose your moment: six o'clock on Friday afternoon is not the best moment for anything work related that could takes time.
+* Choose a style: adjust the style of your delivery to suit your audience.
+* Make it look good: your ideas are important. They deserve a good-looking vehicle to convey them to your audience.
+* Involve your audience: involve your readers with early drafts of your document, get their feedback and pick their brains.
+* Be a listener: if you want people to listen to you: listen to them.
+* Get back to people: respond emails and voice mails, even if the response is simply "I'll get back to you later".
+
+'''tip 10: It's both what you say and the way you say it.'''
+
+** Pragmatic approach
+
+*** The evils of duplication
+
+We feel the only way to develop sw reliably and to make our developments easier to understand and maintain, is to follow what we call the DRY principle: Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.
+
+Tip 11: DRY: Don't Repeat Yourself.
+
+The alternative is to have the same thing expressed in two or more places. If you charge one, you have to remember to change the others, or, like the alien computers, your program will be brought to its knees by a contradiction. Isn't a question of whether you'll remember: it's a question of when you'll forget.
+
+How does duplication arise?
+
+* Imposed duplication: developers feel they have no choice. The environment seems to require duplication.
+** Multiple representations of information: at the coding level, we often need to have the same information represented in different forms. With a bit of ingenuity you can normally remove the need for duplication. Often the answer is to write a simple filter or code generator. Structures in multiple languages can be built from a common metadata representation using a simple code generator each time the sw is built.
+** Documentation in code: programmers are taught to comment their code: good code has lots of comments. Unfortunately, they are never taught why code need comments: bad code requires lots of comments. We are duplicating knowledge, and every change means changing both the code and the comments. The comments will inevitably become out of date, and untrustworthy comments are worse than no comments at all.
+** Documentation and code: you write documentation, then you write code. Something changes, and you amend the documentation and update the code. The documentation and the code both contain representations of the same knowledge.
+** Language issues: many languages impose considerable duplication in the source. Often this comes about when the language separates a module's interface from its implementation. Use the header files to document interface issues, and the implementation files to document the nitty-gritty details that users of your code don't need to know.
+* Inadvertent duplication: developers don't realize that they are duplicating information. Sometimes duplication comes about as the result of mistakes in the design. When we have multiple data elements that are mutually dependent, occurs unnormalized data for example (track driver, doing some route with some truck):
+
+ class Line {
+  public:
+      Point  start;
+      Point  end;
+      double length;
+ };
+
+The length is defined by the start and end points. Changing one of the points, will change the length. So it's better to make the length a calculated field:
+
+ class Line {
+  public:
+      Point  start;
+      Point  end;
+      double length() { return start.distanceTo(end); }
+ };
+
+This example illustrates an important issue for object oriented languages such as Java and C++. Where possible, always use accessor functions to read and write the attributes of objects:
+
+ class Line {
+  private:
+      Point  start;
+      Point  end;
+      ...
+  public:
+      void setStart(Point p) { start = p; }
+      void setEnd(Point p)   { end = p; }
+      Point getStart(void)   { return start; }
+      Point getEnd(void)     { return end; }
+      double length()        { length = start.distanceTo(end); return length; }
+ };
+
+- Impatient duplication: developers get lazy and duplicate because it seems easier. If you feel this temptation, remember the hackneyed aphorism "short cuts make for long delays" (e.g. Y2K fiasco).
+- Interdeveloper duplication: multiple people on a team duplicate a piece of information. We feel that the best way to deal with this is to encourage active and frequent communication between developers. Set up forums to discuss common problems.
+
+Tip 12: Make it easy to reuse.
+
+*** Orthogonality
+
+Orthogonality is a critical concept if you want to produce systems that are easy to design, build, test and extend. Is a term borrowed from geometry. Two lines are orthogonal if they meet at right angles such as the axes on a graph. In vector terms, two lines are independent, move along one of the lines, and your position projected onto the other doesn't change. In computing, the term has come to signify a kind of independence or decoupling. Two or more things are orthogonal if changes in one do not affect any of the others. In a well design system, the database code will be orthogonal to the user interface if you can change the interface without affecting the database, and swap databases without changing the interface.
+
+Example of non-orthogonal system is an helicopter.
+
+Tip 13: eliminate effects between unrelated things.
+
+Benefits of orthogonality: we want to design components that are self-contained: independent and with a single, well defined purposes. When components are isolated from one another, you know that you can change one without having to worry about the rest.
+
+* Gain productivity: because changes are localized, so development time and testing time are reduced.
+* Reduce risk: diseases sections of code are isolated, if a module is sick, it is less likely to spread symptoms around the rest of the system. The resulting system is less fragile: making small changes and fixes to a particular area, and any problems you generate is restricted to that area. An orthogonal system is probably better tested: because it will be easier to design and run tests on its components. You will not be tied to a particular vendor, product or platform.
+
+Project teams: Our preference is to start by separating infrastructure from application. Each major infrastructure component (database, communications interface, middleware layer, etc) gets its own subteam.
+
+Design: most developers are familiar with the need to design orthogonal systems, although they may use words such as modular, component-based, and layered to describe the process. Systems should be composed of a set of cooperating modules, each of which implements functionality independent of the others. If I dramatically change the requirements behind a particular function, how many modules are affected? in an orthogonal system, the answer should be "one".
+
+Toolkits and libraries: be careful to preserve the orthogonality of your system as you introduce third-party toolkits and libraries. Choose your technologies wisely.
+
+Coding: Every time you write code you run the risk of reducing the orthogonality of your application. Unless you constantly monitor not just what you are doing, but also the larger context of the application, you might unintentionally duplicate functionality in some other module, or express existing knowledge twice.
+
+* Keep your code decoupled: write shy code. Modules that don't reveal anything unnecessary to other modules and that don't rely on other module's implementations.
+* Avoid global data: every time your code references global data, it ties itself into the other components that share that data. The singleton pattern is a way of ensuring that there is only one instance of an object of a particular class. Be careful with singletons, they can also lead to unnecessary linkage.
+* Avoid similar functions: often you'll come across a set of functions that all look similar, maybe they share common code at the start and at the end, but each has different central algorithm. Check then strategy pattern from design patterns for a better implementation.
+
+Testing: an orthongonally designed and implemented system is easier to test. Because the interactions between the system's components are formalized and limited, more of the system testing can be performed at the individual level. We suggest that every module have its own unit test built into its code. When you make a change, does it fix everything, or do other problems misteriously arise? this is a good opportunity to bring automation to bear.
+
+Documentation: Perhaps surprisingly, orthongonality also applies to documentation. With truly orthongonal documentation, you should be able to change the appearance dramatically without changing the content.
+
+Living with orthogonality: If you're brought into a protect where people are desperately struggling to make changes, and where every change seems to cause four other things to go wrong, remember the nightmare with the helicopter, its time to refactor.
+
+*** Reversibility
+
+Once you decide to use this vendor's database, or that architectural pattern, or a certain deployment model (client server vs standalone), you are committed to a course of action that cannot be undone, except at great expense.
+
+* Reversibility: we commit to a certain technology only to discover we can't hire enough people with the necessary skills. The mistake lies in assuming that any decision is cast in stone, and in not preparing for the contingencies that might arise. Instead of carving decisions in stone, think of them more as being written in the sand at the beach. A big wave can come along and wipe them out at any time.
+
+Tip 14: There are no final decisions.
+
+* Flexible architecture: while many people try to keep their code flexible, you also need to think about maintaining flexibility in the areas of architecture, deployment and vendor integration. Whatever mechanism you use, make it reversible. If something is added automatically, it can be taken out automatically as well.
+
+*** Tracer bullets
+
+There are two ways to fir a machine gun in the dark. You can find out exactly where your target is (range, elevation and azimuth), determine enviromental conditions (temperature, humidity, air pressure, wind), determine the precise specifications of the cartridges and bullets you are using and their interactions with the actual gun you are firing. You can then use tables or a firing computer to calculate the exact bearing and elevantion of the barrel. If everything works exactly as specified, your tables are correct, and the environment doesn't change, your bullets should land close to their target... or you could use tracer bullets.
+
+The feedback is immediate, and because they operate in the same environment as the real ammunition, xternal effects are minimized.
+
+Tip 15: Use tracer bullets to find the target.
+
+* Users get to see something working early.
+* Developers build a structure to work in.
+* You have an integration platform.
+* You have something to demonstrate.
+* You have a better feel for progress.
+
+Tracer bullets don't always hit their target: tracer bullets show what you're hitting. This may not always be the target, you then adjust your aim until they're on target. That's the point.
+
+Tracer code vs prototyping: you might think that this tracer code concept is nothing more than prototyping under an aggressive name. There is a difference, with a prototype, you're aiming to explore specific aspects of the final systmem. With a true prototype you will throw away whatever you lashed together when trying out the concept, and recode it properly using the lessons you've learned. The distintion is important enough to warrant repeating. Prototyping generates disposable code. Tracer code is lean but complete, and forms part of the skeleton of the final system.
+
+*** Prototypes and post-it notes
+
+We build protoypes To analyze and expose risk, and to offer chances for correction at a greatly reduced cost. We tend to think of prototypes as a code-based, but they don't always have to be, a user interface can be prototyped as a drawing on a whiteboard, as a nonfunctional mock-up or with an interface builder. If you are prototyping a GUI, for instance you can get away with incorrect results or data. Or, if you are investigating computational or performance aspects, you can get away with a pretty poor GUI or no GUI at all. But if you find yourself in an environment where you cannot give up the details, then you need to ask yourself if you are really building a prototype at all.
+
+Things to prototype: what sorts of things might you choose to investigate with a prototype? Anything that carries a risk, or that hasn't been tried before or absolutely critical to the final system, anything unproven or doubtful.
+
+Tip 16: Prototype to learn.
+
+How to use prototypes: correctness (dummy data), completeness (may function only in a very limited sense), robustness (error checking is likely to be incomplete or missing), style (code doesn't have much in the way of comments or documentation).
+
+Prototyping architecture: some specific areas you may want to look for in the architectural prototype:
+
+* Are the responsabilities of the major components well defined?
+* Are the collaborations between major components well defined?
+* Is coupling minimized?
+* Can you identify potential sources of duplication?
+* Are interface definitions and constraints acceptable?
+
+How NOT to use prototypes: if you feel there is a strong possibility in your environment or culture that the purpose of prototype code may be misinterpreted, you may be better off with the tracer bullet approach. You'll end up with a solid framework on which to base future development.
+
+*** Domain languages
+
+Computer languages influence how you think about a problem, and how you think about communicating. You're giving yourself a tool that lets you work closer to their domain, ignoring petty implementation details.
+
+Implementing a mini-language: simplest, a mini-language may be in a line-oriented, easily parsed format. It can be parsed sinmply using switch statements or using regular expressions in scripting languages such as perl. You can also implement a more complex language, defining the syntax first using a notation such as BNF, once you have your grammar specified, it is normally trivial to convert it into the input syntax for a parser generator. C and C++ programmers have been using yacc (or the free implementation bison) documented in detail in the book "Lex and Yacc".
+
+Tip 17: Program close to the problem domain.
+
+Data languages: produce some form of data structure used by an application. These languages are often used to represent configuration information.
+
+Imperative languages: the language is actually executed, so can contain statements, control constructs, and the like.
+
+Standalone and embedded languages: A mini-language doesn't have to be used directly by the application to be useful. Many times we may use a specification language to create artifacts (including metadata) that are compiled, read-in, or otherwise used by the program itself.
+
+Easy development or easy maintenance: most applications exceed their expected lifetimes, you're probably better off biting the bullet and adopting the more complex and readable language up front. The initial effort will be repaid many times in reduced support and maintenance tools.
+
+*** Estimating
+
+As long as you are comfortable estimating, and in the process of producing an estimate, you will come to understand more about the world your programs inhabit.
+
+Tip 18: Estimate to avoid surprises.
+
+* Accuracy: All answers are estimates, it's just that some are more accurate than others. So first question when someone asks you for an estimate is: do they need high accuracy, or are they looking for a ballpark figure?
+
+We recommend that you scale time estimates as follows
+
+ Duration     Quote estimate in
+ --------     -----------------
+ 1-15 days    days
+ 3-8 weeks    weeks
+ 8-30 weeks   months
+ 30+ weeks    think hard before giving an estimate
+
+* Origin of estimates: Basic estimating trick that always gives good answers: ask someone who's already done it. Before you get too committed to model building, cast around for someone who's been in a similar situation in the past.
+* Understand what's being asked: You need to have a grasp of the scope of the domain.
+* Build a model of the system: Often, the process of building the model leads to discoveries of underlying patterns and processes that weren't apparent on the surface. Examine the original question: "You asked to estimate X, but it looks like Y, a variant of X, could be done in about half the time and you lose only one feature".
+* Break the model into components: you can decompose it into components.
+* Give each parameter a value: once you have the parameters broken out, you can go through and assign each one a value.
+* Calculate the answers: run multiple calculations, varying the values of the critical parameters, until your work out which ones really drive the model.
+* Keep track of your estimating prowess: It is great idea to record your estimates so you can see how close you were. When an estimate turns out wrong, don't just shrug and walk away. Find out why it differed from your guess.
+* Estimating project schedules: The only way to determine the timetable for a project is by gaining experience on that same project, repeating the following steps: check requirements, analyze risk, design implement integreate, validate with the users.
+
+Tip 19: iterate the schedule with the code.
+
+This may not be popular with management, who typically want a single, hard-and-fast number before the project even starts. You will have to help them understand that the team their productivity and the environment will determine the schedule. By formalizing this, you will be giving them the most accurate scheduling estimates you can.
+
+* What you say when asked for an estimate: if you say "I will get back to you", almost always get better results if you slow the process down and spend some time going through the steps we describe
+
+
+** Basic tools
+
+Tools amplify your talent. The better your tools, and the better you know how to use them, the more productive you can be. Start with a basic set of generally applicable tools. As you gain experience, and as you come across special requirements, you will add to this basic set.
+
+You will need some glue to bvind much of the magic together: such as awk, perl or python.
+
+*** The power of plain text
+
+* What is plain text: plain text is made up of printable characters in a form that can be read and understood directly by people. Plain text does not mean that the text is unstructued: XML, SGML and HTML are great examples of plain text that has a well defined structure. The problem with most binary formats is that the context necessary to understand the data is separate from the data itself. You are artificially divorcing the data from its meaning. The data may as well be encrypted; it is absolutely meaningless without the application logic to parse it. With the plain text however, you can achieve a self-describing data stream that is independent of the application that created it.
+
+Tip 20: keep knowledge in plain text.
+
+The unix philosophy: is famous for being designed around the philosophy of small, sharp tools, each intended to do one thing well.
+
+* Drawbacks: It might be acceptable to store metadata about the raw data in plain text. Some developers may worry that by putting metadata in plain text they are exposing it to the system's users. This fear is misplaced; binary data may be more obscure than plain text, but it is no more secure. If you worry about users seeing passwords, encrypt them. If you don't want the to change configuration parameters, include a secure hash of all the parameter values in the file as a checksum.
+* The power of text: You may not have recognized the significance of the numbers quite as easily. This is the difference between human readable and human understandable.
+* Easier testing: if you use plain text to create synthetic data to drive system tests, then it is a simple matter to add, update or modify the test data without having to create any special tools to do so. In heterogeneus environments the advantages of plain text can outweigh all of the drawbacks. You need to ensure that all parties can communicate using a common standard. Plain text is that standard.
+
+*** Shell games
+
+From this shell prompt, you can invoke your full repertoire of tools, using pipes to combine them in ways never dreamt of by their original developers. From the shell you can launch applications, debuggers, browsers, editors and utilities. You can search for files, query the status of the system, and filter output. And by programming the shell, you can build complex macro commands for activities you perform often.
+
+Find all *.c files modified more decently than your Makefile:
+
+ find . -name '*.c' -newer Makefile -print
+
+Construct a zip/tar archive of my source:
+
+ zip archive.zip *.h *.c
+ tar cvf archive.tar *.h *.c
+
+Which java files have not been changed in the last week:
+
+ find . -name '*.java' -mtime +7 -print
+
+Of those files, which use the awt libraries:
+
+ find . -name '*.java' -mtime +7 -print | xargs grep 'java.awt'
+
+Tip 21: Use the power of command shells
+
+*** Power Editing
+
+* One editor: we think it is better to know one editor very well, and use it for all editing tasks: code, documentation, memos, system administration, etc.
+
+Tip 22: Use a single editor well.
+
+* Editor features: configurable, extensible, programable. Features to particular languages like: syntax highlighting, autocompletion, autoindentation, initial code or document boilerplate, tie-in to help systems, IDE-like features (compile, debug, profiler).
+
+*** Source code control
+
+Tip 23: Always use source code control.
+
+* Source code control and builds: The automation of the build ensures consistency, there are no manual procedures and you will not need developers remembering to copy code into some special build area.
+
+*** Debugging
+
+* Psychology of debugging: it does not really matter whether the bug is your fault or someone else's. It is still your problem.
+
+Tip 24: Fix the problem, not the blame.
+
+Tip 25: Don't panic.
+
+* Where to start: before you start to look at the bug, make sure that you are working on code that compiled cleanly, without warnings. It does not make sense to waste time trying to find a problem that the compiler could find for you. There are two points:
+** You may need to interview the user who reported the bug in order to gather more data than you were initially given.
+** Artificial tests don't exercise enough of an application. You must brutally test both boundary conditions and reallistic end user usage patterns.
+
+Bug reproduction: but we want more than a bug that can be reproduced by following some long series of steps: we want a bug that can be reproduced with a single command. It's a lot harder to fix a bug if you have to go through 15 steps to get to the point where the bug shows up.
+
+* Process of elimination: It is possible that a bug exists in the OS, compiler or a third-party product, but this should not be your first thought. We now use the phrase "select is broken" as a gentle reminder whenever one of us starts blaming the system for a fault that is likely to be our own.
+
+Tip 26: "select" is not broken.
+
+If however, you have no obvious place to start looking, you can always rely on a good old fashioned binary search.
+
+The element of surprise: if the bug is the result of someone's wrong assumption, discuss the problem with the whole team: if the person misunderstands, then it's possible many people do.
+
+Tip 27: Don't assume it - prove it.
+
+*** Text manipulation
+
+These languages are important enabling technologies. Using them, you can quickly hack up utilities and prototype ideas - jobs might take five or ten times as long using conventional languages. Spending 30 minutes trying out a crazy idea is a whole lot better than spending five hours. Spending a day automating important components of a project is acceptable; spending a week might not be.
+
+Tip 28: Learn a text manipulation language.
+
+To show the wide ranging applicability of text manipulation languages, here's a sample of some applications we have developed over the last few years:
+
+# Database schema maintenance.
+# Java property access.
+# Test data generation.
+# Book writing.
+# C to object pascal interface.
+# Generate web documentation.
+
+Problem: your C program uses an enumerated type to represent one of 100 states. You would like to be able to print out the state as a string, for debugging purposes. Write a script that reads from stdin a file containing:
+
+ name
+ state_a
+ state_b
+ :     :
+
+Produce the file name.h which contains:
+
+ extern const char* NAME_names[];
+ typedef enum{
+     state_a,
+     state_b,
+     :     :
+ } NAME;
+
+and the file name.c which contains:
+
+ const char* NAME_names[] = {
+     "state_a",
+     "state_b",
+     :      :
+ };
+
+*** Code generators
+
+Tip 29: Write code that writes code.
+
+There are two main types of code generators:
+
+# Passive code generators: are run once to produce a result. From that point forward, the result becomes freestanding - it is divorced from the code generator.
+# Active code generators: are used each time their results are required. The result is a throw away - it can always be reproduced by the code generator.
+
+- Passive code generators: have many uses:
+  - Creating new source files.
+  - Performing one off conversions among programming languages.
+  - Producing lookup tables and other resources that are expensive to compute at runtime.
+
+- Active code generators: while passive code generators are simply a convenience, their active cousins are a necessity if you want to follow the DRY principle. With an active code generator you can take a single representation of some piece of knowledge and convert it into all the forms your application needs. This is not duplication because the derived forms are disposable, and are generated as needed by the code generator.
+
+                               # Add a product
+                               # to the 'on-order' list
+                               M AddProduct
+                               F id          int
+                               F name        char[30]
+                               F order_code  int
+                               E
+                        /-                              \
+                       / (Generate C)  (Generate Pascal) \
+                      /                                   \
+                     v                                     v
+ /* Add a product */                         { Add a product }
+ /* to the 'on-order' list */                { to the 'on-order' list }
+ typedef struct {                            AddProductMsg = packed record
+   int      id;                                id:           LongInt;
+   char     name[30];                          name:         array[0-29] of char;
+   int      order_code;                        order_code:   LongInt;
+ } AddProductMsg;                            end;
+
+- Code generators needn't generate code: Although many of the examples in this section show code generators that produce program source, this needn't always be the case. You can use code generators to write just about any output: HTML, XML, plain text. Any text that might be an input somewhere else in your project.
+
+
+** Pragmatic paranoia
+
+Tip 30: You can't write perfect software.
+
+*** Design by contract
+
+A contract defines your rights and responsabilities, as well as those of the other party. In addition, there is an agreement concerning repercussions if either party fails to abide by the contract.
+
+- DBC (Design By Contract): expectations and claims are described as:
+  - Preconditions: what must be true in order for the routing to be called: the routine's requirements. A routine should never get called when its preconditions would be violated. It is the caller's responsability to pass good data.
+  - Postconditions: what the routing is guaranteed to do: the state of the world when the routing is done. The fact that the routing has a postcondition implies that it will conclude: infinite loops aren't allowed.
+  - Class invariants: a class ensures that this condition is always true from the perspective of a caller. During internal processing of a routine, the invariant may not hold, but by the time the routine exits and control returns to the caller, the invariant must be true.
+
+DBC and constant parameters: Often, a postcondition will use parameters passed into a method to verify correct behaviour. But if the routine is allowed to change the parameter that's passed in, you might be able to circumvent the contract. Java uses the keyword final to indicate our intentions that parameter shouldn't be changed within the method. This isn't foolproof - subclasses are free to redeclare the parameter as non-final. Alternatively you can use iContract syntax.
+
+If all the routine's preconditions are met by the caller, the routine shall guarantee that all postconditions are invariants will be true when it completes.
+
+Tip 31: Design with contracts.
+
+Subclasses must be usable through the base class interface without the need for the user to know the difference.
+
+But if we put a base class contract in place, we can now ensure that any future subclass can't alter the meanings of our methods.
+
+ /**
+   * @pre   f != null
+   * @post  getFont() == f
+   /*
+   public void setFont(final Font f) {
+       ...
+
+- Implementing DBC: The greatest benefit of using DBC may be that it forces the issue of requirements and guarantees to the forefront. In languages that do not support DBC in the code, this might be as far as you can go - and that's not too bad. DBC is after all a design technique.
+- Assertions: There is no support for propagating assertions down the inheritance hierarchy. This means that if you override a base class method that has a contract, the assertions that implement that contract will not be called correctly. You must remember call the class invariant manually before you exit every method.
+- Language support: For C/C++ you may want to investigate Nana. Nana does not handle inheritance, but it does use the debugger at runtime to monitor assertions in a novel way.
+
+Who's responsible: who is responsible for checking the precondition, the caller or the routing being called? hwen implemented as part of the language the answer is neither: the precondition is tested behind the scenes after the caller invokes the routine but before the routine itelf is entered. This if there is any explicit checking of parameters to be done, it must be performed by the caller, because the routine itself will never see parameters that violate its precondition.
+
+- Other uses of invariants: types:
+  - Loop invariants: invariants can help in these situations: a loop invariant is a statement of the eventual goal of a loop, but is generalized so that it is also valid before the loop executes and on each iteration through the loop.
+  - Semantic invariants: It must be central to the very meaning of a thing, and not subject to the whims of policy.
+  - Dynamic contracts and agents: autonomous agents are free to reject requests that they do not want to honor. They are free to renegotiate the contract. "I can't provide that, but if you give me this, then I might provide something else".
+
+*** Dead programs tell no lies
+
+For a case statement is no longer the expected. We will hit the default case. All errors give you information. You could convince yourself that the error can't happen, and choose to ignore it. Instead, pragmatic programmers tell themselves that if there is an error, something very very bad has happened.
+
+Tip 32: Crash early.
+
+- Crash, don't trash: one of the benefits of detecting problems as soon as you can is that you can crash earlier. Crashing your program is the best thing you can do. The alternative may be to continue, writing corrupted data to some vital database or commanding the washing machine int its twentieth consecutive spin cycle.
+
+In C macros can be very useful for this:
+
+ #define CHECK(LINE, EXPECTED)                                   \
+   { int rc = LINE;                                              \
+       if (rc != EXPECTED)                                       \
+           ut_abort(__FILE__, __LINE__, #LINE, rc, EXPECTED); }
+
+ void ut_abort(char *file, int ln, char *line, int rc, int exp) {
+     fprintf(stderr, "%s line %d\n'%s': expected %d, got %d\n",
+                      file, ln, line, exp, rc);
+     exit(1);
+ }
+
+Then you can wrap cals that should never fail using:
+
+ CHECK(stat("/tmp", &stat_buff), 0);
+
+*** Assertive programming
+
+Tip 33:  if it can't happen, use assertions to ensure that it won't.
+
+Whenever you find yourself thinking "but the course that could never happen", and code to check it.
+
+- Leave assertions turned on: there are two potentially wrong assumptions. First, assuming that testing finds all the bugs, in reality for any complex program you are unlikely to test even a miniscule percentage of the permutations your code will be put through. Second: the optimists are forgetting that your program runs in a dangerous world.. during testing rats probably won't gnaw through a communications cable, someone playing a game won't exhaust memory and log files won't fill the hard drive. These things might happen when program runs in a production environment.
+
+*** When to use exceptions
+
+The normal flow of control is now clear, with all the error handling moved off to a single place.
+
+- What it is exceptional: Exceptions should be reserved for unexpected events. Assume that an uncaught exception will terminate your program and ask yourself: "Will this code still run if I remove all the exception handlers?" if the answer is "no", then maybe exceptions are being used in nonexceptional circumstances.
+
+Tip 34: use exceptions for exceptional problems.
+
+- Error handlers are an alternative: An error handler is a routine that is called when an error is detected, you can register a routine handle a specific category of errors. When one of these errors occurs, the handler will be called. If you are using a language such as C, which does not support exceptions, this is one of your few other options. However sometimes error handlers can be used even in languages that have a good exception handling scheme built in. Because of the way RMI is implemented, every call to a remote routine must be prepared to handle a RemoteException. adding code to handle these exceptions can become tedious, and means that it is difficult to write code that works with both local and remote routines. A possible workaround is to wrap your remote objects in a class that is not remote. This class then implements an error handler interface, allowing the client code to register a routine to be called when a remote exception is detected.
+
+*** How to balance resources
+
+Tip 35: Finish what you start.
+
+It simply means that the routine or object that allocates a resource should be responsible for deallocating it. Example:
+
+ void readCustomer(const char *fName, Customer *cRec) {
+     cFile = fopen(fName, "r+");
+     fread(cRec, sizeof(*cRec), 1, cFile);
+ }
+ void writeCustomer(Customer *cRec) {
+     rewind(cFile);
+     fwrite(cRec, sizeof(*cRec), 1, cFile);
+     fclose(cFile);
+ }
+ void updateCustomer(const char *fName, double newBalance) {
+     Customer cRec;
+     readCustomer(fName, &cRec);
+     cRec.balance = newBalance;
+     writeCustomer(&cRec);
+ }
+
+Major problem, the routines readCustomer and writeCustomer are tightly coupled, they share the global variable cFile. If specification has changed, the balance should be updated only if the new value is not negative then:
+
+ void updateCustomer(const char *fName, double newBalance) {
+     Customer cRec;
+     readCustomer(fName, &cRec);
+     if (newBalance >= 0.0) {
+         cRec.balance = newBalance;
+         writeCustomer(&cRec);
+     }
+ }
+
+All seems fine during testing, however when the code goes into production, it collapses after several hours, complaining of too many open files. Because writeCustomer is not getting called in some circumstances, the file is not getting closed. A very bad solution is:
+
+ void updateCustomer(const char *fName, double newBalance) {
+     Customer cRec;
+     readCustomer(fName, &cRec);
+     if (newBalance >= 0.0) {
+         cRec.balance = newBalance;
+         writeCustomer(&cRec);
+     }
+     else
+         fclose(cFile);
+ }
+
+This will fix the problem, the file now will get closed trgardless of the new balance. However this is start going downhill rapidly if we continue on this course. Ideally the routine that allocates a resource should also free it, so applying this refactoring:
+
+ void readCustomer(const char *fName, Customer *cRec) {
+     fread(cRec, sizeof(*cRec), 1, cFile);
+ }
+ void writeCustomer(Customer *cRec) {
+     rewind(cFile);
+     fwrite(cRec, sizeof(*cRec), 1, cFile);
+ }
+ void updateCustomer(const char *fName, double newBalance) {
+     FILE *cFile;
+     Customer cRec;
+     cFile = fopen(fName, "r+");      // ----/
+     readCustomer(fName, &cRec);      //     /
+     if (newBalance >= 0.0) {         //     /
+         cRec.balance = newBalance;   //     /
+         writeCustomer(cFile, &cRec); //     /
+     }                                //     /
+     fclose(cFile);                   // <---/
+ }
+
+Now all the responsability for the file is in the updateCustomer routine.
+
+- Nest allocations: can be extended for routines that need more than one resource at a time:
+# Deallocate resources in the opposite order to that in which you allocate them. That way you won't orphan resources if one resource contains references to another.
+# When allocates the same set of resources in different places in your code, always allocate them in the same order. This will reduce the possibility of deadlock (if process A claims resource1 and is about to claim resource2, while process B has claimed resource2 and is trying to get resource1, the two processes will wait forever).
+
+- Objects and exceptions: if you are programming in an object oriented language, you may find it useful to encapsulate resources in classes. Each time you need a particular resource type, you instantiate an object of that class. When the object goes out of the scope, or is reclaimed by the garbage collector, the object's destructor then deallocates the wrapped resource.
+- Balancing and exceptions: C++ supports a try...catch exception mechanism. Unfortunately this means that there are always at least two possible paths when exiting a routine, that catches and then rethrows an exception.
+
+ void doSomething(void) {
+     Node *n = new Node;
+     try {
+         // do something
+     }
+     catch (...) {
+         delete n;
+         throw;
+     }
+     delete n;
+ }
+
+Howeverm we can use semantics of C++ to our advantage. Local objects are automatically destroyed on existing from their enclosing block. This give us a couple of options. If the circumstances permit, we change "n" from a pointer to an actual Node object on the stack:
+
+ void doSomething(void) {
+     Node n;
+     try {
+         // do something
+     }
+     catch (...) {
+         throw;
+     }
+ }
+
+Here we rely on C++ to handle the destruction of the Node object automatically, whether an exception is thrown or not. If the switch from a pointer is not possible, the same effect can be achieved by wrapping the resource within another class:
+
+ // Wrapper class for Node resources
+ class NodeResource {
+     Node *n;
+ public:
+     NodeResource() { n = new Node; }
+     ~NodeResource() { delete n; }
+
+     Node *operator->() { return n; }
+ };
+
+ void doSomething2(void) {
+     NodeResource n;
+     try {
+         // do something
+     }
+     catch (...) {
+         throw;
+     }
+ }
+
+Now the wrapper class, NodeResource, ensures that when its objects are destroyed the corresponding nodes are also destroyed. The wrapper provides a dereferencing operator ->, so that its users can access the fields in the contained Node object directly.
+
+Because the technique is so useful, the standard C++ library provides the template class auto_ptr, which gives you automatic wrappers for dynamically allocated objects:
+
+ void doSomething3(void) {
+     auto_ptr<Node> p (new Node);
+     // Access the Node as p->...
+     // Node automatically deleted at end
+ }
+
+- When you can't balance resources: one routine will allocate an area of memory and link it into some larger structure, where it may stay for some time. The trick here is to establish a semantic invariant for memory allocation. You need to decide who is responsible for data in an aggregate data structure. When you deallocate the top level structure, you have 3 options:
+# The top level structure is also responsible for freeing any substructures that it contains. These structures then recursively delete data they contain.
+# The top level structure is simply deallocated. Any structures that it pointed to are orphaned.
+# The top level structure refueses deallocate itself if it contains any substructures.
+
+The choice depends on the circumstances of each individual data structure.
+
+* This is lean
+
+** Prologue
+
+This is lean is a book about a new for of efficiency that we call flow efficiency. Flow efficiency focuses on the amount of time it takes from identifying a need to satisfying that need.
+
+** From resource focus to customer focus
+
+*** Resource efficiency - using resources
+
+Resource efficiency, the traditional form of efficiency, involves utilising resources as much as possible.
+
+Another principle is to find economies of scale. Grouping smaller tasks together so that individuals, parts of an organisation, or the whole organisation can perform the same task many times over increases resource efficiency. Resource efficiency focuses on the resources an organisation needs in order to produce a product or deliver a service.
+
+Resource efficiency is a measurement of how much a resource is utilised in relation to a specific time period. E.g.:
+
+ Resource:                   MRI scanner
+ Time resource is utilised:  6 h
+ Time period:                24 h
+ Resource efficiency:        6 h / 24 h = 25%
+
+Resource efficiency can be measured at a higher abstraction level than individual machines or people.
+
+Opportunity cost is the loss made by not utilising resources to the fullest. If we have not utilised our resources to maximum capacity, we could have at least used part of the money we used on that resource towards something else.
+
+*** Flow efficiency - satisfying needs
+
+Flow efficiency focuses on the unit processed in an organisation. Flow efficiency is a measurement of how much a flow unit is processed from the time a need is identified to the time it is satisfied, E.g.:
+
+ Need:               The patient has a sore throat
+ Value-adding time:  Time with doctor and other staff (10 min)
+ Time period:        Time from the patient's arrival to the patient leaving the health centre (30 min)
+ Flow efficiency:    10 min / 30 min = 33%
+
+** Processes are central to flow efficiency
+
+*** Process are defined from the flow unit's perspective
+
+Just as Alison's process was defined based on the film shot by the camera on her shoulder, any process must be defined from the perspective of the flow unit. In a process, something is moved forward; we call these flow units, can be:
+
+- Material: at a car plant, material is moved forwards and processed by machines and assembled in order to become cars.
+- Information: When you apply for planning permission to extend your house, you submit an application to the local planning authority.
+- People: customers in a theme park, who go through a sequence of activities from the time they arrive at the park until they leave.
+
+Many organisations make the mistake of defining a process from the viewpoint of the organisation and its various functions, which would mean that the camera would be on the doctor's shoulder instead.
+
+*** Value is defined from the receiver's side
+
+A value transfer occurs when one side (the resources) adds value the other side (the flow unit) receives value, having the following relationships:
+
+- High resource efficiency means a high percentage of value-adding time in relation to a specific time period. The resources add as much value as possible. The movie from the doctor's camera is full of action.
+- High flow efficiency means a high percentage of value-receiving time in relation to the total time. The flow unit picks up as much value as possible. The movie from the patient's camera is full of action.
+
+Resource efficiency focuses on the utilisation of specific resources, while flow efficiency flows on how a particular flow unit moves through the process.
+
+In resource efficiency it is more important to attach work to people to ensure that each resource always has a flow unit to process.
+In flow efficiency it is more important to attach people to work to ensure that each flow unit is always being processed by a resource.
+
+*** System boundaries define throughput time
+
+An important characteristic of a process is that you can define its start and end points however you want to determine system boundaries. It is important where the system boundaries are set, as this determines the critical measure of throughput time. A flow unit's throughput time is one of the elements needed to calculate flow efficiency.
+
+*** Classifying activities in the process
+
+All processes consist of a sequence of activities in which the flow unit is processed.
+
+**** Value-adding activities
+
+Value is added when something happens to the flow unit, or when it is moved forward (being processed). An activity that does not add value is a wasteful activity (one that does not process the flow unit).
+
+It is important to note that even waiting time can add value in certain cases (E.g.: Maturing cheese or aging whisky, because waiting is a part of the process).
+
+**** The need defines value
+
+Value is always defined from the customer's perspective. In some cases it is hard to identify the customer.
+
+**** Direct and indirect needs
+
+When people are flow units, it is important to be clear about the difference between direct need and indirect need. E.g.: diagnostic process (direct need), need to feel safe or be met professionally (indirect need).
+
+*** Flow efficiency is value-adding activity in relation to the throughput time
+
+Flow efficiency is the sum of value-adding activities in relation to the throughput time.
+
+Our definition of flow efficiency looks at the density of the value transfer from a resource to a flow unit. Flow efficiency concerns the share of the value-adding activities in relation to the throughput time.
+
+Flow efficiency is not about increasing the speed of value adding activities, is about maximising the density of the value transfer and eliminating non-value-adding activities.
+
+*** Processes are the building blocks of an organisation
+
+In many organisations, the word process is used to describe formalised work routines. These work routines are documented in different systems and describe how a certain task is to be carried out.
+
+The number of process in an organisation depends first of all on how the system boundaries have been defined, where the organisation sees the process starting and finishing.
+
+The number of process also depends on the level of abstraction.
+
+** What makes a process flow
+
+*** Little's law
+
+**** Little's law at security control
+
+You wanted a short throughput time, so you choose the shortest queue. But if you do not take into account the average time it tooks to process each unit:
+
+ Throughput time = flow units in process * cycle time
+
+The laws apply regardless of where we set the boundaries.
+
+- Boundaries are set by where we decided the process starts and finishes.
+- "Flow units in process" are all the flow units within the chosen system boundaries: all the flow units that have begun the process but have not yet exited it.
+- Cycle time is the average time between two flow unit's completing the process.
+
+**** Little's law and throughput time
+
+Little's law show us that throughput time is affected by two things:
+
+- The number of flow units in the process (throughput time increases if the number of flow units in process are increased).
+- The cycle time (longer cycle time means a longer throughput time).
+
+*** The law of bottlenecks
+
+There are many points on the way which queues form, called bottlenecks.
+
+**** Bottlenecks lengthen throughput time
+
+The law of bottlenecks states that throughput time in a process is primarily affected by the stage of hte process that has the longest cycle time.
+
+Process with bottlenecks have 2 key characteristics:
+
+# Inmediately prior to a bottleneck there is always a queue.
+# The stages of activity after the bottleneck must wait to be activated, meaning they will not be fully utilised.
+
+**** Why bottlenecks appear
+
+There are 2 reasons:
+
+# When the process must be performed in a certain order.
+# There needs to be variation in the process.
+
+*** The law of the effect of variation on process
+
+**** What is a variation?
+
+There will always be variation in processes, the reasons for a variation can be divided in 3 different sources:
+
+# Resources: machines may be prone to breakdown, doctors take different time to examine the patient, the layout of a hospital could be confusing, etc.
+# Flow units: customers at a hairdresser could have different requests, cars could have different problems in a repair shop, etc.
+# External factors: patient's arrival times at the accident and emergency department are not evenly distributed, sales of chocolate easter eggs take place once a year, etc.
+
+**** Relationship between variation, resource efficiency and throughput time
+
+Kingman's Formula: The grater the variation in the process is, the longer the throughput time.
+
+[INCLUDE IMAGE PAGE 43]
+
+- Throughput time increases the higher we move up the vertical axis.
+- Utilisation on the horizontal axis is a measure of how efficiency the resources are utilised, the closer to 100%, the higher the resource efficiency.
+
+*** Process laws and flow efficiency
+
+The laws provide reasons as to why the throughput time in a process increases:
+
+- Little's law states that throughput time increases when there is an increase in the number of flow units in process and when the cycle time increases.
+- The law of bottlenecks states that throughput time increases when there are bottlenecks in the process.
+- The law of the effect of variation states that throughput time increases as variation in the process increases and the process gets closer to 100% resource utilisation.
+
+The following activities are what improve flow efficiency:
+
+- Reduce the total number of flow units in process by eliminating the causes for the queues.
+- Work faster, which reduces cycle time.
+- Add more resources, which increases capacity and reduces cycle time.
+- Eliminate, reduce and manage the different forms of variation in the process.
+
+Another problem with focusing too closely on resource efficiency is that it risks creating multiple problems and extra work, which can sometimes represent a large proportion of an organisation's total work. Consequently, even if a particular resource has high resource efficiency, the work that 'keeps the resource busy' is not really adding value (called efficiency paradox).
+
+** The efficiency paradox
+
+*** The 1st source of inefficiency: long throughput times
+
+Non-fulfilment of a need can create new types of needs, which it turn create new needs (there is a chain of reaction -cause and effect-).
+
+**** Long throughput time generates secondary needs
+
+Long throughput time generally has negative effects on people and often leads to boredom, worry and frustration. These effects can generate challenges and problems that organisations must deal with, which requires new resources and new activities.
+
+*** The 2nd source of inefficiency: many flow units
+
+The second source of inefficiency that appears in a highly resource efficient organisation is the need to handle many things at the same time, closely related to the first source of inefficiency.
+
+The more customers there are inside the process, the harder is for each one to feel acknowledged and special, which can create new secondary needs.
+
+The human brain is believed to be able to remember approximately seven units at the same time, after this, we start to forget, so we can make mistakes.
+
+There are various negative effects that occur when an organisation or individual has to handle many flow units at the same time.
+
+*** The 3rd source of inneficiency: many restarts per flow unit
+
+The third source of inefficiency created in a highly resource efficient organisation is a need for many restarts.
+
+Restarts are created when you have to start over on the same task.
+
+It is particulary challenging when we must repeatedly shift our focus from one task to another. The fewer tasks we have to deal with at the same time, the easier it is to focus.
+
+Many handovers generate frustration: needing to repeat again the information or not knowing details about how much you should wait.
+
+Many handovers generate defects.
+
+Many restarts generate secondary needs: in a resource efficiency organisation things take time and many things need to be handled at the same time.
+
+*** Secondary needs generate superfluous work
+
+Secondary needs can be generated from having long throughput times, many flow units in process and many restarts per flow unit.
+
+It is important to understand that secondary needs can often generate other secondary needs in a chain reaction. In such situations, it is easy to create an organisation in which each part is sub-optimised (this creates efficient islands), althought the individual sub-optimised parts are efficient, the flow efficiency of the whole process will suffer.
+
+*** Managing receipts: the art of being extremely inefficient
+
+How much of the time that you spent at work is spent on fulfilling secondary needs? in other words, how much of your total working time is dedicated to superfluous work?
+
+*** The efficiency paradox
+
+Superfluous work is what creates the efficiency paradox. By over-focusing on resources efficiency, process laws guarantee that flow efficiency will suffer. If flow efficiency suffers, then several secondary needs will be generated. Activities to meet these secondary needs may seem like value adding activities, but they would not necessary if the primary need were already fulfilled. The paradox is that we believe we are utilising our resources efficiently, but we are actually being inefficient, since much of that utilisation comes from superfluos work and non-value adding activities.
+
+*** Resolving the efficiency paradox
+
+At the core of resolving the paradox is a focus on flow efficiency. By focusing on flow efficiency an organisation can eliminate many of the secondary needs that arise as a consequence of low flow efficiency.
+
+How much better could our society become at managing our natural resources if we eliminated sub-optimisation and 'island thinking'? One strategy for resolving the efficiency paradox is a concept called 'lean', which involves focusing on flow and creating organisations that are more like an efficient relay race. It is about seeing the whole in order to avoid island thinking and focusing on real customer needs.

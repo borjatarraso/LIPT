@@ -1,0 +1,1834 @@
+* Viope C++ course
+
+** C++ Classes and objects
+
+String allows us to manipulate character strings just like any other variable.
+
+  class Dog{
+  public:
+  string breed;
+  string name;
+  int age;
+ };
+ // Here we will later write the functionality of the Dog-class
+
+A dog is an abstract concept
+
+Sparky is something more concrete. Sparky has all the atrributes defined in the class Dog: breed, name and age. In other words, Sparky is an instance, i.e. object of the class Dog.
+
+Class being a mold that allows us to create multiple opbjects with the same shape. Even all the objects share the shape, they're still individual objects.
+
+
+Attributes in object-oriented programming mean simply variables that contain information depicting the class.
+
+Note that you should always write a semicolon after the ending bracket of the block defining a class!
+
+Class also defines any functionality of an object. In practice functionality means functions which we have discussed earlier. When creating object-oriented programs, we refer to these functions as methods.
+
+   class Dog{
+ public:
+   string breed;
+   string name;
+   int age;
+
+   void Bark();
+ };
+
+ void Dog::Bark()
+ {
+   cout << "Woof woof!!!";
+ }
+
+you can see that it is a method named Bark created from the class Dog that doesn't return any values.
+
+ class Dog{
+ public:
+   string breed;
+   string name;
+   int age;
+
+   void Bark();
+   void SetName(string new_name);
+   void SetBreed(string new_breed);
+   void SetAge(int new_age);
+   void PrintInfo(); // method to test the object};
+
+ void Dog::Bark()
+ {
+   cout << "Woof woof!!!" << endl;
+ }
+
+ void Dog::SetName(string new_name)
+ {
+   name = new_name;
+ }
+
+ void Dog::SetBreed(string new_breed)
+ {
+   breed = new_breed;
+ }
+
+ void Dog::SetAge(int new_age)
+ {
+   age = new_age;
+ }
+
+ void Dog::PrintInfo()
+ {
+   cout << name << ": " << age << " years " << breed << endl;
+ }
+
+We added some methods to the class to enable manipulating the attributes of an object created from the class.
+
+** Constructors
+
+A constructor is a special method that is only called when creating an object. A constructor can initialize the attributes of an object  and call any method in the class. The constructor name must be identical to the class name it uses to construct objects.
+
+ Dog::Dog()
+ {
+   name = "Unnamed";
+   breed = "NoBreed";
+   age = 0;
+ }
+
+ Dog::Dog(string new_name, string new_breed, int new_age)
+ {
+   name = new_name;
+   breed = new_breed;
+   age = new_age;
+ }
+
+Example with the class:
+
+ class Dog{
+ public:
+   string breed;
+   string name;
+   int age;
+
+   Dog();
+   Dog(string new_name, string new_race, int new_age);
+   void Bark();
+   void SetName(string new_name);
+   void SetBreed(string new_breed);
+   void SetAge(int new_age);
+   void PrintInfo(); // method to test the object};
+
+ Dog::Dog()
+ {
+   name = "Unnamed";
+   breed = "NoBreed";
+   age = 0;
+ }
+
+ Dog::Dog(string new_name, string new_breed, int new_age)
+ {
+   name = new_name;
+   breed = new_breed;
+   age = new_age;
+ }
+
+ void Dog::Bark()
+ {
+   cout << "Woof woof!!!" << endl;
+ }
+
+ void Dog::SetName(string new_name)
+ {
+   name = new_name;
+ }
+
+ void Dog::SetBreed(string new_breed)
+ {
+   breed = new_breed;
+ }
+
+ void Dog::SetAge(int new_age)
+ {
+   age = new_age;
+ }
+
+ void Dog::PrintInfo()
+ {
+   cout << name << ": " << age << " years " << breed << endl;
+ }
+
+Example:
+
+ 1:  #include <iostream>
+ 2:  #include <string>
+
+ 3:  using namespace std;
+ 4:
+ 5:  // Add the source code of the class Dog here6:  // source code excluded to keep the example shorter7:
+ 8:  int main()
+ 9:  {
+ 10:   Dog first_dog;
+ 11:
+ 12:   string second_name = "Spots";
+ 13:   string second_breed = "Dalmatian";
+ 14:   int second_age = 7;
+ 15:
+ 16:   Dog second_dog(second_name, second_breed, second_age);
+ 17:
+ 18:   cout << "Dog info in the beginning:\n\n";
+ 19:   first_dog.PrintInfo();
+ 20:   second_dog.PrintInfo();
+ 21:
+ 22:   cout << "\nFirst dog says: ";
+ 23:   first_dog.Bark();
+ 24:
+ 25:   first_dog.SetName("Pluto");
+ 26:   first_dog.SetBreed("Afghan");
+ 27:   first_dog.SetAge(3);
+ 28:
+ 29:   cout << "\n Now first dog also has a name:\n";
+ 30:   first_dog.PrintInfo();
+ 31: }
+
+** Inheritance c++
+
+With inheritance a class can inherit the features of its parent class. For example the Mammal class has a feature that is common with all of its subclasses.
+
+Animal class and use inheritance to use it in all of it's sub-classes. Similarly all female mammals have the ability (method) to breast feed. Using inheritance a female dog can receive this ability from the Mammal class.
+
+ class Dog :: Animal{
+      ... implementation of the class Dog ...
+ }
+
+Example:
+
+ class Animal
+ {
+ public:
+
+   string name;
+   string position;
+   int age;
+
+   Animal(string animal_name, string anima_position, int animal_age);
+   void Move(string new_position);
+   void SetAge(int new_age);
+   void SetName(string new_name);
+ };
+
+ Animal::Animal(string animal_name, string animal_position, int animal_age)
+ {
+   name = animal_name;
+   position = animal_position;
+   age = animal_age;
+ }
+
+ void Animal::Move(string new_position)
+ {
+   position = new_position;
+ }
+
+ void Animal::SetAge(int new_age)
+ {
+   age = new_age;
+ }
+
+ void Animal::SetName(string new_name)
+ {
+   name = new_name;
+ }
+
+Another example:
+
+ 1:  class Dog : public Animal2:  {
+ 3:  public:
+ 4:    string breed;
+ 5:
+ 6:    Dog(string dog_breed, string animal_name,
+ 7:    string animal_position, int animal_age);
+ 8:
+ 9:    void SetBreed(string new_breed);
+ 10:   void Bark();
+ 11:   void PrintInfo();
+ 12: };
+ 13:
+ 14: Dog::Dog(string dog_breed, string animal_name,
+ 15: string animal_position, int animal_age):
+ 16: Animal(animal_name, animal_position, animal_age)
+ 17: {
+ 18:   breed = dog_breed;
+ 19: }
+ 20:
+ 21: void Dog::SetBreed(string new_breed)
+ 22: {
+ 23:   breed = new_breed;
+ 24: }
+ 25:
+ 26: void Dog::Bark()
+ 27: {
+ 28:   cout << name << " said: Woof woof!!!";
+ 29: }
+ 30:
+ 31: void Dog::PrintInfo()
+ 32: {
+ 33:   cout << "My name is: " << name << endl;
+ 34:   cout << "I'm here: " << position << endl;
+ 35:   cout << "My age is: " << age << endl;
+ 36:   cout << "My breed is: " << breed << endl;
+ 37: }
+
+Another example:
+
+ 1:  #include <iostream>
+ 2:  #include <string>
+ 3:  using namespace std;
+ 4:
+ 5:  int main()
+ 6:  {
+ 7:    Dog dog1("Boxer", "Pluto", "Helsinki", 5);
+ 8:
+ 9:    cout << "Dog info in the beginning:\n\n";
+ 10:   dog1.PrintInfo();
+ 11:
+ 12:   dog1.SetBreed("Dalmatian");
+ 13:   dog1.SetAge(7);
+ 14:   dog1.SetName("Spots");
+ 15:   dog1.Move("Doghouse");
+ 16:
+ 17:   cout << "Dog info in the end:\n");
+ 18:   dog1.PrintInfo();
+ 19:
+ 20:   cout << "\n\n << dog1.name << says: ";
+ 21:   dog1.Bark();
+ 22:   cout << "\n\n";
+ 23: }
+
+** C++ file handling
+
+data stream is needed when we want to relay information to a program or from it.  When a program gets input from keyboard or reads a file, we use input stream. On the other hand when a program prints information on screen or to a file, we use output stream.
+
+ cout << "Hello World!";
+
+ int number = 0;
+ cin >> number;
+
+cout and cin are objects. cout is of ostream-type and cin istream-type. Objects have been introduced in the library iostream, so in order to enable reading input or printing in your program, this file needs to be included
+
+ #include <iostream>
+
+In addition it's useful to define that the program uses the std-namesspace. This ensures the compiler understands what cin and cout mean:
+
+ using namescpace std;
+
+Cin also supports the member functions eof, get and getline. cout support, among others put function.
+
+Files c++:
+
+For handling files, C++ has three classes: ifstream, ofstream and fstream.
+
+When we create an ifstream-object (this object can also be called a file object), we actually open the file in a way where it can be parsed for information in the program
+If we create an ofstream-object, the file is opened in a way where it can be written on.
+We create an fstream-object, both reading and writing a file is possible.
+
+The classes are introduced in the library fstream. When we want to use classes from this library, we need to include the following lines in the beginning of the program:
+
+ #include <fstream>
+ using namespace std;
+
+To start using a certain namespace, we need the using command.
+
+ Reading a file - using ifstream class
+
+ ifstream read("story.txt");
+
+ OR
+
+ ifstream read;
+ read.open("story.txt");
+
+ #include <iostream>
+ #include <fstream>
+ using namespace std;
+
+ int main()
+ {
+     string row;
+     char character;
+
+     // open story.txt for reading    ifstream read("story.txt");
+
+     // if reading is successful    if (luku.is_open()) {
+     // read one string type value from the file
+     read >> row;
+     cout << "row: " << row << endl;
+     // read one character from thefile with get-functioan    luku.get(character); // sama kuin 'luku >> character;'
+     cout << "character: " << "->" << character << "<-" << endl;
+
+     // read the rest of the rows    while (read >> row) {
+         cout << "row: " << row << endl;
+     }
+
+     } else {
+     cout << "Unable to open the file!" << endl;
+     exit(-1);
+     }
+ }
+
+When story.txt contains:
+
+ First row
+ second row
+ third and lastly
+ fourth row
+
+Program execution looks like this:
+
+ row: First
+ character: -> <-
+ row: row
+ row: second
+ row: row
+ row: third
+ row: and
+ row: lastly
+ row: fourth
+ row: row
+
+If story.txt contains:
+
+ one
+ two
+ three
+ four
+ five
+
+Program execution looks like:
+
+ row: one
+ character: ->
+ <-
+ row: two
+ row: three
+ row: four
+ row: five
+
+Read using ifstream-type:
+
+Include:
+
+ #include <fstream>
+
+ ifstream read("story.txt");
+
+ if (read.is_open()) {
+     . . .
+ } else {
+     cout << "Opening the file failed!" << endl;
+     exit(-1);
+ }
+
+First we get a value for a string type variable row, which is then printed on screen:
+
+ read >> row;
+ cout << "row: " << row << endl;
+
+We read one more character from the file to the char variable character:
+
+ read.get(character);
+
+The rest of the rows in the file are read with a while-loop:
+
+ while (read >> row) {
+     cout << "row: " << row << endl;
+ }
+
+The value of the expression "read >> row" is not equal to 0, the row value is printed on screen. When there are nothing to read, the printing also stops.
+
+Writing to a file - ofstream-class
+
+ ofstream writing("story.txt");
+
+ OR
+
+ ofstream writing;
+ writing.open("story.txt");
+
+Example:
+
+ #include <iostream>
+ #include <fstream>
+ using namespace std;
+
+ int main()
+ {
+     // creating the file object    ofstream writing;
+     // open the file for writing    writing.open("tale.txt");
+
+     if (!tale.is_open()) {
+         cout << "Failed to open the file!" << endl;
+         exit(-1);
+     }
+
+     // file is open, let's move on...
+     string row;
+     bool tale_continues = true;
+
+     cout << "Write your tale.\nFinish by pressing 2x[return]." << endl;
+     cout << "- - - - - - - - - -" << endl;
+
+     while(tale_continues) {
+
+         getline(cin, row); // read the row from keyboard
+         if (row.compare("") == 0) { // if row is empty
+             // while-loop is false
+             tale_continues = false;
+        } else { // text written
+             // write the row as is to the file
+             // note that the line break character was not read
+             // to the variable row, so let's add it here
+             writing << row << endl;
+        }
+    }
+
+    writing.close(); // close the file where the rows were stored in.}
+
+More examples:
+
+ ofstream writings;
+ writing.open("tale.txt");
+
+ ...
+
+ bool tale_continues = true;
+
+ ...
+
+ while(tale_continues) {
+     getline(cin, row); // (1)
+
+     if (row.compare("") == 0) { // (2)
+         tale_continues = false;
+     } else {
+         writing << row << endl; // (3)
+     }
+ }
+
+ ...
+
+ writing.close();
+
+Reading and writing - fstream-class
+
+This parameter is called an opening flag. Opening flag tells the program what will be done with the file. Defining the file object and opening a file is done as follows:
+
+ fstream file(file_name, opening_flag); // definition of the file object and opening a file at once
+
+ OR
+
+ fstream file; // definition of the file object
+ file.open(file_name, opening_flag); // opening a file
+
+Where file_name is the chosen file and opening_flag the method of opening the file. Below table lists some available opening flags.
+
+Modes:
+
+ Mode 	                                             Description
+ ios_base::in 	                                     Open the file for reading. Identical to using an ifstream-object.
+ ios_base::out 	                                     Open the file for reading. Identical to using  an ofstream-object.
+ ios_base::out|ios_base::app 	                     Open the file for writing. New information is added after the old info.
+ ios_base::in | ios_base::out 	                     Open the file for reading and writing.
+ ios_base::in | ios_base::out | ios_base::trunc      Open the file for reading and writing but delete the old contents first.
+
+Example of reading and writing:
+
+ #include <iostream>
+ #include <fstream>
+
+ using namespace std;
+
+ int main()
+ {
+     // creating the file object
+     fstream file;
+     char file_name[8] = "abc.txt";
+
+     // open file for writing
+     file.open(file_name, ios_base::out|ios_base::app);
+
+     cout << "Add text to the file." << endl;
+     cout << "Finish by pressing 2x[return]." << endl;
+     cout << "- - - - - - - - - -" << endl;
+     bool unfinished = true;
+     string row;
+     if (file.is_open()) {
+         while (unfinished) {
+             getline(cin, row);
+             if (row.compare("") == 0) {
+                 unfinished = false;
+             } else {
+                 file << row << endl;
+             }
+         }
+         file.close();
+     } else {
+         cout << "Failed to open the file!" << endl;
+         exit(-1);
+     }
+
+     // open the file for reading
+     file.open(file_name, ios_base::in);
+
+     if (file.is_open()) {
+         cout << file_name << " contents:" << endl;
+
+         char character;
+         while (!file.eof()) {
+             if (file.get(character) != 0) {
+                 cout << character;
+             }
+         }
+         file.close();
+     } else {
+         cout << "Failed to open the file!" << endl;
+         exit(-1);
+     }
+ }
+
+More notes:
+
+Firstly, note how to use a file object to open a file without erasing existing content:
+
+ file.open(file_name, ios_base::out|ios_base::app);
+
+To open the file for reading, this needs to be written:
+
+ file.open(file_name, ios_base::in);
+
+If we had defined the file object as ifstream-type, we wouldn't have needed to use the opening flag ios_base::in.
+
+Secondly, pay attention on how to read from a file. When information is read froma file, the end of file is found using eof-function:
+
+ while (!file.eof()){
+     if (file.get(character) != 0) {
+         cout << character;
+     }
+ }
+
+When file has no more characters to be read, this function returns the value 0. As long as the value is not zero, a character is retrieved from the file with get-function and printed on screen.
+
+Reading different types of files
+
+ ifstream file("floating.txt");
+
+ . . .
+
+ float number;
+ bool finish = false;
+ while (!finish) {
+     file >> number;
+     if (file.eof()) {
+         finish = true;
+     } else {
+         cout << number << endl;
+     }
+ }
+
+
+Example of reading strings and floating point numbers from a file:
+
+ #include <iostream>
+ #include <fstream>
+
+ using namespace std;
+
+ int main()
+ {
+     ifstream file("shopping.txt");
+
+     if (!file.is_open()) {
+         cout << "Failed to open the file!" << endl;
+         exit(-1);
+     }
+
+     string product_name;
+     int products = 0;
+     float price, sum = 0;
+
+     cout << "shopping" << endl;
+     while(file >> product_name && file >> price) {
+         products++;
+         sum += price;
+         cout << product_name << ": " << price << " euros" << endl;
+     }
+     cout << "products in total: " << products << " pcs" << endl;
+     cout << "sum: " << sum << " euros" << endl;
+ }
+
+* Exercises
+
+** Countdown to the world of programming
+
+*** First try at programming with C++ Example solution
+
+Assignment
+
+    The purpose of this exercise is to introduce you to writing programs with C++. Below is a C++ program. Your task is to rewrite it. In the next chapter you will learn how the program functions and what it actually does.
+
+    #include <iostream>
+    using namespace std;
+
+    int main()
+    {
+      int number;
+
+      cout << "Input an integer:";
+      cin >> number;
+      cout << "You typed: " << number << endl;
+    }
+
+Your answer
+
+ #include <iostream>
+ using namespace std;
+
+ int main()
+ {
+   int number;
+
+   cout << "Input an integer:";
+   cin >> number;
+   cout << "You typed: " << number << endl;
+ }
+
+** From travelling algorithms to the world of computing
+
+*** Printing on screen
+
+Assignment
+
+    Write a working C++ program that, when started, prints the text: “Hi everybody!” and a line break on screen. After printing the program shuts down.
+
+    Tip:
+    Everything you need can be found in the example program on chapter 2. When you understand how the program works you should be able to do this program as well. Program doesn't require slots i.e. variables.
+
+    Example print:
+
+    Hi everybody!
+
+Your answer
+
+ #include <iostream>
+
+ using namespace std;
+
+ int main()
+ {
+     cout << "Hi everybody!" << endl;
+ }
+
+*** Reading input from keyboard and printing it
+
+Assignment
+
+    Write a program that asks user for two integers, calculates their sum and prints it on screen. After printing the program shuts down.
+
+    Tip:
+
+    Program is very similar to the example in the chapter. There are many ways to write this program but you will probably need two variables. You will also need the addition operator +.
+
+    Example print:
+
+    Type the first number: 3
+
+    Type the second number: 18
+
+    Sum of the numbers is: 21
+
+Your answer
+
+ #include <iostream>
+
+ using namespace std;
+
+ int main()
+ {
+     int firstNumber;
+     int secondNumber;
+     int sum;
+
+     cout << "Type the first number:";
+     cin >> firstNumber;
+
+     cout << "Type the second number:";
+     cin >> secondNumber;
+
+     sum = firstNumber + secondNumber;
+
+     cout << "Sum of the numbers is " << sum << endl;
+ }
+
+** Variables in C++
+
+*** Euro calculator
+
+Assignment
+
+    Write a program that asks user for amount of dollars and converts them to euros. In the end the program prints the amount of euros on screen. The exchange rate for euros is 0.727802. Use variables of the type double.
+
+Your answer
+
+ #include <iostream>
+
+ using namespace std;
+
+ int main()
+ {
+     float num_dollars;
+     float num_euros;
+
+     cout << "How much dollars do you want to exchange:";
+     cin >> num_dollars;
+
+     num_euros = num_dollars * 0.727802;
+
+     cout << "Amount in euros: " << num_euros << endl;
+ }
+
+*** Circle area
+
+Assignment
+
+    Write a program that asks for the circle radius and calculates the area of the circle based on it. In the end the area is printed on screen. Use the approximate value of 3.142 for π. User is expected to input only integers.
+
+    Tip:
+
+    Circle area is A = π · r2, where r is circle radius.
+
+    Example print:
+
+    Input circle radius: 6
+
+    Circle area with the given radius: 113.112
+
+Your answer
+
+ #include <iostream>
+
+ using namespace std;
+
+ int main()
+ {
+     float circle_radius;
+     float circle_area;
+
+     cout << "Input circle radius:";
+     cin >> circle_radius;
+
+     circle_area = 3.142 * circle_radius * circle_radius;
+
+     cout << "Circle area with the given radius: " << circle_area << endl;
+ }
+
+** Programming clauses, statements and operators
+
+*** Calculator program
+
+Assignment
+
+    Write a program that asks user for two integers and prints the sum, subtraction, addition and remainder of the two numbers.
+
+    Esibrand tulostus
+
+    Input first integer: 3
+
+    Input second integer: 5
+
+    3+5 = 8
+
+    3-5 = -2
+
+    3*5 = 15
+
+    Remainder: 3
+
+Your answer
+
+ #include <iostream>
+
+ using namespace std;
+
+ int main()
+ {
+     int firstNumber;
+     int secondNumber;
+
+     cout << "Input first integer:";
+     cin >> firstNumber;
+
+     cout << "Input second integer:";
+     cin >> secondNumber;
+
+     cout << firstNumber << "+" << secondNumber << " = " << firstNumber + secondNumber << endl;
+     cout << firstNumber << "-" << secondNumber << " = " << firstNumber - secondNumber << endl;
+     cout << firstNumber << "*" << secondNumber << " = " << firstNumber * secondNumber << endl;
+     cout << "Remainder: " << firstNumber % secondNumber << endl;
+ }
+
+*** Calculating hypotenuse
+
+Assignment
+
+    Write a program that calculates the hypotenuse of an orthogonal triangle based on the triangle legs inputted by the user. The leg lengths are assumed to be integers and the hypotenuse value is assigned into a double type variable.
+
+    Tip:
+
+    A square root can be calculated as follows (returns a double type value):
+
+    double root = sqrt (double_number);
+
+    You will need the cmath-library.
+
+    Example print
+
+    Input first triangle leg: 4
+
+    Input second triangle leg: 6
+
+    Hypotenuse length: 7.2111
+
+Your answer
+
+ #include <iostream>
+ #include <cmath>
+
+ using namespace std;
+
+ int main()
+ {
+     int firstLeg;
+     int secondLeg;
+     float hypotenuseLength;
+
+     cout << "Input first triangle leg:";
+     cin >> firstLeg;
+
+     cout << "Input second triangle leg:";
+     cin >> secondLeg;
+
+     hypotenuseLength = sqrt(firstLeg*firstLeg +secondLeg*secondLeg);
+
+     cout << "Hypotenuse length: " << hypotenuseLength << endl;
+ }
+
+** Add some kick to your programs with if-statement
+
+*** Determining if a number is odd or even
+
+Assignment
+
+    Write a program that asks user for an integer and checks if the number is even or odd. If the number is even, program prints “Number X is even.” and if it is odd, program prints “Number X is odd.”. X marks the inputted number.
+
+    Tip:
+
+    A number is even if it's remainder, when divided by 2, is 0.
+
+    Example print
+
+    Input an integer: 452
+
+    Number 452 is even.
+
+Your answer
+
+ #include <iostream>
+
+ using namespace std;
+
+ int main()
+ {
+     int number;
+
+     cout << "Input an integer:";
+     cin >> number;
+
+     if(number % 2 == 0)
+         cout << "The number" << number << " is even." << endl;
+     else
+         cout << "The number" << number << " is odd." << endl;
+ }
+
+*** Comparison operators
+
+Assignment
+
+    Write a program that asks the users gender and age. Finally the program prints a sentence based on the following rule:
+
+    * Male 0-55 years: "You are a man in his prime!"
+    * Male 56-100 years: "You are a wise man!"
+    * Female 0-55 years: "You are like a blooming flower!"
+    * Female 56-100 years: "You look young for your age!"
+    * Else "Error encountered!"
+
+    Age is handled as an integer variable and gender as string variable (m/f). Letter case is ignored.
+
+    Tip:
+
+    Use enough time to plan for the program before starting to code.
+
+    Example print
+
+    Are you a male or a female (m/f): m
+
+    Your age: 44
+
+    You are a man in his prime!
+
+Your answer
+
+ #include <iostream>
+
+ using namespace std;
+
+ int main()
+ {
+     char gender;
+     int age;
+
+     cout << "Are you a male or a female (m/f):";
+     cin >> gender;
+
+     cout << "Your age:";
+     cin >> age;
+
+     if(gender == 'm' || gender == 'M')
+         if(age >= 0 && age <= 55)
+             cout << "You are a man in his prime!" << endl;
+         else if(age >= 56 && age <= 100)
+             cout << "You are a wise man!" << endl;
+         else
+             cout << "Error encountered!" << endl;
+     else if(gender == 'f' || gender == 'F')
+         if(age >= 0 && age <= 55)
+             cout << "You are like a blooming flower!" << endl;
+         else if(age >= 56 && age <= 100)
+             cout << "You look young for your age!" << endl;
+         else
+             cout << "Error encountered!" << endl;
+     else
+         cout << "Error encountered!" << endl;
+ }
+
+*** Calculations
+
+Assignment
+
+    Enhance the previous calculator program so that the user can choose which operation he wants to perform. The program first asks for the performed calculation. After this the program asks for the integers, performs the calculation and prints the result. Make the choice structure with switch() statement.
+
+    Tip:
+
+    Calculations are printed ad follows:
+
+    Subtraction: x-y=z
+    Addition: x+y=z
+    Multiplication: x*y=z
+    Remainder: x%y=z
+
+    Example print
+
+    Choose from the following calculations:
+
+        subtraction
+        addition
+        Multiplication
+        Division
+        Remainder
+
+    Choose a calculation: 2
+    Input first number: 33
+    Input second number: 12
+
+    33+12=45
+
+Your answer
+
+ #include <iostream>
+
+ using namespace std;
+
+ int main()
+ {
+     char option;
+     int firstNumber;
+     int secondNumber;
+
+     cout << "Choose desired calculation:" << endl;
+     cout << "1: subtraction" << endl;
+     cout << "2: addition" << endl;
+     cout << "3: multiplication" << endl;
+     cout << "4: division" << endl;
+     cout << "5: Remainder" << endl;
+     cout << "Choose a calculation:";
+     cin >> option;
+
+     cout << "Input first number:";
+     cin >> firstNumber;
+
+     cout << "Input second number:";
+     cin >> secondNumber;
+
+     switch(option){
+         case '1': cout << firstNumber << "-" << secondNumber << " = " << firstNumber-secondNumber << endl; break;
+         case '2': cout << firstNumber << "+" << secondNumber << " = " << firstNumber+secondNumber << endl; break;
+         case '3': cout << firstNumber << "*" << secondNumber << " = " << firstNumber*secondNumber << endl; break;
+         case '4': cout << firstNumber << "/" << secondNumber << " = " << firstNumber/secondNumber << endl; break;
+         case '5': cout << firstNumber << "%" << secondNumber << " = " << firstNumber%secondNumber << endl; break;
+         default: break;
+     }
+ }
+
+** C++ loop structures: a lazy programmer's dream come true
+
+*** For-statement
+
+Assignment
+
+    Write a program that asks user for an integer n ((n>0) and prints the numbers 1,2,3..n on individual rows. Use for-loop in the program.
+
+    Input an integer: 7
+
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+
+Your answer
+
+ #include <iostream>
+
+ using namespace std;
+
+ int main()
+ {
+     int i;
+     int number;
+
+     cout << "Input an integer:";
+     cin >> number;
+
+     for(i = 1; i <= number; i++)
+         cout << i << endl;
+ }
+
+*** Factorial
+
+Assignment
+
+    Write a program that asks user for an integer n (n>0) and prints the factorial of that number on screen. Example: factorial of n is marked with n!, which means 1*2*3...n.
+
+Your answer
+
+ #include <iostream>
+
+ using namespace std;
+
+ int main()
+ {
+     int number;
+     int factorial = 1;
+     int i;
+
+     cout << "Input an integer:";
+     cin >> number;
+
+     for(i = 1; i < number; i++)
+         factorial += factorial * i;
+
+     cout << "The factorial of number " << number << " is " << factorial << endl;
+ }
+
+*** Calculating average and loop structures
+
+Assignment
+
+    Write a program that asks for student's exam grades (integers 4-10) and prints the average of the given numbers. Program receives numbers until input is finished by inputting a negative number. Finally the program prints the amount of grades and their average.
+
+    Tip:
+
+    You can use either while or do-while statement for this exercise. Use floating point numbers for storing grades and their average.
+
+    Example print
+
+    Program calculates the average of exam grades.
+
+    Finish inputting with a negative number.
+
+    Input grade (4-10) 5
+    Input grade (4-10) 7
+    Input grade (4-10) 8
+    Input grade (4-10) 10
+    Input grade (4-10) 7
+    Input grade (4-10) -1
+
+    You inputted 5 grades.
+    Grade average: 7.4
+
+Your answer
+
+ #include <iostream>
+
+ using namespace std;
+
+ int main()
+ {
+     int grade;
+     int counter = 0;
+     float accumulator = 0;
+
+     cout << "Program calculates the test grade average." << endl;
+     cout << "Finish inputting with a negative number." << endl;
+
+     do {
+         cout << "Input grade (4-10)";
+         cin >> grade;
+
+         if (grade >= 4 && grade <= 10) {
+             accumulator += grade;
+             counter++;
+         }
+
+     } while(grade >= 0);
+
+     cout << "You inputted " << counter << " grades " << endl;
+     cout << "Grade average:" << accumulator / counter << endl;
+ }
+
+** Functions - the gateway to larger programs
+
+*** Functions smallest and largest
+
+Assignment
+
+    Below program asks user for three integers and prints the smallest and largest of those three on screen. Your task is to write the missing functions (largest() and smallest ()), which receive the user input as parameters and return the largest and smallest integers, respectively.
+
+    Incomplete program:
+
+    #include <iostream>
+
+    using namespace std;
+
+    int largest(int first, int second, int third);
+    intsmallest(int first, int second, int third);
+
+    int main()
+    {
+      int number1, number2, number3, largestnumber,smallestnumber;
+
+      cout << "Input the first integer";
+      cin >> number1;
+      cout << "Input the second integer:";
+      cin >> number2;
+      cout << "Input the third integer:";
+      cin >> number3;
+      largestnumber = largest(number1, number2, number3);
+     smallestnumber =smallest(number1, number2, number3);
+      cout << "The largest number was " << largestnumber;
+      cout << " and the smallest " <<smallestnumber << "." << endl;
+
+    Note!
+
+    Only write the missing functions. Don't copy the above code to the below text box.
+
+Your answer
+
+ int largest(int first, int second, int third)
+ {
+     int max;
+
+     max = first > second ? first : second;
+     max = max > third ? max : third;
+
+     return max;
+ }
+
+ int smallest(int first, int second, int third)
+ {
+     int min;
+
+     min = first < second ? first : second;
+     min = min < third ? min : third;
+
+     return min;
+ }
+
+** Numerical arrays in C++
+
+*** Work hour calculator
+
+Assignment
+
+    Write a program that calculates the amount of work hours in a given time frame and prints the total amount of hours, the average work day length and inputted hours separated by spaces. The program first asks how many days will be inputted (max. 30 days). After this the program proceeds to ask the daily work hours.
+
+    Tip:
+
+    Use an array with 30 elements to ease the making of the program.
+
+Your answer
+
+ #include <stdio.h>
+
+ int main()
+ {
+     int days;
+     float day[30];
+     int i;
+     float totals = 0;
+     float average;
+
+     printf("The program calculates the total amount of\nwork hours during a given time frame and the average work day length.\n");
+
+     printf("How many days:\n");
+     scanf("%d", &days);
+
+     for(i = 0; i<days; i++){
+         printf("Input hours of workday %i: ", i+1);
+         scanf("%f", &day[i]);
+         totals += day[i];
+     }
+
+     average = totals / days;
+
+     printf("Total work hours: %g\n", totals);
+     printf("Average work day length: %g\n", average);
+     printf("Inputted hours: ");
+
+     for(i = 0; i < days; i++){
+         printf("%g ", day[i]);
+     }
+
+     printf("\n");
+
+     return 0;
+ }
+
+*** Manipulating matrices
+
+Assignment
+
+    The C++ program below reads from the file matrix.txt integers table inserting it in the 5x5 table (matrix [5][5]). The program prints the matrix on screen, calculates the sum of the elements and prints the sum on screen making use of functions print_matrix () and count_sum(). Your task is to make up the functions in question. The values situated on the rows are separated by space.
+
+    #include <iostream>
+    #include <fstream>
+    using namespace std;
+
+    void print_matrix(int matrix[5][5]);
+    int calculate_sum(int matrix[5][5]);
+
+    int main(void)
+    {
+      int matrix[5][5];
+      int sum;
+      ifstream file("matrix.txt");
+      if (!file){
+            cout << "File cannot be opened!";
+      }
+      else {
+        for (int y=0; y<5;y++){
+              for (int x=0;x<5;x++){
+                file >> matrix[y][x];
+              }
+        }
+        file.close();
+        cout << "Matrix:" << endl;
+        print_matrix(matrix);
+        sum = count_sum(matrix);
+        cout << "Sum of elements: " << sum << endl;
+      }
+    }
+
+Your answer
+
+ void print_matrix(int matrix[5][5])
+ {
+     int i, j;
+
+     for(i = 0; i < 5; i++){
+         for(j = 0; j < 5; j++){
+             printf("%i ", matrix[i][j]);
+         }
+         printf("\n");
+     }
+ }
+
+ int count_sum(int matrix[5][5])
+ {
+     int sum = 0;
+
+     int i, j;
+
+     for(i = 0; i < 5; i++){
+         for(j = 0; j < 5; j++){
+             sum += matrix[i][j];
+         }
+     }
+
+     return sum;
+ }
+
+** Object-oriented programming - the basics
+
+*** Introducing objects
+
+Assignment
+
+    The below program creates an object called “printer” in a class called “PrintClass” and then uses the object to print text.
+
+    Your task is to write the class “PrintClass” and the required method. (You don't need to copy the below code in the text box).
+
+    #include <iostream>
+    #include <string>
+
+    using namespace std;
+
+    // your code here
+
+    int main()
+    {
+      char charstring[50];
+
+      cout << "Input a character string for printing:";
+      cin.get(charstring, 50);
+
+      PrintClass printer;
+
+      printer.print(charstring);
+    }
+
+Your answer
+
+ class Printclass{
+
+ public:
+     void print(string charstring)
+     {
+         cout << charstring << endl;
+     }
+ };
+
+*** Object interaction
+
+Assignment
+
+    Below is a simpler version of the previous program but the idea is still the same. Program creates an object names “thing”, which is an instance of the class “AskAndPrint”. Your task is to write the class “AskAndPrint” and create a method “DoYourThing()” that receives the string from the variable “text”, prints it's contents, reads user input and prints it on screen. Write only the missing class in the below text box. The functionality of the complete program can be seen in the example print.
+
+    Tip:
+    User may input spaces so reading simply cin >> text; is not enough.
+
+    #include <iostream>
+    #include <string>
+
+    using namespace std;
+
+    // your code here
+
+    int main (void)
+    {
+       char charstring[] = "Write the text for printing:";
+       AskAndPrint thing;
+
+       thing.DoYourThing(text);
+    }
+
+Your answer
+
+ class AskAndPrint{
+     string y;
+ public:
+     void DoYourThing(string x){
+
+         cout << x;
+         getline(cin, y);
+         cout << y << endl;
+     }
+ };
+
+*** Object interaction 2
+
+Assignment
+
+    In the exercise both the main program and the class "Calculator" have been completed. Your task is to make up class "Printer" that asks the user for two integers, calls for the class "Calculator" method "Sum()" transferring the integers received as input to the method. Method "Sum()" calculates the sum of the integers and returns the result. At the end method "Print()" prints the given sum on screen. I.e. the code below doesnt need to be copied to the answer field.
+
+    #include <iostream>
+    using namespace std;
+
+    class Calculator
+    {
+      public:
+
+      int Sum(int first, int second);
+    };
+
+    int Calculator::Sum(int first, int second)
+    {
+      int sum =first + second;
+      return sum;
+    }
+
+    // your code
+
+    int main()
+    {
+      Printer object;
+      object.Print();
+    }
+
+Your answer
+
+ class Printer{
+     int x;
+     int y;
+     int suma;
+
+ public:
+
+     void Print(){
+         cout << "Give a first integer: ";
+         cin >> x;
+         cout << "Give a second integer: ";
+         cin >> y;
+
+         Calculator cal;
+         suma = cal.Sum(x,y);
+         cout << "Sum: " << suma << endl;
+     }
+ };
+
+*** Using a constructor
+
+Assignment
+
+    Below you can find class "Dog" that is lacking a starting method needed for constructing objects and methods PrintInformation() and Bark(). Make additions to the class so that it becomes possible to construct objects from class. Also make up the missing methods. While being constructed the object will be given values: age, name, race and voice.
+
+    class Dog {
+       int age;
+       string name, race, voice;
+       // constructor
+       // method PrintInformation()
+       // method Bark()
+    }
+
+    The following C++ program uses Dog class printing a print like the example print on screen. The code below doesnt need to be copied.
+
+     #include <iostream>
+     #include <string>
+     using namespace std;
+
+     // your code
+
+     int main()
+     {
+       Dog buffy(2, "Buffy", "Bulldog", "Hau!!!");
+       buffy.PrintInformation();
+       cout << "Dog says: " << buffy.Bark();
+     }
+
+Your answer
+
+ class Dog {
+    int age;
+    string name, race, voice;
+
+ public:
+
+    Dog(int aage, string nname, string rrace, string vvoice){
+           name = nname;
+        age = aage;
+        race = rrace;
+        voice = vvoice;
+    }
+
+    void PrintInformation(){
+        cout << "Name: " << name << endl;
+        cout << "Age: " << age << endl;
+        cout << "Race: " << race << endl;
+    }
+
+    string Bark(){
+        return voice;
+    }
+ };
+
+** More about objects - inheritance
+
+*** About inheritance
+
+Assignment
+
+    In the last exercise of Viope C++ we practice creating an inherited class. Below is a program that already has the class Vehicle. Main program utilizes a method from class Car, which inherits Vehicle class. Your task is to creat the Car class and it's methods.
+
+    Tip:
+
+    Examine the below program and especially it's comments carefully. As usual, don't copy the below code to the text box.
+
+    #include <iostream>
+    #include <string>
+
+    using namespace std;
+
+    // Class Vehicle contains the methods
+    // InputWeight(), InputTopSpeed(), InputDrivenKM(), which are
+    // used to read the variable values of Vehicle class in the inheriting class.
+    // In addition Vehicle class contains the method Drive(length in km),
+    // that increments the kilometres driven by the vehicle.
+
+    class Vehicle
+    {
+      public:
+      int weight;
+      int top_speed;
+      long driven_km;
+      Vehicle(int weight, int top_speed, long driven_km);
+      void Drive(int journey);
+      int InputWeight();
+      int InputTopSpeed();
+      long InputDrivenKM();
+    };
+
+    // Class contains only one initializing method, where the characteristics of Vehicle are
+    // relayed as parameters right after creating the object.
+
+    Vehicle::Vehicle(int Aw, int Ats, long Akm)
+    {
+      weight = Aw;
+      top_speed = Ats;
+      driven_km = Akm;
+    }
+
+    void Vehicle::Drive(int journey)
+    {
+      driven_km += journey;
+    }
+
+    int Vehicle::InputWeight()
+    {
+      return weight;
+    }
+
+    int Vehicle::InputTopSpeed()
+    {
+      return top_speed;
+    }
+
+    long Vehicle::InputDrivenKM()
+    {
+      return driven_km;
+    }
+
+    // Car class and it's method (your implementation)
+    //
+    //
+    // Class characteristics: (data type in parentheses)
+    // - brand (string)
+    // - model (string)
+    // - register_no (string)
+    // - running (bool)
+    // Class methods
+    // - turn_on(), changes the value of “running” to 1
+    // - turn_off(), changes the value of “running” to 0
+    // - check_up(), tulostaa carn tiedot esibrandtulosteen mukaisesti
+    // Other things worth noting
+    // - You can manipulate the variable values by using the methods in Vehicle class
+    // - If the car is running while it's checked up, program prints: “Car is running”
+    // - Similarly if the car is not running, program prints: “Car is not running”
+    // main program
+    ////////////////////////////////////////
+
+    int main()
+    {
+      int weight, speed;
+      long km;
+      string brand, model, license;
+
+      // ask information about car
+      cout << "Input car brand: ";
+      cin >> brand;
+      cout << "Input car model: ";
+      cin >> model;
+      cout << "Input car license plate number: ";
+      cin >> license;
+      cout << "Input car weight: ";
+      cin >> weight;
+      cout << "Input car top speed: ";
+      cin >> speed;
+      cout << "Input distance traveled by car: ";
+      cin >> km;
+      cout << endl;
+
+      Car carX(weight, speed, km, brand, model, license, 0);
+
+      carX.check_up();
+      carX.turn_on();
+      carX.Drive(95);
+      cout << endl;
+      carX.check_up();
+    }
+
+Your answer
+
+ class Car : public Vehicle {
+     string brand;
+     string model;
+     string register_no;
+     bool running;
+ public:
+
+     // Constructor (and superclass)
+     Car(int Aw, int Ats, long Akm, string Abrand, string Amodel, string Alicense, bool Arunning) : Vehicle(Aw, Ats, Akm)
+     {
+         brand = Abrand;
+         model = Amodel;
+         register_no = Alicense;
+         running = Arunning;
+     }
+
+     void turn_on(){
+         running = true;
+     }
+
+     void turn_off(){
+         running = false;
+     }
+
+     void check_up(){
+
+     /*
+     car info:
+ brand:Nissan
+ model:Primera
+ Kilometres:2540000
+ weight:1340
+ Top speed:187
+ License plate:EFS-144
+ car is not running.
+
+     */
+
+     cout << "car info:" << endl;
+     cout << "brand:" << brand << endl;
+     cout << "model:" << model <<  endl;
+     cout << "Kilometres:" << driven_km << endl;
+     cout << "weight:" << weight << endl;
+     cout << "Top speed:" << top_speed << endl;
+     cout << "License plate:" << register_no << endl;
+
+         cout << "car is ";
+
+         if (running)
+             cout << "running." << endl;
+         else
+             cout << "not running." << endl;
+     }
+ };
+
+** Files
+
+*** Sum of numbers from a file
+
+Assignment
+
+    Write a program that reads integers from a file and prints their sum on screen. Follow the format of the example print.
+
+    Every number is in it's individual row in the file. The sum of numbers is written as the last number in the file. The name of the file is numbers.txt. If the program fails to open the file, it prints “Failed to open file!” on screen. After this the program execution ends.
+
+    For example, if the contents of numbers.txt is at first:
+    1
+    2
+
+    , after executing the program it is:
+    1
+    2
+    3
+
+    The numbers that are already in the file when the program is executed, are summed together and the sum is added to the end of the file.
+
+Your answer
+
+ #include <iostream>
+ #include <fstream>
+ #include <sstream>
+
+ using namespace std;
+
+ int main()
+ {
+     string row, row2;
+     char character;
+     string line;
+     int sum = 0;
+     int number;
+
+     ifstream afile ("numbers.txt");
+
+     while (! afile.eof() )
+     {
+       getline (afile,line);
+
+       istringstream ss(line);
+       ss >> number;
+
+       sum += number;
+
+     }
+
+     cout << "Sum is " << sum << endl;
+
+     afile.close();
+
+     ofstream out;
+     out.open("numbers.txt", std::ios::app);
+
+     out << endl << sum << endl;
+
+     out.close();
+ }
+
+*** Students from a file
+
+Assignment
+
+    Write a program that reads characters and strings from the file students.txt and prints them on screen. Follow the format of the example print.
+
+    Every student's information is in it's individual row in the file. If the program fails to open the file, it prints “Failed to open file!” on screen. After this the program execution ends.
+
+    For example, if the contents of students.txt is:
+    Z Andy Arkinson
+    Y Bob Bender
+
+    , information is printed as follows:
+    Andy Arkinson: class Z
+    Bob Bender: class Y
+
+Your answer
+
+ #include <iostream>
+ #include <fstream>
+
+ using namespace std;
+
+ int main()
+ {
+     ifstream infile("students.txt");
+     string name, surname, clase;
+
+     if(!infile)
+         {
+             cout << "Failed to open file!" << endl;
+
+             return -1;
+         }
+
+     while (infile >> clase >> name >> surname)
+     {
+         // process pair (a,b)
+
+         cout << name << " " << surname << ": class " << clase << endl;
+     }
+ }

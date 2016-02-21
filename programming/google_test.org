@@ -1,0 +1,114 @@
+Check these pages:
+
+* http://code.google.com/p/googletest/downloads/detail?name=gtest-1.7.0.zip&can=2&q=
+
+To install gtest-gbar:
+
+* http://code.google.com/p/gtest-gbar/
+
+Documentation:
+
+* http://code.google.com/p/googletest/w/list
+
+Download gtest and compile:
+
+ $ unzip gtest-1.7.0.zip
+ $ cd gtest-1.7.0
+ $ ./configure
+ $ make
+
+Copy libraries:
+
+ # cp -a include/gtest /usr/include
+ # cp -a lib/.libs/* /usr/lib/
+
+Check that libraries are linked:
+
+ # ldconfig -v | grep gtest
+
+Create this code as hello world example:
+
+Header of our code:
+
+ // main.h
+ #ifndef GTEST_MAIN_H_
+ #define GTEST_MAIN_H_
+
+ int factorial(int n);
+
+ #endif
+
+Implementation of our code:
+
+ // main.cc
+ #include "main.h"
+
+ int factorial(int n)
+ {
+     return 1;
+ }
+
+Create the unit tests for our code:
+
+ // unit_tests.cc
+ #include "main.h"
+ #include "gtest/gtest.h"
+
+ TEST(FactorialTest, Zero) {
+     EXPECT_EQ(1, factorial(0));
+ }
+
+ int main(int argc, char **argv)
+ {
+     ::testing::InitGoogleTest(&argc, argv);
+     return RUN_ALL_TESTS();
+ }
+
+Compile with:
+
+ $ g++ -o unit_tests unit_tests.cc main.cc -lgtest -lpthread
+
+Run:
+
+ ─[overdrive@apocalipsis]─[~/google_test_example]─[0]─[523]
+ ╰─[:)] % ./unit_tests
+ [==========] Running 1 test from 1 test case.
+ [----------] Global test environment set-up.
+ [----------] 1 test from FactorialTest
+ [ RUN      ] FactorialTest.Zero
+ [       OK ] FactorialTest.Zero (0 ms)
+ [----------] 1 test from FactorialTest (0 ms total)
+
+ [----------] Global test environment tear-down
+ [==========] 1 test from 1 test case ran. (0 ms total)
+ [  PASSED  ] 1 test.
+ ╭─[overdrive@apocalipsis]─[~/google_test_example]─[0]─[524]
+ ╰─[:)] %
+
+Including google test into makefiles (-L/usr/lib is optional as ld.so.conf would be configured to pick it up from /usr/lib already, but might be interesting to change the PATH later on):
+
+ LDFLAGS := -lpthread -lgtest -L/usr/bin
+
+ all: main test
+
+ implementation: implementation.cc implementation.h
+ 	g++ -c implementation.cc
+
+ main: main.cc implementation.h implementation.cc
+ 	g++ -c main.cc
+
+ test: test.o
+ 	g++ -o test test.o implementation.cc $(LDFLAGS)
+ 	@echo && ./test
+
+ clean:
+ 	rm -rf *o *~
+
+Basically we have:
+
+* implementation.cc : Implementation of functions. (should include implementation.h)
+* implementation.h : Prototype of functions implemented.
+* main.cc : our theoretical main program that uses functions and blabla. (normally would include implementation.h and would use functions from implementation.cc). Here is where we have our normal main() function running the functionality - but not running tests.
+* test.cc : where we would have the unit tests implemented. (should include implementation.h and gtest/gtest.h). Here we have a main() that would only run tests.
+
+With this, we can just run "make", "make main", "make all", "make test" or "make clean". If we do not have main, we could always compile 'as a library' just "make implementation".

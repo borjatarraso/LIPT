@@ -1,0 +1,247 @@
+* codestyle
+
+** Copyright notice
+
+For GPLv3 code:
+
+ /*
+  * <one line to give the program's name and a brief idea of what it does.>
+  * Copyright (C) 2013  Borja Tarraso <borja.tarraso@member.fsf.org>
+  *
+  * This program is free software: you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation, either version 2 of the License, or (at
+  * your option) any later version.
+  *
+  * This program is distributed in the hope that it will be useful, but
+  * WITHOUT ANY WARRANTY; without even the implied warranty of
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  * General Public License for more details.
+  *
+  * You should have received a copy of the GNU General Public License
+  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  *
+  */
+
+** Source file names
+
+Source file names, use underscores to separate words, do not use mixed case for file system names.
+
+** Unit test file names
+
+Must have the following format:
+
+ sourceNameWithoutExtensionTest.cc
+
+Should always end with "Test.cc", due to the way Makefile's wildcards are done.
+
+** Indentation
+
+4 spaces in the body of the function for every single line, except for labels and macros.
+
+** Comments
+
+Suggestion is use always multi-line style comment, even if it is just one line comment, following Linux kernel code style for comments, that it is using C89 comments style instead C99.
+
+ /* Comment line */
+
+When used multi-line comments, those ideally should be aligned.
+
+ /*
+  * This is a multi-line comment needed when long comments are
+  * supposed to explain tricky parts of the code or some
+  * clarifications are needed.
+  */
+
+** Names for variables, functions and structures
+
+Names for variables must be in lower case, using underscores for separations.
+
+ type var_name;
+
+Names for functions must be in lower case, using underscores for separations.
+
+ int whatever_function_name(int param1, struct whatever *param2, char *param3);
+
+Names for structures must be in lower case, using underscores for separations. Header should be included specifying the purpose of the structure. Brackets should be in different lines, comments are allowed (if clarification is needed) next to each member of the structure and aligned properly. This is also applicable to enums.
+
+ /*
+  * Whatever list of whatever_t structures.
+  * To be used for whatever foo_t structures
+  */
+ struct struct_name {
+     type_1_t *foo;              /* Some comments here */
+     type2_t *bar;               /* More comments here */
+     type3_t *foobar;
+     int int_var_name;           /* Commenting the attributes meaning */
+     int another_var_name;       /* At the same time comments are aligned */
+     int more_var_names;         /* Rest of comments */
+     int* fred;
+     void *type_thread;          /* But not all attributes */
+     type4 var_name;             /* Requires comment */
+     int var_name_n;             /* This is just optional */
+ };
+
+** Enumerations and macros
+
+Macros would be written in uppercase.
+
+ #define FOOBAR 1
+
+Macros used for conditional compilation in the headers:
+
+ #ifdef HAVE_WHATEVER
+ #include "include_whatever.h"
+ #endif /* HAVE_WHATEVER */
+
+Macros used for conditional compilation inside the functions:
+
+ #ifdef HAVE_WHATEVER
+   whatever code here
+ #endif /* HAVE_WHATEVER */
+
+** Conditions and loop control
+
+Simple if:
+
+ if (condition)
+     ...
+
+More than one line if:
+
+ if (condition) {
+     ...
+     ...
+ }
+
+if/else sentence:
+
+ if (condition) {
+     ...
+     ...
+ } else {
+     ...
+     ...
+ }
+
+simple do/while:
+
+ while (condition)
+     ...
+
+do/while more than one line:
+
+ while (condition) {
+     ...
+     ...
+ }
+
+for loops:
+
+ for (variable = init_value; condition; variable_increment++) {
+     ...
+ }
+
+switch case:
+
+ switch (cmd) {
+ case CASE1:
+     ...
+     break;
+ case CASE2:
+     ...
+     break;
+ case CASEN:
+     ...
+     break;
+ default:
+     ...
+ }
+
+** Function calls, prototypes and definitions
+
+Basic format of function definitions:
+
+ int function(int x)
+ {
+     ...
+ }
+
+Functions with more than one parameter will be defined like this:
+
+ int function(int x, int y, int z)
+ {
+     ...
+ }
+
+When function parameters are too long and/or too many, exceeding the 80 columns per line, would be desirable to split in different lines aligning them:
+
+ /* Some optional header for some specific functions here */
+ void * function(int foo,
+                 struct struct_name *fred,
+                 char *bar)
+ {
+     ...
+ }
+
+Also, this is applicable to function prototypes:
+
+ int function(char *foo, char *bar,
+              char *fred, int foobar);
+
+Or to function calls:
+
+ /* Initialize whatever. */
+ ret = function_call("string_parameter",
+                     MACRO_PARAMETER,
+                     0,
+                     NULL,
+                     &pointer_to_struct->struct_variable.member);
+
+Any other lines, like assignations, etc, could be split following the above logic.
+
+Headers for functions:
+
+ /*
+  * function description here
+  * Name: function_name_here
+  * Parameters:
+  * IN -> param meaning one
+  * IN -> param meaning two
+  * IN -> param neaning n
+  *
+  * Returns:
+  * OK_STATUS_VALUE/NOOK_STATUS_VALUE
+  */
+ int function(void)
+ {
+     ...
+ }
+
+** Operators
+
+After scanning the whole list of files, code style is needed to specify in more detail.
+
+Desreference operator: Always in the side of variable
+
+ struct lib_globals *zg;
+
+** Macros
+
+Multiple line macro definition:
+
+ #define macrofun(a, b, c)                      \
+     do {                                       \
+         if (a == 5)                            \
+             do_this(b, c);                     \
+     } while (0)
+
+Avoid macros that affect the control flow.
+
+ #define FOO(x)                                 \
+ 	do {                                   \
+            if (blah(x) < 0)                    \
+                return -EBUGGERED;              \
+        } while(0)
+
+For more info check: [http://www.kernel.org/doc/Documentation/CodingStyle Linux kernel code style]
