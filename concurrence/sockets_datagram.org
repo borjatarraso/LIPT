@@ -1,4 +1,6 @@
-== Datagram listener ==
+* sockets datagrams
+
+** Datagram listener
 
 # Fill the struct addrinfo for the server.
 # Create the socket descriptor with socket() syscall.
@@ -102,7 +104,7 @@
      return 0;
  }
 
-== Datagram talker ==
+** Datagram talker
 
 # Fill the struct addrinfo with the info from the server/listener.
 # Create the socket descriptor with socket().

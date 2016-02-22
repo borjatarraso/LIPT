@@ -1,3 +1,5 @@
+* shared memory
+
 A segment of memory that is shared between processes. You just connect to the shared memory segment, and get a pointer to the memory. You can read and write to this pointer and all changes you make will be visible to everyone else connected to the segment.
 
 A shared memory segment is created and connected to via the shmget() call:
@@ -5,10 +7,10 @@ A shared memory segment is created and connected to via the shmget() call:
  int shmget(key_t key, size_t size,
             int shmflg);
 
-* shmget() returns an identifier for the shared memory segment.
-* key: should be created the same was as shown in the Message Queues, using ftok().
-* size: is the size in bytes of the shared memory segment.
-* shmflg: permissions of the segment bitwise-ORd with IPC_CREAT if you want to create the segment, but can be 0 otherwise. (It doesn't hurt to specify IPC_CREAT every time—it will simply connect you if the segment already exists.)
+- shmget() returns an identifier for the shared memory segment.
+- key: should be created the same was as shown in the Message Queues, using ftok().
+- size: is the size in bytes of the shared memory segment.
+- shmflg: permissions of the segment bitwise-ORd with IPC_CREAT if you want to create the segment, but can be 0 otherwise. (It doesn't hurt to specify IPC_CREAT every time—it will simply connect you if the segment already exists.)
 
 Example call that creates a 1K segment with 644 permissions (rw-r--r--):
 
@@ -22,9 +24,9 @@ Before you can use a shared memory segment, you have to attach yourself to it us
 
  void *shmat(int shmid, void *shmaddr, int shmflg);
 
-* shmid: is the shared memory ID you got from the call to shmget().
-* shmaddr: which you can use to tell shmat() which specific address to use but you should just set it to 0 and let the OS choose the address for you.
-* shmflg: can be set to SHM_RDONLY if you only want to read from it, 0 otherwise.
+- shmid: is the shared memory ID you got from the call to shmget().
+- shmaddr: which you can use to tell shmat() which specific address to use but you should just set it to 0 and let the OS choose the address for you.
+- shmflg: can be set to SHM_RDONLY if you only want to read from it, 0 otherwise.
 
 Example of how to get a pointer to a shared memory segment:
 
@@ -59,7 +61,7 @@ When you're done with the shared memory segment, your program should detach itse
 
  int shmdt(void *shmaddr);
 
-* shmaddr: is the address you got from shmat().
+- shmaddr: is the address you got from shmat().
 
 When you detach from the segment, it isn't destroyed. Nor is it removed when everyone detaches from it. You have to specifically destroy it using a call to shmctl():
 

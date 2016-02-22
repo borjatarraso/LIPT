@@ -1,3 +1,5 @@
+* sockets raw
+
 Required headers:
 
  #include <sys/types.h> /* Basic system data types */
@@ -21,7 +23,7 @@ Other possible headers:
  #include <pthread.h>
  #include <stdint.h>
 
-== IP RAW server side ==
+** IP RAW server side
 
 # Create the socket descriptor with socket() syscall.
 # Fill the struct sockaddr_in for the server.
@@ -60,7 +62,7 @@ RAW Server side code:
  memcpy(&buf->length, buffer+hlen, numbytes-hlen);
  close(server_socket);
 
-== IP RAW client side ==
+** IP RAW client side
 
 # Create the socket descriptor with socket() syscall.
 # Fill the struct sockaddr_in for the server.
@@ -85,6 +87,6 @@ RAW Server side code:
 
 Check:
 
-* http://sock-raw.org/papers/sock_raw
-* http://stackoverflow.com/questions/14774668/what-is-raw-socket-in-socket-programming
-* man7.org/linux/man-pages/man7/raw.7.html
+- http://sock-raw.org/papers/sock_raw
+- http://stackoverflow.com/questions/14774668/what-is-raw-socket-in-socket-programming
+- man7.org/linux/man-pages/man7/raw.7.html

@@ -1,4 +1,6 @@
-== Stream server ==
+* sockets stream
+
+** Stream server
 
 For a server we just need to follow this steps:
 
@@ -139,7 +141,7 @@ For a server we just need to follow this steps:
      return 0;
  }
 
-== Stream client ==
+** Stream client
 
 For a client we just need to follow this steps:
 

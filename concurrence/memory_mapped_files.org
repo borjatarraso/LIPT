@@ -1,3 +1,5 @@
+* memory mapped files
+
 Read and write to and from files so that the information is shared between processes. Two processes both open the same file and both read and write from it, thus sharing the information. The problem is, sometimes it's a pain to do all those fseek()s and stuff to get around. Wouldn't it be easier if you could just map a section of the file to memory, and get a pointer to it? Then you could simply use pointer arithmetic to get (and set) data in the file.
 
 Before mapping a file to memory, you need to get a file descriptor for it by using the open() system call:
@@ -11,12 +13,12 @@ You can open it in whatever mode you want, but it has to match the mode specifie
  void *mmap(void *addr, size_t len, int prot,
             int flags, int fildes, off_t off);
 
-* addr: is the address we want the file mapped into. The best way to use this is to set it to (caddr_t)0 and let the OS choose it for you. If you tell it to use an address the OS doesn't like (for instance, if it's not a multiple of the virtual memory page size), it'll give you an error.
-* len: is the length of the data we want to map into memory. If len not a multiple of the virtual memory page size, you will get a blocksize that is rounded up to that size. The extra bytes will be 0, and any changes you make to them will not modify the file.
-* prot: allows you to specify what kind of access this process has to the memory mapped region. This can be a bitwise-ORd mixture of the following values: PROT_READ, PROT_WRITE, and PROT_EXEC, for read, write, and execute permissions, respectively. The value specified here must be equivalent to the mode specified in the open() system call that is used to get the file descriptor.
-* flags: There are just miscellaneous flags that can be set for the system call. You'll want to set it to MAP_SHARED if you're planning to share your changes to the file with other processes, or MAP_PRIVATE otherwise. If you set it to the latter, your process will get a copy of the mapped region, so any changes you make to it will not be reflected in the original file—thus, other processes will not be able to see them.
-* fildes: is where you put that file descriptor you opened earlier.
-* off: is the offset in the file that you want to start mapping from. A restriction: this must be a multiple of the virtual memory page size. This page size can be obtained with a call to getpagesize().
+- addr: is the address we want the file mapped into. The best way to use this is to set it to (caddr_t)0 and let the OS choose it for you. If you tell it to use an address the OS doesn't like (for instance, if it's not a multiple of the virtual memory page size), it'll give you an error.
+- len: is the length of the data we want to map into memory. If len not a multiple of the virtual memory page size, you will get a blocksize that is rounded up to that size. The extra bytes will be 0, and any changes you make to them will not modify the file.
+- prot: allows you to specify what kind of access this process has to the memory mapped region. This can be a bitwise-ORd mixture of the following values: PROT_READ, PROT_WRITE, and PROT_EXEC, for read, write, and execute permissions, respectively. The value specified here must be equivalent to the mode specified in the open() system call that is used to get the file descriptor.
+- flags: There are just miscellaneous flags that can be set for the system call. You'll want to set it to MAP_SHARED if you're planning to share your changes to the file with other processes, or MAP_PRIVATE otherwise. If you set it to the latter, your process will get a copy of the mapped region, so any changes you make to it will not be reflected in the original file—thus, other processes will not be able to see them.
+- fildes: is where you put that file descriptor you opened earlier.
+- off: is the offset in the file that you want to start mapping from. A restriction: this must be a multiple of the virtual memory page size. This page size can be obtained with a call to getpagesize().
 
 mmap() returns -1 on error, and sets errno. Otherwise, it returns a pointer to the start of the mapped data.
 

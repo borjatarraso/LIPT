@@ -1,3 +1,5 @@
+* fifos
+
 Sometimes known as a named pipe. The name is that of a file that multiple processes can open() and read and write to.
 
 If I run two individual copies of a program, they can both call pipe() all they want and still not be able to speak to one another. (This is because you must pipe(), then fork() to get a child process that can communicate to the parent via the pipe.) With FIFOs, though, each unrelated process can simply open() the pipe and transfer data through it.
@@ -6,7 +8,7 @@ FIFO is actually a file on disk, so you need to create:
 
  mknod("myfifo", S_IFIFO | 0644 , 0); // arguments: fifo_name, creation mode, permissions, device number (ignored always when created a fifo).
 
-* Once the FIFO has been created, a process can start up and open it for reading or writing using the standard open() system call.
+- Once the FIFO has been created, a process can start up and open it for reading or writing using the standard open() system call.
 
 Two programs which will send data through a FIFO. One is speak.c which sends data through the FIFO, and the other is called tick.c, as it sucks data out of the FIFO:
 

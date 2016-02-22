@@ -1,4 +1,6 @@
-== Blocking ==
+* advanced sockets
+
+** Blocking
 
 When you run listener, it just sits there until a packet arrives. What happened is that it called recvfrom(), there was no data, and so recvfrom() is said to "block" (that is, sleep there) until some data arrives. Lots of functions block.
 
@@ -15,7 +17,7 @@ By setting a socket to non-blocking, you can effectively "poll" the socket for i
 
 This type of polling is a bad idea. If you put your program in a busy-wait looking for data on the socket, you'll suck up CPU time like it was going out of style. A more elegant solution for checking to see if there's data waiting to be read comes in the following section on select().
 
-== Select ==
+** Select
 
 Take the following situation: you are a server and you want to listen for incoming connections as well as keep reading from the connections you already have.
 
@@ -34,7 +36,7 @@ The function monitors "sets" of file descriptors; in particular readfds, writefd
 
 Arguments:
 
-* numfds: should be set to the values of the highest file descriptor plus one. In this example, it should be set to sockfd+1, since it is assuredly higher than standard input (0).
+- numfds: should be set to the values of the highest file descriptor plus one. In this example, it should be set to sockfd+1, since it is assuredly higher than standard input (0).
 
 select() returns, readfds will be modified to reflect which of the file descriptors you selected which is ready for reading. You can test them with the macro FD_ISSET(). Each set is of the type fd_set. The following macros operate on this type:
 
@@ -50,8 +52,8 @@ Sometimes you don't want to wait forever for someone to send you some data. Mayb
      int tv_usec;    // microseconds
  };
 
-* set tv_sec to the number of seconds to wait.
-* set tv_usec to the number of microseconds to wait.
+- set tv_sec to the number of seconds to wait.
+- set tv_usec to the number of microseconds to wait.
 
 When the function returns, timeout might be updated to show the time still remaining.
 
@@ -273,7 +275,7 @@ I check to see when the listener socket is ready to read. When it is, it means I
 
 If the client recv() returns non-zero, though, I know some data has been received. So I get it, and then go through the master list and send that data to all the rest of the connected clients.
 
-== Handling Partial send()s ==
+** Handling Partial send()s
 
 when I said that send() might not send all the bytes you asked it to? That is, you want it to send 512 bytes, but it returns 412. What happened to the remaining 100 bytes? the kernel decided not to send all the data out in one chunk, and now, my friend, it's up to you to get the data out there. To send them (as they still in the buffer) you could do:
 
@@ -300,9 +302,9 @@ when I said that send() might not send all the bytes you asked it to? That is, y
 
 In this example:
 
-* s is the socket you want to send the data to.
-* buf is the buffer containing the data.
-* len is a pointer to an int containing the number of bytes in the buffer.
+- s is the socket you want to send the data to.
+- buf is the buffer containing the data.
+- len is a pointer to an int containing the number of bytes in the buffer.
 
 The number of bytes actually sent is returned in len.
 
@@ -319,7 +321,7 @@ Here the code example to call this function:
 
 If the packets are variable length, how does the receiver know when one packet ends and another begins? you probably have to encapsulate.
 
-== Serialization ==
+** Serialization
 
 What happens if you want to send some "binary" data like ints or floats? It turns out you have a few options:
 
@@ -329,9 +331,9 @@ What happens if you want to send some "binary" data like ints or floats? It turn
 
 Advantatges and drawbacks of those methods:
 
-* The first method: encoding the numbers as text before sending, has the advantage that you can easily print and read the data that's coming over the wire. Sometimes a human-readable protocol is excellent to use in a non-bandwidth-intensive situation, such as with Internet Relay Chat (IRC). However, it has the disadvantage that it is slow to convert, and the results almost always take up more space than the original number!
+- The first method: encoding the numbers as text before sending, has the advantage that you can easily print and read the data that's coming over the wire. Sometimes a human-readable protocol is excellent to use in a non-bandwidth-intensive situation, such as with Internet Relay Chat (IRC). However, it has the disadvantage that it is slow to convert, and the results almost always take up more space than the original number!
 
-* Method two: passing the raw data. This one is quite easy (but dangerous!): just take a pointer to the data to send, and call send with it. Not all architectures represent a double (or int for that matter) with the same bit representation or even the same byte ordering! The code is decidedly non-portable. When packing integer types, we've already seen how the htons()-class of functions can help keep things portable by transforming the numbers into Network Byte Order, and how that's the Right Thing to do. Unfortunately, there are no similar functions for float types. There is something we can do: we can pack (or "marshal", or "serialize", or one of a thousand million other names) the data into a known binary format that the receiver can unpack on the remote side. What do I mean by "known binary format"? Well, we've already seen the htons() example, right? It changes (or "encodes", if you want to think of it that way) a number from whatever the host format is into Network Byte Order. To reverse (unencode) the number, the receiver calls ntohs(). There's no standard way in C to do this, it's a bit of a pickle (that a gratuitous pun there for you Python fans).
+- Method two: passing the raw data. This one is quite easy (but dangerous!): just take a pointer to the data to send, and call send with it. Not all architectures represent a double (or int for that matter) with the same bit representation or even the same byte ordering! The code is decidedly non-portable. When packing integer types, we've already seen how the htons()-class of functions can help keep things portable by transforming the numbers into Network Byte Order, and how that's the Right Thing to do. Unfortunately, there are no similar functions for float types. There is something we can do: we can pack (or "marshal", or "serialize", or one of a thousand million other names) the data into a known binary format that the receiver can unpack on the remote side. What do I mean by "known binary format"? Well, we've already seen the htons() example, right? It changes (or "encodes", if you want to think of it that way) a number from whatever the host format is into Network Byte Order. To reverse (unencode) the number, the receiver calls ntohs(). There's no standard way in C to do this, it's a bit of a pickle (that a gratuitous pun there for you Python fans).
 
  double d = 3490.15926535;
  send(s, &d, sizeof d, 0);  /* DANGER--non-portable! */
@@ -707,7 +709,7 @@ Here is a demonstration program of the above code that packs some data into buf 
 
 When packing the data, what's a good format to use? Excellent question. Fortunately, RFC 4506, the External Data Representation Standard, already defines binary formats for a bunch of different types, like floating point types, integer types, arrays, raw data, etc. I suggest conforming to that if you're going to roll the data yourself.
 
-== Son of Data Encapsulation ==
+** Son of Data Encapsulation
 
 What does it really mean to encapsulate data, anyway? In the simplest case, it means you'll stick a header on there with either some identifying information or a packet length, or both.
 
@@ -754,7 +756,7 @@ Since you know the length of the first packet from the header, and you've been k
 
 Some of you readers will note that actually moving the partial second packet to the beginning of the work buffer takes time, and the program can be coded to not require this by using a circular buffer.
 
-== Broadcast Packets—Hello, World! ==
+** Broadcast Packets—Hello, World!
 
 Send data to multiple hosts at the same time. With UDP (only UDP, not TCP) and standard IPv4, this is done through a mechanism called broadcasting. With IPv6, broadcasting isn't supported, and you have to resort to the often superior technique of multicasting.
 
@@ -842,10 +844,10 @@ If listener doesn't respond, it could be because it's bound to an IPv6 address. 
 
 If the listener gets data you send directly to it, but not data on the broadcast address, it could be that you have a firewall on your local machine that is blocking the packets.
 
-== Additional features for advanced sockets ==
+** Additional features for advanced sockets
 
-* What do I do when bind() reports "Address already in use"? You have to use setsockopt() with the SO_REUSEADDR option on the listening socket.
-* How do I encrypt or compress the data before sending it through the socket? One easy way to do encryption is to use SSL (secure sockets layer), but that's beyond the scope of this guide. (Check out the OpenSSL project for more info.)
+- What do I do when bind() reports "Address already in use"? You have to use setsockopt() with the SO_REUSEADDR option on the listening socket.
+- How do I encrypt or compress the data before sending it through the socket? One easy way to do encryption is to use SSL (secure sockets layer), but that's beyond the scope of this guide. (Check out the OpenSSL project for more info.)
 
 Each step changes the data in some way:
 
@@ -859,7 +861,7 @@ Now the other way around:
 # client decrypts/decompresses data (you add this part)
 # client writes data to file (or wherever)
 
-* How can I write a server that accepts shell commands from a client and executes them?
+- How can I write a server that accepts shell commands from a client and executes them?
 
 For simplicity, lets say the client connect()s, send()s, and close()s the connection:
 
@@ -885,7 +887,7 @@ You prevent the client from using any except for a couple utilities that you kno
 
 unfortunately: what if the client enters "foobar; rm -rf ~"? The safest thing to do is to write a little routine that puts an escape ("\") character in front of all non-alphanumeric characters (including spaces, if appropriate) in the arguments for the command. As you can see, security is a pretty big issue when the server starts executing things the client sends.
 
-* How do I write a packet sniffer? How do I put my Ethernet interface into promiscuous mode? When a network card is in "promiscuous mode", it will forward ALL packets to the operating system, not just those that were addressed to this particular machine. (We're talking Ethernet-layer addresses here, not IP addresses--but since ethernet is lower-layer than IP, all IP addresses are effectively forwarded as well.
+- How do I write a packet sniffer? How do I put my Ethernet interface into promiscuous mode? When a network card is in "promiscuous mode", it will forward ALL packets to the operating system, not just those that were addressed to this particular machine. (We're talking Ethernet-layer addresses here, not IP addresses--but since ethernet is lower-layer than IP, all IP addresses are effectively forwarded as well.
 
 This is the basis for how a packet sniffer works. It puts the interface into promiscuous mode, then the OS gets every single packet that goes by on the wire. You'll have a socket of some type that you can read this data from. (Check http://www.linuxjournal.com/article/4659).
 

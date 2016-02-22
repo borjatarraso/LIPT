@@ -1,3 +1,5 @@
+* semaphores
+
 With a Semaphores you can use them to control access to files, shared memory, and, anything you want. System V IPC, you don't grab single semaphores; you grab sets of semaphores.
 
 To create the semaphore set? It's done with a call to semget(), which returns the semaphore id (hereafter referred to as the semid):
@@ -6,9 +8,9 @@ To create the semaphore set? It's done with a call to semget(), which returns th
 
  int semget(key_t key, int nsems, int semflg);
 
-* key: unique identifier that is used by different processes to identify this semaphore set. (This key will be generated using ftok()).
-* nsems: is the number of semaphores in this semaphore set.
-* semflg: permissions on the new semaphore set, you can bit-wise or the access permissions with IPC_CREAT.
+- key: unique identifier that is used by different processes to identify this semaphore set. (This key will be generated using ftok()).
+- nsems: is the number of semaphores in this semaphore set.
+- semflg: permissions on the new semaphore set, you can bit-wise or the access permissions with IPC_CREAT.
 
 Example call that generates the key with ftok() and creates a 10 semaphore set, with 666 (rw-rw-rw-) permissions:
 
@@ -32,10 +34,10 @@ Once you have created your semaphore sets, you have to initialize them to a posi
  int semctl(int semid, int semnum,
             int cmd, ... /*arg*/);
 
-* semid: is the semaphore set id that you get from your call to semget().
-* semnum: is the ID of the semaphore that you wish to manipulate the value of.
-* cmd: is what you wish to do with the semaphore in question.
-* arg: (if required) needs to be a union semun.
+- semid: is the semaphore set id that you get from your call to semget().
+- semnum: is the ID of the semaphore that you wish to manipulate the value of.
+- cmd: is what you wish to do with the semaphore in question.
+- arg: (if required) needs to be a union semun.
 
 arg which will be defined by you in your code to be one of these:
 
@@ -74,9 +76,9 @@ All operations that set, get, or test-n-set a semaphore use the semop() system c
      short sem_flg;
  };
 
-* sem_num: is the number of the semaphore in the set that you want to manipulate.
-* sem_op: is what you want to do with that semaphore.
-* sem_flg: allows the program to specify flags the further modify the effects of the semop() call. One of these flags is IPC_NOWAIT which, as the name suggests, causes the call to semop() to return with error EAGAIN if it encounters a situation where it would normally block. This is good for situations where you might want to "poll" to see if you can allocate a resource. Another very useful flag is the SEM_UNDO flag. This causes semop() to record, in a way, the change made to the semaphore. When the program exits, the kernel will automatically undo all changes that were marked with the SEM_UNDO flag. Of course, your program should do its best to deallocate any resources it marks using the semaphore, but sometimes this isn't possible when your program gets a SIGKILL or some other awful crash happens.
+- sem_num: is the number of the semaphore in the set that you want to manipulate.
+- sem_op: is what you want to do with that semaphore.
+- sem_flg: allows the program to specify flags the further modify the effects of the semop() call. One of these flags is IPC_NOWAIT which, as the name suggests, causes the call to semop() to return with error EAGAIN if it encounters a situation where it would normally block. This is good for situations where you might want to "poll" to see if you can allocate a resource. Another very useful flag is the SEM_UNDO flag. This causes semop() to record, in a way, the change made to the semaphore. When the program exits, the kernel will automatically undo all changes that were marked with the SEM_UNDO flag. Of course, your program should do its best to deallocate any resources it marks using the semaphore, but sometimes this isn't possible when your program gets a SIGKILL or some other awful crash happens.
 
 Meanings of sem_op depending of the value taken:
 
@@ -90,9 +92,9 @@ Basically, what you do is load up a struct sembuf with whatever values you want,
  int semop(int semid, struct sembuf *sops,
            unsigned int nsops);
 
-* semid: is the number obtained from the call to semget().
-* sops: which is a pointer to the struct sembuf that you filled with your semaphore commands. If you want, though, you can make an array of struct sembufs in order to do a whole bunch of semaphore operations at the same time.
-* nsop: which tells how many struct sembufs you're sending it.
+- semid: is the number obtained from the call to semget().
+- sops: which is a pointer to the struct sembuf that you filled with your semaphore commands. If you want, though, you can make an array of struct sembufs in order to do a whole bunch of semaphore operations at the same time.
+- nsop: which tells how many struct sembufs you're sending it.
 
 There are two ways to get rid of a semaphore:
 

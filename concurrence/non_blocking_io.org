@@ -1,3 +1,5 @@
+* Non-blocking I/O
+
 Wait for user input, but at the same time, I want my other operations keep continue processing. Usually, people will think about using ncurses library. By using ncurses, you can easily perform non-blocking user input using timeout(0) and getch().
 
 I uses functions of termios and select, lets look at the functions one by one.
@@ -110,5 +112,5 @@ Press ‘q’ will lead the program to quit, else you will see the print of ’0
 
 References:
 
-khbit: http://cc.byexamples.com/2007/04/08/non-blocking-user-input-in-loop-without-ncurses/
-non-blocking I/O sockets: http://publib.boulder.ibm.com/infocenter/iseries/v5r3/index.jsp?topic=%2Frzab6%2Frzab6xnonblock.htm
+- khbit: http://cc.byexamples.com/2007/04/08/non-blocking-user-input-in-loop-without-ncurses/
+- non-blocking I/O sockets: http://publib.boulder.ibm.com/infocenter/iseries/v5r3/index.jsp?topic=%2Frzab6%2Frzab6xnonblock.htm

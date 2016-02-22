@@ -1,16 +1,16 @@
 Method for one process to bug another: one process can "raise" a signal and have it delivered to another process.
 
-* One process might want to stop another one, and this can be done by sending the signal SIGSTOP.
-* To continue, the process has to receive signal SIGCONT.
-* Many signals are predefined and the process has a default signal handler to deal with it.
-* Example of predefined signal is: SIGINT; a process receives when the user hits ^C. The default signal handler for SIGINT causes the process to exit.
-* Signal #9. typing "kill -9 PID" to kill a process (sending SIGKILL).
-* SIGKILL and SIGSTOP cannot be overrided.
-* kill command without arguments is sending SIGTERM.
-* There are two signals that are not reserved (not pre-defined behaviour): SIGUSR1 and SIGUSR2. Use using: "kill -SIGUSR1 PID".
-* There is a system call called kill() to send a signal: takes as arguments a signal number (defined in signal.h) and a process ID.
-* raise() which can be used to raise a signal within the same process.
-* call sigaction() and tell it all the details about which signal you want to catch and which function you want to call to handle it.
+- One process might want to stop another one, and this can be done by sending the signal SIGSTOP.
+- To continue, the process has to receive signal SIGCONT.
+- Many signals are predefined and the process has a default signal handler to deal with it.
+- Example of predefined signal is: SIGINT; a process receives when the user hits ^C. The default signal handler for SIGINT causes the process to exit.
+- Signal #9. typing "kill -9 PID" to kill a process (sending SIGKILL).
+- SIGKILL and SIGSTOP cannot be overrided.
+- kill command without arguments is sending SIGTERM.
+- There are two signals that are not reserved (not pre-defined behaviour): SIGUSR1 and SIGUSR2. Use using: "kill -SIGUSR1 PID".
+- There is a system call called kill() to send a signal: takes as arguments a signal number (defined in signal.h) and a process ID.
+- raise() which can be used to raise a signal within the same process.
+- call sigaction() and tell it all the details about which signal you want to catch and which function you want to call to handle it.
 
  int sigaction(int sig, const struct sigaction *act, struct sigaction *oact);
 
@@ -118,7 +118,7 @@ Then in the other window, send it the signal SIGUSR1: '''kill -USR1 <PID_PRINTED
 
 The response should be immediate even if sleep() has just been called—sleep() gets interrupted by signals.
 
-* signal() that can be used to catch signals. It's not as reliable or as full-featured as sigaction()
+- signal() that can be used to catch signals. It's not as reliable or as full-featured as sigaction()
 
 Signals at our disposal (Each signal has its own default signal handler, the behavior of which is defined in your local man pages):
 
@@ -154,8 +154,8 @@ Signals at our disposal (Each signal has its own default signal handler, the beh
 
 Additional resources:
 
-* Nearly all of it. There are tons of flags, realtime signals, mixing signals with threads, masking signals, longjmp() and signals, and more.
-* Handling signals: sigaction() sigwait() sigwaitinfo() sigtimedwait() sigsuspend() sigpending()
-* Delivering signals: kill() raise() sigqueue()
-* Set operations: sigemptyset() sigfillset() sigaddset() sigdelset() sigismember()
-* Other: sigprocmask() sigaltstack() siginterrupt() sigsetjmp() siglongjmp() signal()
+- Nearly all of it. There are tons of flags, realtime signals, mixing signals with threads, masking signals, longjmp() and signals, and more.
+- Handling signals: sigaction() sigwait() sigwaitinfo() sigtimedwait() sigsuspend() sigpending()
+- Delivering signals: kill() raise() sigqueue()
+- Set operations: sigemptyset() sigfillset() sigaddset() sigdelset() sigismember()
+- Other: sigprocmask() sigaltstack() siginterrupt() sigsetjmp() siglongjmp() signal()
