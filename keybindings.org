@@ -4,6 +4,10 @@
 
 * Emacs
 ** org-mode
+- Tree visibility
+ - TAB                => cycle tree
+ - (org-global-cycle) => org global cycle
+
 - set tasks
  - C-c C-d  => set deadline
  - C-c C-s  => set schedule
