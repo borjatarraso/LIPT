@@ -1,38 +1,40 @@
-== Trace tools ==
+* shell_cmd
 
-=== ptrace ===
+** Trace tools
 
-=== strace ===
+*** ptrace
+
+*** strace
 
  strace -fe trace=network binary
 
-=== ltrace ===
+*** ltrace
 
-=== xtrace ===
+*** xtrace
 
-=== ktrace ===
+*** ktrace
 
-=== SystemTap ===
+*** SystemTap
 
-== Coreutils ==
+** Coreutils
 
-=== Intro ===
+*** Intro
 
 Las coreutils es un paquete fundamental en sistemas GNU con los comandos y herramientas mas fundamentales que nos permiten trabajar con el sistema. Realmente es la combinacion de 3 paquetes anteriores: fileutils, shellutils y textutils. Como tenemos demasiadas herramientas fundamentales, nos centraremos en las que mas nos interesen para el desarrollo y tareas relacionadas.
 
-=== Comando file ===
+*** Comando file
 
 Muestra informacion detallada sobre el fichero binario u objeto (asi como otros ficheros). Indica el tipo de cabecera, por ejemplo ELF para ejecutables en sistemas gnu. Si el binario fue compilado para 32 o 64 bits. Si se usa LSB (Less Significant Bit o Little-Endian) o MSB (Most Significant Bit o Big-Endian). Si el ejecutable fue compilador para sistemas x86 u otros. La version de dicho formato interno. Si fue linkado de manera estatica o dinamica. Y finalmente si es stripped o no; en caso de no ser stripped, indica que el binario contendra la tabla de simbolos, esta se puede eliminar mediante el comando strip.
 
-=== Comando nm ===
+*** Comando nm
 
 Con el comando nm podemos analizar la tabla de simbolos que puede estar tanto en ficheros ejecutables como en ficheros de codigo objeto. Generalmente cuando lanzamos el comando nm a.out o similar, buscaremos las letras T o U. la T indica que la funcion es definida en el mismo fichero y la U indica undefined, y que la direccion debe ser resuelta mediante el linkade de una lib externa.
 
-=== Comando ldd ===
+*** Comando ldd
 
 Cuando un programa es ejecutado mediante el uso de bibliotecas compartidas, se requiere la carga de estas de forma dinamica en tiempo de ejecucion para asi poder realizar las llamadas a las funciones empleadas. Con el comando ldd podemos examinar un ejecutable y obtener un listado de libs requeridas. Por ejemplo si lanzamos ldd a.out obtendremos las dependencias de este binario: la lib, el lugar donde se encuentra y el offset en memoria.
 
-=== Comandos de disco ===
+*** Comandos de disco
 
 Checkear el uso del disco:
 
@@ -42,9 +44,9 @@ Checkear diskfree:
 
  $ df -hT
 
-== binutils ==
+** binutils
 
-=== readelf ===
+*** readelf
 
 La sintaxis siempre sera:
 
@@ -81,7 +83,7 @@ Opciones:
  -W  --> Dont break output lines to fit into 80 columns.
  -H  --> Show help
 
-=== objdump ===
+*** objdump
 
 Used to display various types of information stored in object files.
 
@@ -115,7 +117,7 @@ Used to display various types of information stored in object files.
  -EB, -EL                --> Specify the endianness of the object files. This only affects disassembly. This can be useful when disassembling a file format which does not describe endianness information, such as S-records.
  -F                      --> When disassembling sections, whenever a symbol is displayed, also display the file offset of the region of data that is about to be dumped. If zeros are being skipped, then when disassembly resumes, tell the user how many zeros were skipped and the file offset of the location from where the disassembly resumes. When dumping sections, display the file offset of the location from where the dump starts.
 
-=== ar / archiver ===
+*** ar / archiver
 
 La herramienta GNU ar (archiver) esta intimamente relacionada con la seccion anterior de compiladores. Fundamentalmente se centra en combinar una coleccion de objetos en un solo fichero, tambien conocido como biblioteca o library.
 
@@ -181,7 +183,7 @@ o bien sin necesidad de especificar la lib:
 
  $ gcc -Wall -L. main.c -lhello.o -o hello
 
-== System statistics ==
+** System statistics
 
 Install sysstat:
 
@@ -223,7 +225,7 @@ Check uptime and cpu load (part of procps):
 
  $ uptime
 
-== Virtualization ==
+** Virtualization
 
 Alternatives to vmware:
 
@@ -252,7 +254,7 @@ Then download GNS3 from [http://www.gns3.net/download/]
 
 Download additional VMs (called appliances) from: [http://www.gns3.net/appliances/]
 
-== Image edition ==
+** Image edition
 
 For RAW image post-processing:
 
@@ -265,7 +267,7 @@ Other applications for image editing or gallery processing:
  gthumb
  nautilus
 
-== Audio ==
+** Audio
 
 Convert from mp3 to wav for audio cd:
 
@@ -331,7 +333,7 @@ Now play the videos like that:
  $ mplayer cdda://5
 
 
-== Video ==
+** Video
 
 How can I convert AVI files into MPGs with ffmpeg?
 
@@ -344,7 +346,7 @@ How can I use ffmpeg to split MPEG video into 10 minute chunks for YouTube uploa
  $ ffmpeg -i source-file.foo -ss 1200 -t 600 third-10-min.m4v
 
 
-== Record video capture from desktop or regions ==
+** Record video capture from desktop or regions
 
 How to install needed application:
 
@@ -354,7 +356,7 @@ Start using the application:
 
  $ gtk-recordmydesktop
 
-== Compressed files ==
+** Compressed files
 
 For files .z01, z02, etc
 
@@ -400,7 +402,7 @@ dd command to copy the contents from sda to sdb:
 
  $ dd if=/dev/sda of=/dev/sdb
 
-== Screenshots ==
+** Screenshots
 
  $ xwd -root -screen > foo.xwd
 
@@ -408,7 +410,7 @@ Or
 
  $ shutter
 
-== Generating files ==
+** Generating files
 
 To create 2 Mb of files all with zeros
 
@@ -428,19 +430,19 @@ Take a look to the contents with hexdump to ensure is random:
  $ hexdump a.log |less
 
 
-== Generating ssh keys ==
+** Generating ssh keys
 
  $ ssh-keygen -t rsa -C "your_email@example.com"
 
 
-== Best programs for different tasks ==
+** Best programs for different tasks
 
 To read pdf, install okular:
 
  # apt-get install okular
  # apt-get install okular-backend-odp okular-extra-backends
 
-== Connectivity ==
+** Connectivity
 
 List usb devices (like N9):
 
@@ -462,7 +464,7 @@ List all devices connected somehow to the laptop:
 
  $ pinky
 
-== Encryption/cipher ==
+** Encryption/cipher
 
 
 Create a partition as NTFS:
@@ -535,17 +537,17 @@ To have unavailable the partition:
 
 For more info check: http://www.tecmint.com/linux-hard-disk-encryption-using-luks/
 
-== Calendars ==
+** Calendars
 
 Show calendar with week days:
 
  $ ncal -w 2014
 
-== ToR ==
+** ToR
 
  # apt-get install tor
 
-== Logs ==
+** Logs
 
  $ dmesg           => messages generated by the kernel
  /var/log/syslog   => collects messages of various programs and services including the kernel, and stores them, depending on setup
@@ -554,7 +556,7 @@ Show calendar with week days:
  /var/log/auth.log => logs related with authentications
  /var/log/mail.log => logs related with the mail
 
-== Run levels ==
+** Run levels
 
 {| class="wikitable"
 |
@@ -622,7 +624,7 @@ Table of action:
 Check more info at: www.ibm.com/developerworks/library/l-lpic1-v3-101-3/
 Check other runlevels at: http://en.wikipedia.org/wiki/Runlevel
 
-== Man pages ==
+** Man pages
 
  1. Applications
  2. System Calls
@@ -634,10 +636,10 @@ Check other runlevels at: http://en.wikipedia.org/wiki/Runlevel
  8. System Administration
  9. Commands
 
-== References ==
+** References
 
-* http://en.wikipedia.org/wiki/GNU_Binutils
-* http://en.wikipedia.org/wiki/GNU_Core_Utilities
-* http://en.wikipedia.org/wiki/List_of_Unix_programs
-* http://en.wikipedia.org/wiki/Util-linux
-* http://linuxcommando.blogspot.com/
+- http://en.wikipedia.org/wiki/GNU_Binutils
+- http://en.wikipedia.org/wiki/GNU_Core_Utilities
+- http://en.wikipedia.org/wiki/List_of_Unix_programs
+- http://en.wikipedia.org/wiki/Util-linux
+- http://linuxcommando.blogspot.com/

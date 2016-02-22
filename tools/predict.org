@@ -1,4 +1,6 @@
-== Predict and some other astronomy applications ==
+* predict
+
+** Predict and some other astronomy applications
 
 Install predict for satellites:
  apt-get install predict

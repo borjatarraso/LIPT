@@ -1,3 +1,5 @@
+* valgrind
+
 To install Valgrind (dynamic code analyzer):
 
  #  apt-get install valgrind kcachegrind
@@ -15,11 +17,11 @@ Running valgring from a makefile:
 
  $ make dynamic
 
-== Valgrind tools ==
+** Valgrind tools
 
 Run-time code analysis:
 
-* Memcheck : detects memory managemet problems in programs; read/write in memory, calls to malloc, new, free and delete intercepted. So can detect:
+- Memcheck : detects memory managemet problems in programs; read/write in memory, calls to malloc, new, free and delete intercepted. So can detect:
   - Use of uninitialised memory.
   - Read/write memory after freed.
   - Read/write off the end of malloc'd blocks.
@@ -27,18 +29,18 @@ Run-time code analysis:
   - Memory leaks where pointers to malloc'd blocks are lost forever.
   - Mismatched use of malloc/new/new[] vs free/delete/delete[].
   - Overlapping src and dst pointers in memcpy() and related functions.
-* Cachegrind : cache profiler that performs detailed simulation of I1, D1 and L2 caches in the CPU.
-* Callgrind : profiler which tracks caller-callee relationships, able to find how instruction, memory reference and cache miss costs flow between callers and callees.
-* Massif : heap profiler that measures how much heap memory programs use, giving information about heap blocks, heap administration overheads and stack sizes.
-* Helgrind : detects sync errors in programs that use the POSIX threads primitives.
+- Cachegrind : cache profiler that performs detailed simulation of I1, D1 and L2 caches in the CPU.
+- Callgrind : profiler which tracks caller-callee relationships, able to find how instruction, memory reference and cache miss costs flow between callers and callees.
+- Massif : heap profiler that measures how much heap memory programs use, giving information about heap blocks, heap administration overheads and stack sizes.
+- Helgrind : detects sync errors in programs that use the POSIX threads primitives.
   - Misuses of the POSIX pthreads API.
   - Potential deadlocks.
   - Data races: accessing memory without adequate locking.
-* Nulgrind : the NULL tool (didactic purposes)
-* Lackey : counter of instructions, memory acceses, etc (didactic purposes)
-* exp-* : experimental tools with no high quality controls
+- Nulgrind : the NULL tool (didactic purposes)
+- Lackey : counter of instructions, memory acceses, etc (didactic purposes)
+- exp-* : experimental tools with no high quality controls
 
-== Memcheck ==
+** Memcheck
 
 Compilation:
 
@@ -52,7 +54,7 @@ Run:
                   \- gives detailed memory leak detector
 
 
-== Valgrind core ==
+** Valgrind core
 
 Syntax:
 
@@ -65,7 +67,7 @@ Example:
 
 More information at:
 
-* http://en.wikibooks.org/wiki/Valgrind
-* http://kcachegrind.sourceforge.net/html/Home.html
-* http://valgrind.org/docs/manual/manual.html
-* http://en.wikipedia.org/wiki/Valgrind
+- http://en.wikibooks.org/wiki/Valgrind
+- http://kcachegrind.sourceforge.net/html/Home.html
+- http://valgrind.org/docs/manual/manual.html
+- http://en.wikipedia.org/wiki/Valgrind

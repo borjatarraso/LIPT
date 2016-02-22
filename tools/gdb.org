@@ -1,4 +1,6 @@
-=== Intro ===
+* gdb
+
+** Intro
 
 Para comenzar a poder usar GDB con nuestros programas, debemos guardar la tabla de simbolos una vez compilemos con GCC. La tabla de simbolos es la lista de direcciones de memoria correspondientes a las variables y las lineas de codigo.
 
@@ -34,21 +36,21 @@ Como vemos cada operacion es posible usando distintos caminos, con gdb en modo t
 # Los programas a debuggear con interfaz grafica pueden interferir en cuestion de eventos y keystrokes con el propio debugger grafico.
 # El uso medio y avanzado de GDB es mucho mas rapido teniendo un minimo de conocimientos que de forma grafica, tambien es mas potente.
 
-=== TUI (Terminal User Interface) ===
+** TUI (Terminal User Interface)
 
 Tambien es posible lanzar GDB en TUI mediante el comando gdb -tui. De esta forma podemos seguir el progreso del programa aun usando un terminal sin necesidad de emplear un entorno de desarrollo. Con control+X+A permitira hacer toggle de este modo.
 
-=== Historial GDB ===
+** Historial GDB
 
  Control + p : muestra el comando previo.
  Control + n : muestra el siguiente comando.
 
-=== Ejecutando codigo ===
+** Ejecutando codigo
 
  run : inicia la ejecucion del programa.
  <Enter> : ejecuta de nuevo el ultimo comando lanzado.
 
-=== Breakpoints, watchpoints y catchpoints ===
+** Breakpoints, watchpoints y catchpoints
 
 La diferencia entre breakpoints, watchpoints y catchpoints reside en que los breakpoints detienen la ejecucion en un particular punto (codigo) del programa. Los watchpoints detienen la ejecucion en una zona particular de memoria. Y por ultimo, los catchpoints detienen la ejecucion en un evento particular. Podemos poner breakpoints de la siguiente forma:
 
@@ -114,7 +116,7 @@ Cuando se realiza un info breakpoints, hay un campo que indicara la disposicion,
  del : cuando se alcance el breakpoint, se eliminara este.
  dis : cuando se alcance el breakpoint, se deshabilitara.
 
-=== Inspeccionando variables ===
+** Inspeccionando variables
 
 El uso de watchpoints tiene sentido cuando con un breakpoint no podemos saber a ciencia cierta en donde cambiara el valor de una variable, ya que en ciertos lenguajes como C esto puede ser realmente oculto y no tan trivial, como por ejemplo mediante el uso de punteros y punteros a punteros o punteros dentro de estructuras y demas.
 
@@ -122,7 +124,7 @@ El uso de watchpoints tiene sentido cuando con un breakpoint no podemos saber a 
  watch nombredevariable : parara la ejecucion en el momento del programa en el que una variable inspeccionada cambie su valor.
  watch (nombredevariable > 28) : parara la ejecucion en el momento del programa en el que una variable inspeccionada cumpla una condicion, por ej. ser mayor que 28. Para booleanos se puede emplear true o false. Se pueden emplear macros del preprocesador en la condicion si se compila mediante la opcion -g3.
 
-=== Imprimiendo variables avanzado ===
+** Imprimiendo variables avanzado
 
  print nombrepunteroeastructura->miembro : nos permite imprimir el valor de una variable en una estructura.
  print *nombrepunteroaestructura : imprime la estructura al completo.
@@ -140,7 +142,7 @@ El uso de watchpoints tiene sentido cuando con un breakpoint no podemos saber a 
  print (int [25]) *x : imprime 25 elementos de un array casteado a entero.
  info locals : imprime el valor de todas las locales variables a esa funcion.
 
-=== Examinando memoria ===
+** Examinando memoria
 
 Si en lugar de imprimir una zona especifica de memoria mediante el uso de un puntero, deseamos imprimir la zona contigua ya que nos puede ser util en el debuggeo. Podemos usar x de eXamine.
 
@@ -149,11 +151,11 @@ Si en lugar de imprimir una zona especifica de memoria mediante el uso de un pun
 
 Los parametros NFU son opcionales:
 
-* Donde N es el numero de veces que imprimiremos.
-* Donde F es el formato en el que imprimiremos (c - chars, s - strings, f - floats, x - hexadecimal, d - decimal).
-* Donde U es el tipo de Unidad (b - bytes, h - half words, w - words, g - giants)
+- Donde N es el numero de veces que imprimiremos.
+- Donde F es el formato en el que imprimiremos (c - chars, s - strings, f - floats, x - hexadecimal, d - decimal).
+- Donde U es el tipo de Unidad (b - bytes, h - half words, w - words, g - giants)
 
-=== Frames ===
+** Frames
 
 Cuando se realiza un call a funcion, la informacion de runtime asociada a esa llamada es guardada en una region de memoria llamada stack frame. Dicho frame contiene los valores de las variables locales, los parametros y la direccion desde donde fue llamada la funcion. Cada vez que una funcion nueva es llamada, un nuevo frame es creado e insertado en un stack mantenido por el sistema. El frame que se encuentra en el top del stack representa la funcion ejecutada actualmente, sera extraido y desasignado (deallocated) una vez se haya salido de la funcion.
 
@@ -175,7 +177,7 @@ Otros comandos interesantes:
  list nombredefuncion : imprime el codigo de una funcion.
  list *direcciondememoria : imprime el codigo que se encuentra en una direccion de memoria.
 
-=== Variables ===
+** Variables
 
 Es posible modificar el valor de variables en gdb para alterar el flujo de ejecucion del programa:
 
@@ -197,21 +199,21 @@ Y este podria ser un uso tipico:
 
 y pulsar repetidas veces intro, de esta forma podriamos imprimir facilmente los valores de un array.
 
-=== Crash ===
+** Crash
 
 Cuando un programa crashea generalmente es porque el programa esta intentando acceder a una zona de memoria sin permisos. El hardware notara esto y hace que se realice un jump al OS. El sistema operativo anunciara generalmente que ha causado un segmentation fault y descontinuara la ejecucion del programa. El hardware debe soportar memoria virtual y el OS debe debe hacer uso de estos errores cuando ocurran.
 
 Las distintas secciones son:
 
-* .text : las instrucciones de codigo maquina generadas por el compilador a partir del codigo fuente. Cada linea en C se traduce generalmente como 2 o 3 instrucciones. Ademas aqui tambien se incluye el codigo enlazado estaticamente /usr/lib/crt0.o que realiza algunas inicializaciones y llama a main().
-* .data : contiene todas las variables que fueron reservadas en tiempo de compilacion (es decir, variables globales).
-* .bss : contiene aquellas variables que contengan datos no inicializados (como int y;) pero si declarados.
-* heap : esta zona de memoria se empleara cada vez que nuestro programa reserve memoria dinamica.
-* stack : esta zona de memoria se empleara para datos reservados de forma dinamica para funciones; incluyendo argumentos, variables locales y la direccion de retorno.
+- .text : las instrucciones de codigo maquina generadas por el compilador a partir del codigo fuente. Cada linea en C se traduce generalmente como 2 o 3 instrucciones. Ademas aqui tambien se incluye el codigo enlazado estaticamente /usr/lib/crt0.o que realiza algunas inicializaciones y llama a main().
+- .data : contiene todas las variables que fueron reservadas en tiempo de compilacion (es decir, variables globales).
+- .bss : contiene aquellas variables que contengan datos no inicializados (como int y;) pero si declarados.
+- heap : esta zona de memoria se empleara cada vez que nuestro programa reserve memoria dinamica.
+- stack : esta zona de memoria se empleara para datos reservados de forma dinamica para funciones; incluyendo argumentos, variables locales y la direccion de retorno.
 
 el codigo linkado de forma dinamica como librerias externas se encuentra entre el heap y el stack (aunque esto es dependiente de la plataforma y sistema).
 
-* env : variables de entorno.
+- env : variables de entorno.
 
  [TODO : Diagrama de las distintas secciones]
 
@@ -226,30 +228,30 @@ Las direcciones de memoria virtual van de 2^numerobitsprocesador - 1. La memoria
 
 Por lo tanto, podemos decir que la pagina virtual 0 comprende desde los bytes 0 hasta 4095, la pagina virtual 1 desde 4096 hasta 8191, etc. El registro de tabla de paginas del hardwre apuntara a esta tabla asociada a un proceso en ejecucion. Es decir, cada pagina del espacio de memoria virtual tiene una entrada a esta tabla de paginas, y los segmentation faults vienen cuando se intenta acceder a una de ellas por falta de permisos. Y estos son los accesos que ocurren y que da segfault cuando falten permisos:
 
-* Cada vez que el programa usa variables globales: Requerido permiso lectura/escritura en la seccion de datos.
-* Cada vez que el programa usa variables locales: Requerido permiso lectura/escritura en el stack.
-* Cada vez que el programa entra o sale de una funcion: Requerido permiso lectura/escritura en el stack.
-* Cada vez que el programa accede a almacenamiento por memoria dinamica: Requiere permiso lectura/escritura en el heap.
-* Cada instruccion maquina ejecutada de un programa sera emplazada (o la parte de codigo dinamica): Requiere permiso lectura/ejecucion en el text.
+- Cada vez que el programa usa variables globales: Requerido permiso lectura/escritura en la seccion de datos.
+- Cada vez que el programa usa variables locales: Requerido permiso lectura/escritura en el stack.
+- Cada vez que el programa entra o sale de una funcion: Requerido permiso lectura/escritura en el stack.
+- Cada vez que el programa accede a almacenamiento por memoria dinamica: Requiere permiso lectura/escritura en el heap.
+- Cada instruccion maquina ejecutada de un programa sera emplazada (o la parte de codigo dinamica): Requiere permiso lectura/ejecucion en el text.
 
 Como las paginas de memoria tienen un tamano dado (el minimo usado por la VM), no significa que el exceder por ejemplo los limites de un array siempre obtengamos un segfault, ya que podemos estar usando lo que se llaman elementos fantasmas en un array. Pero ello no significara que estemos haciendo accesos dentro de los limites de este array y por lo tanto no seran legales.
 
-=== Senales ===
+** Senales
 
 Las senales indican condiciones excepcionales reportadas durante la ejecucion de un programa y que permiten al OS o el propio programa reaccionar ante una variedad de eventos. Las senales pueden ser lanzadas desde:
 
-* Por el hardware: como SIGSEGV o SIGFPE.
-* Por el OS: como SIGTERM o SIGABRT.
-* Por otro proceso: como SIGUSR1 o SIGUSR2.
-* Por el propio proceso: mediante raise().
+- Por el hardware: como SIGSEGV o SIGFPE.
+- Por el OS: como SIGTERM o SIGABRT.
+- Por otro proceso: como SIGUSR1 o SIGUSR2.
+- Por el propio proceso: mediante raise().
 
 La senal mas tipica es la de control+c en un proceso, que el OS reconocera y lanzara entonces un SIGINT hacia el proceso. Realmente lo que ocurre es que el OS graba la senal en la tabla de procesos, y la siguiente vez que el proceso reciba tiempo de CPU entonces la funcion del manejo de senales ejecutara realmente la senal. Cada senal tiene su propio manejador de senales, que realmente lo que hace es lanzar una funcion cuando una senal en particular se lanza hacia un proceso. Algunas funciones pueden ser reescritas, otras no.
 
-=== Debugging threads ===
+** Debugging threads
 
 Existen distintas areas para trabajar con threads (o bien multiples vias de codigo). Analizamos cada una de ellas:
 
-==== Networking ====
+*** Networking
 
 Se recomienda el uso de errno.h que crea una variable global llamada errno y que podemos imprimir via GDB para saber si tuvo exito las llamadas a algunas funciones como connect() o similar. Los distintos errores de errno se pueden consultar en /usr/include/linux/errrno.h.
 
@@ -259,7 +261,7 @@ Desde GDB tambien podemos llamar directamente a funciones como connect() con tod
 
 Para aplicaciones cliente/servidor mas complejas, podemos lanzar el uso de dos sesiones GDB paralelas, lanzando los comandos en tandem.
 
-==== Threads ====
+*** Threads
 
 Cuando se lanza un programa con threads, asumiendo que solo tenemos 1 procesador (ya que en multiples esto se ejecutaria de forma paralela en distintos micros), para cada proceso se dedica un tiempo en milisegundos llamado timeslices. Una vez pasado uno de estos slices, el timer del HW emite una interrupcion, que hace que ejecutar al OS, en este momento decimos que el proceso prempted (adelanta). El OS guarda el estado actual del proceso para que pueda ser continuado mas tarde, selecciona el siguiente proceso y le da otro timeslice, esto es conocido como context switch (ya que el entorno de ejecucion de la CPU cambia de un proceso a otro). Muchas lineas dependen de la I/O u otros eventos dependientes de usuarios y que el proceso llama al OS para ello. Es por esta razon por la que el tiempo en el que el siguiente timeslice comenzara es impredecible. Tambien es la razon por la que si debuggeamos un programa con threads no sabremos el orden en que estos seran planificados, esto hace un debugging mucho mas complejo.
 
@@ -271,11 +273,11 @@ Para trabajar con Pthreads debemos linkar mediante el argumento -lpthread. Si po
  break numerolinea thread numerodethread : pone un breakpoint en una linea dada de un thread especifico.
  break numerolinea thread numerodethread if condicion : pone un breakpoint en una linea dada de un thread especifico si se cumple una condicion como por ejemplo x==y.
 
-=== Debuggeando en paralelo ===
+** Debuggeando en paralelo
 
 Existen dos tipos principales de programacion en arquitecturas paralelas.
 
-==== Memoria compartida (shared memory) ====
+*** Memoria compartida (shared memory)
 
 Se basa en que multiples CPU tienen acceso a una memoria fisica comun, permitiendo a otras CPUs la lectura y escritura. Existen sistemas reales de memoria compartida asi como emuladas por software mediante memoria distribuida.
 
@@ -298,7 +300,7 @@ Tambien necesitaremos hacer uso de funciones tal que omp_get_thread_num(), omp_g
 
 Lo mas importante que debemos tener presente, es que como OMP usa directivas al preprocesador, no podemos tener la certeza de mantener las mismas lineas cuando debuggeemos. Cuando comencemos a debuggear, si paramos en distintos breakpoints para cada thread, podemos reejecutar el programa y abrir otra consola con gdb y hacer un debugging paralelo, con sorprendentes resultados, como esta vez podamos tener las lineas donde hagamos el debugging alineadas correctamente. Ademas gdb hereda las variables de la primera instancia llamada. Pero si en muchos casos el programa persiste, lo ideal es usar barreras (barriers) adicionales y compilar mediante el flag -fopenmp .
 
-==== Paso de mensajes (message passing) ====
+*** Paso de mensajes (message passing)
 
 Se basa en que para compartir informacion se debe enviar cadenas o strings llamadas mensajes entre las distintas CPUs las cuales tienen su propia memoria local.
 
@@ -306,18 +308,18 @@ Generalmente se usa la popular Interfaz de Paso de Mensajes o Message Passing In
 
 Para debuggear este tipo de programacion en arquitecturas paralelas, debemos tener en cuenta que no nos podemos olvidar ningun MPI_Send por ejemplo, ya que sino el resto de nodos quedarian a la espera de manera indefinida. Para ello, podemos pausar el programa con control+c, y acto seguido lanzar gdb de la siguiente forma: gdb nombredelbinario processid, luego lanzar un bt (backtrace) e ir cambiando de frame e imprimiendo los valores del dato trabajado en paralelo en ese momento. Tambien podemos emplear el comando attach. Si jugamos con el comando next, podemos tambien descubrir en el punto donde nos podemos quedar en el resto de nodos, por ejemplo en el MPI_Recv() que indicaria que no hemos hecho posiblemente un MPI_Send().
 
-=== Lineas fantasmas ===
+** Lineas fantasmas
 
 En algunos casos el compilador puede dar error en una linea inexistente, por ejemplo una linea mas de las totales del fichero. Sin embargo, en este tipo de errores se suele nombrar alguna funcion, donde se suele encontrar el error, generalmente por la falta de cierre de alguna llave. Podemos jugar con comentar funciones enteras, de tal forma que el siguiente error a obtener sea un undefined reference a una funcion, pero al mismo tiempo sabremos de que funcion se trata.
 
-=== Bibliotecas ausentes ===
+** Bibliotecas ausentes
 
 Cuando empleamos el uso de algunas bibliotecas, es posible, por alguna razon, que estas no esten linkadas correctamente o simplemente no se encuentre ni resuelva su direccion, en muchos casos es porque nos ha faltado incluir el nuevo path mediante la opcion gcc de -Ldirectorio. Para bibliotecas dinamicas podemos hacer uso de ldd, de la siguiente forma: ldd a.out y ver si realmente ha resuelto todas las bibliotecas. La otra forma alternativa de resolverlo es anadiendo el directorio al path como variable de entorno:
 
  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/nuevodirectorio
  export LD_LIBRARY_PATH
 
-=== Debugging ncurses ===
+** Debugging ncurses
 
 Debugguear ncurses puede ser una tarea interesante, ya que nos obliga a no poder usar un debugging manual mediante printf() ni nada parecido, ya que este ocasionaria un comportamiento imprededible. Asi que nos obligamos a hacer uso de gdb desde otra consola o terminal mediante el comando:
 
@@ -327,13 +329,13 @@ Para el uso de ncurses por supuesto necesitaremos linkar con la biblioteca -lncu
 
 Si en algun momento pausamos la ejecucion del programa con un control+c y la terminal tiene un comportamiento incorrecto, es probable que sea por el uso de funciones como noecho() o cbreak(), que habran cambiado algunas propiedades del terminal. Para solucionar esto se recomienda hacer uso de Control+j lanzar reset y de nuevo volver a pulsar Control+j.
 
-=== Strace, ltrace ===
+** Strace, ltrace
 
 El uso de strace y ltrace es practicamente el mismo. La diferencia principal estriba en que strace hara un traza de las llamadas al sistema realizadas por nuestro binario, mientras que ltrace hara una traza sobre las funciones a las librerias llamadas por nuestro binario.
 
 Strace se ejecutara en espacio del kernel, mientras que ltrace se ejecuta en espacio de usuario. Es posible almacenar el log de la salida, ya que esta puede ser inmensa, mediante la opcion -o, aunque la salida es truncada a 32 caracteres por linea pudiendo perder mucha informacion valiosa para el debugging, con la opcion -s numerodecaracteres podemos darle un tamano mayor. Por ultimo con la opcion -ff switch podremos guardar en distintos logs (anadira al fichero de log un .xxx donde xxx es el PID de cada proceso) para programas con distintos forks y similares.
 
-=== Lint, sclint y splint ===
+** Lint, sclint y splint
 
 El nombre de lint, es el original que se creo por primera vez, mientras que sclint fue una mejora de este primero. En las ultimas mejoras se decidio cambiar el nombre a splint por su mejor sonoridad, para poder referirse a este programa facilmente. Splint es un analizador estatico de codigo, su ejecucion es muy sencilla:
 
@@ -348,7 +350,7 @@ Existen distintos niveles para analizar con splint:
 
 Splint puede detectar en nuestro codigo cosas como el no uso del valor de retorno de una funcion. A veces esto no es necesario, como en funciones como scanf(), pero splint se quejara de tal forma que nos sugerira que hagamos un cast a (void) por ejemplo.
 
-=== Problemas con DAM ===
+** Problemas con DAM
 
 En muchos casos sera necesario analizar la memoria reservada de forma dinamica (DAM - Dynamic Allocated Memory). Esto se refiere generalmente a las funciones malloc(), calloc(), realloc(), y free() para liberarla. Generalmente existen distintos problemas:
 
@@ -360,11 +362,11 @@ En muchos casos sera necesario analizar la memoria reservada de forma dinamica (
 
 Para solventar estos problemas a veces realmente dificiles de detectar, podemos hacer uso de:
 
-=== Valor de retorno de malloc() ===
+** Valor de retorno de malloc()
 
 En los casos de reserva de memoria como malloc(), chequear siempre el valor de retorno y tomar algun accion al respecto.
 
-=== Efence ===
+** Efence
 
 Uso de electric Fence (Efence). Que tendra en cuenta errores como: lectura/escritura fuera de la zona DAM, lectura/escritura en una zona DAM ya liberada, uso de free() en una direccion a la que se obtuvo al reservar DAM. Para hacer uso de Efence, podemos realizarlo de la siguiente forma: gcc -g3 -Wall -std=c99 fichero.c -o binario -lefence. Ademas de incluir un codigo similar al siguiente:
 
@@ -386,7 +388,7 @@ Desde el shell podemos activar estas variables mediante por ejemplo:
 
  export EF_DISABLE_BANNER=1
 
-=== MALLOC_CHECK_ ===
+** MALLOC_CHECK_
 
 Podemos hacer uso de la variable de entorno MALLOC_CHECK_ que puede ser usada para encontrar violaciones de acceso DAM. Se usa de la siguiente forma y sin necesidad de recompilar el codigo:
 
@@ -401,7 +403,7 @@ Los valores que puede tomar son los siguientes:
 
 Por ultimo decir que tiene algunos inconvenientes, como que solo tendra en cuenta estos accesos para DAM, no indicando la linea donde esta el problema, ni la variable puntero que pueda ocasionarlo, ya que muchos de estos mensajes no son lo suficientemente exactos o explicitos, solo sabemos que existe esa violacion de acceso. Ademas los its de setuid y getuid son deshabilitados por defecto, para evitar posibles exploits, pero pueden ser habilitados creando el fichero /etc/suid-debug.
 
-=== Mcheck ===
+** Mcheck
 
 Podemos usar tambien la facilidad mcheck(), para ello debemos incluir el header mcheck.h y llamar a mcheck() antes de llamar a funciones relacionadas con el heap. Como argumento se le pasara un puntero a ABORTHANDLER que sera un manejador de excepciones en caso de que ocurra esa violacion, o si se le pasa NULL se tomara el manejador por defecto, que simplemente mostrara un mensaje de error para finalizar con una llamada a abort().
 
@@ -414,7 +416,7 @@ Debemos compilar con la opcion:
 
  $ gcc -g3 -Wall -std=c99 fuente.c -o binario -lmcheck
 
-=== Mtrace ===
+** Mtrace
 
 Se utiliza principalmente para encontrar memory leaks y doubles free. Para hacer uso de esta herramienta GNU debemos realizar los siguientes pasos:
 
@@ -442,7 +444,7 @@ Se utiliza principalmente para encontrar memory leaks y doubles free. Para hacer
      abort();
  }
 
-=== Errno, perror, strerror ===
+** Errno, perror, strerror
 
 El uso de errno puede ser interesante a la hora de encontrar ciertos errores. errno es una variable global de tipo entero, que guardara el codigo de error para una funcion dada. Es necesario incluir errno.h antes. Generalmente esta cabecera se encuentra en /usr/include/errno.h donde podemos ver la lista de errores disponibles (que en muchos casos son dependientes del sistema). Este podria ser uno de sus usos:
 
@@ -463,11 +465,11 @@ Tambien podemos hacer uso de perror("error encontrado") en el que imprimira un m
 
 O tambien podemos hacer uso de strerror("%s", strerror(errno)) en el que mediante el numero de error, imprimira un mensaje de error.
 
-=== Obteniendo ayuda ===
+** Obteniendo ayuda
 
 Podemos obtener ayuda mediante la palabra help palabraclave. Como por ejemplo help breakpoints y demas.
 
-=== Debuggeando ===
+** Debuggeando
 
 Si un programa se queda en un bucle infinito:
 
@@ -482,7 +484,7 @@ Podemos lanzar comandos para ver el ensamblador de una funcion determinada:
  disassemble nombredefuncion
  p/x $pc : imprime en notacion hexadecimal la localizacion actual.
 
-=== Define ===
+** Define
 
 El comando define nos permite definir macros de la siguiente forma:
 
@@ -497,7 +499,7 @@ De esta forma podemos definir listas de comandos y haciendo uso de nuestra nueva
 
 Con el comando show user podemos listar todas las macros que hayamos creado.
 
-=== Debuggeando ASM ===
+** Debuggeando ASM
 
 Es posible debuggear asm mediante las siguientes instrucciones:
 

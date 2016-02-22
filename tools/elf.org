@@ -1,16 +1,17 @@
-== File layout ==
+* elf
+** File layout
 
 [[File:../img/tools/elf/elf.png]]
 
 Each ELF file is made up of one ELF header, followed by file data.  The file data can include:
 
-* Program header table, describing zero or more [[Memory segmentation|segments]]
-* Section header table, describing zero or more sections
-* Data referred to by entries in the program header table or section header table
+- Program header table, describing zero or more [[Memory segmentation|segments]]
+- Section header table, describing zero or more sections
+- Data referred to by entries in the program header table or section header table
 
 The segments contain information that is necessary for runtime execution of the file, while sections contain important data for linking and relocation. Any byte in the entire file can be owned by at most one section, and there can be orphan bytes which are not owned by any section.
 
-=== File header ===
+*** File header
 The ELF header defines whether 32- or 64-bit addresses are to be used. The header itself contains 3 fields that are affected by this setting and offset other fields that follow them. The 64-bit header is 64 bytes long.
 
 {| class="wikitable"

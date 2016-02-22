@@ -1,3 +1,5 @@
+* callgrind
+
 Run callgrind tool from valgrind (replace a.out by the binary if you want):
 
  $ valgrind --tool=callgrind --instr-atstart=no ./a.out --nofork
@@ -20,4 +22,4 @@ And now load in kcachegrind:
 
 More information at:
 
-* http://kcachegrind.sourceforge.net/html/Usage.html
+- http://kcachegrind.sourceforge.net/html/Usage.html

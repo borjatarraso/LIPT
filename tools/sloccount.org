@@ -1,3 +1,5 @@
+* sloccount
+
 Install:
 
  # apt-get install sloccount
@@ -37,5 +39,5 @@ There are many options for controlling the output:
 
 For additional information:
 
-* http://www.dwheeler.com/sloccount/sloccount.html
-* http://sourceforge.net/p/sloccount/wiki/Home/
+- http://www.dwheeler.com/sloccount/sloccount.html
+- http://sourceforge.net/p/sloccount/wiki/Home/

@@ -1,4 +1,4 @@
-== Gkrellm ==
+* Gkrellm
 
 Install gkrellm and some plugins:
 

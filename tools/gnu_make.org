@@ -1,16 +1,18 @@
+* gnu make
+
 Generalmente crearemos un fichero llamado makefile (tambien puede ser Makefile o GNUMakefile) donde pondremos los targets a construir. De esta manera cuando lancemos el comando make, se compilara el codigo de esos targets. En caso de no tener ningun target desde el shell, se construira el target de default. Generalmente el objetivo sera compilar el codigo de algun programa, pero en algunos casos el codigo estara incompleto y se requeriran de herramientas como flex o bison. El siguiente paso ya sera compilar el codigo a binarios (.o en el caso de C/C++) y mas tarde enlazarlos con un linker (esto suele venir incluido ya de forma transparente en gcc).
 
-== Basics ==
+** Basics
 
-=== Formato basico de make ===
+*** Formato basico de make
 
 En el fichero makefile tambien se determina la relacion que existe entre distintos ficheros fuente, ficheros intermedios y el ejecutable final. Todo esto quedara en este fichero, simplificando y optimizando el tiempo entre modificar codigo-compilar-debuggear.
 
 El comando make ejecutara la regla por defecto, que tiene las siguientes partes:
 
-* target : es el fichero resultante que se debe crear.
-* sus prerequisitos : son las dependencias o aquellos ficheros que existen antes del objetivo.
-* el comando : es el comando que generara ese objetivo con sus prerrequisitos.
+- target : es el fichero resultante que se debe crear.
+- sus prerequisitos : son las dependencias o aquellos ficheros que existen antes del objetivo.
+- el comando : es el comando que generara ese objetivo con sus prerrequisitos.
 
  target: prereq1, prereq2
      comandos
@@ -30,7 +32,7 @@ Y un ejemplo teniendo nuestro fichero de cabecera seria:
  hello: hello.c hello.h
  gcc -o hello hello.c
 
-=== Como trabaja make ===
+*** Como trabaja make
 
 La forma en la que make trabaja es la siguiente:
 
@@ -54,7 +56,7 @@ Si quisieramos actualizar solo un target especifico, podriamos indicando el fuen
 
 Si lexer.c tuviese algun prerrequisito o algunos ficheros fuera de fecha, esto se volveria a compilar, construir y actualizar en cuanto a fecha.
 
-=== Sintaxis basica en makefiles ===
+*** Sintaxis basica en makefiles
 
 Otro tipo basico de sintaxis Makefile seria:
 
@@ -69,9 +71,9 @@ Por ultimo, las lineas que sean demasiado largas, las podremos partir mediante e
 
 Los comentarios vendran precedidos por # y seran ignorados.
 
-== Rules ==
+** Rules
 
-=== Explicit rules ===
+*** Explicit rules
 
 Especifica ficheros particulares como targets y prerequisitos. Una regla puede tener mas de 1 target.
 
@@ -91,7 +93,7 @@ Also different way (making sure some.c are created before other .c):
  vpath.o: vpath.c          <-- ...target is updated
           $(compile)...
 
-==== Willcards ====
+**** Willcards
 
 Also called globbing, uses the symbols than bash.
 
@@ -113,7 +115,7 @@ Willcards are expanded with mp_make that look to the directories.
 * When pattern appears in a command, the expansion is performed by the subshell.
 * Make expands immediately when reading the makefile, while shell will expand the willcards in commands later when commands are executed.
 
-==== Phony targets ====
+**** Phony targets
 
 Phony targets are always out of date, so they always execute. Targets that do not represent files are known as phony targets:
 
@@ -157,7 +159,7 @@ Standard phony targets:
  check         run any tests associated with this application
 
 
-==== Empty targets ====
+**** Empty targets
 
 If we don't generate an output file and we want only to execute the target occasionally.
 
@@ -169,7 +171,7 @@ If we don't generate an output file and we want only to execute the target occas
 
 Empty targets are useful combined with the automatic variable $?
 
-=== Variables ===
+*** Variables
 
 Syntax:
 
@@ -177,7 +179,7 @@ Syntax:
 
 A single character variale name does not require parenthesis.
 
-==== Automatic variables ====
+**** Automatic variables
 
 Set by make after a rule is matched. They provide access to elements from the target and prerequisite lists, so you don't have to explicitly specify any filenames.
 
@@ -194,7 +196,7 @@ Set by make after a rule is matched. They provide access to elements from the ta
 # Returns only the directory portion of the value. Indicated appending the D to the symbol: $(@D), $(<D)...
 # Returns only the file portion of the value. Indicated appending the F to the symbol: $(@F), $(<F)...
 
-=== Finding files with VPATH and vpath ===
+*** Finding files with VPATH and vpath
 
 Typical source tree layout:
 
@@ -228,7 +230,7 @@ So for the previous example:
  vpath %.l src
  vpath %.h include
 
-=== Pattern rules ===
+*** Pattern rules
 
 Represented by % character.
 
@@ -244,11 +246,11 @@ To look at make's default set of rules and variable execute:
 
  make --print-data-base
 
-==== The patterns ====
+**** The patterns
 
 % pattern can be put everywhere but can occur only once.
 
-==== Static pattern rules ====
+**** Static pattern rules
 
 A static pattern rule is one that applies only to a specific list of targets:
 
@@ -257,7 +259,7 @@ A static pattern rule is one that applies only to a specific list of targets:
 
 Each object file in $(OBJECTS) is matched against the pattern %.o and its stem is extracted. The stem is then extracted and substituted into the pattern %.c to yield the targets prereq.
 
-==== Suffix rules ====
+**** Suffix rules
 
 Original and obsolete way of defining implicit rules. Consists of one or two suffixes concatenated and used as a targets.
 
@@ -291,7 +293,7 @@ Also to ?????:
  OR
  -R
 
-=== The implicit rules database ===
+*** The implicit rules database
 
 Gnumake 3.80 has about 90 builtin rules for C, C++, texinfo, TeX, Elisp, etc. To examine these rules use cmdline option:
 
@@ -299,7 +301,7 @@ Gnumake 3.80 has about 90 builtin rules for C, C++, texinfo, TeX, Elisp, etc. To
  OR
  -p
 
-==== Working with implicit rules ====
+**** Working with implicit rules
 
 Do not specify a cmd script when adding your target, this causes make to search its builtin database to satisfy the target.
 
@@ -314,7 +316,7 @@ Option tells make to report what actions it would perform without actually runni
  OR
  -n
 
-==== Rule structure ====
+**** Rule structure
 
 Builtin rules have standard structure intended to make them easily customizable.
 
@@ -331,7 +333,7 @@ To define from cmd line:
 
  $ make CPPFLAGS=-DDEBUG
 
-==== A simple help command ====
+**** A simple help command
 
 When having too many targets difficult to remember, we can make the default target with a brief help command:
 
@@ -343,7 +345,7 @@ When having too many targets difficult to remember, we can make the default targ
 
 Grep filters the target. Awk grabs every line representing a target that does not begin with a parent period???? shorted and printed in 4 columns.
 
-=== Special targets ===
+*** Special targets
 
 Syntax:
 
@@ -362,7 +364,7 @@ The most relevant ones (apart from .PHONY):
 * PRECIOUS: When make is interrupted during execution, it deletes the target file that was updating if the file was modified since make started. If it is marked s previous it will not delete (ideally for large/computationally expenssive to create).
 * DELETE_ON_ERROR: Make will delete the target if any of the commands associated with the rule generates an error (make normally only deletes the target if it is interrumpted by a signal).
 
-=== Automatic dependency generation ===
+*** Automatic dependency generation
 
 Writing a program to identify the relationships between files (to find dependencies between the object files and the header files) to do that we just do:
 
@@ -391,7 +393,7 @@ Then run with:
 
 The warning can be suppressed by preceding the include directive with a hyphen (-).
 
-=== Managing libraries ===
+*** Managing libraries
 
 libc.a contains low level C functions.
 
@@ -425,7 +427,7 @@ In systems with shared libraries (.so) will look first here.
 
 The search path can be changed by adding -L option.
 
-==== Creating and updating libraries ====
+**** Creating and updating libraries
 
  libcounter.a: counter.o lexer.o
      $(AR) $(ARFLAGS) $@ $^
@@ -452,7 +454,7 @@ An archive lib contains an index of the symbols it contains. This is updated aut
      $(AR) $(ARFLAGS) $@ $^
      $(RANLIB) $@
 
-==== Using libs as prereq ====
+**** Using libs as prereq
 
 Using the archive library:
 
@@ -471,7 +473,7 @@ For circular reference we must use $+ instead $^ (to don't remove duplicates):
  xpong: xpong.o libui.a libdynamics.a libui.a -lX11
      $(CC) $+ -o $@
 
-==== Double colon rules ====
+**** Double colon rules
 
 Allows the same target to be updated with different commands:
 
@@ -481,7 +483,7 @@ Allows the same target to be updated with different commands:
  file-list:: $(files)
      generate-list-script $(files) > file-list
 
-== Variables y Macros ==
+** Variables y Macros
 
 Chapter 2 "targets and prereqs) as a 1st language describes dependency graphs.
 Chapter 3 "macro language" as a 2nd language performing textual sustitution.
@@ -498,24 +500,24 @@ e.g:
  source = *.c
  assert-not-null = $(if $1,,$(error Illegal null value))
 
-== Variables y Macros ==
+** Variables y Macros
 
-== Funciones ==
+** Funciones
 
-== Comandos ==
+** Comandos
 
-== Manejando proyectos grandes ==
+** Manejando proyectos grandes
 
-== Makefiles portables ==
+** Makefiles portables
 
-== Makefiles: C y C++ ==
+** Makefiles: C y C++
 
-== Mejorando el rendimiento de make ==
+** Mejorando el rendimiento de make
 
-== Ejemplos de Makefiles ==
+** Ejemplos de Makefiles
 
-== Debuggeando Makefiles ==
+** Debuggeando Makefiles
 
-== Parametros de make ==
+** Parametros de make
 
-== Estructuras de datos ==
+** Estructuras de datos

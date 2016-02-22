@@ -1,4 +1,6 @@
-== Fast keys ==
+* gimp
+
+** Fast keys
 
  R -> rectangle select
  P -> pencil

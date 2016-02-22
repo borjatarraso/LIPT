@@ -1,3 +1,5 @@
+* cppcheck
+
 To install cppcheck:
 
  # apt-get install cppcheck
@@ -19,6 +21,6 @@ Use with:
 
 Additional info:
 
-* http://stackoverflow.com/questions/632057/c-c-free-alternative-to-lint
-* http://sourceforge.net/apps/mediawiki/cppcheck/index.php?title=Main_Page
-* http://en.wikipedia.org/wiki/Cppcheck
+- http://stackoverflow.com/questions/632057/c-c-free-alternative-to-lint
+- http://sourceforge.net/apps/mediawiki/cppcheck/index.php?title=Main_Page
+- http://en.wikipedia.org/wiki/Cppcheck

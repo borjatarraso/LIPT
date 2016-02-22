@@ -1,3 +1,5 @@
+* splint
+
 To install Splint (static code analyzer):
 
  # apt-get install splint
@@ -17,6 +19,6 @@ Run splint from a Makefile:
 
 More information:
 
-* http://www.splint.org/manual/manual.html
-* http://en.wikipedia.org/wiki/Splint_%28programming_tool%29
-* http://www.splint.org/faq.html#quest1
+- http://www.splint.org/manual/manual.html
+- http://en.wikipedia.org/wiki/Splint_%28programming_tool%29
+- http://www.splint.org/faq.html#quest1

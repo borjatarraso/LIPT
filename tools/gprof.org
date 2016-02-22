@@ -1,3 +1,5 @@
+* gprof
+
 To use gnu profiler just compile with -pg options using gcc (you might be interested in -O0 or no optimizations):
 
  $ gcc -pg -o file file.c
@@ -23,7 +25,7 @@ Options:
 
 Additional information:
 
-* http://www.ibm.com/developerworks/library/l-gnuprof.html
-* http://www.cs.utah.edu/dept/old/texinfo/as/gprof_toc.html
-* http://en.wikipedia.org/wiki/Gprof
-* http://stackoverflow.com/questions/375913/what-can-i-use-to-profile-c-code-in-linux/378024#378024
+- http://www.ibm.com/developerworks/library/l-gnuprof.html
+- http://www.cs.utah.edu/dept/old/texinfo/as/gprof_toc.html
+- http://en.wikipedia.org/wiki/Gprof
+- http://stackoverflow.com/questions/375913/what-can-i-use-to-profile-c-code-in-linux/378024#378024
