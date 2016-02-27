@@ -39,11 +39,11 @@
    - [ ] Spell/flyspell/aspell
    - [ ] Add keybindings for emacs.org
  - [ ] Emails refinement (3K emails)
- - [ ] Run
+ - [-] Run
    - [ ] Print race styles, intervals, schedule running
-   - [ ] Create a schedule
-   - [ ] Add calendar to garmin connect
-   - [ ] Create reitti2000 in garmin
+   - [X] Create a schedule
+   - [X] Add calendar to garmin connect
+   - [X] Create reitti2000 in garmin
  - [ ] Check current status of keepassx
 
 * [#C] Later tasks [0%]
@@ -78,8 +78,8 @@
  - [ ] Mecanography
  - [ ] Improve posts in buscando
 * [#C] Missing content in org files [0%]
- - [ ] keybindings.org
-   - [ ] xmonad
+ - [-] keybindings.org
+   - [X] xmonad
    - [ ] tmux
  - [ ] programming
    - [ ] datastructures.org
