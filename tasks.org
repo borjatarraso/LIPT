@@ -54,8 +54,8 @@
    - [ ] Org-mode capture, move, archive
    - [ ] Plot with emacs
    - [ ] TECO y DDT
- - [ ] Study additional technologies
-   - [ ] Tmux
+ - [-] Study additional technologies
+   - [X] Tmux
    - [ ] Docker/vagrant
    - [ ] Aptitude
 
@@ -77,10 +77,10 @@
    - [ ] Improve language
  - [ ] Mecanography
  - [ ] Improve posts in buscando
-* [#C] Missing content in org files [0%]
- - [-] keybindings.org
+* [#C] Missing content in org files [16%]
+ - [X] keybindings.org
    - [X] xmonad
-   - [ ] tmux
+   - [X] tmux
  - [ ] programming
    - [ ] datastructures.org
      - [ ] Lists

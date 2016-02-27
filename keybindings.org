@@ -116,7 +116,63 @@ Move window to another workspace:
  Win + shift + number
 
 * Tmux
-TODO
+
+  # Help
+  C-z ?  => show help
+
+  # Execute a command
+  C-z :command => execute a command
+  tmux command => equivalent
+
+  # Create a new session
+  C-z :new-session
+
+  # Attach to a session
+  C-z :attach-session  => attach to the current session
+
+  # Moving between sessions
+  C-z ( => next session
+  C-z ) => prev session
+
+  # Rename a session
+  C-z $  => Rename a session
+
+  # Creates a new window
+  C-z c  => create a new window
+
+  # Rename a window
+  C-z :rename-window  => renames a window
+  C-z ,               => renames a window
+
+  # Switch between windows
+  C-z number -> moves to the numbered window
+  C-z p      -> moves to the prev window
+  C-z n      -> moves to the next window
+  C-z w      -> moves to the desired window
+
+  # Split panes
+  C-z "  -> split vert
+  C-z %  -> split horiz
+
+  # Moving in panes
+  C-z arrow -> move to the direction of the arrow
+
+  # Move the panes
+  C-z { -> move the pane to the prev
+  C-z } -> move the pane to the next
+
+  # Kill the current pane
+  C-z x
+
+  # Show the numbering pane
+  C-z q
+
+  # Resize panes
+  C-z M-up, C-z M-down, C-z M-left, C-z M-right
+               resize by 5 rows/columns
+  C-z C-up, C-z C-down, C-z C-left, C-z C-right
+               resize by 1 row/column
+
 * Fluxbox
  Alt + F2       ==> fbrun
  Windows + t    ==> terminal (funky)

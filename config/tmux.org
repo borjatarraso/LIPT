@@ -1,0 +1,14 @@
+* tmux
+
+** .tmux config file in home folder
+
+# This config is ideal when using emacs
+# this prevents the C-z of emacs which calls to (suspend-frame)
+unbind C-b
+set -g prefix C-z
+
+** Execute tmux
+
+just run:
+
+$ tmux
