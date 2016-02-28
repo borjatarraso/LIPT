@@ -1009,27 +1009,70 @@ Formados por carbono, hidrogeno y oxigeno en proporciones C:O:H2
 
 ****** Monosacaridos
 
-Los seres humanos solo pueden absorber y utilizar un pequeno numero de los muchos monosacaridos. Los monosacaridos pueden tener de 3 a 7 atomos de carbono, aunque los monosacaridos mas importantes en la dieta humana son las 3 hexosas de 6 atomos de carbono: glucosa, galactosa y fructosa. Todas hexosas tienen la misma formula quimica, aunque difieren mucho entre si, debido a sus pequenas diferencias en la estructura quimica, algunas debidas a la presencia de carbonos quirales. Un carbono quiral es un carbono que tiene unidos cuatro atomos o grupos diferentes, estos grupos pueden aparecer en posiciones diferentes, dando lugar a isomeros.
+Los seres humanos solo pueden absorber y utilizar un pequeno numero de los muchos monosacaridos. Los monosacaridos pueden tener de 3 a 7 atomos de carbono, aunque los monosacaridos mas importantes en la dieta humana son las 3 hexosas de 6 atomos de carbono: glucosa, galactosa y fructosa. Todas hexosas tienen la misma formula quimica, aunque difieren mucho entre si, debido a sus pequenas diferencias en la estructura quimica, algunas debidas a la presencia de carbonos quirales.
+
+Un carbono quiral es un carbono que tiene unidos cuatro atomos o grupos diferentes, estos grupos pueden aparecer en posiciones diferentes, dando lugar a isomeros.
 
   Hexosas
   -------
 
-  α-D-glucosa
+  α-D-glucosa       β-D-galactosa      β-D-fructosa
 
-     H   O
-      \ //
-  1    C
-       |
-  2    C
-       |
-  3    C
-       |
-  4    C
-       |
-  5    C
-       |
-  6    CH₂OH
+     H   O             H   O              H   O
+      \ //              \ //               \ //
+  1    C           1     C             1  H-C-OH
+       |                 |                  |
+  2  H-C-OH        2   H-C-OH          2  H-C=O
+       |                 |                  |
+  3 HO-C-H         3  HO-C-H           3 HO-C-H
+       |                 |                  |
+  4  H-C-OH        4  HO-C-H           4  H-C-OH
+       |                 |                  |
+  5  H-C-OH        5   H-C-OH          5  H-C-OH
+       |                 |                  |
+  6    CH₂OH       6     CH₂OH          6    CH₂OH
 
+Ademas de formar isomeros, los monosacaridos (del grupo aldehido y del grupo cetona) se ciclan, formando estructuras anulares que dan lugar a mas isomeros.
+
+Las enzimas del cuerpo son estereoespecificas y solo pueden actuar sobre isomeros especificos, por lo que solo 3 isomeros de monosacaridos tienen relevancia en el metabolismo humano: α-D-glucosa, β-D-galactosa, β-D-fructosa. Todos los demas carbohidratos se deben digerir de forma eficaz para obtener estos monosacaridos componentes para su absorcion.
+
+La dextrosa es la glucosa que se produce a partir de la hidrolisis del almidon de maiz.
+
+El azucar sanguineo, se refiere a la glucosa, y el encefalo tiene una elevada dependencia de un aporte regular y predecible.
+
+La fructosa o azucar de la fruta. A medida que las frutas maduran, las enzimas escinden la sacarosa en glucosa y fructosa, que da un sabor mas dulce.
+
+El sirope de maiz se fabrica enzimaticamente cambiando la glucosa del almidon de maiz por fructosa.
+
+La galactosa se produce a partir de la lactosa o azucar de la leche por hidrolisis durante el proceso digestivo.
+
+Tanto la galactosa como la fructosa se metabolizan en el higado por incorporacion a las vias metabolicas de la glucosa. La fructosa se incorpora en la via glucotidica, aunque evita una importante enzima de control en la via.
+
+ Dulzor de los azucares y edulcorantes
+ |---------------------------------------+------------------|
+ | Sustancia                             | Valor del dulzor |
+ |---------------------------------------+------------------|
+ | Azucares                              |                  |
+ |---------------------------------------+------------------|
+ | Fructosa                              | 173              |
+ | Azucar invertido                      | 130              |
+ | Sacarosa                              | 100              |
+ | Glucosa                               | 74               |
+ | Sorbitol                              | 60               |
+ | Manitol                               | 50               |
+ | Galactosa                             | 32               |
+ | Maltosa                               | 32               |
+ | Lactosa                               | 16               |
+ |---------------------------------------+------------------|
+ | Edulcorantes Artificiales             |                  |
+ |---------------------------------------+------------------|
+ | Ciclamato (prohibido en USA)          | 30               |
+ | Aspartamo (nutritivo, tiene calorias) | 180              |
+ | Acesulfamo-K                          | 200              |
+ | Sacarina                              | 300              |
+ | Sucralosa                             | 600              |
+ | Alitamo (pendiente de autorizacion)   | 2000             |
+ |---------------------------------------+------------------|
 
 ****** Disacaridos y oligosacaridos
 
