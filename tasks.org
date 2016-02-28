@@ -20,8 +20,8 @@
    - [X] Test
    - [X] Tips
    - [ ] Articles blackhats
- - [ ] Backups
-   - [ ] Local HD
+ - [-] Backups
+   - [X] Local HD
    - [ ] Blog buscando
  - [ ] Import data from books
    - [ ] Chemistry book Asimov
