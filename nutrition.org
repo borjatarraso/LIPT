@@ -1103,6 +1103,21 @@ Son polimeros de bajo peso molecular que contienen de 2 a 20 moleculas de azucar
 
 ****** Polisacaridos
 
+Son carbohidratos con mas de 10 unidades de monosacaridos. Las plantas lo almacenan en granulos de almidon formados por cadenas rectas de glucosas unidas por enlaces α-1,4 con ramas unidas por enlaces α-1,6, formando una estructura granular compleja.
+
+Las plantas sintetizan 2 tipos de almidon:
+
+ - Amilosa: molecula linear de menor tamano (10⁵ a 10⁶ daltons) que tiene una ramificacion menor al 1%.
+ - Amilopectina: esta muy ramificada, contiene un 5% de enlaces α-1,6 y tiene un peso molecular muy elevado (10⁷ a 10⁸ daltons).
+
+Las dextrinas se producen por el proceso digestivo y son grandes polisacaridos de glucosa lineales de longitud intermedia escindidos a partir del almidon de elevado contenido en amilasa por la α-amilasa, posteriormente pueden ser digeridas por la enzima isomaltasa de la mucosa para dar glucosa.
+
+Los animales utilizan (al contrario que las plantas) los carbohidratos principalmente para mantener la concentracion sanguinea de glucosa entre las comidas, y asi garantizar un aporte continuo. Todas las celulas (y principalmente el higado y el musculo) almacenan carbohidratos en el polimero glucogeno, que se mueve con faicilidad. Con todos los carbohidratos, el glucogeno se almacena hidratado con agua, siendo la molecula voluminosa y poco adecuada para el almacenamiento de energia a largo plazo.
+
+El varon medio de 70 kg, almacena solo un aporte de combustible de 17 horas en forma de glucogeno, en comparacion a los dos meses almacenado en forma de grasa. Estimandose que si todos los depositos de energia humanos fueran glucogeno, deberiamos pesar 27 kg mas.
+
+En el musculo se almacenan aproximadamente 150 gr de glucogeno, que puede aumentar hasta 5 veces con el entrenamiento fisico, pero que no esta disponible para mantener la glucosa sanguinea. Es el deposito de glucogeno del higado normal (~90 gr) el que participa en el control hormonal de la glucosa sanguinea.
+
 ****** Fibra dietetica y fibra funcional
 
 ***** Grasas y lipidos
