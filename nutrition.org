@@ -1118,6 +1118,22 @@ El varon medio de 70 kg, almacena solo un aporte de combustible de 17 horas en f
 
 En el musculo se almacenan aproximadamente 150 gr de glucogeno, que puede aumentar hasta 5 veces con el entrenamiento fisico, pero que no esta disponible para mantener la glucosa sanguinea. Es el deposito de glucogeno del higado normal (~90 gr) el que participa en el control hormonal de la glucosa sanguinea.
 
+****** Control hormonal de la glucosa sanguinea
+
+El cuerpo debe mantener la glucosa sanguinea a una concentracion minima de 70 a 100 mg/100 mL para aportar combustible al encefalo, el sistema nervioso central y otros consumidores obligados de glucosa.
+
+La insulina, es la principal hormona anabolica y es responsable del almacenamiento y la utilizacion del combustible. Es sintetizada por las celulas β de los islotes de Langerhans del pancreas y es liberada hacia el torrente sanguineo en respuesta al aumento posprandial de la glucosa sanguinea, aunque tambien se puede estimular en menor medida por la ingestion de proteinas o infusion de aminoacidos o de cuerpos cetonicos, asi como hormonas digestivas, actividad del nervio vago y algunos farmacos.
+
+La insultina se une a receptores de las celulas musculares y adiposas y facilita la entrada de glucosa mediante transportadores GLUT 4 especializados.
+
+En el higado, la insulina facilita la oxidacion de la glucosa y la sintesis de glucogeno.
+
+En situacion de ayunas las celulas α de los islotes de Langerhans secretan glucagon. Esta hormona actua principalmente en el higado estimulando la hidrolisis del glucogeno para mantener la concentracion sanguinea de glucosa. Si no hay insulina, el glucagon inhibe la oxidacion hepatica de glucosa y estimula la gluconeogenia, que como resultado es la vuelta de la concentracion sanguinea de glucosa al intervalo normal.
+
+El ayuno tambien estimula la liberacion de adrenalina desde la medula suprarrenal y de noradrenalina en las terminaciones nerviosas perifericas. Estas hormonas actuan principalmente sobre el musculo movilizando glucogeno y sobre los adipocitos liberando trigliceridos.
+
+Las concentraciones de adrenalina y noradrenalina aumentan cuando una persona esta enfadada o tiene miedo. En estas condiciones es necesaria la glucosa para proporcionar la energia adicional para la respuesta ante la crisis. Los glucocorticoesteroides aumentan la concentracion sanguinea de glucosa, principalmente estimulando la gluconeogenia.
+
 ****** Fibra dietetica y fibra funcional
 
 ***** Grasas y lipidos
