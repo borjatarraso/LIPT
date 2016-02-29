@@ -1099,6 +1099,8 @@ Los carbohidratos que contienen otro tipo de enlaces no se pueden digerir y se c
 
 ****** Oligosacaridos
 
+Son polimeros de bajo peso molecular que contienen de 2 a 20 moleculas de azucar. Al ser pequenos son hidrosolubles. Las moleculas mas grandes no son hidrosolubles y se clasifican como fibra dietetica.
+
 ****** Polisacaridos
 
 ****** Fibra dietetica y fibra funcional
