@@ -1074,7 +1074,30 @@ Tanto la galactosa como la fructosa se metabolizan en el higado por incorporacio
  | Alitamo (pendiente de autorizacion)   | 2000             |
  |---------------------------------------+------------------|
 
-****** Disacaridos y oligosacaridos
+****** Disacaridos
+
+Los 3 disacaridos mas importantes en nutricion son la sacarosa, lactosa y maltosa. Estos azucares estan formados por monosacaridos unidos por un enlace glucosidico entre el carbono activo del aldehido o de la cetona y un hidroxilo especifico de otro azucar.
+
+La sacarosa, se forma cuando se unen entre si la glucosa y la fructosa.
+
+El azucar invertido es tambien una forma natural de azucar (glucosa y fructosa no unidas entre si y en proporcion 1:1).
+
+La lactosa, esta formada por glucosa y galactosa. Se sintetiza casi exclusivamente en las glandulas mamarias de los animales hembras lactantes.
+
+La maltosa esta formada por 2 moleculas de glucosa, es rara encontrarla en la naturaleza, aunque a veces se forma por la hidrolisis de los polimeros de almidon durante la digestion.
+
+Las enzimas que se encuentran en el borde del cepillo, rompen (digieren) los enlaces entre las moleculas de disacaridos y son especificas para cada enlace particular.
+
+Unicos enlaces que se hidrolizan en el borde del cepillo:
+
+ - La sacarasa escinde el enlace α entre la glucosa (C-1) y la fructosa (C-2).
+ - La lactasa escinde el enlace β entre la galactosa (C-1) y la glucosa (C-4).
+ - La maltasa escinde el enlace α entre la glucosa (C-1) y la glucosa (C-4).
+ - La isomaltasa escinde el enlace α entre la glucosa (C-1) y la glucosa (C-6).
+
+Los carbohidratos que contienen otro tipo de enlaces no se pueden digerir y se califican como fibra dietetica.
+
+****** Oligosacaridos
 
 ****** Polisacaridos
 
