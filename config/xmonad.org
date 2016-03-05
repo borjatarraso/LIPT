@@ -2,6 +2,12 @@
 
 Remember to create bin directory with script files and install suckless-tools and xmobar.
 
-Change the aparence:
+ apt-get install suckless-tools
+ apt-get install xmobar
+
+Put the xmobar.hs in ~/.xmonad/xmobar.hs
+Put the xmobar in ~/.xmonad/xmobar
+
+If you want to change the aparence:
 
  use lxapparence
