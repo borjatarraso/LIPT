@@ -102,7 +102,7 @@ Quit:
 
 Lock:
 
- Win + l
+ Win + shift + l
 
 Move to workspace:
 
@@ -112,6 +112,10 @@ Resize windows:
 
  Win + l
  Win + h
+
+Show only one window:
+
+ Win + space
 
 Increase/decrease number of windows:
 
@@ -126,10 +130,14 @@ Move window to another workspace:
 
  Win + shift + number
 
+Reload xmonad configuration:
+
+ Win + q
+
 Some custom keys for emacs:
 
- Win + shift + e      -> Run emacs server
- Win + shift + c      -> Run emacs client
+ Win + d      -> Run emacs daemon/server
+ Win + c      -> Run emacs client
 
 * Tmux
 
