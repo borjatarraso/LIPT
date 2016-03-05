@@ -26,6 +26,7 @@
  - [ ] Import data from books
    - [ ] Chemistry book Asimov
    - [ ] Genetics book Asimov
+ - [ ] Update the CV with the new technologies
 
 * [#B] Important tasks [0%]
   DEADLINE: <2016-04-02 Sat> SCHEDULED: <2016-03-05 Sat>
