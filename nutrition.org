@@ -1136,6 +1136,104 @@ Las concentraciones de adrenalina y noradrenalina aumentan cuando una persona es
 
 ****** Fibra dietetica y fibra funcional
 
+Las fibras dietiticas son los componentes intactos de las plantas que no son digeribles por las enzimas digestivas.
+Las fibras funcionales son los carbohidratos no digeribles que se han extraido o fabricado a partir de las plantas.
+
+Estos dos tipos de fibras tienen funciones fisiologicas beneficiosas para el tubo digestivo y reducen el riesgo de algunas enfermedades.
+
+- Homopolisacaridos: son unidades repetidas de la misma molecula.
+  - Celulosa: homopolisacarido formado por moleculas de glucosa unidas por enlaces β-1-4. La molecula se pliega sobre si misma y se mantiene en su lugar por enlaces de hidrogeno.
+  - Beta-glucanos: tienen ramificaciones, lo que hace que sean menos lineales y por tanto mas solubles que la celulosa.
+  - Quitina: se encuentra en el exoesquleto de antropodos y otros marinos.
+  - Quitosano: se obtiene de la desacetilizacion de la acetilglucosamina de la quitina.
+
+  Se han estudiado la quitina y el quitosano por su efecto hipocolesterolemiante, ya que la intensa carga positiva del quitosano se une a los lipidos de carga negativa, bloqueando su absorcion. Reduciendose la concentracion sanguinea del colesterol en un 64%, pero dando lugar (con el quitosano) a una mala absorcion de vitaminas liposolubles y de minerales oseos.
+
+- Heteropolisacaridos: se forman modificando la estructura basica de la celulosa.
+  - Hemicelulosa: polimero de glucosa y otros azucares.
+  - Pecticas y gomas: contienen azucares y alcoholes con azucares haciendo que las moleculas sean mas hidrosolubles que la hemicelulosa.
+
+- Fructanos: incluyen fructoligosacaridos (FOS), inulina, fructanos de tipo inulina y oligofructosa y estan formados por polimeros de fructosa, con frecuencia unidos a una glucosa inicial.
+  - Inulina: grupo variado de polimeros de fructosa.
+  - Oligofructosa: es un subgrupo de la inulina realmente, que contiene al menos 10 unidades de fructosa. Se digieren mal en el tubo digestivo y por tanto aportan solo 1 kcal/g.
+
+  Los fructanos, al no absorberse en el intestino proximal, se han utilizado como sustitutos del azucar en pacientes diabeticos. Ademas pueden tener propiedades prebioticas (sustancias alimenticias no digeribles que estimulan selectivamente el crecimiento o la actividad de especies bacterianas beneficiosas que ya residen en el colon y son beneficiosas para el huesped).
+
+- Polisacaridos de las algas: son extraidos de las algas.
+- Polidextrosa y otros polioles: son polimeros sinteticos de alcoholes con azucares.
+- Lignina: son fibras lenosas que se encuentran en tallos y semillas de frutas y verduras, asi como cascara de los cereales. No es carbohidrato realmente, sino polimeros formados por alcoholes y acidos fenilpropilicos. Los grupos fenilo contienen dobles enlaces conjugados, haciendolos excelentes antioxidantes.
+
+Las fibras no solubles, aumentan la capacidad de retencion de agua. Aumentan la frecuencia de las deposiciones.
+Las fibras solubles, suelen formar geles, que dan lugar a un retraso del tiempo de transito digestivo y un retraso o disminucion de la absorcion de los nutrientes. Se suelen unir a otros nutrientes, como el colesterol y minerales, y reducen la absorcion de estos. Algunos olisacaridos no digeribles, son fermentados por las bacterias intestinales y estimulan la absorcion intestinal y retencion de algunos minerales como el calcio, magnesio, cinc y hierro.
+
+Fibras menos solubles:
+|----------------+---------------------------+--------------------------+-----------------------------------------------------------------------------------------------------------|
+| Tipos de fibra | Principales componentes   | Fuentes                  | Funciones principales                                                                                     |
+|----------------+---------------------------+--------------------------+-----------------------------------------------------------------------------------------------------------|
+| Celulosa       | Glucosa                   | Trigo, salvado, verduras | Aumenta la capacidad de retener agua, aumentando asi el volumen fecal y reduciendo el transito intestinal |
+|----------------+---------------------------+--------------------------+-----------------------------------------------------------------------------------------------------------|
+| Hemicelulosa   | Xilosa, manosa, galactosa | Salvado, grano entero    | La fermentacion produce acidos grasos de cadena corta asociados a una reduccion del riesgo de formacion   |
+| Lignina        | Fenoles                   | Frutas y semillas        | de tumores                                                                                                |
+|----------------+---------------------------+--------------------------+-----------------------------------------------------------------------------------------------------------|
+
+Fibras mas solubles:
+|----------------+-------------------------------+----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------|
+| Tipos de fibra | Principales componentes       | Fuentes                                | Funciones principales                                                                                                                          |
+|----------------+-------------------------------+----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------|
+| Gomas          | Galactosa y acido glucoronico | Avena, legumbres, guar, cebada         | Dan lugar a la formacion de geles, reduciendo el vaciado gastrico, retrasan la digestion, tiempo de transito intestinal y absorcion de glucosa |
+|----------------+-------------------------------+----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------|
+| Pectinas       | Acido poligalacturonico       | Manzanas, fresas, zanahorias, citricos | Tambien se unen a minerales, lipidos y acidos biliares, aumentando la excrecion de ellos y reduciendo el colesterol serico                     |
+|----------------+-------------------------------+----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------|
+
+Fibras funcionales (aisladas o extraidas)
+|--------------------------------------+-------------------------+--------------------------------+----------------------------------------------------------------------------------|
+| Tipos de fibra                       | Principales componentes | Fuentes                        | Funciones principales                                                            |
+|--------------------------------------+-------------------------+--------------------------------+----------------------------------------------------------------------------------|
+| Quitina                              | Glucopiranosa           | Cascaras de gambas o langostas | Reduce el colesterol serico                                                      |
+|--------------------------------------+-------------------------+--------------------------------+----------------------------------------------------------------------------------|
+| Fructanos (incluida inulina)         | Polimeros de fructosa   | Achicoria, cebollas, etc       | Prebiotico que estimula el crecimiento de bacterias beneficiosas en el intestino |
+|--------------------------------------+-------------------------+--------------------------------+----------------------------------------------------------------------------------|
+| β-glucanos                           | Glucopiranosa           | Salvado de avena y cebada      | Reducen el colesterol serico                                                     |
+| Polisacaridos de algas (carragenano) |                         | Aislados de algas              | Formadores de gel; espesantes y estabilizantes (pueden ser toxicos)              |
+|--------------------------------------+-------------------------+--------------------------------+----------------------------------------------------------------------------------|
+| Polidextrosa, polioles               | Glucosa y sorbitol, etc | Sintetizados                   | Agente formador de masa o sustituto del azucar                                   |
+| Psyllium (plantago)                  |                         | Semillas de plantago           | Elevada capacidad de union al agua (riesgo de atragantamiento)                   |
+|--------------------------------------+-------------------------+--------------------------------+----------------------------------------------------------------------------------|
+
+******* Funcion de la fibra en la digestion
+
+Modificaciones sericas de lipidos con fibras insolubles:
+ - Las fibras se unen a los acidos biliares fecales y aumentan la excrecion del colesterol derivado de los acidos biliares.
+ - Las fibras impiden la absorcion de la grasa y el colesterol uniendose a los acidos biliares o a la grasa de los lipidos.
+ - Las bacterias intestinales convierten los oligosacaridos fermentables y la fibra dietetica en acidos grasos de cadena corta, que reducen los lipidos sanguineos.
+
+Modulacion prebiotica de las vias metabolicas por la fibra en su fermentacion para dar AGCC (Acidos Grasos de Cadena Corta):
+ - Favorecen la absorcion de sodio y agua.
+ - Aumentan la proliferacion de los colonocitos.
+ - Aumentan la produccion de energia metabolica.
+ - Incrementan el flujo sanguineo colonico.
+ - Estimulan el sistema nervioso autonomo.
+ - Aumentan la sintesis de hormonas digestivas.
+
+Ademas de la fibra, otros nutrientes de las plantas como: taninos, saponinas, lectinas y filatos, interactuan con los macronutrientes, vitaminas y minerales y pueden reducir su absorcion.
+
+El acido fitico o fitato, un anillo de 6 atomos de carbono con un fosfato unido a cada carbono, tiene la capacidad de unirse a iones metalicos y especialmente a calcio, cobre, hierro y cinc. Como el calcio cataliza la accion de la amilasa, que hidroliza el almidon, un exceso de fitatos tambien reduce la hidrolisis del almidon.
+
+******* Absorcion de la glucosa
+
+Los carbohidratos son digeridos para obtener glucosa, fructosa y galactosa mediante acciones de la α-amilasa y las enzimas del borde digestivo en cepillo en el tubo digestivo superior.
+
+La capacidad de digerir carbohidratos depende de:
+ - Disponibilidad relativa del almidon a la accion enzimatica.
+ - Actividad de las enzimas digestivas, especialmente la lactasa en el borde del cepillo de la mucosa.
+ - La presencia de otros factores dieteticos, como grasa (retrasa el vaciado gastrico), oligosacaridos no absorbibles y fibra dietetica viscosa (pectinas, β-glucanos y gomas), que diluyen la concentracion enzimatica. Asi que las dietas ricas en frutas, verduras, legumbres, frutos secos y granos, tienden a retrasar la absorcion de la glucosa.
+
+Una vez digerida, la glucosa se absorbe a traves de las celulas intestinales y se transfiere a la sangre portal para su transporte hasta el higado. El higado retira el 50% de la glucosa absorbida para su oxidacion y almacenamiento en forma de glucogeno. La galactosa se absorbe activamente y la fructosa se absorbe mediante difusion facilitada tambien son captadas por el higado e incorporadas a las vias metabolicas de la glucosa. La glucosa sale del higado y entra en la circulacion sistematica. Solo entonces esta disponible para la captacion pendiente de insulina por los tejidos perifericos.
+
+******* Regulacion de los lipidos sanguineos
+
+La ingesta de grasa no se traduce directamente en modificaciones de los lipidos sanguineos porque el cuerpo regula las concentraciones de macronutrientes para aportar suministros adecuados de combustible a los tefijos corporales. Ingestas elevadas de carbohidratos pueden dar lugar a grandes liberaciones de insulina. Esta hormona anabolica estimula respuestas compensadoras, como la captacion de glucosa dependiente de insulina por el musculo y la grasa y la sintesis activa de glucogeno y de grasa, reduciendose asi la concentracion sanguinea de glucosa hasta un intervalo normal. 2 horas despues de una comida la abosrcion intestinal es completa, pero el efecto de la insulina persiste, y la concentracion sanguinea de glucosa disminuye a veces por debajo del intervalo normal. El cuerpo interpreta este estado hipoglucemico como inanicion y secreta hormonas contrarreguladores que liberan acidos grasos libres a partir de las celulas grasas. Los acidos grasos se empaquetan en lipoproteinas transportadoras (lipoproteinas de muy baja intesindad o VLDL) en el higado, elevando de esta forma los trigliceridos sericos.
+
 ***** Grasas y lipidos
 
 ****** Estructuras y funciones de los lipidos
