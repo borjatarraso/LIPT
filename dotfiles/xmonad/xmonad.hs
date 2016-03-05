@@ -131,9 +131,8 @@ myKeys =
     , ((myModMask .|. shiftMask, xK_s), sendMessage ToggleStruts)
     , ((myModMask .|. shiftMask, xK_p), startupPrograms)
     , ((myModMask .|. shiftMask, xK_m), spawn "bash ~/bin/laptopDock.sh")
-    , ((myModMask .|. shiftMask, xK_e), spawn "emacs --daemon")
-    , ((myModMask .|. shiftMask, xK_c), spawn "emacsclient -c")
-
+    , ((myModMask, xK_d), spawn "emacs --daemon")
+    , ((myModMask, xK_z), spawn "emacsclient -c")
     , ((myModMask .|. shiftMask, xK_d), spawn "if ! pkill trayer; then trayer; fi")
     , ((controlMask, xK_Print), spawn "scrot -s")
     , ((0, xK_Print), spawn "scrot")
