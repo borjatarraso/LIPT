@@ -3,6 +3,17 @@
 #+BEGIN_COMMENT’        =========================        ‘#+END_COMMENT
 
 * Emacs
+** emacs-server
+- Processes
+ - emacs --daemon => opens a server
+ - emacsclient -c => opens a client
+ - emacsclient -c -n => opens a client without blocking the terminal
+ - emacsclient -a => opens a client or an editor in case the server is not running
+- Keys associated
+ - C-x #          => close the client
+ - C-x c          => closes the server or process if no server is running
+ - C-x 5 0        => closes the current frame (except the last one if there is no server running, if there is, the server still running with all the buffers)
+
 ** org-mode
 - Tree visibility
  - TAB                => cycle tree
@@ -114,6 +125,11 @@ Change layout:
 Move window to another workspace:
 
  Win + shift + number
+
+Some custom keys for emacs:
+
+ Win + shift + e      -> Run emacs server
+ Win + shift + c      -> Run emacs client
 
 * Tmux
 
