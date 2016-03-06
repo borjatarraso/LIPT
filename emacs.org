@@ -14,8 +14,8 @@ Configure tags:
 
 Move inside function definitions and back:
 
-- M-. : (find-tag) : find function implementation (call).
-- M-* : (pop-tag-mark) : return to the previous location (caller).
+  M-.   => (find-tag) : find function implementation (call).
+  M-*   => (pop-tag-mark) : return to the previous location (caller).
 
 *** cscope
 
@@ -25,11 +25,15 @@ Configure cscope:
 
 Find callers, function definition, function declaration, other references:
 
-- C-c s s : find symbol.
-- C-c s d : find definition.
-- C-c s c : find callers.
-- C-c s f : find file.
-- C-c s i Find files #including a file.
+ C-c s s        ==> Find symbol.
+ C-c s d        ==> Find global definition.
+ C-c s c        ==> Find functions calling a function.
+ C-c s C        ==> Find called functions (list functions called from a function).
+ C-c s t        ==> Find text string.
+ C-c s e        ==> Find egrep pattern.
+ C-c s f        ==> Find a file.
+ C-c s i        ==> Find files #including a file.
+ C-c s W        ==> Find a directory.
 
 *** semantic
 
@@ -56,6 +60,63 @@ Move around the code:
 - C-c , J : semantic-complete-jump : jump in the function implementation globally.
 - M-<right> : semantic-ia-fast-jump : jump directly to the function implementation over the cursor.
 - M-<up> OR C-x C-<SPC>: pop-global-mark : returns from the last jump point.
+
+*** yasnippet
+  TODO
+*** abbrev
+  TODO
+*** Auto-complete
+  TODO
+
+** org-mode
+- Tree visibility
+ - TAB                => cycle tree
+ - (org-global-cycle) => org global cycle
+
+- set tasks
+ - C-c C-d  => set deadline
+ - C-c C-s  => set schedule
+ - C-c C-c  => to close a simple task
+ - C-c C-t  => to close a full set of tasks
+
+- show tasks
+ - TAB          => expand one task into subtasks
+ - Shift + TAB  => expand all subtree (if multiple times expands more)
+
+- set priorities
+ - C-c , +  => increase prio
+ - C-c , -  => decrease prio
+
+- set tags
+ - C-c C-q  => set a tag
+
+- show agenda
+ - C-c a a => agenda todo for current day/week
+ - C-c a t => agenda todo for all the tasks
+ - C-c a L => agenda todo for the current buffer
+ - C-c a m => agenda todo for specific tag
+ - C-c a s => agenda todo for specific search
+
+- ORG+check
+ - C-c / d  => Check deadlines
+ - C-c / b  => Check schedules and deadlines
+ - C-c / a  => Check deadlines after date
+
+ - Return to original view  => "q" or just Shift+TAB until view is ok
+
+- Show current tasks on startup (org-agenda) : check in dotemacs
+
+** emacs-server
+- Processes
+ - emacs --daemon => opens a server
+ - emacsclient -c => opens a client
+ - emacsclient -c -n => opens a client without blocking the terminal
+ - emacsclient -a => opens a client or an editor in case the server is not running
+- Keys associated
+ - C-x #          => close the client
+ - C-x c          => closes the server or process if no server is running
+ - C-x 5 0        => closes the current frame (except the last one if there is no server running, if there is, the server still running with all the buffers)
+
 ** magit
 
 Stage commit and switch branching:
