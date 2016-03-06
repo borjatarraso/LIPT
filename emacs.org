@@ -56,3 +56,23 @@ Move around the code:
 - C-c , J : semantic-complete-jump : jump in the function implementation globally.
 - M-<right> : semantic-ia-fast-jump : jump directly to the function implementation over the cursor.
 - M-<up> OR C-x C-<SPC>: pop-global-mark : returns from the last jump point.
+** magit
+
+Stage commit and switch branching:
+
+  M-x magit-status  => to see git status, and in the status buffer:
+    s               => stage files
+    u               => unstage files
+    c c             => commit message (type it and...)
+         C-c C-c    => actually commit
+         C-c C-a    => ammend commit
+    b b             => switch to another branch
+    h               => help
+
+Push and pull:
+    P P     => do a git push
+    F F     => do a git pull
+    try to press TAB
+
+More advanced info:
+    http://daemianmack.com/magit-cheatsheet.html
