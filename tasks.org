@@ -27,6 +27,12 @@
    - [ ] Chemistry book Asimov
    - [ ] Genetics book Asimov
  - [ ] Update the CV with the new technologies
+ - [ ] Fast fixes
+   - [ ] Fix w3m inside emacs
+   - [ ] Add firefox trigger as an alternative for emacs
+ - [ ] Fast org updates
+   - [ ] Add sport calendar in org
+   - [ ] Add race types in org
 
 * [#B] Important tasks [0%]
   DEADLINE: <2016-04-02 Sat> SCHEDULED: <2016-03-05 Sat>
