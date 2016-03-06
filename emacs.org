@@ -50,7 +50,7 @@ Enable semantic in emacs:
 
  M-x semantic-mode
 
-Mover around the code:
+Move around the code:
 
 - C-c , j : semantic-complete-jump-local : jump in the function implementation locally.
 - C-c , J : semantic-complete-jump : jump in the function implementation globally.
