@@ -2,7 +2,7 @@
 #+BEGIN_COMMENT’        LIPT TASKS ORG MODE FILE        ‘#+END_COMMENT
 #+BEGIN_COMMENT’        ========================        ‘#+END_COMMENT
 
-* [#A] Main tasks [40%]
+* [#A] Main tasks [44%]
   SCHEDULED: <2016-02-20 Sat> DEADLINE: <2016-03-12 Sat>
  - [X] Port org files to github
  - [X] Port shoutwiki to org files
@@ -27,12 +27,13 @@
    - [ ] Chemistry book Asimov
    - [ ] Genetics book Asimov
  - [ ] Update the CV with the new technologies
- - [ ] Fast fixes
-   - [ ] Fix w3m inside emacs
-   - [ ] Add firefox trigger as an alternative for emacs
+ - [X] Fast fixes
+   - [X] Fix w3m inside emacs
+   - [X] Add firefox trigger as an alternative for emacs
  - [ ] Fast org updates
    - [ ] Add sport calendar in org
    - [ ] Add race types in org
+ - [X] Investigate eww and eww-lnum
 
 * [#B] Important tasks [0%]
   DEADLINE: <2016-04-02 Sat> SCHEDULED: <2016-03-05 Sat>

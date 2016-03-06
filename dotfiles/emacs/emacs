@@ -964,24 +964,14 @@ nnimap-split-rule
 ;; Browser: W3M
 ;; ---------------------------------------------------------------------------
 
+;; Find w3m.el in PATH. Requires apt-get install w3m w3m-img
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/w3m")
+
+;; Load w3m
+(require 'w3m-load)
+(require 'w3m)
+
 ;; Display images automatically with w3m
-
-;; disabled w3m in macos
-;(require 'w3m)
-
-; com en T61p prov
-;(setq w3m-default-display-inline-images t)
-;(add-to-list 'load-path "/usr/share/emacs/site-lisp/w3m")
-;(require 'w3m-load)
-;(require 'w3m)
-
-;; new configuration w3m for OpenBSD
-;;(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/w3m")
-;;(add-to-list 'load-path "/usr/share/emacs/site-lisp/w3m/w3m.el")
-;(if window-system
-;    (require 'w3m-load)
-;;(require 'w3m-load)
-;)
 (setq w3m-default-display-inline-images t)
 
 (setq browse-url-browser-function 'w3m-browse-url)
@@ -1009,39 +999,73 @@ nnimap-split-rule
 
       mm-inline-large-images t)
 
-;;(defvar OS "OSX")
-;;(cond ((equal OS "OSX") (calendar)))
+;; The new w3m frame is in white color
+;(add-hook 'w3m-mode-hook 'w3m-white-color-mode)
+;; When killed the w3m frame will be black color again
+;(add-hook 'kill-buffer-hook 'w3m-dark-color-mode)
 
-(defun w3m-reverse-color-mode ()
-        (set-background-color "Black")
-	(set-foreground-color "White")
-)
+; (defun w3m-dark-color-mode()
+;         (set-background-color "Black")
+; 	(set-foreground-color "White")
+; )
 
-(defun w3m-reverse-color-mode2()
-        (set-background-color "Green")
-	(set-foreground-color "Black")
-)
+; (defun w3m-green-color-mode()
+;         (set-background-color "Green")
+; 	(set-foreground-color "Black")
+; )
 
-; GOOOOD
-;(add-hook 'w3m-mode-hook 'w3m-reverse-color-mode)
-; Hook : 1) destruction w3m
-;        2) switch between buffers
-;        3) switch to other mode
-;        4) more?
-;(add-hook 'kill-buffer-hook 'w3m-reverse-color-mode2)
+; (defun w3m-white-color-mode()
+;         (set-background-color "White")
+; 	(set-foreground-color "Black")
+; )
 
-;; W3M auto new white frame for w3m
-(defun black-on-white ()
-  (interactive)
-  (set-background-color "black")
-  (set-foreground-color "white"))
-(defun make-w3m-frame ()
-  (interactive)
-  (select-frame (make-frame))
-  (black-on-white)
-  (w3m))
+;; Create new frames when opening a link
+;; Define the colors
+;; (defun black-on-white ()
+;;   (interactive)
+;;   (set-background-color "black")
+;;   (set-foreground-color "white"))
+;; ;; Define the new frame
+;; (defun make-w3m-frame ()
+;;   (interactive)
+;;   (select-frame (make-frame))
+;;   (black-on-white)
+;;   (w3m))
+;; Create new frame when open a new link
+;(add-hook 'w3m-mode-hook 'make-w3m-frame)
 
-(add-hook 'w3m-mode-hook 'make-w3m-frame)
+;; Open urls in new tabs from a new frame
+;; (defun w3m-new-tab ()
+;;   (interactive)
+;;   (w3m-copy-buffer nil nil nil t))
+
+;; (defun w3m-browse-url-new-tab (url &optional new-session)
+;;   (interactive)
+;;   (w3m-new-tab)
+;;   (w3m-browse-url url))
+
+;; (setq browse-url-browser-function 'w3m-browse-url
+;;       browse-url-new-window-flag t)
+
+;;(setq browse-url-browser-function 'w3m-browse-url-new-tab)
+
+(setq browse-url-browser-function 'browse-url-firefox
+      browse-url-new-window-flag  t
+      browse-url-firefox-new-window-is-tab t)
+
+;; ---------------------------------------------------------------------------
+;; EWW Browser
+;; ---------------------------------------------------------------------------
+
+;; Set eww the default browser
+;; (setq browse-url-browser-function 'eww-browse-url)
+
+;; (when (fboundp 'eww)
+;;   (progn
+;;     (defun xah-rename-eww-hook ()
+;;       "Rename eww browser's buffer so sites open in new page."
+;;       (rename-buffer "eww" t))
+;;     (add-hook 'eww-mode-hook 'xah-rename-eww-hook)))
 
 ;; ---------------------------------------------------------------------------
 ;; Customizing personal keybindings
