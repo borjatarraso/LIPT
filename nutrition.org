@@ -1248,6 +1248,37 @@ La grasa de la dieta reducen secreciones gastricas, retrasa el vaciado gastrico 
 
 ****** Acidos grasos
 
+Raras veces aparecen de forma libre en la naturaleza y casi siempre estan unidos a un grupo bidrofilo de la cabeza de acido carboxilico. Aparecen como cadenas hidrocarbonadas no ramificadas y se clasifican segun el numero de carbonos, el numero de dobles enlaces y la posicion de estos.
+
+La longitud de la cadena y el grado de saturacion determinan la temperatura de fusion de una grasa.
+
+En general las grasas son cadenas mas cortas de acidos grasos o con mas dobles enlaces, son liquidas a temperatura ambiente.
+
+Por numero de carbonos:
+
+ - AGCC (Acidos Grasos de Cadena Corta): de 4 a 6 atomos de carbono.
+ - AGCM (Acidos Grasos de Cadena Media): de 8 a 14 atomos de carbono.
+ - AGCL (Acidos Grasos de Cadena Larga): mas de 14 carbonos.
+
+Por saturacion:
+
+ - AGS (Acido Graso Saturado): todos los puntos de union de los atomos de carbono y que no estan unidos a otro carbono, estan unidos a hidrogeno (saturados). Por lo tanto no hay enlaces dobles.
+ - AGMI (Acidos Grasos Monoinsaturados): contienen solo un doble enlace.
+ - AGPI (Acidos Grasos Poliinsaturados): contienen 2 o mas dobles enlaces.
+
+En los AGMI o AGPI se ha eliminado uno o mas hidrogenos, por lo que se forman dobles enlaces entre atomos de carbono adyacentes.
+
+Los acidos grasos con dobles enlaces son vulnerables a la agresion oxidativa. Por lo que los humanos almacenan generalmente acidos grasos saturados como el palmitico (C16:0) y estearico (C18:0).
+
+Por su enlace doble (num_atomos_de_carbono:enlaces_dobles ω-posicion_del_primer_enlace_doble_contando_desde_el_extremo_metilo):
+
+ - Omega 3: 20:5, ω-3. Acido eicosapentaenoico (AEP). Se encuentra en organismos marinos
+ - Omega 6: 20:4, ω-6. Acido araquidonico. Se encuentra en las membranas de los animales terrestres.
+ - Omega 7: ω-7.
+ - Omega 9: ω-9.
+
+Solo las plantas pueden sintetizar los acidos grasos omega 3 y 6. Los animales (y los humanos) solo pueden colocar dobles enlaces en una situacion tan baja como el omega 9, y por lo tanto no puede sintetizar ni omega 3 ni omega 6..
+
 ****** Acidos grasos esenciales y cociente omega-6/omega-3
 
 ****** Acidos grasos trans
