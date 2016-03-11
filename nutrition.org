@@ -1350,6 +1350,19 @@ Por numero de carbonos:
  - AGCM (Acidos Grasos de Cadena Media): de 8 a 14 atomos de carbono.
  - AGCL (Acidos Grasos de Cadena Larga): mas de 14 carbonos.
 
+Por su composicion:
+
+ - Lipidos simples
+   - Grasas neutras: esteres de acidos grasos con glicerol (monogliceridos, digliceridos y trigliceridos).
+   - Ceras: esteres de acidos grasos con alcoholes de elevado peso molecular
+ - Lipidos compuestos
+   - Fosfolipidos: compuestos de acido fosforico, acidos grasos y una base nitrogenada
+   - Glucolipidos: compuestos de acidos grasos, monosacaridos, y una base nitrogenada
+   - Lipoproteinas: particulas compuestas de lipidos y proteinas
+ - Lipidos miscelaneos
+   - Eteroles: vitamina D, colesterol, sales biliares
+   - Vitaminas A, E, K.
+
 Por saturacion:
 
  - AGS (Acido Graso Saturado): todos los puntos de union de los atomos de carbono y que no estan unidos a otro carbono, estan unidos a hidrogeno (saturados). Por lo tanto no hay enlaces dobles.
