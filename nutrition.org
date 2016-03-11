@@ -1281,6 +1281,16 @@ Solo las plantas pueden sintetizar los acidos grasos omega 3 y 6. Los animales (
 
 ****** Acidos grasos esenciales y cociente omega-6/omega-3
 
+Los seres humanos no puede sintetizar omega-3 ni omega-6, pero si pueden desaturar y elongar el acido linoneico (18:2 n-6) para obtener acido araquidonico (20:4 n-6) y el acido α-linonenico o AAL (C18:3 ω-3) para obtener AEP (C20:5 omega-3) y acido docosahexaenoico o ADHE (C22:6 ω-3). Es por ello, que los acidos grasos esenciales son realmente los de cadena mas larga, pero si la dieta esencial aporta suficientes cantidades de precursores de cadena mas corta, no es necesario que se aporten directamente los acidos grasos de cadena mas larga.
+
+Los acidos grasos de cadena mas corta son componentes importantes de las membranas celulares y precursores de eicosanoides como: prostaglandinas, tromboxanos y leucotrienos.
+
+Los eicosanoides actuan como hormonas localizadas (paracrinas) y tienen multiples funciones locales. Pueden alterar el tamano y la permeabilidad de los vasos sanguineos, alterar la actividad de las plaquetas y contribuir a la coagulacion sanguinea, y modificar los procesos de la inflamacion, asi como tener efectos beneficiosos en distintas enfermedades (cardiovasculares, artrosis y enfermedades inflamatorias).
+
+El exceso de grasos acidos omega-6 satura a las enzimas que desaturan y elongan los acidos n-3 y n-6 e impide la conversion de AAL en formas de mayor longitud como AEP y ADHE.
+
+El cociente omega-6/omega-3 y optimo es de 2:1 a 3:1 (4 veces menor que la ingesta tipica actual). Por lo que se recomienda que los humanos consuman mas acidos grasos omega-3 de fuentes vegetales (obteniendo AAL) y marinas (obteniendo AEP y ADHE).
+
 ****** Acidos grasos trans
 
 ****** Trigliceridos
