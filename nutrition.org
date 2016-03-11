@@ -1246,6 +1246,96 @@ Los seres humanos tambien tienen una capa subcutanea de grasa que aisla el cuerp
 
 La grasa de la dieta reducen secreciones gastricas, retrasa el vaciado gastrico y estimula el flujo biliar y pancreatico, facilitando el proceso de digestion.
 
+Lipidos importantes fisiologicamente:
+
+ 1. Acidos grasos
+ ----------------
+
+ 1.1 Saturados
+
+                                            Grupo carboxilo
+                                           /---------------\
+                                          |                 |
+       H   H   H   H   H   H   H   H   H   H   H   H      O
+       |   |   |   |   |   |   |   |   |   |   |   |    //
+ CH3 - C - C - C - C - C - C - C - C - C - C - C - C - C
+       |   |   |   |   |   |   |   |   |   |   |   |    \
+       H   H   H   H   H   H   H   H   H   H   H   H     OH
+
+ 1.2 Monoinsaturados
+
+       H   H   H   H   H   H   H       H   H   H   H   H   H      O
+       |   |   |   |   |   |   |       |   |   |   |   |   |    //
+ CH3 - C - C - C - C - C - C - C - C = C - C - C - C - C - C - C
+       |   |   |   |   |   |   |   |       |   |   |   |   |    \
+       H   H   H   H   H   H   H   H       H   H   H   H   H     OH
+
+  (trans)
+
+       H   H   H   H   H   H   H   H   H   H   H   H   H   H      O
+       |   |   |   |   |   |   |   |   |   |   |   |   |   |    //
+ CH3 - C - C - C - C - C - C - C - C = C - C - C - C - C - C - C
+       |   |   |   |   |   |   |           |   |   |   |   |    \
+       H   H   H   H   H   H   H           H   H   H   H   H    OH
+
+  (cis)
+
+ 2. Trigliceridos
+ ----------------
+
+          O    H   H   H   H   H   H   H   H   H   H   H   H   H   H   H   H      O
+          ||   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |    //
+ H₂C - O - C - C - C - C - C - C - C - C - C - C - C - C - C - C - C - C - C - C    (acido estearico)
+   |           |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |    \
+   |           H   H   H   H   H   H   H   H   H   H   H   H   H   H   H   H     OH
+   |
+   |       O   H   H   H   H   H   H   H   H   H   H   H   H   H   H       O
+   |       ||  |   |   |   |   |   |   |   |   |   |   |   |   |   |     //
+  HC - O - C - C - C - C - C - C - C - C - C - C - C - C - C - C - C - C     (acido palmitico)
+   |           |   |   |   |   |   |   |   |   |   |   |   |   |   |    \
+   |           H   H   H   H   H   H   H   H   H   H   H   H   H   H     OH
+   |
+   |       O   H   H   H   H   H   H   H   H   H   H   H   H   H   H   H   H      O
+   |      ||   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |    //
+ H₂C - O - C - C - C - C - C - C - C - C - C = C - C - C - C - C - C - C - C - C   (acido oleico)
+               |   |   |   |   |   |   |           |   |   |   |   |   |   |    \
+               H   H   H   H   H   H   H           H   H   H   H   H   H   H     OH
+
+ \-----/ \--------------------------------------------------------------------------/
+    |                                         |
+ Glicerol                           Colas de acidos grasos
+
+ 3. Fosfolipidos (lecitina)
+ --------------------------
+
+                                   O   H   H   H   H   H   H   H   H   H   H   H   H   H   H   H     O
+                                  ||   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   //
+                         CH₂ - O - C - C - C - C - C - C - C - C - C - C - C - C - C - C - C - C - C      (acido estearico)
+                         |             |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   \
+                         |             H   H   H   H   H   H   H   H   H   H   H   H   H   H   H    OH
+                         |
+                         |         O  H   H   H   H   H           H   H           H   H   H   H     O
+                         |        ||  |   |   |   |   |           |   |           |   |   |   |   //
+           -         O - CH - O - C - C - C - C - C = C - C = C - C = C - C = C - C - C - C - C - C       (acido araquidonico)
+ Cabeza  /   \       |                |   |   |           |   |           |   |   |   |   |   |    \
+ polar   \   / - O - P - CH₂          H   H   H           H   H           H   H   H   H   H   H    OH
+           -         ||
+        Colina       O
+
+ 4. Isoprenos-esteroides
+ -----------------------
+
+                     /-> Polisoprenoide
+       CH₃          /
+       |           /
+ CH₂ = C - C = CH₂
+           |       \
+           H        \
+                     \
+                      \-> Colesterol --> Testosterona
+
+ (moleculas demasiado tediosas para representarlas graficamente)
+
 ****** Acidos grasos
 
 Raras veces aparecen de forma libre en la naturaleza y casi siempre estan unidos a un grupo bidrofilo de la cabeza de acido carboxilico. Aparecen como cadenas hidrocarbonadas no ramificadas y se clasifican segun el numero de carbonos, el numero de dobles enlaces y la posicion de estos.
