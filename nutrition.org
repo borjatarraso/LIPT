@@ -1383,6 +1383,20 @@ El cociente omega-6/omega-3 y optimo es de 2:1 a 3:1 (4 veces menor que la inges
 
 ****** Acidos grasos trans
 
+Los acidos grasos insaturados se curvan debido a que los hidrogenos de los carbonos de enlaces dobles se encuentran en un mismo lado. La hidrogenacion anade hidrogeno a los aceites liquidos y forma asi una grasa solida.
+
+Los acidos grasos trans tienen un efecto negativo sobre la salud humana debido a su influencia sobre la funcion de las membranas.
+
+La funcion de las membranas depende de la configuracion tridimensional de los acidos grasos de la membrana que se encuentran en los fosfolipidos.
+
+Los dobles enlaces cis de la membrana se curvan, permitiendo que los acidos grasos esten apuestos entre si de forma laxa, lo que hace que la membrana sea fluida.
+
+Como las proteinas incluidas en una membran flotan o se hunden, dependiendo de la fluidez de la membrana, la viscosidad de la membrana es importante para la funcion de las proteinas de la membrana.
+
+Los acidos grasos trans no se curvan, se aponen entre si en la membrana tan juntos entre si como si estuvieran totalmente saturados. Esto provoca cardiopatia isquemica, cancer y otras enfermedades cronicas, debido a su capacidad para modificar la fluidez de las membranas.
+
+Los acidos grasos trans tambien inhiben la desaturacion y la elongacion del acido linoleico y del AAL para formar acidos grasos esenciales de cadena larga. Los AGPI son criticos para el desarrollo del encefalo y otros organos fetales.
+
 ****** Trigliceridos
 
 ****** Fosfolipidos
