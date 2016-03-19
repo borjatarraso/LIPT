@@ -12,6 +12,27 @@
  https://en.wikipedia.org/wiki/Millet
  https://en.wikipedia.org/wiki/Kale
 
+* Alimentos altos en hierro
+  |---------------+---------------------|
+  | Alimento      | CDR de Hierro/100gr |
+  |---------------+---------------------|
+  | Sardinas      |                  16 |
+  | Pasas         |                  10 |
+  | Almejas       |                 155 |
+  | Kale          |                   8 |
+  | Beans         |                  27 |
+  | Green peas    |                   8 |
+  | Espinacas     |                  15 |
+  | Brocoli       |                   3 |
+  | Huevo         |                   6 |
+  | Soya beans    |                  87 |
+  | Lentejas      |                  18 |
+  | Beef          |                  14 |
+  | Chicken       |                   7 |
+  | Liver         |                  25 |
+  | Edamame beans |                  12 |
+  |---------------+---------------------|
+
 * Nutrition [/]                                                  :2016:nutrition:
 ** [#A] Tasks [16%]
    SCHEDULED: <2015-06-06 Sat>
