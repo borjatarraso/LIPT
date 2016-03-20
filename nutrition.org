@@ -16,24 +16,24 @@
   |---------------+---------------------|
   | Alimento      | CDR de Hierro/100gr |
   |---------------+---------------------|
-  | Sardinas      |                  16 |
-  | Pasas         |                  10 |
-  | Almejas       |                 155 |
-  | Kale          |                   8 |
-  | Beans         |                  27 |
-  | Green peas    |                   8 |
-  | Espinacas     |                  15 |
-  | Brocoli       |                   3 |
-  | Huevo         |                   6 |
-  | Soya beans    |                  87 |
-  | Lentejas      |                  18 |
-  | Beef          |                  14 |
-  | Chicken       |                   7 |
-  | Liver         |                  25 |
-  | Edamame beans |                  12 |
-  | Curcuma       |                 230 |
   | Comino        |                 368 |
+  | Curcuma       |                 230 |
+  | Almejas       |                 155 |
   | Chili powder  |                  96 |
+  | Soya beans    |                  87 |
+  | Beans         |                  27 |
+  | Liver         |                  25 |
+  | Lentejas      |                  18 |
+  | Sardinas      |                  16 |
+  | Espinacas     |                  15 |
+  | Beef          |                  14 |
+  | Edamame beans |                  12 |
+  | Pasas         |                  10 |
+  | Kale          |                   8 |
+  | Green peas    |                   8 |
+  | Chicken       |                   7 |
+  | Huevo         |                   6 |
+  | Brocoli       |                   3 |
   |---------------+---------------------|
 
 * Nutrition [/]                                                  :2016:nutrition:
