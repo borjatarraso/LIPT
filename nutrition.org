@@ -31,6 +31,9 @@
   | Chicken       |                   7 |
   | Liver         |                  25 |
   | Edamame beans |                  12 |
+  | Curcuma       |                 230 |
+  | Comino        |                 368 |
+  | Chili powder  |                  96 |
   |---------------+---------------------|
 
 * Nutrition [/]                                                  :2016:nutrition:
