@@ -18,7 +18,9 @@
   |---------------+---------------------|
   | Comino        |                 368 |
   | Curcuma       |                 230 |
+  | Star anise    |                 205 |
   | Almejas       |                 155 |
+  | Goji berries  |                 112 |
   | Chili powder  |                  96 |
   | Soya beans    |                  87 |
   | Beans         |                  27 |
