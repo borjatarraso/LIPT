@@ -24,6 +24,10 @@
   - Simply raw
   - Food matters
 
+* Lista de productos mas y menos afectados por pesticidas
+  https://www.ewg.org/foodnews/clean_fifteen_list.php
+  https://www.ewg.org/foodnews/dirty_dozen_list.php
+
 * Alimentos altos en hierro
   |---------------+---------------------|
   | Alimento      | CDR de Hierro/100gr |
