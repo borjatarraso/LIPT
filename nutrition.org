@@ -46,6 +46,9 @@
   | Leche de almendras | Yodo (creando problemas de tiroides |
   |--------------------+-------------------------------------|
 
+* Problemas de las carnes
+  Hay una sustancia llamada hipoxantina, que es una forma metabolica de las purinas que causa una adiccion similar a la de la cafeina para los humanos. Es estimulante, y ademas en contacto con otros acidos que tambien se encuentran en la carne como el inosinico y el guanilico, hace de dicha adiccion (la adiccion de la cafeina en refrescos por ejemplo es causada de la misma manera por la teobromina).
+
 * Nutrition [/]                                                  :2016:nutrition:
 ** [#A] Tasks [16%]
    SCHEDULED: <2015-06-06 Sat>
