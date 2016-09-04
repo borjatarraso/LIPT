@@ -3,6 +3,7 @@
 #+BEGIN_COMMENT’              ===================               ‘#+END_COMMENT
 
 * Superfood
+ https://en.wikipedia.org/wiki/Spirulina_%28dietary_supplement%29
  https://en.wikipedia.org/wiki/Freekeh
  https://en.wikipedia.org/wiki/Quinoa
  https://en.wikipedia.org/wiki/Salvia_hispanica
@@ -37,6 +38,13 @@
   | Huevo         |                   6 |
   | Brocoli       |                   3 |
   |---------------+---------------------|
+
+* Alimentos comunes que inhiben la absorcion de otros
+  |--------------------+-------------------------------------|
+  | Alimento           | Inhibe                              |
+  |--------------------+-------------------------------------|
+  | Leche de almendras | Yodo (creando problemas de tiroides |
+  |--------------------+-------------------------------------|
 
 * Nutrition [/]                                                  :2016:nutrition:
 ** [#A] Tasks [16%]
