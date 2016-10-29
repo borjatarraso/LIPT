@@ -61,3 +61,116 @@
   Se aconseja minimizar el dolor con elevación de talones, movimientos de femoral y de los aductores, así como estiramientos de femorales y cuádriceps.
   Uno de los tratamientos más indicados para esta lesión es el masaje, aplicado tras el ejercicio.
   A la vuelta de las vacaciones y el retorno a la actividad deportiva, la mayoría de nosotros solemos experimentar lo que se conoce como agujetas. Se producen por el sometimiento que los músculos sufren de nuevo a la hora de hacer ejercicio y el estrés que éste les provoca. Las agujetas son un síntoma de que el ejercicio está incidiendo en los músculos, pero es importante que sepamos algunas cosas sobre ellas para saber si debemos o no entrenar con agujetas.
+* Bones, Muscles, Fascia, Ligaments, Joints, Sarcomere
+
+** Ligamento (ligament): Hueso-tejido-Hueso & refuerza articulaciones
+
+    Definicion: Tejido conectivo fibroso que une los huesos entre si. Estructura anatómica en forma de banda, compuesto por fibras resistentes que conectan los tejidos que unen a los huesos en las articulaciones. En pocas palabras es una banda fibrosa resistente que confiere estabilidad a la articulación.
+
+** Articulacion (joint): Hueso-Hueso (donde los huesos individuales se unen uno con otro).
+
+    Definicion: Es una generalizacion. La union en si podria ser mediante un tejido (ligamento) o no.
+
+** Cartilagos (cartilage): Parte final que conecta a los huesos
+
+    Definicion: tejido conectivo altamente especializado, formados por células condrógenas (condrocitos y condroblastos), fibras colágenas, elásticas y matriz extracelular. El tejido cartilaginoso es parte del páncreas embrionario. Se le llama cartílago a las piezas formadas por tejido cartilaginoso. El cartílago también cubre las terminaciones óseas de las articulaciones. No posee vasos sanguíneos, nervios ni vasos linfáticos.
+
+    Funcion: acomodar las superficies de los cóndilos femorales a las cavidades glenoideas de la tibia, para amortiguar los golpes al caminar y los saltos, para prevenir el desgaste por rozamiento y, por lo tanto, para permitir los movimientos de la articulación. Es una estructura de soporte y da cierta movilidad a las articulaciones.
+
+** Tendon: Musculo-Hueso
+
+    Definicion: parte del músculo estriado, de color blanco, de consistencia fuerte y no contráctil, constituido por fibras de tejido conectivo que se agrupan en fascículos.
+
+    Funcion: insertar el músculo esquelético en el hueso y transmitirles la fuerza de la contracción muscular para producir un movimiento.
+
+    Composicion: Formada por haces de fibras colágenas tipo I y elementos celulares rodeados por matriz extra celular que se componen por elastina, matriz intercelular que a su vez se forma por agua, proteoglucanos y glucoproteinas así como componentes celulares como tenocitos y tenoblastos, fibroblastos en un 20%, matriz extra celular en 80% que a su vez tiene 70% agua y 30 % sólidos que este tiene 33%glicina,, 15% hidroxiprolina y 15%parolina.
+
+** Musculo (muscle):
+
+    Definicion: Tejido blanco que se encuentra en la mayoria de animales
+
+    Funcion: Generan movimiento al contraerse o extendiéndose al relajarse.
+
+** Fascia: envoltorio que conecta todas las estructuras corporales
+
+    Definicion: Constituye el material de envoltorio y aislamiento de las estructuras profundas del cuerpo.
+
+    Funcion: Da soporte, protección y forma al organismo.
+
+** Sarcomero: contraccion de los musculos
+
+    Definicion: unidad anatómica y funcional del músculo estriado. Se encuentra limitado por dos líneas Z con una zona A (anisótropa) y dos semizonas I (isótropas).
+
+    Funcion: Está formado por actina y miosina. La contracción del músculo consiste en el deslizamiento de los miofilamentos finos de actina sobre los miofilamentos de miosina (miofilamentos gruesos), todo esto regulado por la intervención nerviosa y la participación del calcio.
+
+    En la banda I del sarcómero pueden distinguirse los filamentos de actina (filamento fino) que nacen de los discos de Z, donde existe la alfa actinina, que es la proteína que une la actina y la titina. Esta última es una proteína elástica (la más grande del organismo), y posee dos funciones:
+
+    Banda A: Banda compuesta por los filamentos gruesos de 140 Å de miosina y finos de actina. Se subdivide en:
+        Zona H: Zona donde solo hay filamentos de miosina visible.
+        Línea M: Zona donde la miosina se encuentra unida a la miosina adyacente, en la cual se contraen músculos internos cardiovasculares.
+    Banda I: Banda compuesta por los filamentos finos de 80 Å de actina.
+    Discos Z: Sector donde se encuentran unidas las actinas adyacentes y se mantiene la continuidad con el sarcómero subsiguiente. En ellas se encuentra la proteína CapZ.
+
+    Durante la contracción del músculo desaparece la banda H y se comprime la banda I.
+
+    Miosina
+     |
+     |
+     o  <-- cabeza de miosina
+     |
+    Actina
+
+    https://es.wikipedia.org/wiki/Sarc%C3%B3mero
+    https://es.wikipedia.org/wiki/Miosina
+    https://es.wikipedia.org/wiki/Actina
+
+* typical muscle movements
+  isotonica concentrica: aproximación entre los segmentos articulares, dando lugar a un trabajo positivo. La fuerza aplicada es mayor a la resistencia a vencer. Existe un mantenimiento de la longitud del tendón, pero un acortamiento del músculo, en consecuencia existe una disminución de la longitud del mismo.
+  isotonica excentrica:existe una separación de los segmentos articulares, dando lugar a un trabajo negativo. La fuerza aplicada es menor que la resistencia a vencer. Existe una elongación del tendón, y un acortamiento del músculo, en consecuencia se da un aumento del tamaño del mismo (genera acido lactico).
+  isometrico: no existe desplazamiento entre los segmentos articulares. La fuerza aplicada es igual a la resistencia a vencer. Existe un alargamiento del tendón y a la vez un acortamiento del músculo, en consecuencia no varía la longitud del mismo.
+
+  Auxotónica: combinación de dos contracciones anteriormente mencionadas como son; la isométrica y la isotónica concéntrica, las cuales se encuentran combinadas en distinta proporción.
+  Isocinética: contracción dinámica con velocidad fija y la resistencia a vencer de tipo variable. Es una combinación de tres tipos de contracción; en primer lugar contracción excéntrica, posteriormente un tiempo mínimo de isometría y un tiempo final de trabajo concéntrico.
+
+* Tipos de fibra
+
+  Tipo 1: Denominadas también rojas o de contracción lenta. La lentitud de la contracción es causada por el reducido número de elementos contráctiles (miofibrillas) en relación con la masa de elementos pasivos o elásticos, cuya resistencia debe ser vencida antes de que se produzca la contracción. Son, por el contrario, fibras que no se fatigan fácilmente, pues por un lado obtienen gran cantidad de energía por unidad de materia consumida y poseen abundante reserva energética. Sarcoplasma abundante, elevada cantidad de mioglobina, mitocondrias y gotas lipidicas. Abundante en mitocondrias y capacidad de almacenamiento de oxigeno por medio de la mioglobina que le confiere que la energia sea obtenida fundamentalmente por procesos por via aerobia mediante el ciclo de Krebs.
+
+  Tipo 2: Blancas o de contracción rápida. Abundantes en miofibrillas que ocupan casi la totalidad del sarcoplasma, siendo este muy escaso, como su contenido de mioglobina y mitocondrias. Presenta un almacenamiento de carbohidratos en forma de glucogeno.
+
+   Tipo 2A: obtienen la energía a partir tanto de la vía aerobia como de la vía anaerobia mediante glucólisis
+
+   Tipo 2B: Energia solo practicamente por vía anaerobia.
+
+* Acido lactico y lactato
+
+  El lactato se produce continuamente en el metabolismo y sobre todo durante el ejercicio, pero no aumenta su concentración hasta que el índice de producción no supera al de eliminación.
+
+  El aumento de la concentración de lactatos ocurre generalmente cuando la demanda de energía en tejidos (principalmente musculares) sobrepasa la disponibilidad de oxígeno en sangre. Bajo estas condiciones la piruvato deshidrogenasa no alcanza a convertir el piruvato a Acetil-CoA lo suficientemente rápido y el piruvato comienza a acumularse. Esto generalmente inhibiría la glucólisis y reduciría la producción de Adenosín trifosfato (el ATP sirve para acumular energía), si no fuera porque la lactato deshidrogenasa reduce el piruvato a lactato:
+
+  piruvato + NAD + H+ → lactato + NAD+
+
+  La función de la producción de lactato es oxidar NADH + H para regenerar la nicotinamida adenina dinucleótido (NAD+) necesaria para la glucólisis, y por tanto para que continúe la producción de ATP.
+
+  Acido lactico: la regeneración de NAD+ asegura que la producción de energía continúe y así también el ejercicio.
+  Lactato: acido lactico en su forma ionizada (en su forma base)
+
+  Los tejidos eliminan el lactato, pero se puede producir ejercicio intenso que no permite eliminar mas rapido que lo que se produce.
+
+  La acidosis que muchas veces se asocia a la producción de lactato durante ejercicios extremos proviene de una reacción completamente distinta y separada. Cuando se hidroliza (se "separa" en agua) el ATP se libera un catión hidrógeno. Este catión es el principal responsable de la disminución del pH. Durante ejercicios intensos el metabolismo oxidativo (aerobiosis) no produce ATP tan rápido como lo demanda el músculo. Como resultado, la glucólisis se transforma en el principal productor de energía y puede producir ATP a altas velocidades. Debido a la gran cantidad de ATP producido e hidrolizado en tan poco tiempo, los sistemas amortiguadores de los tejidos se ven agotados, causando una caída del pH y produciendo acidosis. Éste es uno de los factores, entre tantos, que contribuye al dolor muscular agudo experimentado poco después del ejercicio intenso
+
+* Typical runners issues
+  LCL (Lateral Collateral Ligament)
+  CFL (Calcaneus Fibular Ligament)
+  Calcanear spurs --if continues--> Fascitis plantar
+  |-> causado por pronadores + no realizar calentamientos + trabajo sedentario + ejercicio fisico intenso
+  |-> tratamiento: RICE (Rest, Ice, Compress, Elevation -of the heel-)
+
+* Typical IT/sedentary issues
+  CTS (Carpal Tunnel Syndrome): Sindrome del tunel carpiano
+  https://en.wikipedia.org/wiki/Carpal_tunnel_syndrome
+
+* Tipos de corredores
+  Pronador: interior
+  Supinador: exterior
+  Neutro: equal
