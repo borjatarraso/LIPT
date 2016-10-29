@@ -1566,6 +1566,22 @@ El cuerpo forma trigliceridos (trigliceroles) uniendo 3 acidos grasos a una cade
 
 ****** Fosfolipidos
 
+Los fosfolipidos son derivados del acido fosfatidico, un triglicerido modificado que contiene un grupo fosfato en la tercera posicion.
+
+Las cabezas polares miran hacia fuera, hacia los liquidos acuosos externos y citoplasmaticos, mientras que las colas de acidos grasos de localizacion central participan en interacciones hidrofobas en el centro de la membrana. La barrera formada por esta bicapa lipidica solo puede ser atravesada por moleculas liposolubles muy pequenas (como oxigeno, dioxido de carbono o nitrogeno) y en un grado limitado por particulas polares pequenas sin carga, como el agua y la urea.
+
+Todos los organismos sintetizan cantidades pequenas de lipidos complejos con funciones especializadas y criticas. Muchos de estos lipidos no contienen glicerol y estan formados por unidades de acetil CoA (acetilcoenzima A) de dos atomos de carbono.
+
+ => Esfingolipidos: son eteres lipidicos unidos a una base de esfingosina en lugar de a glicerol
+
+ => Isoprenoides: derivados activados del isopreno, son lipidos formados por una o mas unidades de cinco atomos de carbono, conteniendo enlaces sencillos y dobles alternantes (conjugados) que pueden inactivar radicales libres al aceptar o donar electrones.
+
+ => Terpeno: es un termino generico para todos los compuestos sintetizados a partir de los precursores del isopreno e incluye aceites esenciales de las plantas (e.g limoneno de los limones).
+
+ => Esteroides: son una clase de lipidos derivados de un anillo saturado de cuatro miembros. El colesterol es la base de todos los derivados esteroideos sintetizados en el cuerpo, incluyendo  los glucocorticoesteroides (cortisona) y los mineralcorticoesteroides (aldosterona), los androgenos (testosterona) y los estrogenos (estradiol). La hormona vitamina D se sintetiza cuando los rayos ultravioletas del sol escinden el colesterol en la grasa subcutanea para formar colecalciferol (D3). La vitamina D sintetica se sintetiza irradiando el esteroide vegetal ergoesterol para formar ergocalciferol (D2).
+
+ => Glucolipidos: incluyen los cerebrosidos y los gangliosidos, que estan formados por una base de esfingosina y acidos largos de cadena muy larga (22C). Ambos participan en el transporte lipidico.
+
 ****** Lipidos sinteticos
 
 ****** Alcohol (alcohol etilico)
