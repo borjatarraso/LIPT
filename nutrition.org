@@ -1562,6 +1562,8 @@ Los acidos grasos trans tambien inhiben la desaturacion y la elongacion del acid
 
 ****** Trigliceridos
 
+El cuerpo forma trigliceridos (trigliceroles) uniendo 3 acidos grasos a una cadena lateral de glicerol, neutralizando de esa forma los acidos grasos reactivos y haciendo que los trigliceridos sean insolubles en agua. Asi, las grasas neutras se pueden almacenar de forma segura en las celulas grasas (adipocitos) en forma de reserva energetica.
+
 ****** Fosfolipidos
 
 ****** Lipidos sinteticos
