@@ -1506,6 +1506,44 @@ El exceso de grasos acidos omega-6 satura a las enzimas que desaturan y elongan 
 
 El cociente omega-6/omega-3 y optimo es de 2:1 a 3:1 (4 veces menor que la ingesta tipica actual). Por lo que se recomienda que los humanos consuman mas acidos grasos omega-3 de fuentes vegetales (obteniendo AAL) y marinas (obteniendo AEP y ADHE).
 
+|-------------------------------+------------------+----------------------------------------------|
+| Fuente (por cada 100gr)       | Grasa total (gr) | Grasa omega-3 ADHE (22:6 ω-3) AEP (20:5 ω-3) |
+|-------------------------------+------------------+----------------------------------------------|
+| Sardinas en aceite de sardina | 15.5             | 3.3                                          |
+|-------------------------------+------------------+----------------------------------------------|
+| Caballa del atlantico         | 13.9             | 2.5                                          |
+|-------------------------------+------------------+----------------------------------------------|
+| Arenque del atlantico         | 9                | 1.6                                          |
+|-------------------------------+------------------+----------------------------------------------|
+| Salmon de Chinook             | 10.4             | 1.4                                          |
+|-------------------------------+------------------+----------------------------------------------|
+| Anchoa                        | 4.8              | 1.4                                          |
+|-------------------------------+------------------+----------------------------------------------|
+| Salmon del Atlantico          | 5.4              | 1.2                                          |
+|-------------------------------+------------------+----------------------------------------------|
+| Chova                         | 6.5              | 1.2                                          |
+|-------------------------------+------------------+----------------------------------------------|
+| Salmon rosa                   | 3.4              | 1                                            |
+|-------------------------------+------------------+----------------------------------------------|
+| Palometa de Florida           | 9.5              | 0.6                                          |
+|-------------------------------+------------------+----------------------------------------------|
+| Atun                          | 2.5              | 0.6                                          |
+|-------------------------------+------------------+----------------------------------------------|
+| Trucha de arroyo              | 2.7              | 0.4                                          |
+|-------------------------------+------------------+----------------------------------------------|
+| Gamba                         | 1.1              | 0.3                                          |
+|-------------------------------+------------------+----------------------------------------------|
+| Bagre de canal                | 4.3              | 0.3                                          |
+|-------------------------------+------------------+----------------------------------------------|
+| Langosta del norte            | 0.9              | 0.2                                          |
+|-------------------------------+------------------+----------------------------------------------|
+| Abadejo                       | 0.7              | 0.2                                          |
+|-------------------------------+------------------+----------------------------------------------|
+| Platia                        | 1                | 0.2                                          |
+|-------------------------------+------------------+----------------------------------------------|
+
+El encefalo humano, el sistema nervioso central y las membranas de todo el cuerpo necesitan acidos grasos omega-3, especialmente el AEP y ADHE para una funcion optima. La mayor disponibilidad de acidos grasos omega-3 de cadena larga permitio que los seres humanos desarrollaran su complejo sistema cerebral y neural.
+
 ****** Acidos grasos trans
 
 Los acidos grasos insaturados se curvan debido a que los hidrogenos de los carbonos de enlaces dobles se encuentran en un mismo lado. La hidrogenacion anade hidrogeno a los aceites liquidos y forma asi una grasa solida.
