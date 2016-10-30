@@ -1619,6 +1619,7 @@ La cantidad de ingesta dietetica de colesterol debe ser menor de 300 mg/dia, red
 
 ****** Alcohol (alcohol etilico)
 
+Cantidades moderadas de alcohol etilico tienen efectos positivos sobre enfermedades (como las cardiovasculares), pero sigue siendo una sustancia toxica que contiene 7kcal/g y ningun otro nutriente. Puede atravesar todas las membranas y se absorbe rapidamente.
 
 ***** Aminoacidos y proteinas
 
