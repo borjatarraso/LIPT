@@ -1584,6 +1584,39 @@ Todos los organismos sintetizan cantidades pequenas de lipidos complejos con fun
 
 ****** Lipidos sinteticos
 
+Se encuentran de forma natural en la nata, aceite de coco y el aceite de semilla de palma, pero tambien se producen como subproducto de la elaboracion de la margarina.
+
+Los trigliceridos de cadena media (TCM) son AGS con una longitud de cadena de entre 6 y 12 atomos de carbono. Aportan 8.25 kcal/g, son suficientemente cortos para ser hidrosolubles, necesitan menos sales biliares para su solubilizacion, no son reeterificados en el enterocito y son transportados como acidos grasos libres.
+
+Los lipidos estructurados incluyen aceite de TCM esterificado con un acido graso como acido linolenico o un lipido omega-3. Se absorben mas rapidamente que el triglicerido de cadena larga solo.
+
+Los sustitutos de la grasa son diferente estructuralmente a las grasas y no aportan nutrientes facilmente absorbibles, pero imitan la textura y otras sensaciones de la grasa en la boca. El valor calorico varia entre 5 kcal/g (por ej. caprenina) y 0 kcal/g (por ej. olestra, carragenano).
+
+Sustitutos de la grasa
+|--------------------------+-----------------------------------------------------------|
+| Basados en carbohidratos | Polidextrosa                                              |
+|                          | Almidon alimenticio modificado                            |
+|                          | Maltodextrinas                                            |
+|                          | Basados en grano (fibra)                                  |
+|                          | Dextrinas                                                 |
+|                          | Gomas (xantano, guar, algarrobo, carragenano, alginatos)  |
+|                          | Pectinas                                                  |
+|                          | Celulosa (carboximetilcelulosa, celulosa microcristalina) |
+|                          | Basados en fruta (fibra)                                  |
+|--------------------------+-----------------------------------------------------------|
+| Basados en proteinas     |                                                           |
+|--------------------------+-----------------------------------------------------------|
+| Basados en grasa         |                                                           |
+|--------------------------+-----------------------------------------------------------|
+| Combinaciones            |                                                           |
+|--------------------------+-----------------------------------------------------------|
+
+Las aplicaciones generalmente son en: lacteos, salsas, postres, productos horneados, rellenos y glaseados, pates, dulces, chocolates, bolleria, etc.
+
+Las propiedades funcionales son: retencion de humedad o agua, formacion de volumen, texturizador, gelificante, espesante, estabilizante, mejora de textura en la boca, etc.
+
+La cantidad de ingesta dietetica de colesterol debe ser menor de 300 mg/dia, reduciendo al maximo ingesta de grasas trans, asi como mantener una cantidad de ingesta total de grasas entre el 20% y el 35% de calorias totales, y la mayoria de ellas debe proceder de AGPI y AGMI.
+
 ****** Alcohol (alcohol etilico)
 
 
