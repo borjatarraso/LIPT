@@ -1623,11 +1623,287 @@ Cantidades moderadas de alcohol etilico tienen efectos positivos sobre enfermeda
 
 ***** Aminoacidos y proteinas
 
+La estructura de las plantas esta formada principalmente por carbohidratos, mientras que la estructura corporal humana de los animales y humanos se basa en proteinas.
+
+Las moleculas difieren molecularmente de los carbohidratos y de los lipidos en que contienen nitrogeno.
+
+Las principales funciones de las proteinas en el cuerpo incluyen su papel como proteinas estructurales, enzimas, hormonas, proteinas de transporte e inmunoproteinas.
+
+Las proteinas estan basadas por aminoacidos unidos entre si por enlaces peptidicos. La secuencia de los aminoacidos determina la estructura y la funcion ultimas de la proteina y esta determinada por el codigo genetico almacenado en el nucleo celular en forma de ADN.
+
+La sintesis proteica es transportada hasta el reticulo endoplasmatico rugoso a traves del ARNm (ARN mensajero). Se sintetizan nuevas proteinas uniendo aminoacidos como senala el ARNm en una secuencia lineal precisa. Cuando se ha sintetizado la proteina, se desprende del ARNm y esta lista para ser utilizada o para el procesado posterior para su uso.
+
+El plegado adecuado de la cadena lineal completa de aminoacidos es esencial para que la proteina realice sus funciones propias. El plegado se realiza mediante enlaces de hidrogeno, enlaces ionicos e interacciones hidrofobas y de otro tipo entre los grupos R individuales de cada aminoacido. Esto permite que la proteina forme una estructura tridimensional precisa. Existen 4 niveles:
+
+  ==> Estructura primaria: se forman enlaces peptidicos entre aminoacidos secuenciales de acuerdo con las indicaciones del ARNm. La proteina es una cadena lineal de aminoacidos.
+
+  ==> Estructura secundaria: las fuerzas de atraccion entre los grupos R de los aminoacidos crean helices y estructuras de lamina plegada.
+
+  ==> Estructura terciaria: las helices y las laminas plegadas se pliegan en dominios compactos. Las proteinas pequenas tienen un dominio, las proteinas grandes tienen multiples dominios.
+
+  ==> Estructura cuaternaria: los polipeptidos individuales pueden actuar como subunidades en la formacion de montajes mas grandes y complejos. Las subunidades estan unidas entre si por numerosas interacciones debiles no cobalentes, a veces estan estabilizadas por puentes disulfuro.
+
+Todos los aminoacidos tienen la misma estructura general:
+
+
+  O     NH₂
+   \\   |
+    C - Cα - R (en el cual R es diferente para cada uno de ellos)
+   /    |
+  CH    H
+
 ****** Aminoacios esenciales
+
+La sintesis proteica precisa la presencia de todos los aminoacidos necesarios durante el proceso. Quimicamente los aminoacidos son acidos carboxilicos con un grupo amino unido al carbono α.
+
+El carbono α es un carbono quiral, y que se pueden formar isomeros. El isomero funcional en el cuerpo humano es el isomero L.
+
+Aminoacidos esenciales
+|----------------+-------------------------+-------------------------------------------------------------------------------------------------------------------|
+| Tipo funcional | Aminoacido              | Caracteristicas del aminoacido                                                                                    |
+|----------------+-------------------------+-------------------------------------------------------------------------------------------------------------------|
+| Alifaticos     | Glicina (Gly) G         | Pequeno grupo R (H) que permite curvas en horquilla en las cadenas peptidicas                                     |
+|----------------+-------------------------+-------------------------------------------------------------------------------------------------------------------|
+|                | Alanina (Ala) A         | Se puede desaminar a piruvato y se puede utilizar para la sintesis de glucosa                                     |
+|----------------+-------------------------+-------------------------------------------------------------------------------------------------------------------|
+|                | Valina (Val) V*         | Aminoacido de cadena ramificada, se metaboliza en el musculo                                                      |
+|----------------+-------------------------+-------------------------------------------------------------------------------------------------------------------|
+|                | Leucina (Leu) L*        | Aminoacido de cadena ramificada mas hidrofobo, metabolismo muscular                                               |
+|----------------+-------------------------+-------------------------------------------------------------------------------------------------------------------|
+|                | Isoleucina (Ile) I*     | El aminoacido de cadena ramificada mas hidrofobo, metabolismo muscular                                            |
+|----------------+-------------------------+-------------------------------------------------------------------------------------------------------------------|
+| Azufrados      | Cisteina (Cys) C**      | Esencial para la sintesis de glutation, sintesis reducida de enfermedades cronicas                                |
+|----------------+-------------------------+-------------------------------------------------------------------------------------------------------------------|
+|                | Metionina (Met) M*      | Se convierte en S-adenosilmetionina (SAM), el donante universal de grupos metilo y cisteina                       |
+|----------------+-------------------------+-------------------------------------------------------------------------------------------------------------------|
+| Hidroxilicos   | Serina (Ser) S          | Grupo hidroxilo fosforilado para activar e inactivar proteinas                                                    |
+|----------------+-------------------------+-------------------------------------------------------------------------------------------------------------------|
+|                | Treonina (Thr) T        | Tambien es un punto para la fosforilacion reguladora                                                              |
+|----------------+-------------------------+-------------------------------------------------------------------------------------------------------------------|
+| Aromaticos     | Fenilalanina (Phe) F*   | Se convierte en tirosina para la sintesis de noradrenalina, adrenalina y dopamina                                 |
+|----------------+-------------------------+-------------------------------------------------------------------------------------------------------------------|
+|                | Tirosina (Tyr) Y        | Se convierte en los neurotransmisores noradrenalina, adrenalina y dopamina                                        |
+|----------------+-------------------------+-------------------------------------------------------------------------------------------------------------------|
+|                | Triptofano (Trp) W*     | Se convierte en el neurotransmisor serotonina y en niacina                                                        |
+|----------------+-------------------------+-------------------------------------------------------------------------------------------------------------------|
+| Ciclicos       | Prolina (Pro) P*        | Permite una triple helice< la prolina del colageno se hidroxila para formar enlaces cruzados                      |
+|----------------+-------------------------+-------------------------------------------------------------------------------------------------------------------|
+| Basicos        | Lisina (Lys) K          | Punto para la ihdroxilacion de proteinas; hidrofobo; se utiliza para transduccion de senales                      |
+|----------------+-------------------------+-------------------------------------------------------------------------------------------------------------------|
+|                | Histidina (His) H**     | Hidrofilo, se une al cinc en proteinas de transduccion de senales                                                 |
+|----------------+-------------------------+-------------------------------------------------------------------------------------------------------------------|
+|                | Arginina (Arg) R        | Se forma en el ciclo de la urea< esencial para la sintesis de la via de transduccion de senales del oxido nitrico |
+|----------------+-------------------------+-------------------------------------------------------------------------------------------------------------------|
+| Acidicos       | Acido aspartico (Asp) D | Acepta un segundo nitrogeno para formar asparaginasa (Asn)                                                        |
+|----------------+-------------------------+-------------------------------------------------------------------------------------------------------------------|
+|                | Acido glutamico (Glu) E | Acepta un segundo nitrogeno para formar glutamina (Gln)                                                           |
+|----------------+-------------------------+-------------------------------------------------------------------------------------------------------------------|
+
+  *  Aminoacidos esenciales
+  ** Aminoacidos esenciales para lactantes o enfermedades cronicas
+
+  Glicina
+  -------
+
+    H
+
+  Alanina
+  -------
+
+    CH₃
+
+  Valina
+  ------
+
+        CH₃
+       /
+    - CH
+       \
+        CH₃
+
+  Leucina
+  -------
+
+             CH₃
+            /
+    - CH₂ - CH
+            \
+             CH₃
+
+  Isoleucina
+  ----------
+
+    - CH - CH₂ - CH₃
+           |
+           CH₃
+
+  Cisteina
+  --------
+
+    - CH₂ - SH
+
+  Metionina
+  ---------
+
+    - CH₂ - CH₂ - S - CH₂
+
+  Serina
+  ------
+
+    - CH₂ - OH
+
+  Treonina
+  --------
+
+    - CH₂ - OH - CH₃
+
+  Fenilalanina
+  ------------
+
+              -
+           //   \\
+    - CH₂ -
+           \  -  /
+              -
+
+  Tirosina
+  --------
+
+              -
+           //   \\
+    - CH₂ -        - OH
+           \  -  /
+              -
+
+  Triptofano
+  ----------
+
+           //\  / \\
+    - CH₂ -   ||    |
+           \ /  \ //
+            N
+            |
+            H
+
+  Prolina
+  -------
+
+    - CH₂
+         \
+           CH₂
+         /
+    - CH₂
+
+  Lisina
+  ------
+
+                           +
+    CH₂ - CH₂ - CH₂ - CH₂ - NH₃
+
+  Histidina
+  ---------
+
+           //    \
+    - CH₂ -        N - H
+           \     ±//
+              -  NH₃
+
+  Arginina
+  --------
+                            +
+                            NH₂
+                            ||
+    - CH₂ - CH₂ - CH₂ - NH - C - NH₂
+
+  Acido aspartico
+  ---------------
+
+               O
+             //
+    - CH₂ - C
+             \
+               O⁻
+
+  Acido glutamico
+  ---------------
+
+                    O
+                  //
+    - CH₂ - CH₂ - C
+                  \
+                    O⁻
+
+
+Muchos aminoacidos se pueden sintetizar a partir de esqueletos de carbono sintetizados como productos intermediarios en las principales vias metabolicas mediante un proceso denominado trasaminacion, que anade un grupo amino de otro aminoacido sin producir realmente un grupo amino libre. La transaminacion permite la sintesis de aminoacidos no esenciales a partir de productos intermediarios metabolicos a la vez que se utilizan grupos amino libres, de modo que no quedan para producir amoniaco toxico.
+
+Los aminoacidos esenciales tienen esqueletos de carbono que no pueden sintetizar los seres humanos (o en cantidad suficiente) y solo se pueden obtener mediante la dieta.
+
+Las proteinas pueden ser una fuente de energia, conteniendo mas de 5 kcal/g. Sin embargo este proceso elimina el grupo amino y la formacion y excrecion de la urea en un proceso que supone una desaminacion, conteniendo un coste metabolico de mas de 1 kcal/g. En estado de inanicion, las proteinas son la unica fuente disponible para la sintesis de novo de glucosa denominado gluconeogenia. El oxalacetato sale de las mitocondrias y se convierte en FEP (fosfoenolpiruvato). A partir del PEP se puede invertir la via glucolitica porque todas las enzimas, a excepcion de la fosfofructocinasa y la glucocinasa, son reversibles. Estas dos enzimas pueden ser revertidas por enzimas fosfatasas especificas cuando es necesario tener glucosa sanguinea.
+
+Los aminoacidos que producen esqueletos de carbono que se pueden convertir en glucosa se denominan aminoacidos glucogenicos. Todos los aminoacidos esenciales pueden generar glucosa a excepcion de la lisina y treonina, que dan lugar a cetonas y se utilizan para obtener energia, por lo que se conocen como aminoacidos cetogenicos.
+
+Un ser humano adulto y sano necesita 0.8 g de proteina por cada kg de peso corporal.
+
+Estimaciones de las necesidades de los aminoacidos
+|-----------------------+----------------------------------|
+| Aminoacido            | Necesidades mg/kg/dia en adultos |
+|-----------------------+----------------------------------|
+| Histidina             |                             8-12 |
+|-----------------------+----------------------------------|
+| Isoleucina            |                               10 |
+|-----------------------+----------------------------------|
+| Leucina               |                               14 |
+|-----------------------+----------------------------------|
+| Lisina                |                               12 |
+|-----------------------+----------------------------------|
+| Metionina+Cistina     |                               13 |
+|-----------------------+----------------------------------|
+| Fenilalanina+tirosina |                               14 |
+|-----------------------+----------------------------------|
+| Treonina              |                                7 |
+|-----------------------+----------------------------------|
+| Triptofano            |                              3.5 |
+|-----------------------+----------------------------------|
+| Valina                |                               10 |
+|-----------------------+----------------------------------|
+| Total sin histidina   |                               84 |
+|-----------------------+----------------------------------|
 
 ****** Calidad de las proteinas
 
+El valor biologico de una proteina se puede determinar comparando su perfil de aminoacidos esenciales con las necesidades humanas. El aminoacido esencial que aparece con menor concentracion en comparacion con la necesidad humana se le conoce como aminoacido limitante, a partir del cual se puede calcular una puntuacion quimica de la calidad de la proteina.
+
+Otra forma de medir la calidad de las proteinas es mediante UNP (Utilizacion de Proteinas) que consiste en determinar la cantidad de proteina que realmente se utiliza en el organismo. nitrogeno (gramos) * 6.25 = proteina (gramos). Se compara el nitrogeno de los cadaveres de dos grupos: uno alimentado con una dieta sin proteina y otro con ella. El valor obtenido varia aproximadamente desde 40 hasta 94.
+
+Se debe tener cuidado cuando se utilizan animales en estudios para determinar la cantidad de una proteina para los seres humanos. Por ejemplo, las proteinas de la soja originalmente recibieron una puntuacion baja de UNP cuando se estudiaron en ratas, hasta que se descubrio que la metionina, que es escasa en las proteinas de la soja, es un aminoacido limitante para las ratas. Las ratas necesitan aproximadamente un 50% mas de metiotina que los seres humanos. La OMS y la FDA, adaptaron una puntiacion de aminoacidos corregida por la digestibilidad de la proteina (PAACDP) como metodo oficial para evaluar la calidad de las proteinas en los seres humanos.
+
+Al desnaturalizar las proteinas (mediante calor humedo, marinados con vino o vinagre), mantienen su estructura tridimensional funcional mediante interacciones de hidrogeno e ionicas, los enlaces se debilitan en presencia de acido, sal y calor. Al desnaturalizar las proteinas, estos metodos con frecuencia ablandan los cartilagos y las proteinas del tejido conectivo y liberan las proteinas del musculo de sus uniones, haciendo que todas las proteinas esten mas disponibles para las enzimas digestivas.
+
+Las proteinas vegetales se digieren peor que las animales, en parte porque estan envueltas en paredes celulares de carbohidratos y son menos accesibles para las enzimas digestivas. Algunas plantas tambien contienen enzimas que interfieren con la digestion de las proteinas. Se deben pues desactivar estas enzimas antes de su consumo.
+
+Combinaciones de alimentos que aportan todos los aminoacidos esenciales
+|------------------------------+------------------------------------------|
+| Combinacion                  | Ejemplos                                 |
+|------------------------------+------------------------------------------|
+| Cereales y legumbes          | Arroz y alubias                          |
+|                              | Sopa de guisantes y pan tostado          |
+|                              | Curry de lentejas y arroz                |
+|------------------------------+------------------------------------------|
+| Cereales y productos lacteos | Pasta y queso                            |
+|                              | Arroz con leche                          |
+|                              | Sandwich de queso                        |
+|------------------------------+------------------------------------------|
+| Legumbres y semillas         | Garbanzos y semillas de sesamo;          |
+|                              | hummus en forma de salsa, falafel o sopa |
+|------------------------------+------------------------------------------|
+
+Otras combinaciones no son complementarias de forma eficaz.
+
 ****** Equilibrio nitrogenado
+
+Las regulaciones homeostaticas controlan las concentraciones de los distintos aminoacidos en el organismo y la velocidad a la que se sintetizan e hidrolizan las proteinas musculares y plasmaticas. Cada dia, se destruyen y reconstruyen cantidades similares de proteinas musculares.
+
+El nitrogeno en forma de amoniaco (NH₃) es muy toxico y atraviesa facilmente las membranas, por lo que no se puede permitir que viaje en forma libre por el cuerpo. En situacion posprandial el piruvato y otros esqueletos de carbono captan el nitrogeno (mediante transminacion) y lo transportan hasta el higado en forma de aminoacidos no esenciales, habitualmente alanina y acido glutamico (a partir de α-cetoglutarato). Cuando estos aminoacidos llegan al higado son desaminados o transaminados de nuevo para dar el esqueleto de carbono. Asi, cada molecula de urea que se forma se pueden excretar dos grupos amino que estaban en exceso.
 
 ***** Uso y almacenamiento de macronutrientes en situacion posprandial
 
