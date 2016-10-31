@@ -1907,7 +1907,16 @@ El nitrogeno en forma de amoniaco (NH₃) es muy toxico y atraviesa facilmente l
 
 ***** Uso y almacenamiento de macronutrientes en situacion posprandial
 
+El aumento de la concentracion de glucosa en la vena porta estimula la secrecion de insulina preformada por el pancreas. Un efecto de la insulina es su efecto sobre los transportadores de glucosa (GLUT4). Sin embargo, el higado es el primer organo que recibe la glucosa de la sangre portal, captando un 50% de la glucosa absorbida mediante transportadores no dependientes de insulina (GLUT2) e inmediatamente fosforiza la glucosa para dar glucosa-6-fosfato utilizando la enzima glucocinasa de elevada capacidad, reteniendo asi la glucosa en celulas hepaticas.
+
+La insulina tambien estimula la oxidacion de la glucosa. Tambien estimula la piruvato deshidrogenasa, que aumenta la glucolisis y la sintesis de acetil CoA en el higado y en el musculo, generando ATP. Si la ingesta de carbohidratos supera la capacidad oxidativa y de almacenamiento, las celulas pueden convertir los carbohidratos en grasas.
+
+El higado recibe grasa de numerosos origenes: residuos de quilomicrones, acidos grasos circulantes, captacion de lipoproteinas intermedias y otras lipoproteinas, y su propia sintesis endogena. El higado reesterifica (volver a formar un ester mediante la union de un acido y un alcohol o fenol) la grasa procedente de todas las fuentes y forma VLDL (lipoproteinas muy ricas en colesterol, pero todavia con demasiados trigliceridos).
+
+Despues de que la LPL haya escindido gran parte de los trigliceridos de las VLDL, el residuo restante se denomina lipoproteina de densidad intermedia (IDL).
+
 ***** Catabolismo de los macronutrientes en ayunas
+
 **** Micronutrientes
 ***** Vitaminas liposolubles
 
