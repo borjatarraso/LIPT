@@ -1930,6 +1930,22 @@ La adaptacion a la inanicion depende de la sintesis de cetonas. A medida que aum
 Una persona que se ha adaptado a la inanicion se minimizan las perdidas proteicas y se conserva la masa magra. Aunque la grasa no se puede convertir en glucosa, si proporciona combustible para el musculo y el encefalo en forma de cetonas. Mientras se disponga de agua, una persona normal puede ayunar un mes. Cuando se agotan los depositos de grasa se utilizan proteinas, y la muerte es la consecuencia ultima.
 
 **** Micronutrientes
+
+Las vitaminas se definen como micronutrientes esenciales que satisfacen:
+ 1. Compuestos organicos diferente a las grasas, carbohidratos y proteinas.
+ 2. Componentes naturales de los alimentos, presentes habitualmente en cantidades muy pequenas
+ 3. No sintetizados por el cuerpo en cantidades suficientes para satisfacer las necesidades fisiologicas normales
+ 4. Esenciales para una funcion fisiologica normal.
+ 5. Su ausencia o insuficiencia produce un sindrome especifico.
+
+Los vitameros son isomeros o analogos activos de las vitaminas, y existen 4 categorias:
+ 1. Estabilizadores de membrana.
+ 2. Donantes y aceptadores de atomos de hidrogeno (H⁺) y electrones.
+ 3. Hormonas.
+ 4. Coenzimas.
+
+Las vitaminas liposolubles se excretan generalmente por las heces mediante circulacion hepatica, mientras que las vitaminas hidrosolubles o sus metabolitos se excretan por la orina.
+
 ***** Vitaminas liposolubles
 
 ****** Vitamina A
