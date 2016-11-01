@@ -174,3 +174,32 @@
   Pronador: interior
   Supinador: exterior
   Neutro: equal
+
+* Stretching for runners
+  Quads (cuadriceps)
+  Harmstrings (isquitioibiales)
+  Calves (soleos)
+  Hip flexors (flexores de la cadera)
+  IT band (banda iliotibial)
+
+  Examples:
+  General: https://www.youtube.com/watch?v=X-lmBAPggQU
+  General: https://www.youtube.com/watch?v=hqgqy4HKN1M
+  IT Band: https://www.youtube.com/watch?v=xX0oavXmOWo
+  IT Bands and glutes: https://www.youtube.com/watch?v=mJBOwaoVBFw
+  Runners knee: https://www.youtube.com/watch?v=swsGvRSkrR8
+  Correr de manera correcta: https://www.youtube.com/watch?v=FXmUl7YGjf8
+
+* Trabajo de abdominales:
+  Dormir poco genera cortisol (hormona de estres) -> almacenamos mas grasa en el abdomen
+  Trabajo isometrico de planchas: https://www.youtube.com/watch?v=dWKh4_2znf4
+
+  20sec cycle:
+  Plank
+  L-Lateral plank
+  R-Lateral plank
+  Up plank (extend knees with alternate)
+  Frog
+  Next iteration with lateral or circular movements
+
+  Ejercicios globales y multiarticulares: sentadilla, peso muerto, dominada, remo con barra.
