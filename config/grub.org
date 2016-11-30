@@ -1,0 +1,13 @@
+* Grub configuration
+
+  To enable verbose mode edit the file /etc/default/grub and put this line like this:
+
+  GRUB_CMDLINE_LINUX_DEFAULT=
+
+  Then run:
+
+  update-grub
+
+  To put a splash screen in quite mode you can put it back like that:
+
+  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
