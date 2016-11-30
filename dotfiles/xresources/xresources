@@ -1,0 +1,6 @@
+xterm*font:-*-terminus-medium-r-normal-*-16-*-*-*-*-*-iso10646-*
+URxvt*font:-*-terminus-medium-r-normal-*-16-*-*-*-*-*-iso10646-*
+
+xterm*background: #181818
+xterm*foreground: #c0c0c0
+xterm*cursorColor: #93a1a1
