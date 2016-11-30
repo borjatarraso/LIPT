@@ -11,3 +11,17 @@ Put the xmobar in ~/.xmonad/xmobar
 If you want to change the aparence:
 
  use lxapparence
+
+To avoid issues with remaining window closed layout just remove gdm3:
+
+ apt-get remove gdm3
+
+And then restart. Next time you should not have issues.
+
+For putting some background install xloadimage:
+
+ apt-get install xloadimage
+
+And then put this into the .xinitrc before launching xmonad:
+
+ xloadimage -onroot -fullscreen -border black wallpaper/2.png &
