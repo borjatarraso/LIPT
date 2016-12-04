@@ -120,6 +120,25 @@ Move around the code:
 
 - Show current tasks on startup (org-agenda) : check in dotemacs
 
+- archive
+  - C-c C-x a   => toggle ARCHIVE tag
+  - C-c C-x C-a => archive in a file file.org_archive
+  - C-c C-x A   => archive in the current file with the tag ARCHIVE
+  - C-TAB       => unfold ARCHIVE
+  - C-c C-w     => unarchive (org-refile) a task from a file.org_archive to file.org
+  - M-x customize-group RET org (check how to refile automatically for the prev command)
+    M-x customize-apropos RET org-refile RET
+
+
+<xk05> i think the easiest way would be to use completion               [11:45]
+<xk05> so when the completion stops on the first filename (without the
+       _archive) there you are
+<xk05> so you may want org-refile to look in your current working directory
+       for a target first, that way you have a better chance of getting that
+       completion behavior
+<xk05> if so, refile defaulting to completing targets in the current directory
+       may put your desired filename first on the list
+
 ** emacs-server
 - Processes
  - emacs --daemon => opens a server

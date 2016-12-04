@@ -2,10 +2,11 @@
 #+BEGIN_COMMENT’        LIPT TASKS ORG MODE FILE        ‘#+END_COMMENT
 #+BEGIN_COMMENT’        ========================        ‘#+END_COMMENT
 
-* [#A] Inmediate tasks (Within 1-2 weeks) [4%]
- - [ ] basic shortcuts org
- - [ ] archive in org
- - [ ] unarchive in org
+* [#A] Inmediate tasks (Within 1-2 weeks) [31%]
+ - [X] basic shortcuts org
+ - [X] Configure tilda
+ - [X] archive in org
+ - [X] unarchive in org
  - [ ] basic libvirt commands (net add, list, host add, list, xmls)
  - [ ] uvtool
  - [ ] basic docker (new, remove, respawn, shell in docker, dependencies
@@ -16,8 +17,8 @@
  - [ ] add timetable food combining: beta-alanine, creatine, protein whey, electrolytes, iron
  - [ ] combine basic timetable sport with supplements
  - [ ] proper track of sleep time
- - [ ] check houses on 5th of Dec
- - [ ] SIM check spain
+ - [X] check houses on 5th of Dec
+ - [X] SIM check spain
  - [ ] train ticket from Seville to Madrid on 5th Jan
  - [ ] confirm car from Madrid-Valencia on 16th of Dec
  - [ ] Present for Miguel
