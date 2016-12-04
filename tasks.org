@@ -2,18 +2,18 @@
 #+BEGIN_COMMENT’        LIPT TASKS ORG MODE FILE        ‘#+END_COMMENT
 #+BEGIN_COMMENT’        ========================        ‘#+END_COMMENT
 
-* [#A] Inmediate tasks (Within 1-2 weeks) [31%]
+* [#A] Inmediate tasks (Within 1-2 weeks) [36%]
  - [X] basic shortcuts org
  - [X] Configure tilda
  - [X] archive in org
  - [X] unarchive in org
+ - [X] pip usage basics
+ - [ ] basic docker (new, remove, respawn, shell in docker, dependencies
  - [ ] basic libvirt commands (net add, list, host add, list, xmls)
  - [ ] uvtool
- - [ ] basic docker (new, remove, respawn, shell in docker, dependencies
- - [ ] pip usage basics
- - [X] robot framework from scratch and python libs
  - [ ] start with gnucash basics
  - [ ] request ASP bank
+ - [X] robot framework from scratch and python libs
  - [ ] add timetable food combining: beta-alanine, creatine, protein whey, electrolytes, iron
  - [ ] combine basic timetable sport with supplements
  - [ ] proper track of sleep time

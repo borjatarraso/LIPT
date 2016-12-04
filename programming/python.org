@@ -5331,3 +5331,24 @@ sometimes you'll be working with a derived class (or subclass) and realize that 
   - http://web.archive.org/web/20100808125507/http://cse.ucdavis.edu/~chaos/courses/nlp/Software/PythonProgramming.html
   - http://www.ling.gu.se/~lager/python_exercises.html
   - http://codingbat.com/python
+* Using pip
+
+  pip is a tool to install python packages.
+
+  List packages in pip:
+
+  pip list
+
+  Install and uninstall packages in pip:
+
+  pip install <package>
+  pip uninstall <package>
+
+  Show information about installed packages:
+
+  pip show <package>
+
+
+  To search for a package:
+
+  pip search <query>
