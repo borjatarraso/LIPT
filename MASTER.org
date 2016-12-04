@@ -30,6 +30,7 @@ files, which has been split to avoid massive unrelated content.
     - C          file:programming/c.org
     - C++        file:programming/cpp.org
     - Python     file:programming/python.org
+    - Testing    file:programming/test.org
     - Method     file:programming/methodologies.org
     - Code style file:programming/code_style.org
   - Configs      file:config/
