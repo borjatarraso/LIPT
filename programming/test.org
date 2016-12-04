@@ -1,0 +1,138 @@
+* Test automation with robot framework
+
+** Why use robot-framework
+
+Robot framework is an ATDD (Acceptance Test Driven Development), which means allows you to adopt the requirement as a keyword of the test case. A sentence can be considered a keyword or a name of the function. A keyword could call obviously other keywords, leaving different levels of abstraction.
+
+In case a keyword is not implemented in the current robot library, it is always possible to call raw commands using Execute Command keyword, and expecting some output or return value, giving the whole shell power. Also it is possible to write a new library in python to abstract this level, and including new keywords by using it as a Resource.
+
+A nice way of writing a test case would be using some syntax called "Given-When-Then". This means, we can write a requirement using 3 sentences following this syntax such as:
+
+  Given some precondition
+  When some event occur
+  Then expect some behavior
+
+If more than one precondition, event or expect is needed, this can use the "And" connector:
+
+  Given some precondition
+  And some other precondition
+  When some event occur
+  Then expect some behavior
+
+The words, Given, When, Then and And will be ignored by robot framework, and they are only included for readability purposes for the user.
+
+** Set up of robot-framework
+
+  apt-get install pip
+  pip install robotframework
+
+** Hello World library in robot
+
+  #+BEGIN_SRC robot
+  *** Settings ***
+  Library         HelloWorld.py
+
+  *** Test Cases ***
+  HelloWorld
+     Hello World
+  #+END_SRC
+
+Create this file
+
+** Run robot
+
+  pybot test.robot
+  OR
+  robot test2.robot
+
+** Installing additional libraries
+
+  pip install robotframework-selenium2library
+
+  Other libraries can be found here:
+  http://robotframework.org/#test-libraries
+
+
+** Testing some selenium library
+
+  First be sure you have downloaded the latest geckodriver:
+
+  https://github.com/mozilla/geckodriver/releases
+  http://stackoverflow.com/questions/40208051/selenium-using-python-geckodriver-executable-needs-to-be-in-path
+
+  And put it in /usr/local/bin
+
+  Create a file called test3.robot
+
+  #+BEGIN_SRC robot
+  *** Settings ***
+  Documentation     An example resource file
+  Library           Selenium2Library
+  Resource          ${RESOURCES}/common.robot
+
+  *** Variables ***
+  ${HOST}           www.gmail.com:80
+  ${LOGIN URL}      http://${HOST}/
+  ${WELCOME URL}    http://${HOST}/welcome.html
+  ${BROWSER}        Firefox
+
+  *** Keywords ***
+  Open Login Page
+      [Documentation]    Opens browser to login page
+      Open Browser    ${LOGIN URL}    ${BROWSER}
+      Title Should Be    Gmail
+
+  Input Name
+      [Arguments]    ${name}
+      Input Text    Email    ${name}
+      Click Button  Next
+      Wait Until Element Is Enabled  Passwd
+
+  Input Password
+      [Arguments]    ${password}
+      Input Text    Passwd    ${password}
+      Click Button  id=signIn
+      #Wait Until Element Is Enabled  'aj9 pp'
+      Sleep  5
+
+  User has access to his emails
+      Page Should Contain   Recibidos
+      #Page Should Contain   css=span.gb_4.gbii
+
+  Log Out Page
+      #Click Element  id="gb_uc gb_hb gb_Cf gb_R"
+      #Sleep  3
+      #Click Button   gb_71
+      #Sleep  3
+      Close Browser
+
+  *** Test Cases ***
+  A user can login to Gmail service
+    [Tags]  nocritical
+    Given Open Login Page
+    When Input Name  ${user}
+    And Input Password  ${pass}
+    Then User has access to his emails
+    [Teardown]  Log Out Page
+  #+END_SRC robot
+
+  Create a file called resources/common.robot
+
+  #+BEGIN_SRC robot
+  # Here you can put the common keywords and variables When needed
+
+  *** Variables ***
+  ${name}       foo
+  ${password}   bar
+  #+END_SRC robot
+
+  Pass the resource variable through command line:
+
+  For a complete set of keywords check at:
+  http://robotframework.org/Selenium2Library/Selenium2Library.html
+
+  With firefox just press "Right button" and look at "Inspect element", click on the element you want to hack, check the id and use it as a locator.
+
+  Call the test passing the resource variable like this (any additional variables can be pass in the same way):
+
+  robot --variable RESOURCES:resources/ test3.robot

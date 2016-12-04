@@ -2,7 +2,40 @@
 #+BEGIN_COMMENT’        LIPT TASKS ORG MODE FILE        ‘#+END_COMMENT
 #+BEGIN_COMMENT’        ========================        ‘#+END_COMMENT
 
-* [#A] Main tasks [44%]
+* [#A] Inmediate tasks (Within 1-2 weeks) [4%]
+ - [ ] basic shortcuts org
+ - [ ] archive in org
+ - [ ] unarchive in org
+ - [ ] basic libvirt commands (net add, list, host add, list, xmls)
+ - [ ] uvtool
+ - [ ] basic docker (new, remove, respawn, shell in docker, dependencies
+ - [ ] pip usage basics
+ - [X] robot framework from scratch and python libs
+ - [ ] start with gnucash basics
+ - [ ] request ASP bank
+ - [ ] add timetable food combining: beta-alanine, creatine, protein whey, electrolytes, iron
+ - [ ] combine basic timetable sport with supplements
+ - [ ] proper track of sleep time
+ - [ ] check houses on 5th of Dec
+ - [ ] SIM check spain
+ - [ ] train ticket from Seville to Madrid on 5th Jan
+ - [ ] confirm car from Madrid-Valencia on 16th of Dec
+ - [ ] Present for Miguel
+ - [ ] Call Ozz
+ - [ ] Check org babel languages in:
+       http://orgmode.org/manual/Working-With-Source-Code.html
+       http://orgmode.org/worg/org-contrib/babel/languages.html
+ - [ ] Add support for robot in babel library for org-mode
+* [#B] Backlog
+ - [ ] c++ ide
+ - [ ] muscles study
+ - [ ] autobackup with sync
+ - [ ] clean emails
+ - [ ] Develop some robot library with python
+ - [ ] Check async keywords in robot:
+       http://hereberobots.blogspot.fi/2010/10/implementing-asynchronous-robot.html
+
+* [#A] Unmature tasks [44%]
   SCHEDULED: <2016-02-20 Sat> DEADLINE: <2016-03-12 Sat>
  - [X] Port org files to github
  - [X] Port shoutwiki to org files
