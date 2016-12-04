@@ -70,39 +70,53 @@ Move around the code:
 
 ** org-mode
 - Tree visibility
- - TAB                => cycle tree
- - (org-global-cycle) => org global cycle
+  - TAB                => cycle tree
+  - (org-global-cycle) => org global cycle
+
+- add entries
+  - C-RET         => add new heading tree
+  - Alt-RET       => add new subentry
+  - C-shift-RET   => add new heading todo tree
+  - Alt-shift-RET => add new task todo subentry
+
+- promote and demote
+  - Alt-left  => promote
+  - Alt-right => demote
+  - Alt-shift-left  => promote tree
+  - Alt-shift-right => demote tree
+  - Alt-shift-up    => move subtree up
+  - Alt-shift-down  => move subtree down
 
 - set tasks
- - C-c C-d  => set deadline
- - C-c C-s  => set schedule
- - C-c C-c  => to close a simple task
- - C-c C-t  => to close a full set of tasks
+  - C-c C-d  => set deadline
+  - C-c C-s  => set schedule
+  - C-c C-c  => to close a simple task
+  - C-c C-t  => to close a full set of tasks
 
 - show tasks
- - TAB          => expand one task into subtasks
- - Shift + TAB  => expand all subtree (if multiple times expands more)
+  - TAB          => expand one task into subtasks
+  - Shift + TAB  => expand all subtree (if multiple times expands more)
 
 - set priorities
- - C-c , +  => increase prio
- - C-c , -  => decrease prio
+  - C-c , +  => increase prio
+  - C-c , -  => decrease prio
 
 - set tags
- - C-c C-q  => set a tag
+  - C-c C-q  => set a tag
 
 - show agenda
- - C-c a a => agenda todo for current day/week
- - C-c a t => agenda todo for all the tasks
- - C-c a L => agenda todo for the current buffer
- - C-c a m => agenda todo for specific tag
- - C-c a s => agenda todo for specific search
+  - C-c a a => agenda todo for current day/week
+  - C-c a t => agenda todo for all the tasks
+  - C-c a L => agenda todo for the current buffer
+  - C-c a m => agenda todo for specific tag
+  - C-c a s => agenda todo for specific search
 
 - ORG+check
- - C-c / d  => Check deadlines
- - C-c / b  => Check schedules and deadlines
- - C-c / a  => Check deadlines after date
+  - C-c / d  => Check deadlines
+  - C-c / b  => Check schedules and deadlines
+  - C-c / a  => Check deadlines after date
 
- - Return to original view  => "q" or just Shift+TAB until view is ok
+  - Return to original view  => "q" or just Shift+TAB until view is ok
 
 - Show current tasks on startup (org-agenda) : check in dotemacs
 
