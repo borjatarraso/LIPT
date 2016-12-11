@@ -1,0 +1,14 @@
+* Emergency recovery when the system is broken
+  I ended up in changing the root shell, but I put some wrong shell path by mistake. The normal user in my system has no sudoers privileges, meaning from a normal user I can't run su or sudo. Being able to login as a normal user, but not as an admin. After the first reboot I realised everything is screw up.
+
+  So I am able to use the system, but not update, upgrade or configure anything. This is bad. The harddrive was also encrypted, so additional commands are required in order to mount the system. What i did:
+
+  1. When boot prompt is shown, press "e"
+  2. Edit the entry from the linux kernel image and remove any "ro" (read-only)
+  3. At the end of that line add an usable shell like: init=/bin/bash
+  4. Press control+x to boot the system
+  5. Once you are in the shell logged in, we need to remount the system, as it is still protected:
+     mount -o rw,remount /
+  6. Edit the /etc/passwd and change the shell to /bin/bash
+  7. Save, exit and reboot the system. On the next boot everything should be ok. If reboot does not work, just press once Control+Alt+Supr
+  8. Profit $
