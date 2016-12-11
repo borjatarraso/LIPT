@@ -218,3 +218,12 @@ More advanced info:
   t         -> show time
   l         -> loop type
   a         -> aspect ratio
+** mu4e
+- Install mu4e
+  Check the dotfiles/emacs/emacs and remember to install:
+  https://www.blackhats.es/wordpress/?p=630
+
+- Meaning of email flags:
+  A -> attached file
+  ? -> marked email
+  R -> Replied
