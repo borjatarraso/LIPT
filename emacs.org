@@ -170,3 +170,51 @@ Push and pull:
 
 More advanced info:
     http://daemianmack.com/magit-cheatsheet.html
+
+** W3M
+- Starting
+  M-x w3m                     -> start w3m
+  M-x w3m-lnum-mode <RET> f   -> goto the link
+  g                           -> search in google
+
+- Motion
+  TAB     -> next anchor
+  C-u TAB -> prev anchor
+
+- Tabs
+  C-c C-n -> next tab
+  C-c C-p -> prev tab
+  d       -> close tab
+  C-c C-k -> delete tab (sometimes C-k could work, but can interfere with other buffers)
+  C-c C-e -> new tab
+  C-c C-c -> submit form
+
+- History
+  "<-" -> move to the prev page in the history
+  "->" -> move to the next page in the history
+  s    -> show history
+
+- Bookmarks
+  a   -> save bookmark
+  v   -> view bookmarks in same session
+  V   -> view bookmarks in a new session
+
+- Saving
+  M-i -> save image
+  M-d -> save page
+
+
+- Editing
+  c   -> editing text in order to select for example
+
+- Advanced
+  F9 y      -> watch video or open file with cvlc
+  C-g C-g   -> cancel video
+  C-<up>    -> increase vol
+  C-<down>  -> decrease vol
+  C-<left>  -> backward video
+  C-<right> -> forward video
+  SPACE     -> pause video
+  t         -> show time
+  l         -> loop type
+  a         -> aspect ratio
