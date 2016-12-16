@@ -1,0 +1,84 @@
+* Install docker
+
+  1. Add docker, libvirtd and kvm to user group
+
+     sudo usermod -aG docker ebortar
+     sudo usermod -aG libvirtd ebortar
+     sudo usermod -aG kvm ebortar
+
+  2. Re-login or just su to source the new group configuration:
+
+     su ebortar
+
+  3. Verify our user is included in the new group:
+
+     id
+
+  4. Install docker:
+
+     sudo pacman -S docker
+
+   5. Start docker daemon and verify:
+
+     sudo systemctl start docker
+     sudo systemctl status docker
+
+   7. Install vagrant plugin (only first time):
+
+     vagrant plugin install vagrant-proxyconf
+
+     # This will spawn a docker container where ECAS can be build, etc.
+     vagrant up
+
+  11. Run the vagrant provision
+
+     # This will install the dependencies needed to build ECAS, etc.
+     vagrant provision
+
+  12. Verify the container status
+
+     vagrant status
+
+  13. SSH to the docker container:
+
+     vagrant ssh
+
+  14. Build ubuntu image inside vagrant directory (where it is located the repository)
+
+     cd /vagrant/build
+     make
+     # Or running from outside
+     vagrant ssh -c "cd /vagrant/build && make"
+
+* Debugging docker
+
+     At the same time, if you would like to see what's going on, you can connect through vncviewer:
+     vncviewer
+     172.17.0.2:5947
+
+     in fact:
+
+     ps -ef | grep vagrant
+     ssh -X vagrant@ip_get_from_previous_command (with vagrant password)
+     vncviewer localhost:5987
+
+
+   XX. Run the tests
+       make -f test/test.mk robot-test
+
+* Docker troubleshooting
+
+Troubleshooting (remove images):
+    docker images
+    docker rmi -f <containerid>
+
+    docker rmi -f $(docker images -a -q)
+
+Troubleshooting (remove containers):
+    docker stop $(docker ps -a -q)
+    docker rm $(docker ps -a -q)
+
+Script clean up docker:
+    docker stop $(docker ps -a -q)
+    docker rm $(docker ps -a -q)
+    docker rmi -f $(docker images -a -q)
