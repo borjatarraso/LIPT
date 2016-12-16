@@ -1,0 +1,23 @@
+* SSH tunneling
+
+  ssh -L<PORT>:localhost:<PORT> FE_IP
+  ssh -L 8080:localhost:8080 user@192.168.30.111
+  ssh -L 8443:localhost:8443 user@192.168.30.111
+
+Copy the certificate from VM to local computer:
+
+  scp user@192.168.30.111:/folder/certificate.p12 .
+
+Import the certificate and set the password:
+
+  Preferences -> Advance -> Certificates -> View certificates -> Import -> import the p12 pass
+
+Check admin web by accessing:
+
+https://localhost:8443/adminfolder/
+
+* Extra sshpass
+
+  sshpass ssh-copy-id
+  ssh sudo ../etc/sudoeres.d/NOPASSWD
+  ssh sudo ...
