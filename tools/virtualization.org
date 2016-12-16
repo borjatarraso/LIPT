@@ -150,3 +150,65 @@
 
   ebortar@negro:~/CI$ virsh start projecthd1
   Domain projecthd1 started
+* uvtool
+
+  To start using uvtool these two packages (at least) are needed:
+
+    - uvtool
+    - uvtool-libvirt
+
+  To install uvtool just run:
+
+    apt -y install uvtool
+
+  Get the Ubuntu cloud images:
+
+    uvt-simplestreams-libvirt sync arch=amd64
+
+  List the Ubuntu set of images download:
+
+    uvt-simplestreams-libvirt query
+
+  In case you want to sync one specific cloud image:
+
+    uvt-simplestreams-libvirt sync release=xenial arch=amd64
+
+  You can also specify some desired version setting the release variable, for example release=xenial
+
+  In order to connect to the vm once it has been created, you must have a valid ssh key. For that you can use the command
+
+    ssh-keygen
+
+  Create the VM
+
+    uvt-kvm create firsttest
+    uvt-kvm create secondtest
+
+  Connect to the VM
+
+    uvt-kvm ssh firsttest --insecure
+
+  Also you can wait for the VM
+
+    uvt-kvm wait firsttest --insecure
+
+  To retrieve the ip from the vm, just run:
+
+    uvt-kvm ip secondtest
+
+  To list the VMs:
+
+    uvt-kvm list
+
+  To destroy yuor VM:
+
+    uvt-kvm destroy secondtest
+
+  Specify some characteristics:
+
+    --memory: amount on RAM in mb (default 512)
+    --disk: size of the OS disk (default 8)
+    --cpu: number of CPU cores (default 1)
+    --password <pass>: allow login using the pass
+    --run-script-once <file>: run script as root for time vm is booted
+    --packages <package_list>: install the comma separated packages specified
