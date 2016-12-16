@@ -1,0 +1,5 @@
+* Changed documents between two versions
+
+$ git diff PROJECT-2.3_RC6..HEAD doc/*
+
+$ git diff PROJECT-2.4_RC4..HEAD *.adoc|grep "+++ " |cut -d'/' -f3
