@@ -1,0 +1,72 @@
+* Ip routing extra info problems with routes
+
+  "ip route show tables all"
+
+  ---
+
+  A) ip route 10.10.20.0 255.255.255.0 192.168.100.1
+              ^          ^             ^
+              |          |             |
+              |          |             nh
+              |          subnet prefix mask dest
+              dest net prefix
+  ---
+  A) ip route 10.10.20.0 255.255.255.0 Serial 0/0
+              ^          ^             ^
+              |          |             |
+              |          |             interface
+              |          subnet prefix mask dest
+              dest net prefix
+  ---
+  B) no ip route 10.10.20.0 255.255.255.0
+                 ^          ^
+                 |          |
+                 |          |
+                 |          subnet prefix mask dest
+                 dest net prefix
+  ----
+  Colision domain: 2 devices trying to transmit in the same wire
+  Qdiscs: classless queue display
+  Network segment: network split in segments
+
+      Bridge
+     /      \
+  network   network
+  segment1  segment2
+  (subnetworks)
+  but in this
+  case without
+  need subnetting
+
+     Router
+    /     \
+ network1 network2
+
+  --
+  BVI
+
+  eth1
+  ----------
+         -----  --- vlan1
+                --- vlan2
+  ----------    --- vlan3
+
+  eth2
+
+  ----
+
+  vconfig add eth1 100
+  vconfig add eth1 101
+
+  ifconfig eth1.100 10.0.100.2 netmask 255.255.255.0
+  ifconfig eth1.101 192.168.100.2 netmask 255.255.255.0
+
+  ip route add 10.0.100.0/24 dev eth1.101
+  ip route add 192.168.100.0/24 dev eth1.100
+
+  tcpdump -vvv -i eth1.101
+
+  ping 192.168.100.2 -I eth1.100 -c 1
+
+  show arp
+  show ip route
