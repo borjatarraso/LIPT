@@ -1,0 +1,152 @@
+* libvirt (virt-install and virsh)
+
+  Provision new VMs:
+
+    virt-install \
+    --name project \
+    --ram 3072 \
+    --disk path=vm.img,size=10 \
+    --network network=default \
+    --graphics none \
+    --os-type linux \
+    --vcpus 2 \
+    --location http://archive.ubuntu.com/ubuntu/dists/trusty/main/installer-amd64/ \
+    --extra-args 'console=ttyS0'
+
+  Destroy a domain (they are call like that in virsh):
+
+    sudo virsh destroy 10
+
+  Connect to the VNC server available to see what's going on:
+
+    vncviewer localhost:5900
+
+  Dump the configuration for a domain:
+
+    sudo virsh dumpxml 10
+
+  List the VMS:
+
+    virsh list
+
+  Connect to the console:
+
+    virsh console PROJECT1
+
+  Connect by ssh:
+
+    # Current IP addresses are: 192.168.30.10, 192.168.30.11, 192.168.30.111 and 192.168.30.112
+    ssh ebortar@<IP-ADDRESS>
+
+  Start VM:
+
+    sudo virsh start <DOMAIN>
+
+  Stop VM:
+
+    sudo virsh shutdown <DOMAIN>
+
+* Create a host bridge using virsh
+
+  Create a Host Bridge Using virsh:
+
+    virsh iface-bridge eth0 br0
+
+  Documentation: http://wiki.libvirt.org/page/Unable_to_add_bridge_br0_port_vnet0:_No_such_device
+
+
+  # Informational commands
+  # List networks
+  virsh net-list
+  # List domains
+  virsh list
+
+  # Define a domain from an XML file
+  virsh net-define xml1
+
+  # Start a inactive the network
+  virsh net-start net1
+
+  # Create a domain for an XML
+  virsh create projecthd1
+
+  # Start, run, test, shutdown
+
+  # Destroy a domain
+  virsh destroy vminstance
+
+  # Destroy a virtual network by its name or UUID
+  virsh net-destroy net1
+
+  # Undefine a domain
+  virsh undefine vminstance
+
+  # Undefine the configuration from an inactive network
+  virsh net-undefine net1
+
+  # Run the virsh console
+  virsh
+
+  # Use the TAB
+  # virsh # net-
+  net-autostart  net-define     net-dumpxml    net-event      net-list       net-start      net-update
+  net-create     net-destroy    net-edit       net-info       net-name       net-undefine   net-uuid
+
+  # Edit the network
+  virsh # net-edit default
+  Network default XML configuration edited.
+
+  # Destroy the network
+  virsh # net-destroy default
+  Network default destroyed
+
+  # Dump the network configuration
+  virsh # net-dumpxml default
+  <network>
+    <name>default</name>
+    <uuid>dd184b43-0523-479d-8124-89277fafd3a8</uuid>
+    <forward mode='nat'/>
+    <bridge name='virbr0' stp='on' delay='0'/>
+    <mac address='52:54:00:9a:a0:f2'/>
+    <ip address='192.168.30.1' netmask='255.255.255.0'>
+      <dhcp>
+        <range start='192.168.30.2' end='192.168.30.254'/>
+      </dhcp>
+    </ip>
+  </network>
+
+  # Start the network
+  virsh # net-start default
+  Network default started
+
+  # Exit the virsh console
+  virsh # quit
+
+  # Check connectivity
+  ebortar@negro:~/CI$ ping 192.168.30.1
+  PING 192.168.30.1 (192.168.30.1) 56(84) bytes of data.
+  64 bytes from 192.168.30.1: icmp_seq=1 ttl=64 time=0.059 ms
+  64 bytes from 192.168.30.1: icmp_seq=2 ttl=64 time=0.062 ms
+  ^C
+  --- 192.168.30.1 ping statistics ---
+  2 packets transmitted, 2 received, 0% packet loss, time 999ms
+  rtt min/avg/max/mdev = 0.059/0.060/0.062/0.007 ms
+  ebortar@negro:~/CI$ virsh list
+   Id    Name                           State
+  ----------------------------------------------------
+   73    projecthd1                     running
+   74    projecthd2                     running
+
+  # Stop the VM
+  ebortar@negro:~/CI$ virsh shutdown projecthd1
+  Domain projecthd1 is being shutdown
+
+  ebortar@negro:~/CI$ virsh shutdown projecthd2
+  Domain projecthd2 is being shutdown
+
+  # Start the VM
+  ebortar@negro:~/CI$ virsh start projecthd2
+  Domain projecthd2 started
+
+  ebortar@negro:~/CI$ virsh start projecthd1
+  Domain projecthd1 started
