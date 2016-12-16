@@ -1,0 +1,13 @@
+* Harddrive checks: lshw, blkid, lsblk
+
+  lshw -class disk
+  blkid /dev/vdb
+  lsblk /dev/vdb
+
+
+
+* Ceph, rbd and virsh
+
+https://software.intel.com/en-us/blogs/2013/10/25/measure-ceph-rbd-performance-in-a-quantitative-way-part-i
+https://software.intel.com/en-us/blogs/2013/11/20/measure-ceph-rbd-performance-in-a-quantitative-way-part-ii
+https://wiki.mikejung.biz/Ceph
