@@ -1,0 +1,3 @@
+* DD command
+  other commands:
+  sudo dd=import.iso of=/dev/sdb
