@@ -2,27 +2,27 @@
 #+BEGIN_COMMENT’        LIPT TASKS ORG MODE FILE        ‘#+END_COMMENT
 #+BEGIN_COMMENT’        ========================        ‘#+END_COMMENT
 
-* [#A] Inmediate tasks (Within 1-2 weeks) [36%]
+* [#A] Inmediate tasks (Within 1-2 weeks) [77%]
  - [X] basic shortcuts org
  - [X] Configure tilda
  - [X] archive in org
  - [X] unarchive in org
  - [X] pip usage basics
- - [ ] basic docker (new, remove, respawn, shell in docker, dependencies
- - [ ] basic libvirt commands (net add, list, host add, list, xmls)
- - [ ] uvtool
- - [ ] start with gnucash basics
- - [ ] request ASP bank
+ - [X] basic docker (new, remove, respawn, shell in docker, dependencies
+ - [X] basic libvirt commands (net add, list, host add, list, xmls)
+ - [X] uvtool
+ - [X] start with gnucash basics
+ - [X] request ASP bank
  - [X] robot framework from scratch and python libs
  - [ ] add timetable food combining: beta-alanine, creatine, protein whey, electrolytes, iron
  - [ ] combine basic timetable sport with supplements
  - [ ] proper track of sleep time
  - [X] check houses on 5th of Dec
  - [X] SIM check spain
- - [ ] train ticket from Seville to Madrid on 5th Jan
- - [ ] confirm car from Madrid-Valencia on 16th of Dec
- - [ ] Present for Miguel
- - [ ] Call Ozz
+ - [X] train ticket from Seville to Madrid on 5th Jan
+ - [X] confirm car from Madrid-Valencia on 16th of Dec
+ - [X] Present for Miguel
+ - [X] Call Ozz
  - [ ] Check org babel languages in:
        http://orgmode.org/manual/Working-With-Source-Code.html
        http://orgmode.org/worg/org-contrib/babel/languages.html
