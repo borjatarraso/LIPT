@@ -17,6 +17,7 @@ files, which has been split to avoid massive unrelated content.
   - Books        file:books.org
   - Applications file:applications.org
   - Recipes      file:recipes.org
+  - Finance      file:finance.org
   - Emacs        file:emacs.org
   - Git          file:git.org
   - Security     file:security/

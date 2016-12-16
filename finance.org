@@ -1,0 +1,43 @@
+* Concepts:
+ - Myyntiesite (general info?) [what you should have]
+ - Isannoitsijantodistus (the whole info?) [the loan]
+
+ - Management fee
+ - Shelter limit (roof and bottom)
+   - Changes in the differential (basis points)
+
+ - Valtiontakaus
+ - ASP
+ - Own companies (linked to the bank)
+
+ - Interest rates: own, euribor, others
+ - marginal
+ - loan time
+ - loan quantity %
+ - loan money limit for the payment
+
+ - tarjouskauppa (bid system)
+
+ - oikiotie
+   -> talsiku (to check renovations)
+
+ - Penalties to advance in the loan
+   -> partial payments
+   -> full payments
+
+ - kauppakiria (sales document, agreement conditions)
+ - isa... (details of the apartment, copy of the contract)
+ - Renovations book
+
+ - Raho... month
+ - Yhtio... maintenance
+
+*
+  - Management fee (admin)
+  - capital gainst tax (vero)
+  - subscription fee (in $)
+  - redemption fee (out $)
+  - bonos (fixed market)
+  - index founds vs management founds -> variable or mixed
+  - MSCI USA -> index
+  - PDF prospectus
