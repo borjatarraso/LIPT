@@ -1,0 +1,31 @@
+
+* nmcli
+
+  Afrt connection edit type ethernet
+  ls /sys/devices/virtual/net/st1_l/
+  https://www.mankier.com/5/nm-settings
+  https://www.mankier.com/5/nmcli-examples
+  https://fedoraproject.org/wiki/Networking/CLI
+  http://chris.beams.io/posts/git-commit/
+
+ 2000  nmcli
+ 2001  nmcli help
+ 2002  nmcli general status
+ 2003  nmcli connection show active
+ 2004  nmcli connection show active list
+ 2005  nmcli connection show list
+ 2006  nmcli device status
+ 2007  goto st2_l
+ 2008  nmcli connection edit st2_l
+ 2009  nmcli connection list
+ 2010  nmcli device help
+ 2011  nmcli device list
+ 2012  nmcli dev list iface st1_l
+ 2013  nmcli device wifi list
+ 2014  nmcli connection edit type ethernet
+ 2015  nmcli connection list
+ 2016  nmcli dev list
+ 2017  nmcli dev list iface st1_l
+ 2018  nmcli dev list
+ 2019  nmcli dev list iface st1_l
+ 2020  history
