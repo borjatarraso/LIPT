@@ -1,0 +1,4 @@
+* Ansible generate random passwords
+  Reference: http://docs.ansible.com/ansible/playbooks_lookups.html
+  Working with vault: https://gist.github.com/tristanfisher/e5a306144a637dc739e7
+  Examples:
