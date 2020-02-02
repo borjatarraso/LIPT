@@ -1,0 +1,498 @@
+#+BEGIN_COMMENT’              ===================               ‘#+END_COMMENT
+#+BEGIN_COMMENT’                    FASTING                     ‘#+END_COMMENT
+#+BEGIN_COMMENT’              ===================               ‘#+END_COMMENT
+
+* Intro
+
+In September 2015, I set out on a 21 day fast with only water, kombucha, and bone broth with sea salt, together totaling well under 200 calories daily. While technically this was not a pure fast, since there was some minimal caloric intake, Dr. Fung advised me that I would get most of the benefits of a water-only fast with this protocol. My weight came down very quickly, as did my blood sugar levels, they went into the 70s and even upper 60s with no signs of hypoglycemia. I checked my blood ketones as they were started at very low levels, they catapulted to well above 2.5 millimoles by day 4 of the fast. I felt euphoric and surprisingly energetic.
+
+The advanced lipid panel known as an NMR lipoprofile test shows the actual number of LDL particles and the size of those particles.
+
+| Metric            | Pre-Fast | Post-Fast |
+|-------------------+----------+-----------|
+| Total cholesterol |      295 |       195 |
+| LDL-C             |      216 |       131 |
+| HDL-C             |       61 |        50 |
+| Triglycerids      |       90 |        68 |
+| LDL-P             |     2889 |      1664 |
+| Small LDL-P       |     1446 |       587 |
+| Lp(a)             |      441 |       143 |
+| Fasting insulin   |     13.9 |      10.0 |
+| hsCRP             |      1.6 |       .94 |
+
+- The -C suffix means cholesterol
+- The -P suffix means particle number.
+- hsCRP means high-sesntivity C-reactive protein, a key inflammation marker.
+
+The fact is, I didn't loose any muscle during my 21 days of fasting.
+
+* What is fasting?
+
+The key hormone involved in both the storage and use of food energy is insulin, which rises during meals. Both carbohydrates and protein stimulate insulin. Fat triggers a far smaller insulin effect, but it's rarely eaten alone.
+
+Insulin has two major functions:
+
+- It allows the body to immediately start using food energy. Carbohydrates are absorbed and rapidly turned into glucose, raising blood sugar levels. Insulin allows glucose to enter directly into most cells of the body, which use it for energy. Proteins are broken down into amino acids and absorbed, and excess amino acids may also be turned into glucose. Protein does not raise blood glucose, but it can raise insulin levels. Fats are directly absorbed as fat and have minimal effect on insulin.
+
+- Insulin helps store the excess energy. There are 2 ways to store energy: Glucose molecules can be linked into long chains called glycogen and then stored in the liver. There is a limit to the amount of glycogen that can be stored away. Once this limit is reached, the body starts to turn glucose into fat. This process is called "de novo lipogenesis" (making fat from new).
+
+This newly created fat can be stored in the liver or in fats deposits in the body. While turning glucose into fat is a more complicated process than storing it as glycogen, there is no limit to the amount of fat that can be created.
+
+** Fasting physiology
+
+1. Feeding: blood sugar levels rise as we absorb the incoming food and insulin levels rise in response to move glucose into cells, which use it for energy. Excess glucose is stored as glycogen in the liver or converted to fat.
+
+2. The postabsorptive phase (6-24h after beginning of fasting): blood sugar and insulin levels begin to fall. To supply energy, the liver starts to break down glycogen, releasing glucose. Glucogen stores last for approx 24-36h.
+
+3. Gluconeogenesis (24h-48h after beginning of fasting): glycogen stores have run out. The liver manufactures new glucose from amino acids in a process called gluconeogenesis (making new glucose). In mondiabetic persons, glucose levels fall but stay within the normal range.
+
+4. Ketosis (2-3 days after beginning of fasting): low insulin levels stimulate lipolysis, the breakdown of fat for energy. Triglycerides, the form of fat used for storage, are broken into the glycerol backbone and 3 fatty acid chains. The glycerol is used for gluconeogenesis, so the amino acids formerly used can be reserved for protein synthesis. The fatty acids are used directly for energy by most tissues of the body, thought not the brain. The body uses fatty acids to produce ketone bodies, which are capable of crossing the blood-brain barrier and are used by the brain for energy. After 4 days of fasting, approx. 75% of the energy used by the brain is provided by ketones. The 2 major types of ketones produced are beta-hydroxybutyrate and acetoacetate, which can increase over seventyfold during fasting.
+
+5. The protein conservation phase (5 days after beginning of fasting): high levels of growth hormone maintain muscle mass and lean tissues. The energy for basic metabolism is almost entirely supplied by fatty acids and ketones. Blood glucose is maintained by gluconeogenesis using glycerol. Increased norepinephrine (adrenaline) levels prevent any decrease in metabolic rate. There is a normal amount of protein turnover, but it is not being used for energy.
+
+|            | Feeding (I) | Postabsorptive phase (II)    | Gluconeogenesis (III)     | Ketosis (IV)          | Protein conservation (V)    |
+|------------+-------------+------------------------------+---------------------------+-----------------------+-----------------------------|
+| Origin     | Food        | Glycogen                     | Gluconeogenesis           | Gluconeogenesis       | Gluconeogenesis             |
+| of blood   |             | Gluconeogenesis              | Glycogen                  |                       |                             |
+| glucose    |             |                              |                           |                       |                             |
+|------------+-------------+------------------------------+---------------------------+-----------------------+-----------------------------|
+| Tissues    | All         | All except liver.            | All except liver.         | Brain, red blood      | Brain at a diminished rate, |
+| using      |             | Muscle and adipose tissue at | Muscle and adipose tissue | cells, renal medulla. | blood cells, renal medulla. |
+| glucose    |             | diminished rates.            | at rates intermediate     | Small amount by       |                             |
+|            |             |                              | between II and IV.        | muscle.               |                             |
+|------------+-------------+------------------------------+---------------------------+-----------------------+-----------------------------|
+| Major fuel | Glucose     | Glucose                      | Glucose                   | Glucose,              | Ketone bodies,              |
+| of Brain   |             |                              |                           | Ketone bodies         | glucose                     |
+
+** Insulin resistance
+
+Regularly lowering insulin levels leads to improved insulin sensitivity -your body becomes more responsive to insulin. The opposite of insulin sensitivity is high insulin resistance and it is the root of type 2 diabetes problem and linked to a number of diseases, including:
+
+- Heart disease
+- Stroke
+- Alzheimer's disease
+- High cholesterol
+- High blood pressure
+- Abdominal obesity
+- Nonalcoholic steatohepatitis (fatty liver disease)
+- Polycystic overy syndrome
+- Gout
+- Atherosclerosis
+- Gastroesophageal reflux disease
+- Obstructive sleep apnea
+- Cancer
+
+Lowering insulin also rids the body of excess salt and water because insulin is well known to cause salt and water retention in the kidneys. This is why low-carbs diets often cause diuresis, the loss of excess water. The diuresis is beneficial in reducing bloating and helping you feel lighter. Some may also note a lower blood pressure.
+
+** Electrolytes
+
+Electrolytes are certain minerals in the blood. They include sodium, chloride, potassium, calcium, magnesium, sodium and phosphorus. The body keeps these blood levels under very tight control in order to maintain health. Prolonged studies of fasting have found no evidence of electrolyte imbalances, as the body has mechanisms in place to keep electrolutes stable during fasting.
+
+** Adrenaline and metabolism
+
+Adrenaline is used to release stored glycogen and to facilitate fat-burning, even if blood sugar is high. The increased adrenaline levels invigorate us and stimulate the metabolism. Fasting rather than slowing the metabolism, revs it up.
+
+** Growth hormone
+
+Levels peak during puberty and gradually decrease with age.
+
+Excessively low growth hormone levels in adults leads to more body fat, less muscle mass, and decreased bone density (osteopenia). Growth hormone, along with cortisol and adrenaline is a counterregulatory hormone. These hormones signal the body to increase the availability of glucose -countering the effect of insulin and producing high blood sugar levels. Levels of counterregulatory hormones peak just before walking, at approximately 4 am, increasing blood sugar levels, which fall during the night. The increase prepares the body for the upcoming day by making more glucose available for energy.
+
+Growth hormone also increase the availability of fats for fuel by raising levels of key enzymes, such as lipoprotein lipase and hepatic lipase. Since burning fat reduces the need for glucose, this helps maintain stable blood sugar.
+
+Meals very effectively suppress the secretion of growth hormone, so if we're eating 3 meals per day, we get effectively no growth hormone during the day. Worse, overeating suppresses growth hormone levels by as much as 80%.
+
+The most potent natural stimulus to growth hormone secretion is fasting.
+
+** Artificial fats
+
+Recent data suggests that these oils are very high in inflammatory omega-6 fats. While some omega-6 fats are necessary, we are likely eating 10 to 20 times more than we did in the past, when omega-6 fats is out of balance with our consumption of omega-3 fats (found in fatty cold-water fish, nuts and seeds) the result is systemic inflammation, which is a factor in heart disease, type 2 diabetes, inflammatory bowel disease, and other chronic illnesses.
+
+* Busting the myths of fasting
+
+** Myth#1: Fasting it puts you in starvation mode
+
+We can test this notion by looking at the basal metabolic rate (BMR), which measures the amount of energy that our body burns in order to function normally: to keep the lungs breathing, brain functioning, heart pumping, kidneys, liver, and the digestive system all working and so on. Most of the calories we spend each day are not used for exercise but for these basic functions. The BMR is not a fixed number but actually increases or decreases up to 40% in response of many variables such as getting cold and keep body temperature up.
+
+Suppose you normally eat 2000 calories a day and cut back to only 1500. Your body cannot run a deficit indefinitely -it will eventually run out of fat to burn- so it plans ahead and decreases your energy expenditure. The end result is a decreased BMR. This has been proven repeatedly by experiments over the last century.
+
+Studies demonstrate this phenomenon clearly. In one, fasting every other day for 22 days resulted in no measurable decrease in BMR. There was no starvation mode. Fat oxidation -fat burning- increased 58%, from 64g/day to 101g/day. Carbs oxidation decrease 53%, from 175g/day to 81g/day. This means that the body has started to switch over from burning sugar to burning fat, with no overall drop in energy. In another study, 4 days of continuous fasting increased BMR by 12%. Levels of the neurotransmitter norepinephrine (noradrenaline), which prepares the body for action, increased by 117%, keeping energy levels high. Fatty acids in the bloodstream increased over 370% as the body switched over from burning food to burning stored fats. Our bodies don't start to shut down or go into "starvation mode".
+
+** Myth#2: Fasting makes you burn muscle
+
+Muscle, on the other hand, is preserved until body fat becomes so low that the body has no choice but to turn to muscle. This will only happen when body fat is at less than 4%. Eg. elite male marathon carry approx. 8% of body fat. If we did not preserve muscle and burn fat instead when no food is available, we would not have survived very long as a species. Almost all mammals have this same ability.
+
+Real-world studies of fasting show that the concern over muscle loss is largely misplaced. Alterante-day fasting over 70 days decreased body weight by 6%, but fat mass decreased by 11.4% and lean mass (muscle and bone) did not change at all.
+
+At baseline, eating normally, energy comes from a mix of carbs, fat and protein. As you start fasting, the body increases carbs oxidation. This is just a fancy way of saying that it is burning sugar, in the form of glycogen, for the first 24 to 48h after you stop eating, until it runs out of glycogen. With no more sugar tu burn, the body switches to burning fat. Fat oxidation increases as carbs oxidation decreases towards zero. At the same time, protein oxidation, that is, burning protein such as muscle, for fuel -actually decreases. Rather than burning muscle during fasting, we start conserving muscle. Much of the amino acid that are broken down during regular turnover of cells are reabsorbed into new proteins.
+
+** Myth#3: Fasting causes low blood sugar
+
+During fasting, our body begins by breaking down glycogen in the liver to provide glucose. This happens every night as you sleep to keep blood sugars normal as you fast overnight.
+
+If you fast for longer than 24-36h, glycogen stores become depleted. The liver now can manufacture new glucose in a process called gluconeogenesis, using the glycerol that's a by-product of the breakdown of fat. This means that we do not need to eat glucose for our blood glucose levels to remain normal.
+
+A related myth is that brain cells can only use glucose for energy. This is incorrect. Human brains, unique amongst animals, can also use ketone bodies -particles that are produced when fat is metabolized- as a fuel source. This allows us to function optimally even when food is not readily available. Ketones provide the majority of the energy we need.
+
+* The advantages of fasting
+
+The overall goal was not necessarily to reduce carbohydrate intake. The goal was to reduce insulin levels, and cutting carbs was only one method of achieving that goal. Yet all foods, to varying degrees, stimulate the release of insulin. So the most efficient method of lowering insulin would be to eat nothing at all. In other words: to fast.
+
+Advantages of fasting apart from the above is:
+
+- It's simple (so easily effective to achieve).
+- Its free
+- It's convenient
+- You can enjoy life's little pleasures
+- It's powerful
+- It's flexible
+- It works with any diet
+
+* Fasting for weight loss
+
+** Energy sources
+
+When we eat, our body derives energy from 3 main sources:
+
+- Glucose (carbs)
+- Fat
+- Protein
+
+Only 2 of these are stored for later use: glucose and fat. The body can't store protein. so excess protein that can't be used right away is converted to glucose. Glucose is stored in the liver as glycogen, but the liver's capacity for storing glycogen is limited. Once glycogen stores are full, excess calories must be stored as body fat. Dietary fat is absorbed directly into the bloodstream without passing through the liver, and what's not used is stored as body fat. This was one of the reasons why low-fat diets were initially recommended, but the immediate destination of ingested calories is not the main determinant of weight gain.
+
+The two compartments, the fridge and the freezer, are not used simultaneously but sequentially. You need to (mostly) empty out the fridge before you can use what's in the freezer -you need to burn most of the glycogen before you can burn fat. In essence, the body can burn either sugar or fat, but not both.
+
+** Insulin, glycogen, glucose
+
+Insulin inhibits lipolysis -it stops the body from burning fat. High insulin levels, which are normal after meals, signal our body to store some of the incoming energy. Logically, therefore, we also stop burning stored fat.
+
+One of insulin's main jobs is to move glucose from the bloodstream into the cells so that it can be used for energy. If you have insulin resistance, your cells are no longer sensitive to insulin. Normal amounts of insulin are not able to move glucose into cells, leading to a build up of glucose in the blood. To compensate, the body must produce extra insulin to force the glucose in. This leads to constant high insulin levels, which blocks fat-burning.
+
+When stored glycogen gets low, your body senses it and starts to get antsy. It triggers hunger signals, so you want to eat more. If you don't eat enough to fill up the glycogen stores but your insulin remains high, body fat can't be released. The body's only remaining option is to decrease your metabolism so that you're burning less energy.
+
+The reason of the body has to resort to decreasing metabolism and increasing hunger is because insulin remins high, so it doesn't have access to the energy stored as fat. This is why insulin resistance plays such a crucial role in obesity: the high insulin levels tell your body to hang onto body fat and simultaneously trigger the body to lower your metabolism.
+
+Both low-carb diets and fasting are able to reduce insulin. So why can't a successful weight-loss strategy be simply eleiminating all carbs instead of fasting? it's simply a question of power. Reducing refined carbs reduces insulin. However, protein, especially from animal sources, also raises insulin. Fasting by restricting everything, keeps insulin lower. Fasting is simply more powerful.
+
+** Bariatric surgery
+
+Why does bariatric surgery work so well when other diets fail? There have been many theories. The first hypothesis proposed that the removal of most of the healthy stomach produced these benefits. The normal stomach secrets a number of hormones, so the theory went, removing the stomach must reduce some mystery hormone, resulting in the benefits. Another thought was that loss of fat cells explained the benefits. Fat cells (adipocytes) actively secrete many different types of hormones, such as leptin, a regulator of body weight.
+
+** Tryglycerids
+
+During fat-burning, the triglyceride molecule is broken down into the glycerol backbone and the 3 fatty acids. The fatty acids are used directly by most of the organs of the body, including the liver, kidney, heart, and muscles. Howerver, certain cells are not able to burn fat, including the inner part of the kidney (renal medulla) and red blood cells. To supply the glucose those cells need, the liver uses the glycerol backbone to manufacture new glucose molecules. The brain cannot use fatty acids either. Ketone bodies produced during fat-burning fill that gap, and the brain becomes powered mostly on ketones, which supply up to 75% of its energy needs. This dramatically reduces the brain's need for glucose, enabling adequate glucose production from glycerol. In this way, triglycerides provide energy in the form of fatty acids, ketones, and glucose -enough for the entire body.
+
+** Cortisol
+
+Cortisol is a hormone that's released during times of stress, whether physical or psychological. This activates the fight-or-fight response -it's a survival adaptation. Cortisol is also one of the major drivers of obesity. However, two weeks of intermittent fasting caused no increase in cortisol levels.
+
+* Fasting for type 2 diabetes
+
+** Diabetes types
+
+There are 2 main types of diabetes, type 1 and 2. In many ways these two are opposites of one another. Type 1 diabetes is an autoimmune disease. For unknown reasons, the body's own immune system attacks and destroys the insulin-producing cells in the pancreas, leading to a severe insulin deficiency. Type 2 diabetes, on the other hand, is a dietary and lifestyle disease. In response to frequent high blood sugar, the body produces excessive insulin, which leads to insulin resistance. There is a clear association between type 2 diabetes and obesity, and weight loss often reverses this type of diabetes. Because type 1 diabetes lack insulin, for them, insulin injections are a life-saving treatment.
+
+** Visceral fat
+
+Visceral fat, fat that's stored in and around the organs, likely plays a large role in type 2 diabetes. It's more harmful to health and, unfortunately, more common than subcutaneous fat. Fasting and bariatric surgery both preferentially reduce visceral fat. During both World War I and II, the mortality rate from type 2 diabetes dropped precipituosly. This was due to wartime food rationing, which resulted in a sustained, severe reduction of calories.
+
+Most medications unrelated to blood sugar can be taken during fasting, though you should still discuss them with your physician first. If you are not taking any blood sugar medications, then there is no particular reason to monitor your blood sugar during fasting: your blood sugar may drop slightly but will remain in the normal range.
+
+
+* Fasting for a younger, smarter you
+
+The most obvious benefits of fasting are that it helps with:
+
+- weight loss
+- type 2 diabetes
+
+but there are many other benefits including:
+
+- autophagy (a cellular cleansing process)
+- lipolysis (fat-burning)
+- anti-aging effects
+- neurological benefits
+
+Mammals generally respond to severe caloric deprivation by reducing organ size, with 2 prominent exceptions: the brain and, in males, the testicles. Reproductive function is preserved to propagate the species. But cognitive function is just as important and also highly preserved, at the expense of every other organ. This makes a lot of sense from an evolutionary standpoint.
+
+** BDNF
+
+A protein called brain-derived neurotropic factor (BDNF), which supports the growth of neurons and is important for long-term memory, is believed to be responsible for some of these benefits. In animals, both fasting and exercise significantly increase the beneficial BDNF effects in several parts of the brain.
+
+** Inflammation
+
+There appears to be significant research indicating a dramatic drop in inflammation, improvements in insulin signaling, and a near total "reset" of immune function with fasts of 3-5 days. Abnormal and or pre-cancerous cells appear to be pushed towards apoptosis, which essentially selects for healthy cell types. In total this descriptes a process which should reverse many of the signs and symptoms of aging while reducing the processes that appear to be at play in autoimmunity and cancer.
+
+** Autophagy and apoptosis
+
+In a process called apoptosis, also known as programmed cell death, cells that reach a certain age are programmed to commit suicide. While this may sound kind of macabre at first, the process constantly renews cell populations, making it essential for good health. But when just some cellular components need to be replaced, a process called autophagy kicks in. The word autophagy, coined by Nobel Prize winning scientist Christian de Duve, derives from the Greek auto ("self") and phagein ("to eat"). So it means "to eat oneself". Autophagy is a form of cellular cleansing: it is a regulated, orderly process of breaking down and recycling cellular components when there's no longer enough energy to sustain them. The body can start the process of renewal. New tissues and cells are built to replace those that were destroyed. In this way the body renews itself.
+
+** mTOR
+
+Increased levels of glucose, insulin, and proteins all turn off autophagy. And it doesn't take much. Even as little as 3 grams of the amino acid leucine can stop autphagy. Here's how it works: the mammalian target of rapamycin (mTOR) pathway is an important sensor of nutrient availability. When we eat carbs or protein activate the mTOR pathway. The body senses that food is available and decides that since there is plenty of energy to go around, there's no need to eliminate the old subcellular machinery. The end result is the suppresion of autophagy. Conversely, when mTor is dormant, when it's not being triggered by increased insulin levels or aminoacids from ingested food, autophagy is promoted. As the body senses the temporary absence of nutrients, it must prioritize which cellular parts to keep. The amino acids from the broken down cell parts are delivered to the liver, which uses them to create glucose during gluconeogenesis. The dormancy of mTOR is only related to short-term nutrient availability and not the presence of stored energy, such as liver glycogen or body fat.
+
+At the same time, fasting also stimulates growth hormone, which signals the production of some new snazzy cell parts, giving our bodies a complete renovation. Since it triggers both  the breakdown of old cellular parts and the creation of new ones, fasting may be considered one of the most potent anti-aging methods in existence.
+
+** Alzheimer's and cancers
+
+Autophagy also plays an important role in the prevention of Alzheimer's disease. Alzheimer's is characterized by the abnormal accumulation of amyloid beta (Aβ) proteins in the brain, and it's believed that these accumulations eventually destroy the synaptic connections in the memory and cognition areas. Normally, clumps of Aβ protein are removed by autophagy: the brain cell activates the autophagosome, the cell's internal garbage truck, which engulfs the Aβ protein targeted for removal and excretes it, so it can be removed from the blood and recycled into other protein or turned into glucose, depending upon the body's needs But in Alzheimer's disease, autophagy is impaired and the Aβ protein remains inside the brain cell, where eventual buildup with result in the clinical syndromes of Alzheimer's disease. Cancer is yet another disease that may be a result of disordered autphagy. We're learning that mTOR plays a role in cancer biology, and the mTOR inhibitors have been approved by the FDA for the treatment of various cancers.
+
+* Fasting for heart health
+
+** Cholesterol: LDL and HDL
+
+High blood cholesterol is classically considered a treatable risk factor for cardiovascular disease, including heart attacks and strokes. That's led to a popular conception of cholesterol as some kind of poison, but this is far from the truth. Cholesterol is used to repair cell walls and also to make certain hormones. It is so vital for human health that virtually every cell in the body has the ability to manufacture cholesterol if needed. Cholesterol travels in the bloodstream bundled together with proteins, which are called lipoproteins. Which lipoproteins are associated with the cholesterol molecule determines whether the bundle is LDL or HDL -the cholesterol molecule itself is the same.
+
+** Triglycerides: VHDL
+
+Another risk factor for hearth disease is a type of fat called triglycerides. When glycogen stores in the liver are full, the liver starts converting excess carbs into triglycerids instead. These triglycerides are the exported out of the liver as very low density lipoprotein (VLDL). VLDL is used to form LDL.
+
+High levels of triglycerides in the blood are strongly associated with cardiovascular disease, increasing the risk by up to 61%.
+
+Fortunately, high triglycerides can be treated with a low-carbs diet, which lowers the rate at which the liver creates triglycerides. But while triglyceride levels respond to diet, the same cannot be said for cholesterol.
+
+** Dietary fats intake
+
+"Avoid too much fat, saturated fat, and cholesterol", this idea is entirely wrong. The scientific community has long known that eating less cholesterol does not lower blood cholesterol. Our liver generates 80% of the cholesterol found in the blood, so eating less cholesterol makes litter or no difference. Eating more cholesterol does not raise blood cholesterol significantly. If we eat less dietary cholesterol, our liver simply compensates by creating more. The lipoproteins carried along with the cholesterol particle that determine wheter it's good or bad (remember it is identical in both LDL and HDL).
+
+The liver produces the vast of majority of cholesterol found in the blood. Eating less cholesterol has almost no effect. In fact, it may be counterproductive. As the liver senses less incoming cholesterol, it may simply increases its own production. So why does fasting affect the liver's production of cholesterol? As dietary carbs decline, the liver decreases its synthesis of triglycerides -since excess carbs are converted to triglycerides, the absence of carbs means fewer triglycerides, which is a precursor of LDL via VLDL. Therefore, reduced VLDL eventually results in lowered LDL. The only reliable way to reduce LDL levels is to reduce the liver's production of it.
+
+* What you need to know about hunger
+
+We become hungry merely because of the time, not any true intrinsic hunger. This is learned only through decades of association. Children, on the other hand, often refuse food early in the morning because they are simply not hungry.
+
+** Food stimuli
+
+Here's the simplest way to break associations between food and anything else: eat only at the table. No eating at your computer station. No eating in the car. No eating in the couch. No eating in bed. No eating in the lecture hall. No eating at the ball game. Try to avoid mindless eating - every meal should be enjoyed as a meal, not as something eating while watching a movie. In this way, food becomes associated only with the kitchen and the table. These are not new ideas, of course. It was just common sense in your grandmother's generation.
+
+** Artificial sweeteners
+
+It's also helpful to avoid artificial sweeteners. Even though they contain no calories, they may still kick off the cephalic phase response, stimulating hunger as well as insulin production. So it is not recommended use non-caloric artificial sweeteners during fasting for this very reason.
+
+** Cephalic phase response
+
+Try to physically remove yourself from all food stimuli during a fast. Cooking a meal or even just seeing and smelling food while fasting is almost unbearably difficult. Our cephalic phase responses are fully activated.
+
+** Drink
+
+Make an habit of drinking a large cup of coffee or tea along with breakfast on nonfasting days. On fasting days, you will simply miss the food, but having your daily cup of joe will make it easier to not eat. You won't be avoiding the habit of consuming something in the morning.
+
+** Keep busy
+
+Stay busy. Working through lunch and staying busy means I often don't even remember to be hungry, as cephalic phase response has not been activated.
+
+** Hunger waves
+
+Secret is to understand hunger comes in waves. You just need to ride out the waves.
+
+** Distractions
+
+Distractions included walking, cleaning, drinking a glass of water, etc. It works, and the hunger would be forgotten by the time.
+
+** Hunger on fasting days
+
+18h fasts for 5 days followed by 2 days water-only fasting and water-only fast frr 10-18 consecutive days every other month. After day 3, all hunger diminishes, ketones soar, and that's when I feel invincible.
+
+When people feel they cannot go beyond 24h of fasting, we sometimes advise them to try 3 to 7 full days of fasting. This sounds completely counterintuitive. Extended fasting works because people have the chance to experience how hunger disappear without eating as the body learns how to metabolize its own fat.
+
+** Medications
+
+Certain medications are best taken with food, which obviously is not possible during fasting. The most common medications that cause problems during fasting are aspirin, metformin, and iron and magnesium supplements. But it is often possible to arrange the fasting schedule to accommodate these medications.
+
+*** Aspirin
+
+Aspirin is commonly used as a blood-thinner in people with cardiovascular disease. One common side effect is gastritis -the irriation of the lining of the stomach. In severe cases, it may cause ulcers to form in the stomach and small intestine. Aspirin is often taken with food to lessen the risk of these complications. Many aspirin tablets are now coated with a protective film to protect the lining of the stomach, but the risk of gastritis and ulcers is only reduced, not eliminated. Taking aspirin without food raises the risk of stomach irritation.
+
+*** Metformin
+
+Metformin is the most widely prescribed medication in the world for type 2 diabetes. This world sugar lowering medication can cause gastrointestinal upset, which may become worse on an empty stomach. The most commonly reported symptoms are diarrhea, anda nausea or vomiting.
+
+*** Iron
+
+Iron supplement tablets are commonly prescribed for low blood counts due to chronic blood loss, also called iron deficiency anemia. Side effects of iron supplements are constipation and abdominal pain, which may be made worse by fasting.
+
+*** Magnesium
+
+Magnesium is a mineral stored largely in the bones. Supplements are taken to treat leg cramps, migraine, headaches, and restless leg syndrome, used also as an antacid and laxative. Magnesium supplements taken orally are often poorly absorbed through the intestines, leading to diarrhea. Taking magnesium with food often reduce these symptomps. Low magnesium levels are common in type 2 diabetes.
+
+** Heartburn
+
+Sometimes fasting improves symptoms of heartburn because food can stimulate the production of stomach acid, so fasting reduces it.
+
+** GERD
+
+Some techniques to help reduce symptoms of GERD (Gastroesophageal Reflux Disease):
+
+- Avoid foods that aggravate reflux (chocolate, caffeine, alcohol, fried foods and citrus).
+- Finish eating at least 3 h before bed.
+- Go for a walk after dinner.
+- Elevate the head of the bed with blocks.
+- Try alkaline water or water with lemon.
+- Take over-the-counter medications such as antiacids, bismuth solutions, or ranitidine (Zantac).
+- Ask your physical about stronger prescription medications, such as proton pump inhibitors.
+
+* Kinds of fasts and best practices
+
+The "fat fast" is a never variation of fasting. Relatively pure fats, such as coconut oil, cream, and butter, are allowed during this fast, so it, too, is not a true fast. Fat is normally not eating in isolation. Add coconut oil to the coffee and this could be a meal replacement. There are benefits to the fat fast. But scientific proof of the effectiveness of the fat fast is currently scarce, anecdotes of success abound.
+
+The "fasting-mimicking diet" is a diet created by researchers to re-create the benefits of fasting without actual fasting. The first day allows 1090 cal (10% protein, 56% fat, 34% carbs), followed by 4 days of 725 cal. For the complexity, this is not recommended.
+
+** Intensive diet management fasting: best practices
+
+We use fasting extensively in the Intensive Dietary Management (IDM) Program for weight loss and other metabolic disorders, such as type 2 diabetes and fatty liver disease.
+
+The IDM fast permits water, tea, and coffee. Natural flavours such as lemon juice, mint, cinnamon, and other spices are.
+
+The IDM fast also allows homemade bone broth, which both makes fasting easier and may help to prevent salt deficiency during longer fasts.
+
+*** Tea
+
+Green tea is an especially good choice during a fast: the catechins in green tea are believed to help suppress appetite. Species such as cinnamom or nutmeg add flavour.
+
+Herbal teas are not true tease because they do not contain tea leaves, however they are also great for fasting.
+
+Cinnamom tea and ginger tea have reputation for appetite suppressing.
+
+Mind tea and chamomile tea are often used for soothing properties.
+
+*** Circadian rhythms
+
+Circadian rhythms are repetitive, predictable, cyclical changes in behaviours and hormones over 24h. These patterns are seen in most animals, Almost all our hormones, including growth hormone, cortisol, and parathyroid hormone, are secreted in a circadian rhythm. Also help to govern insulin, which affects weight gain, and ghrelin, which controls hunger.
+
+Circadian rhythms have evolved to respond to differences predominantly in ambient light, determined by the season and time of the day. It is believed that food was relatively scarce in Paleolithic timesand was predominantly available during daylight hours. Humans hunted and ate by day as cannot see during night.
+
+- Insulin: same meal given either early or late in the day, the insulin response was 25 to 50% grater in the evening, being translated in more weight gain for the dinner group.
+- Ghrelin: the hunger hormone, rises and falls in a natural circadian rhythm, with a low at 8 AM and a high at 8 PM. These are natural rhythms inherent in our genetic make up.
+
+* Longer periods of fasting
+
+Because breaking insulin resistance requires not just low insulin levels but persistently low levels, we need longer fasting periods.
+
+** 24H fasts
+
+Most get good results doing a 24h 2 or 3 times a week.
+
+** The 5:2 diet
+
+5 normal eating days and 2 "fast" days with 500-600 cal in a single mean, into multiple meals during the day.
+
+** Alterante-day fasting
+
+1 day fast, 1 day non-fast
+
+** 36H fasts
+
+Don't eat in the whole day and next day skip the breakfast. Repeat that 3 times a week.
+
+The more severe someone's symptoms are, the more likely i am to recommend a longer fast, but the longer fasts contain some type of liquid nutrition, such as broth or semi-elemental nutrition. The main concerns are fatigue, weight loss and nutrient depletion, which can be safeguarded against by using a good liquid formula like a semi-elemental diet.
+
+We recommend that blood sugar be checked regularly between 2-4 times a day, as there is a potential for low blood sugar as well as high blood sugar.
+
+** 42H fasts
+
+You would dinner on one day (e.g. 6 pm) and skip the next day meals and eat on day 3 when it reaches the 42h fasting time (noon time).
+
+* Extended fasting
+
+In Gilliland's study, 44 of 46 patients completed the 2 week fasting period. One developed nausea and one simply decided against it and dropped out. That's a 96% completion rate. Even 2 week is not so difficult for most of people.
+
+That's not to say that there's not an adjustment period. Day 2 seems to be the hardest in terms of hunger. After that, things get progressively easier.
+
+In the IDM program, we tell patients to expect an average fat loss of 0.227kg/day fasting. If you loose more weight than that, it's likely water weight that you'are shedding due to the reduction in insulin.
+
+** Electrolytes in Extended Fasting
+
+Extended fasting rarely causes electrolyte abnormalities. Calcium, phosphorus, sodium, potassium, chloride urea, creatinine and bicarbonate levels in the blood remain within the normal limits and are virtually unchanged by the end of the fast.
+
+Blood magnesium levels occasionally go low. This is especially prevalent in diabetics.
+
+** 2-3 day fasts
+
+We encourage patients to continue their fast for 7-14 days. A 14 days fast delivers 7 times the benefit of a 2 day fast, but is only marginally more difficult.
+
+** Refeeding syndrome
+
+Refeeding syndrome occurs when electrolytes, particularly phosphorus, are depleted due to malnourishment. Adults store 500-800 gr of phosphorus in the body and approx 80% is held within the skeleton, the rest in soft tissues.
+
+Magnesium can become also depleted, resulting in cramps, confusion, tremor, and occasionally seizures. Low potassium and magnesium can also cause hearth rhythm disturbances or even outright cardiac arrest.
+
+Higher insulin levels during refeeding may occasionally cause the kidneys to retain salt and water. Showing this up as swelling of the feet and ankles edema.
+
+Fortunately , refeeding syndrome is very rare, occurred only in 0.43% of patients.
+
+To prevent these problems:
+
+1. Do not make an extended fast a water only fast. Drinking homemade bone broth provides phosphorus and other proteins and electrolytes. And to prevent vitamin deficiency take a daily multivitamin.
+2. Do all your usual activities (including sport ones) to keep maintain your muscles and bones.
+
+* Fasting tips and FAQs
+
+** Top tips
+
+- Drink water
+- Stay busy
+- Drink coffee
+- Ride the waves
+- Don't tell people you are fasting
+- Give yourself one month
+- Follow a nutritious diet on nonfasting days
+- Don't binge (pretend it never happened)
+- Fit fasting into your own life
+
+** Breaking your fast
+
+Break your fast gently. The longer the fasting period, the gentler you must be. Some suggestions as first snack:
+
+as food:
+
+- Macadamia nuts, almons, walnuts, pine nuts, peanut butter, almond butter
+- Small salad
+- Small bowl of raw vegetables with olive oil
+- Vegetable soup
+- Small amount of meat
+
+as habit:
+
+- Your portions to be small
+- Take time to chew
+- Take your time in general
+- Don't forget to drink water
+
+** Hunger suppressants
+
+- Water
+- Grean tea
+- Cinnamom
+- Coffee
+- Chia seeds
+
+** Problems
+
+- Dizziness: most probably because becoming dehydrated and requires water and salt.
+- Headaches: common on the first days you fast due to transition from a high salt to a very low salt intake. Problem solves itself or just drink extra salt.
+- Constipation: expected. Incresing fiber in non-fasting time may help with constipation or with metamucil.
+- Heartburn: avoid taking large meals. Avoid lying down immediately after a meal may also help. Be stand up 30min after the meal.
+- Muscle cramps: low magnesium, which is common in diabetics, may cause them. Take magnesium supplement. Also Epsom salts. A warm bath and soak in it helps also to absorption through skin. Also magnesium oil through the skin.
+
+** FAQs
+
+- If the stomach is always growling: drink mineral water.
+- if need to take medications which requires food in a fasting moment: try to get these medications with a small serving of leafy greens, which has very low calories and may not disrupt your fast.
+- What if I do exercise: exercising in the fasted state trains your muscles to burn fat, but instead of relying on glycogen stores, you rely on unlimited almost energy from fat stores
+  - You can train harder due to increased adrenaline.
+  - You will recover from a workout and build muscle faster due to increased growth hormone.
+  - You will burn more fat due to fatty acid oxidation.
+- What should I monitor: Blood pressure should be monitored regularly. This can be done at home. Electrolytes should be also monitored by doctors. Sugar levels two times a day.
+
+- How hormones are segregated:
+  - Before awakening (4 am) the body secrets higher levels of growth hormone, cortisol, glucagon and adrenaline. Together these are called counterregulatory hormones (as blood sugar lowering effects of insulin, meaning they raise blood sugar).
+  - Glucagon tells the liver to start pushing out some glucose.
+  - Adrenaline gives our bodies some energy.
+  - Growth hormone is involved in cell repair and synthesis of new protein.
+  - Cortisol, the stress hormone, increases as a general activator.
+- The same phenomenon is seen during fasting at any time of day. The hormonal changes during fasting included increases in: growth hormone, adrenaline, glucagon, and cortisol. As you fast, insulin drops, so these hormones are still causing stored sugar to be released into the bloodstream, raising the blood sugar levels.
+  - If you have fasted for 2 days and notice high blood sugar, this sugar may come from your own body, specifically the liver. That glucose molecules were always in your body.
+
+* 7-14 days fasting protocol
+
+We recommend that you undertake 7 day fasts no more than every 6 weeks.
