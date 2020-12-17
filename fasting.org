@@ -2,7 +2,8 @@
 #+BEGIN_COMMENT’                    FASTING                     ‘#+END_COMMENT
 #+BEGIN_COMMENT’              ===================               ‘#+END_COMMENT
 
-* Intro
+* Book: the complete guide of fasting
+** Intro
 
 In September 2015, I set out on a 21 day fast with only water, kombucha, and bone broth with sea salt, together totaling well under 200 calories daily. While technically this was not a pure fast, since there was some minimal caloric intake, Dr. Fung advised me that I would get most of the benefits of a water-only fast with this protocol. My weight came down very quickly, as did my blood sugar levels, they went into the 70s and even upper 60s with no signs of hypoglycemia. I checked my blood ketones as they were started at very low levels, they catapulted to well above 2.5 millimoles by day 4 of the fast. I felt euphoric and surprisingly energetic.
 
@@ -26,7 +27,7 @@ The advanced lipid panel known as an NMR lipoprofile test shows the actual numbe
 
 The fact is, I didn't loose any muscle during my 21 days of fasting.
 
-* What is fasting?
+** What is fasting?
 
 The key hormone involved in both the storage and use of food energy is insulin, which rises during meals. Both carbohydrates and protein stimulate insulin. Fat triggers a far smaller insulin effect, but it's rarely eaten alone.
 
@@ -108,7 +109,7 @@ The most potent natural stimulus to growth hormone secretion is fasting.
 
 Recent data suggests that these oils are very high in inflammatory omega-6 fats. While some omega-6 fats are necessary, we are likely eating 10 to 20 times more than we did in the past, when omega-6 fats is out of balance with our consumption of omega-3 fats (found in fatty cold-water fish, nuts and seeds) the result is systemic inflammation, which is a factor in heart disease, type 2 diabetes, inflammatory bowel disease, and other chronic illnesses.
 
-* Busting the myths of fasting
+** Busting the myths of fasting
 
 ** Myth#1: Fasting it puts you in starvation mode
 
@@ -134,7 +135,7 @@ If you fast for longer than 24-36h, glycogen stores become depleted. The liver n
 
 A related myth is that brain cells can only use glucose for energy. This is incorrect. Human brains, unique amongst animals, can also use ketone bodies -particles that are produced when fat is metabolized- as a fuel source. This allows us to function optimally even when food is not readily available. Ketones provide the majority of the energy we need.
 
-* The advantages of fasting
+** The advantages of fasting
 
 The overall goal was not necessarily to reduce carbohydrate intake. The goal was to reduce insulin levels, and cutting carbs was only one method of achieving that goal. Yet all foods, to varying degrees, stimulate the release of insulin. So the most efficient method of lowering insulin would be to eat nothing at all. In other words: to fast.
 
@@ -148,7 +149,7 @@ Advantages of fasting apart from the above is:
 - It's flexible
 - It works with any diet
 
-* Fasting for weight loss
+** Fasting for weight loss
 
 ** Energy sources
 
@@ -186,7 +187,7 @@ During fat-burning, the triglyceride molecule is broken down into the glycerol b
 
 Cortisol is a hormone that's released during times of stress, whether physical or psychological. This activates the fight-or-fight response -it's a survival adaptation. Cortisol is also one of the major drivers of obesity. However, two weeks of intermittent fasting caused no increase in cortisol levels.
 
-* Fasting for type 2 diabetes
+** Fasting for type 2 diabetes
 
 ** Diabetes types
 
@@ -199,7 +200,7 @@ Visceral fat, fat that's stored in and around the organs, likely plays a large r
 Most medications unrelated to blood sugar can be taken during fasting, though you should still discuss them with your physician first. If you are not taking any blood sugar medications, then there is no particular reason to monitor your blood sugar during fasting: your blood sugar may drop slightly but will remain in the normal range.
 
 
-* Fasting for a younger, smarter you
+** Fasting for a younger, smarter you
 
 The most obvious benefits of fasting are that it helps with:
 
@@ -237,7 +238,7 @@ At the same time, fasting also stimulates growth hormone, which signals the prod
 
 Autophagy also plays an important role in the prevention of Alzheimer's disease. Alzheimer's is characterized by the abnormal accumulation of amyloid beta (Aβ) proteins in the brain, and it's believed that these accumulations eventually destroy the synaptic connections in the memory and cognition areas. Normally, clumps of Aβ protein are removed by autophagy: the brain cell activates the autophagosome, the cell's internal garbage truck, which engulfs the Aβ protein targeted for removal and excretes it, so it can be removed from the blood and recycled into other protein or turned into glucose, depending upon the body's needs But in Alzheimer's disease, autophagy is impaired and the Aβ protein remains inside the brain cell, where eventual buildup with result in the clinical syndromes of Alzheimer's disease. Cancer is yet another disease that may be a result of disordered autphagy. We're learning that mTOR plays a role in cancer biology, and the mTOR inhibitors have been approved by the FDA for the treatment of various cancers.
 
-* Fasting for heart health
+** Fasting for heart health
 
 ** Cholesterol: LDL and HDL
 
@@ -257,7 +258,7 @@ Fortunately, high triglycerides can be treated with a low-carbs diet, which lowe
 
 The liver produces the vast of majority of cholesterol found in the blood. Eating less cholesterol has almost no effect. In fact, it may be counterproductive. As the liver senses less incoming cholesterol, it may simply increases its own production. So why does fasting affect the liver's production of cholesterol? As dietary carbs decline, the liver decreases its synthesis of triglycerides -since excess carbs are converted to triglycerides, the absence of carbs means fewer triglycerides, which is a precursor of LDL via VLDL. Therefore, reduced VLDL eventually results in lowered LDL. The only reliable way to reduce LDL levels is to reduce the liver's production of it.
 
-* What you need to know about hunger
+** What you need to know about hunger
 
 We become hungry merely because of the time, not any true intrinsic hunger. This is learned only through decades of association. Children, on the other hand, often refuse food early in the morning because they are simply not hungry.
 
@@ -331,7 +332,7 @@ Some techniques to help reduce symptoms of GERD (Gastroesophageal Reflux Disease
 - Take over-the-counter medications such as antiacids, bismuth solutions, or ranitidine (Zantac).
 - Ask your physical about stronger prescription medications, such as proton pump inhibitors.
 
-* Kinds of fasts and best practices
+** Kinds of fasts and best practices
 
 The "fat fast" is a never variation of fasting. Relatively pure fats, such as coconut oil, cream, and butter, are allowed during this fast, so it, too, is not a true fast. Fat is normally not eating in isolation. Add coconut oil to the coffee and this could be a meal replacement. There are benefits to the fat fast. But scientific proof of the effectiveness of the fat fast is currently scarce, anecdotes of success abound.
 
@@ -364,7 +365,7 @@ Circadian rhythms have evolved to respond to differences predominantly in ambien
 - Insulin: same meal given either early or late in the day, the insulin response was 25 to 50% grater in the evening, being translated in more weight gain for the dinner group.
 - Ghrelin: the hunger hormone, rises and falls in a natural circadian rhythm, with a low at 8 AM and a high at 8 PM. These are natural rhythms inherent in our genetic make up.
 
-* Longer periods of fasting
+** Longer periods of fasting
 
 Because breaking insulin resistance requires not just low insulin levels but persistently low levels, we need longer fasting periods.
 
@@ -392,7 +393,7 @@ We recommend that blood sugar be checked regularly between 2-4 times a day, as t
 
 You would dinner on one day (e.g. 6 pm) and skip the next day meals and eat on day 3 when it reaches the 42h fasting time (noon time).
 
-* Extended fasting
+** Extended fasting
 
 In Gilliland's study, 44 of 46 patients completed the 2 week fasting period. One developed nausea and one simply decided against it and dropped out. That's a 96% completion rate. Even 2 week is not so difficult for most of people.
 
@@ -425,7 +426,7 @@ To prevent these problems:
 1. Do not make an extended fast a water only fast. Drinking homemade bone broth provides phosphorus and other proteins and electrolytes. And to prevent vitamin deficiency take a daily multivitamin.
 2. Do all your usual activities (including sport ones) to keep maintain your muscles and bones.
 
-* Fasting tips and FAQs
+** Fasting tips and FAQs
 
 ** Top tips
 
@@ -493,6 +494,142 @@ as habit:
 - The same phenomenon is seen during fasting at any time of day. The hormonal changes during fasting included increases in: growth hormone, adrenaline, glucagon, and cortisol. As you fast, insulin drops, so these hormones are still causing stored sugar to be released into the bloodstream, raising the blood sugar levels.
   - If you have fasted for 2 days and notice high blood sugar, this sugar may come from your own body, specifically the liver. That glucose molecules were always in your body.
 
-* 7-14 days fasting protocol
+** 7-14 days fasting protocol
 
 We recommend that you undertake 7 day fasts no more than every 6 weeks.
+
+* Book: The science of intermitent fasting
+** FAQs about intermitent fasting
+
+People should not fast if: have severe heartburn and/or GERD (gastroesophageal reflux disease)
+
+When fasting your leptin levels will deplete (the appetite suppresion hormone) and ghrelin levels will rise (the body's hunger hormones).
+
+** How fasting impacts your brain health
+
+Increases BDNF production: besides promoting neurogenesis, fasting increases brain-derived neurotropic factor (BDNF). BDNF is a growth factor and is critical for cognitive function. BDNF produces new brain cells and nerves and creates connections between them. It also helps with learning and memory and is a natural antidepressant. Higher levels of BDNF keeps neurons healthy and ensures the neruons communicate effectively with one another. In contrast, lower levels of BDNF can icnrease the risk of memory loss, dementia, and other cognitive problems.
+
+Studies show that fasting for 16 to 18 hours can increase BDNF production by as much as 100%, and fasting for 36 hours can increase BDNF production by as much as 400%.
+
+** Boosts human growth hormone
+
+Fasting can dramaticallt boost human growth hormone (HGH) production. HGH is needed to help the body grow and develop when we are young. However, even as adults, it is still needed to keep your brain functioning, preserve muscle mass, and maintain a healthy body. It also improves our quality of sleep and repair our body's cells and tissues.
+
+Our HGH levels are at their highest during childhood and puberty. As we get older, our HGH levels gradually goes down. This process is known as somatopause. This makes it more difficult to keep muscle mass and easier to gain body fat.
+
+HGH is produced by the pituitary gland. When HGH is released into the body, it remains in the blood for a brief period of time (a few minutes) before it's transported to the liver to be metabolized. After it has been metabolized, it's converted into growth factors. Higher levels of HGH promote fat loss since it can be converted into fuel that the body can use.
+
+When you fast, your HGH levels goes up. This helps to preserve lean muscle and breaks down fat. When free fatty acids are released and converted into energy, this process is known as lipolysis. Obese individuals generally have inefficient lipolysis processes. Lower HGH levels may be one possible cause of this. Besides fasting, HGH levels can also be increased by exercising. These levels can fluctuate throughhout the day since the pituitary gland releases HGH hormone in spurts. Our HGH levels are generally higher when we wake up. We produce growth hormone during sleep.
+
+A fascinating study by the European Journal of Endocrinology showed that fasting dramatically increased the Gonadotropin-releasing Hormone (GnRH), a testosterone pre-cursor, in both obese and non-obese men. As healthier as you are, the most testosterone your boyd can create, with fasting up to 180% increase.
+
+Consider adding HGH-boosting supplements: arginine (an amino acid), gamma amino butyric acid (GABA), melatonin, creatine, and vitamine B3 are a few supplements worthy of checking out. 
+
+** Improves leptin sensitivity
+
+Leptin is a hormone that is produced by fat cells and plays an important role in regulating our appetite. After it is produced, it moves through your bloodstream and lets your brain known when you should stop eating. Leptin's other functions include regulating your energy, hunger, and metabolism.
+
+Depending on the type of foods you eat, your levels of leptin may increase or decrease. Leptin levels fall when you are dieting and eating less. When you have less fat, your body will produce less leptin. If your body feels it has insufficient amounts of fuel to use as energy, it will increase your leptin production, making you feel hungry and want to eat.
+
+Leptin resistance occurs when your leptin levels are high but your brain doesn't receive the signals to stop eating. Lepting resistance is common in obese people. It creates a vicious cycle of feeling hungry, eating to satisfy the hunger, but still feeling hungry afterwards. Lepting levels increase as people become overweight, and there is no limit how it can rise. Some of the causes include inflammation in the hypothalamus, excess fat, and high levels of leptoin.
+
+Reduce MSG (Monosodium glutamate) is commonly added in many processed and fas foods to make it taste better. However, MSG can also cause leptin levels to fall. This causes you to become hungrier, which can lead to overeating.
+
+** Improves insulin levels
+
+Insulin is a hormone that is produced by the pancreas and plays an important role in regulating and controlling your blood sugar levels. Insulin prevents your blood sugar from getting too high or low. Your body needs to use sugar (glucose) from the food as energy; however it can't be absorbed directly. Beta cells locatedi n the pancrease have to first release into the bloodstream before the sugar can be absorbed and used as energy. Without insulin, the sugar cannot be absorbed into the bloodstream. If your body has more than enough sugar, insulin helps to store the sugar in the liver for later use when the body needs fuel. Insulin can also let the liver know when to stop releasing glucose into the bloodstream. If your body is unable to produce sufficient amounts of insulin, or if insulin has no minimal effects on your body's cells, your blood sugar levels may get too high (hyperglycemia); which can cause a host of health complications such as frequent urinatino, thirst, hunger, weight loss, tiredness, numbness, infections, vomiting and loss of consciousness.
+
+Lipolysis is the process of fat cells breaking down. Fasting for a longer period of time reduces the fat deposits that have accumulated in your body. As your fat deposits become smaller, the cells in the muscles and liver become more responsive to insulin. This makes it easier for the glucose and insulin to move across the blood vessels' walls and lowers the risk of high blood sugar.
+
+Higher insulin levels inhibit HGH secretion. Insulin's main roles focus on energy storage and pro-inflammatory functions, while HGH focuses on tissue repair, fuel usage optimization and anti-inflammatory functions.
+
+When insulin levels are higher, HGH levels are lower. Studies show that elevated insulin levels can diminish the neuronal autophagy (removing old and damaged cells).
+
+Insulin levels:
+
+- Post-absorptive phase: start to fall 6-24h after you start fasting as glycogen gets broken down and used as energy.
+- Gluconeogenesis stage: after 24-48h your liver starts to produce new glucose from amino acids.
+- Ketosis: after 48-72h is when insulin levels fall lower and your body starts to break down fat for energy.
+
+** Optimizes ghrelin levels
+
+Ghrelin is produced mainly in your stomach and is known as the hunger hormone, because it's one of the only hormones that stimulates hunger and promotes food consumption. 
+
+There is some indication that leptin influences ghrelin, wtih each being inversely correlated. For this reason, optimizing your leptin and ghrelin levels may help to increase weight loss. If you can reduce ghrelin, you will lower your hunger and consume fewer calories.
+
+One interesting fact is that ghrelin syncs up with your regular meal times. For instance, if you usually eat at 8am, 12pm and 6pm, your ghrelin levels will be at their highest during these times. That explain why it is hard to change eating habits, since your body is programmed to eat at certain times. It is also possible to adjust in a few weeks your new eating habits schedule.
+
+Ghrelin levels rise right before eating and during fasting periods, causing us to become hungry. People with more body weight tend to have lower ghrelin levels compared to those with less body weight. This indicates that the hormone may be important in maintaining a healthy body weight.
+
+** Reduces inflammation
+
+Inflammation is essentially the start of the healing process. Althought many people try to reduce inflammation after an injury, some initial infllamation can be beneficial since it helps to promote healing. However, health problems can occur when the inflammation lasts longer than usual. Inflammation plays a major role in many chronic conditions, such as gastrointestinal diseases like Crohn's disease, obesity, asthma, and cancer. Chronic inflammation can be problematic can can be short-term back pain, arthritis or even osteoporosis, neurodegenerative diseases such as depression, dementia, obesity and Alzheirem's. Chronic inflammation can be caused by poor lifestyle choices, such as consuming too much sugar and processed food and not getting enough exercise.
+
+There is evidence that intermittent fasting may be an effective way to reduce inflammation, type 2 diabetes and autoimmune conditions like MS and rheumatoid arthritis, against high blood pressure and high insulin.
+
+Promotes autophagy, which is the process of the body cleaning old and damaged cells from its system, which reduces the risks of inflammation.
+
+Promotes BHB (Beta-hydroxybutyrate) which is one of the 3 main types of ketones that are produced in the mitochondria of the liver. The other ketones are acetone and acetoacetic acid (AcAc). Ketones act as energy sources that the body can use when it is low on carbs or calories. BHB plays a role in protecting against inflammation, regulating apettite, improving cognition and reducing the risks of cancer.
+
+Researchers showed that fasting boosts BHB production and inhibits NLRP3, a set of proteins known as inflammasome. These inflammasomes are linked to several inflammatory disorders, include type 2 diabetes, autoimmune disorders and Alzheimers.
+
+Your body produces BHB when:
+
+- Fast or restrict calories.
+- Perform high intensity exercises.
+- Consume a BHB supplement.
+- Consume a salt; such as magnesium or calcium.
+- Follow a ketogenic (low carb / high fat) diet.
+
+When your body becomes insulin resistant, insulin and glucose levels ris higher than normal, which can lead into inflammation. Fasting helps to reduce inflammation by forcing your body to use up its sugar reserves.
+
+Leukotriene B4 (LTB4) is a proinflammatory lipid and has been shown to promote inflammation. It plays a role in chronic inflammation and has been linked to a variety of health conditions.
+
+Oxidative stress occurs when there is an imbalance between free radicals and antioxidants in your body. Free radicals are unstable molecules that contain electrons, which make it easy for them to react or oxidize with the other molecules in your body. When there are imbalance in your bodu, free radicals can damage cells, DNA and tissues.
+
+Free radicals can be caused by:
+
+- consuming too many calories, sugars and carbs.
+- not getting enough exercise.
+- alcohol and tobacco by causing oxidative stress.
+- Stress.
+- Environment factors such as pollution, ozone and radiation.
+
+Fasting help to produce more SIRT3, a gene that helps to improve cells and inhibits the production of free radicals.
+
+** Lowers trygliceride and cholesterol levels
+
+Cholesterol is made up of fat (lipid) and proteins that produce hormones and break down fats. Cholesterol is needed to keep your body healthy. However, having too much it can cause fatty deposits to build up in the blood vessels, increasing the risk of cardiovascular problems, such as heart attacks, strokes and coronary artery disease.
+
+Cholesterol levels are determined by your diet and genetics.
+
+High cholesterol levels can cause health complications and atherosclerosis, a process that causes plaque to build up in your blood vessels. This plaque accumulation can cause the walls of your blood vessels to narrow, which can increase your risks of a heart attack or stroke.
+
+Cholesterol is transported by lipoproteins between cells because it cannot be dissolved in the bloodstream. Lipoproteins are proteins that pack or carry fat cholesterol in the blood stream.
+
+Triglycerides are a type of fat found in the blood. Your body converts the food that you eat into triglycerides, it will either uses them as energy or stores them in your fat cells for later use. Excess triglyceride storage can cause fat to accumulate in the body. Triglycerides are composed of saturated fats, monounsaturated fats and polyunsaturated fats. Each type of fat creates the foundation of monounsaturated fatty acids (MUFAs), polyunsaturated fatty acids (PUFAs) and saturated fats (SAT fats). Since triglycerides are a type of fat, they can be converted into free fatty acids and glycerol when you fast and used as energy. In comparison, cholesterol is used to make certain hormones and repair cells. Your triglyceride levels can be higher after eating or when you consume more calories thant your body needs.
+
+Research: subjects in the alternate day fasting and calorie restriction groups had a 5% reduction in weight loss and increase LDL size, but had no change in HDL size. In comparisson, those in the exercise group also lost 5% of body weight and had improvements in HDL size but no changes to LDL size.
+
+** Helps fight cancer
+
+Fasting can slow tumor growth, improve immune function, reduce chemotherapy side effects and increase survival rates by eliminating abnormal cells such as cancer cells.
+
+Fasting diet produces more immune system cells (B and T cells) that were able to target and destroy breast cancer and tumor cells. Helped chemo drugs to be more effective and slow the tumor cells and cancer spread to other areas.
+
+Fasting greatly reduced in researchs insulin-like growth factor 1 (IGF-1) a growth factor that has been linked to some forms of cancer. Cancer cells became more sensitive to chemotherapy drugs doxorubicin (DXR) and cyclophosphamide (CP).
+
+** Helps treat diabetes
+
+- Lowers blood sugar levels.
+- Reduces insulin levels.
+- Increase insulin sensitivity.
+- Allows your pancreas to heal.
+- Boosts weight loss.
+- Increases your metabolism.
+
+Researchers noted that there were no significant differences between the blood glucose levels. However the body weight and fructosamine were greatly reduced.
+
+** How to get the most out of your fasts
+
+Both tea and coffee contain antioxidants and catechins, which is a natural appetite suppressant.
