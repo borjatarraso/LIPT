@@ -9,11 +9,11 @@ Software: Fedora 33 Server + X
 0. Pre-requesites
 -----------------
 
-Follow the instructions here available at:
+Follow the latest instructions here available at:
 
-https://github.com/borjatarraso/config/W541/config_lenovo_w541.txt
+https://github.com/borjatarraso/LIPT/blob/master/config/W541/config_lenovo_w541.txt
 
-Download the configuration pre-made files:
+Download the latest configuration pre-made files:
 
 https://github.com/borjatarraso/config/W541/conf_files.tar.gz
 https://github.com/borjatarraso/config/W541/etc_files.tar.gz
@@ -163,4 +163,3 @@ EMACS> M-x package-install <RET> request <RET>
 Install tmux:
 
 # dnf install tmux
-
