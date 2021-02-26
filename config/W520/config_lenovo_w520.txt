@@ -15,7 +15,6 @@ https://github.com/borjatarraso/LIPT/blob/master/config/W520/config_lenovo_w520.
 
 Download the latest configuration pre-made files:
 
-https://github.com/borjatarraso/LIPT/blob/master/config/W520/conf_files.tar.gz
 https://github.com/borjatarraso/LIPT/blob/master/config/W520/etc_files.tar.gz
 
 Uncompress and untar them in a specific location:
