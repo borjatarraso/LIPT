@@ -1,0 +1,166 @@
+Configuration for Lenovo W541
+=============================
+
+Summary:
+
+Hardware: Lenovo W541
+Software: Fedora 33 Server + X
+
+0. Pre-requesites
+-----------------
+
+Follow the instructions here available at:
+
+https://github.com/borjatarraso/config/W541/config_lenovo_w541.txt
+
+Download the configuration pre-made files:
+
+https://github.com/borjatarraso/config/W541/conf_files.tar.gz
+https://github.com/borjatarraso/config/W541/etc_files.tar.gz
+
+Uncompress and untar them in a specific location:
+
+tar xvfz conf_files.tar.gz -C $HOME
+tar xvfz etc_files.tar.gz -C /etc/
+
+1. Hardware setup
+-----------------
+
+Find the wireless hw chipset:
+
+$ lspci -v | grep -i wireless
+
+Install the wireless drivers:
+
+# dnf install iwl7260-firmware
+
+Install wireless basic tools and for authentication for WPA2-PSK
+
+# dnf install wireless-tools wpa_supplicant
+
+2. X setup
+----------
+
+Install a window manager:
+
+# dnf install xorg-x11-server-Xorg
+
+Install and enable Xmonad (the wm), with xmobar (tile bar), slock (to lock screen) and picom (to avoid flickering replacing xcompmgr):
+
+# dnf install xmonad xmobar slock picom feh
+
+Be sure you have created the required files (if not using the conf ones):
+  ~/.xmobarrc
+  ~/xmonad/xmonad.hs
+  ~/xmonad/xmobar
+  ~/bin/laptopDock.sh
+  ~/bin/pydmenu.py
+  ~/.xinitrc
+  ~/.Xresources
+
+
+3. Basic hardening
+------------------
+
+Enable all consoles editing /etc/systemd/logind.conf and set:
+
+NAutoVTs=6
+
+Be sure you have created the required files (if not using the conf ones)
+
+  /etc/motd
+  /etc/issue
+  /etc/issue.net
+
+Remove the splash screen from Grub:
+
+Edit /etc/default/grub and remove the "rhbg quiet" from line GRUB_COMMANDLINE_LINUX
+
+# vi /etc/default/grub
+
+Update grub:
+
+# grub2-mkconfig -o $(readlink -f /etc/grub2.cfg)
+
+4. Install basic apps and configure them
+----------------------------------------
+
+Install control version software:
+
+# dnf install git
+
+Be sure you have created the required files (if not using the conf ones):
+
+  ~/.gitconfig
+
+Install basic a better shell:
+
+# dnf install fish
+
+Change to the right shell and set the value to /usr/bin/fish:
+
+$ chsh
+
+Install basic fonts:
+
+# dnf install terminus-fonts terminus-fonts-console terminus-fonts-legacy-x11 terminus-fonts-grub2
+
+5. Configure editor
+-------------------
+
+Install the editor:
+
+# dnf install emacs
+
+Donwload some nice theme:
+
+git clone https://github.com/andrzejsliwa/hemisu-theme.git
+
+Be sure you have created the required files (if not using the conf ones):
+
+  ~/.emacs
+  ~/.emacs.d/
+
+If updates are needed in the Xresources (e.g. size of the fonts) it can be updated without restart by:
+
+$ xrdb -merge ~/.Xresources
+
+Install lisp interpreters:
+
+dnf install sbcl
+dnf install emacs-slime
+
+Install web browser:
+
+dnf install emacs-w3m
+
+Install color themes:
+
+dnf install emacs-color-theme
+
+Install ELPA as package installation option:
+
+EMACS> M-x list-packages <RET> "look for ELPA and install"
+
+Install many dev packages using ELPA and MELPA repos, inside emacs run:
+
+EMACS> M-x package-install <RET> counsel <RET>
+EMACS> M-x package-install <RET> drag-stuff <RET>
+EMACS> M-x package-install <RET> golden-ratio <RET>
+EMACS> M-x package-install <RET> elpy <RET>
+EMACS> M-x package-install <RET> prettier-js <RET>
+EMACS> M-x package-install <RET> terraform-mode <RET>
+EMACS> M-x package-install <RET> yaml-mode <RET>
+EMACS> M-x package-install <RET> projectile <RET>
+EMACS> M-x package-install <RET> material-theme <RET>
+EMACS> M-x package-install <RET> py-autopep8 <RET>
+EMACS> M-x package-install <RET> websocket <RET>
+EMACS> M-x package-install <RET> request <RET>
+
+6. Configure term multiplexor
+-----------------------------
+
+Install tmux:
+
+# dnf install tmux
+
