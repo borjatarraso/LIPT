@@ -5,62 +5,78 @@
 * Xmonad
 Changed Mod by Win key (from Mod1 to Mod4) in .xmonad/xmonad.hs
 
-Move screen:
+Move the focus to a different screen:
 
  Win + w
  Win + e
  Win + r
 
-Move windows:
+Move the focus to:
 
- Win + g
- Win + k
+ Win + j   (forward window)
+ Win + k   (backward window)
+ Win + m   (master window)
 
-Run menus:
-
- Win + p
-
-Run 'minimenu':
-
- Win + s
-
-Quit:
-
- Win + shift + Q
-
-Lock:
-
- Win + shift + l
-
-Move to workspace:
+Move the focus to workspace:
 
  Win + number
-
-Resize windows:
-
- Win + l
- Win + h
-
-Show only one window:
-
- Win + space
-
-Increase/decrease number of windows:
-
- Win + ,
- Win + .
-
-Change layout:
-
- Win + space
 
 Move window to another workspace:
 
  Win + shift + number
 
+Move the window inside the same window (rotate):
+
+ Win + shift + j   (backward move)
+ Win + shift + k   (forward move)
+
+Resize windows:
+
+ Win + l   (expand longer)
+ Win + h   (shrink shorter)
+ Win + n   (reset to defaults)
+
+Change the window algorithm layout:
+
+ Win + space
+
+Increase/decrease number of master windows:
+
+ Win + ,    (add to master window)
+ Win + .    (substract from master window)
+
+Move freely the application:
+
+ Win + left mouse click (moves the window at pixel level)
+ Win + t (reset to defaults)
+
+Run menus:
+
+ Win + p
+
+Open a terminal:
+
+ Win + shift + intro
+
+Run 'minimenu':
+
+ Win + s
+
+Close the current application:
+
+ Win + shift + c
+
+Lock xmonad:
+
+ Win + shift + l
+
 Reload xmonad configuration:
 
  Win + q
+
+Quit xmonad:
+
+ Win + shift + Q
 
 Some custom keys for emacs:
 
