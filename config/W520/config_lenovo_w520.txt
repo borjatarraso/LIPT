@@ -1,0 +1,97 @@
+Configuration for Lenovo W520
+=============================
+
+Summary:
+
+Hardware: Lenovo W520
+Software: Fedora 33 Server without Xwindow
+
+0. Pre-requisites
+-----------------
+
+Follow the latest instructions here available at:
+
+https://github.com/borjatarraso/LIPT/blob/master/config/W520/config_lenovo_w520.txt
+
+Download the latest configuration pre-made files:
+
+https://github.com/borjatarraso/LIPT/blob/master/config/W520/conf_files.tar.gz
+https://github.com/borjatarraso/LIPT/blob/master/config/W520/etc_files.tar.gz
+
+Uncompress and untar them in a specific location:
+
+tar xvfz conf_files.tar.gz -C $HOME
+tar xvfz etc_files.tar.gz -C /etc/
+
+1. Hardware setup
+-----------------
+
+Find the wireless hw chipset:
+
+$ lspci -v | grep -i wireless
+
+Install the wireless drivers:
+
+# dnf install iwl6000-firmware
+
+Install wireless basic tools and for authentication for WPA2-PSK
+
+# dnf install wireless-tools wpa_supplicant
+
+Check the password conversion for the wifi in hash form with:
+
+wpa_passpharase <SSID> > /etc/wpa_supplicant/wpa_supplicant.conf <WLAN_PASSWORD>
+
+Where <SSID> is the wifi name, and <WLAN_PASSWORD> is the password from your wireless.
+
+The file /etc/wpa_supplicant/wpa_supplicant.conf should havethe following content:
+
+network={
+        sshd="YOUR-WLAN"
+        psk=PRE-SHARED-KEY-IN-HASH-FORM
+}
+
+Connect through the wpa supplicant (if interface id changes, replace it):
+
+wpa_supplicant -Dwext -iwlp3s0 -c/etc/wpa_supplicant/wpa_supplicant.conf
+
+2. Basic hardening
+------------------
+
+Be sure you have created the required files (if not using the conf ones)
+
+  /etc/motd
+  /etc/issue
+  /etc/issue.net
+
+Set the splash banner for SSH, in the /etc/ssh/sshd_config set the Banner value:
+
+Banner /etc/issue.net
+
+Restart the ssh service:
+
+service sshd restart
+
+Remove the splash screen from Grub:
+
+Edit /etc/default/grub and remove the "rhbg quiet" from line GRUB_COMMANDLINE_LINUX
+
+# vi /etc/default/grub
+
+Update grub:
+
+# grub2-mkconfig -o $(readlink -f /etc/grub2.cfg)
+
+3. Configure editor
+-------------------
+
+Install the editor:
+
+# dnf install vim
+
+4. Configure term multiplexor
+-----------------------------
+
+Install tmux:
+
+# dnf install tmux
