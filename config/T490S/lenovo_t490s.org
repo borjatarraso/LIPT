@@ -1,0 +1,156 @@
+* Lenovo T490s
+** BIOS
+
+Press "Fn+F1" key to enter the BIOS and from there it is possible to change the boot time, otherwise:
+
+To select bootime on the fly, press Fn+F12, from there you can boot a pendrive to install fedora by using the app "mediawriter"
+
+In BIOS: Change graphics to Discrete as hybrid will flickering the screen
+
+** Baseline software
+
+yum update
+yum install xmonad ghc-xmonad-contrib{,-devel} xmobar
+yum install cabal-install
+cabal update
+cabal install yeganesh
+yum install rxvt-unicode.x86_64
+
+** Configure xmonad in Fedora
+
+dnf grouplist -v
+dnf install @xmonad
+dnf install xcompmgr
+
+modify "/usr/share/xsessions/xmonad.desktop" so that xmonad gets started by a
+script like this:
+
+  xcompmgr &
+  xmonad
+
+Some applications look better (e.g. GNOME Do) when composition is enabled. This, however, is not the case in the default Xmonad window manager. To enable it add an additional .desktop file /usr/share/xsessions/xmonad.desktop:
+
+[Desktop Entry]
+Name=xmonad
+Comment=Tiling window manager
+TryExec=/usr/bin/gnome-session
+Exec=xmonad-start
+Type=XSession
+Terminal=false
+
+[Window Manager]
+SessionManager=true
+
+Add into the .bash_profile and into .profile:
+
+feh --bg-scale Pictures/2.png &
+xcompmgr &
+
+Create a picture in Pictures/2.png as a wallpaper.
+
+** Logs system
+
+sudo dnf install syslog-ng
+systemctl start syslog-ng
+systemctl enable syslog-ng
+
+Now you can check main logs at /var/log/messages
+
+** Shell config
+
+dnf install fish
+
+Note: if you encounter problems with commands such as "find": e.g find . -name \*.org
+(For curly brackets, asterisk, etc should be escaped with "\", as fish avoids symbols)
+
+** Fonts
+
+dnf install terminus-fonts
+
+Ensure you have copied the ".Xdefaults into "~/.Xdefaults"
+Ensure you have copied the ".Xresources" into "~/.Xresources"
+
+
+** Wallpaper
+
+Note: that "xcompmgr" might be need to be replaced by "picom" package.
+
+To set the wallaper:
+
+dnf install feh
+
+put in .bash_profile:
+
+#!/bin/bash
+feh --bg-scale Pictures/2.png &
+xcompmgr &
+emacs --daemon &
+
+and/or put in .profile in case you use fish:
+
+#!/bin/bash
+feh --bg-scale Pictures/2.png &
+xcompmgr &
+emacs --daemon &
+
+** Emacs
+
+dnf install emacs
+dnf install w3m w3m-img emacs-w3m emacs-common-w3m
+dnf install mu
+
+Ensure you have copied the ".emacs" into "~/.emacs"
+
+The configuration for emacs could be taken from the W541 as the configuration is generic for emacs:
+
+https://github.com/borjatarraso/LIPT/blob/master/config/W541/dotfiles.tar.gz
+
+Setting particular dot files and etc files specific configuration:
+
+Download the specific dotfiles and etcfiles for the Lenovo T490s here,:
+
+https://github.com/borjatarraso/LIPT/blob/master/config/T490s/dotfiles.tar.gz
+https://github.com/borjatarraso/LIPT/blob/master/config/T490s/dotfiles.tar.gz
+
+From dotfiles be sure you have copied to your $HOME:
+
+.xmonad/
+.xmonad/xmobar
+.xmonad/xmonad.hs
+.xmobarrc
+.profile
+.Xdefaults
+.Xresources
+.fehbg
+Pictures/2.png
+
+Copy the motd and issue in /etc from etcfiles:
+
+motd
+issue
+
+** Grub verbose without splash-screen
+
+Remove the splash screen from Grub:
+
+Edit /etc/default/grub and remove the "rhbg quiet" from line GRUB_COMMANDLINE_LINUX
+
+# vi /etc/default/grub
+
+Update grub:
+
+# grub2-mkconfig -o $(readlink -f /etc/grub2.cfg)
+
+** SSH Config
+
+Edit /etc/ssh/sshd_config and set the banner to:
+
+Banner /etc/issue
+
+And restart the service:
+
+systemctl restart sshd.service
+
+** Corporate configuration
+
+Copy the work company configuration from the secret external ciphered hard-drive at IMPORTANT/<company>_config.org and follow its instructions.

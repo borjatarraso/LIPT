@@ -1,0 +1,180 @@
+* Introduction
+
+Difference between docker images and containers:
+
+- Image is the source of the docker container, can be seen as the 'iso' or similar. Images are immutable.
+- Containers are mutable (running or stopped machines) taken from an image.
+
+* Installation and configuration
+
+Install docker:
+
+----
+dnf install docker
+----
+
+Start docker service and check the helloworld container works properly and set enabled service boot:
+
+----
+systemctl start docker
+docker run hello-world
+systemctl enable docker
+----
+
+Docker generally needs to do things with networks, interfaces, etc. It is why it requires privileges. To run docker as a normal user; create a group called docker, add the user there and restart the service again:
+
+----
+sudo groupadd docker
+sudo gpasswd -a ${USER} docker
+sudo systemctl restart docker
+newgrp docker
+----
+
+Remember to re-login, or ssh localhost. Otherwise newgroup will not have effects in the current shell.
+
+To try something more ambitious, you can run an Ubuntu container with:
+
+----
+docker run -it ubuntu bash
+----
+
+For using fedora images:
+
+----
+sudo dnf -y install fedora-dockerfiles
+ls /usr/share/fedora-dockerfiles
+----
+
+* Listing, starting, stopping and removing images and containers
+
+List docker containers:
+
+----
+docker ps -a
+----
+
+Be sure the docker container you want is stopped, otherwise:
+
+----
+docker stop <CONTAINER_ID>
+----
+
+To delete docker containers:
+
+----
+docker rm <CONTAINER_ID>
+----
+
+List docker images:
+
+----
+docker images
+----
+
+To delete docker images:
+
+----
+docker rmi <IMAGE_ID>
+----
+
+Or all in one (stop containers, remove containers and remove images, in fish you should not use the $):
+
+----
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+docker rmi -f $(docker images -a -q)
+----
+
+* Create a docker image
+
+There are 2 ways to create a docker image:
+
+ - Parent image: is the image your image is based on. It will refers to the contents with the FROM directive in the Dockerfile. Each subsequent declaration modifies this parent image.
+ - Base image: has no FROM line in Dockerfile or has FROM scratch.
+
+Create a full image using debootstrap/tar:
+
+----
+sudo debootstrap xenial xenial > /dev/null
+sudo tar -C xenial -c . | docker import - xenial
+docker run xenial cat /etc/lsb-release
+----
+
+Create a simple parent image using scratch, in a DockerFile put:
+
+ FROM scratch
+ ADD hello /
+ CMD ["/hello"]
+
+Create a hello executable file and compiled with -static flag:
+
+----
+gcc -o hello hello.c -static
+OR
+gcc -o hello hello.c -lc -static-libgcc
+----
+
+Then run docker:
+
+----
+docker build --tag hello .
+----
+
+Check more about create docker images: https://docs.docker.com/engine/userguide/eng-image/baseimages/#create-a-full-image-using-tar
+
+* DockerFile format
+
+----
+# COMMENT
+INSTRUCTION arguments
+----
+
+E.g.:
+
+----
+# directive=value
+ARG optional_args_for_the_image
+FROM base_image [AS <name>]
+ENV foo /bar
+WORKDIR ${foo}
+# Comment
+COPY file.txt \${foo}
+RUN echo 'we are running some cool things'
+RUN ls /
+----
+
+* Search docker images and run a docker container, or start existing containers
+
+Search and pull an image:
+
+----
+docker search ubuntu
+docker pull ubuntu:17.04
+----
+
+Run an existing image in a docker container with a bash shell (-t means tty true, and -i means interactive):
+
+----
+docker run -i -t <IMAGE_ID> /bin/bash
+----
+
+Start an existing container or attach to it:
+
+----
+docker start <CONTAINER_ID>
+docker attach <CONTAINER_ID>
+----
+
+* Images source
+
+Location for share images, automate workflows, and more with a free Docker ID:
+ https://cloud.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/engine/userguide/
+
+
+* Running apps in docker
+
+Continue here:
+https://docs.docker.com/get-started/part2/

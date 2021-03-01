@@ -1,0 +1,415 @@
+Processor, extensions and Kernel
+--------------------------------
+
+KVM requires a CPU with virtualization extensions, found on most consumer CPUs made in the past couple years. These extensions are called Intel VT or AMD-V:
+
+egrep '^flags.*(vmx|svm)' /proc/cpuinfo
+
+This will install Mandatory, Default and Optional Packages:
+
+su -c "dnf group install virtualization"
+
+To start the service:
+
+su -c "systemctl start libvirtd"
+
+To start the service on boot:
+
+su -c "systemctl enable libvirtd"
+
+Verify that the kvm kernel modules were properly loaded:
+
+$ lsmod | grep kvm
+kvm_amd                55563  0
+kvm                   419458  1 kvm_amd
+
+Every standard libvirt installation provides NAT based connectivity to virtual machines out of the box. This is the so called 'default virtual network'. You can verify that it is available with
+
+# virsh net-list --all
+Name                 State      Autostart
+-----------------------------------------
+default              active     yes
+
+
+When the libvirt default network is running, you will see an isolated bridge device. This device explicitly does *NOT* have any physical interfaces added, since it uses NAT + forwarding to connect to outside world. Do not add interfaces
+
+# brctl show
+bridge name	bridge id		STP enabled	interfaces
+virbr0		8000.000000000000	yes
+
+Libvirt will add iptables rules to allow traffic to/from guests attached to the virbr0 device in the INPUT, FORWARD, OUTPUT and POSTROUTING chains. It will also attempt to enable ip_forward. Some other applications may disable it, so the best option is to add the following to /etc/sysctl.conf
+
+net.ipv4.ip_forward = 1
+
+Virsh connect
+-------------
+
+List the systems (if you can only do as root, just re-login the user)
+
+$ virsh -c qemu:///system list
+
+Connect to the system
+
+$ virsh --connect qemu:///system start fedora-configurator
+
+or if it is already running, just connect to it:
+
+$ virsh --connect qemu:///system connect fedora-configurator
+
+So libvirt daemon will be executed as root as it has privileged capabilities (create networks, disk accesses, etc), and you connect and talk to it using the normal user by using "system".
+
+VNC
+---
+
+Find your VNC display information:
+
+# virsh vncdisplay 5
+:0
+
+OR
+# virsh vncdisplay fedora-configurator
+:10
+
+Install vnc client:
+
+# dnf install tigervnc
+
+Run (by default will take :0):
+
+vncviewer
+OR
+vncviewer localhost
+OR
+vncviewer localhost:10
+
+Control+] to quit the console
+
+
+Remove VMS completely
+---------------------
+
+[root@apocalipsis btarraso]# virsh list
+ Id    Name                           State
+----------------------------------------------------
+ 5     fedora-configurator            running
+ 6     fedora-configurator2           running
+
+[root@apocalipsis btarraso]# virsh shutdown 5
+Domain 5 is being shutdown
+
+[root@apocalipsis btarraso]# virsh shutdown 6
+Domain 6 is being shutdown
+
+[root@apocalipsis btarraso]# virsh destroy 5
+Domain 5 destroyed
+
+[root@apocalipsis btarraso]# virsh destroy 6
+Domain 6 destroyed
+
+[root@apocalipsis btarraso]# virsh undefine 5
+error: failed to get domain '5'
+error: Domain not found: no domain with matching name '5'
+
+[root@apocalipsis btarraso]# rm /tmp/src
+src2.img  src.iso
+[root@apocalipsis btarraso]# rm /tmp/src.iso
+rm: remove regular file '/tmp/src.iso'? y
+[root@apocalipsis btarraso]# rm /tmp/src2.img
+rm: remove regular file '/tmp/src2.img'? y
+[root@apocalipsis btarraso]# rm /tmp/fedora-configurator
+fedora-configurator2.qcow2  fedora-configurator3.qcow2  fedora-configurator.qcow2
+[root@apocalipsis btarraso]# rm /tmp/fedora-configurator2.qcow2 ^C
+[root@apocalipsis btarraso]# virsh undefine fedora-configurator
+Domain fedora-configurator has been undefined
+
+[root@apocalipsis btarraso]# virsh undefine fedora-configurator2
+Domain fedora-configurator2 has been undefined
+
+[root@apocalipsis btarraso]# virsh undefine fedora-configurator3
+error: failed to get domain 'fedora-configurator3'
+error: Domain not found: no domain with matching name 'fedora-configurator3'
+
+[root@apocalipsis btarraso]# rm /tmp/fedora-configurator2.qcow2
+rm: remove regular file '/tmp/fedora-configurator2.qcow2'? y
+[root@apocalipsis btarraso]# rm /tmp/fedora-configurator3.qcow2
+rm: remove regular file '/tmp/fedora-configurator3.qcow2'? y
+
+Check always /var/lib/libvirt/images/ folder
+
+VMs creation, boot and usage
+----------------------------
+
+Copy your iso to /var/lib/libvirt/images/ (this will be set as the location, which means the source, while disk means the place where we will format and install the data):
+
+Install from console without VNC (1st backend)
+--------------------------------
+
+virt-install          \
+--name host1          \
+--description "host1" \
+--os-type=Linux       \
+--os-variant=generic  \
+--ram=1024            \
+--vcpus=1             \
+--nographics          \
+--network default     \
+--location /var/lib/libvirt/images/fed.iso                        \
+--extra-args='console=tty0 console=ttyS0,115200n8 serial'         \
+--disk path=/var/lib/libvirt/images/host1.img,bus=virtio,size=10
+
+Install using windows with VNC (2nd backend)
+------------------------------
+
+virt-install          \
+--name host2          \
+--description "host2" \
+--os-type=Linux       \
+--os-variant=generic  \
+--ram=1024            \
+--vcpus=1             \
+--network default     \
+--noautoconsole       \
+--location /var/lib/libvirt/images/fed2.iso                       \
+--graphics vnc,port=5902,password=foobar,listen=0.0.0.0           \
+--disk path=/var/lib/libvirt/images/host2.img,bus=virtio,size=10
+
+
+Another one (1st frontend)
+-----------
+
+virt-install          \
+--name host3          \
+--description "host3" \
+--os-type=Linux       \
+--os-variant=generic  \
+--ram=1024            \
+--vcpus=1             \
+--network default     \
+--noautoconsole       \
+--location /var/lib/libvirt/images/fed2.iso                       \
+--graphics vnc,port=5903,password=foobar,listen=0.0.0.0           \
+--disk path=/var/lib/libvirt/images/host3.img,bus=virtio,size=10
+
+
+The controller (the configurator)
+--------------
+
+virt-install               \
+--name controller          \
+--description "controller" \
+--os-type=Linux            \
+--os-variant=generic       \
+--ram=1024                 \
+--vcpus=1                  \
+--network default          \
+--noautoconsole            \
+--location /var/lib/libvirt/images/fed2.iso                       \
+--graphics vnc,port=5900,password=foobar,listen=0.0.0.0           \
+--disk path=/var/lib/libvirt/images/controller.img,bus=virtio,size=10
+
+
+And the last (extra) one (2nd frontend)
+------------------------
+
+virt-install          \
+--name host4          \
+--description "host4" \
+--os-type=Linux       \
+--os-variant=generic  \
+--ram=1024            \
+--vcpus=1             \
+--network default     \
+--noautoconsole       \
+--location /var/lib/libvirt/images/fed2.iso                       \
+--graphics vnc,port=5904,password=foobar,listen=0.0.0.0           \
+--disk path=/var/lib/libvirt/images/host4.img,bus=virtio,size=10
+
+
+Set initially:
+-------------
+user: root
+pass: foobar
+user: foobar
+pass: foobar
+
+
+Retrieve IP address
+-------------------
+
+First retrieve the MAC:
+
+# virsh domiflist
+error: command 'domiflist' requires <domain> option
+[root@apocalipsis btarraso]# virsh domiflist host1
+Interface  Type       Source     Model       MAC
+-------------------------------------------------------
+vnet0      network    default    rtl8139     52:54:00:89:b4:3b
+
+[root@apocalipsis btarraso]# virsh domiflist host2
+Interface  Type       Source     Model       MAC
+-------------------------------------------------------
+vnet1      network    default    rtl8139     52:54:00:48:8e:25
+
+[root@apocalipsis btarraso]# virsh domiflist host3
+Interface  Type       Source     Model       MAC
+-------------------------------------------------------
+vnet2      network    default    rtl8139     52:54:00:a5:fc:a0
+
+[root@apocalipsis btarraso]# virsh domiflist controller
+Interface  Type       Source     Model       MAC
+-------------------------------------------------------
+vnet3      network    default    rtl8139     52:54:00:f1:3e:d9
+
+[root@apocalipsis btarraso]# virsh domiflist host4
+Interface  Type       Source     Model       MAC
+-------------------------------------------------------
+vnet0      network    default    rtl8139     52:54:00:f1:f6:db
+
+
+
+Then check the MAC table:
+
+# arp -e
+Address                  HWtype  HWaddress           Flags Mask            Iface
+192.168.124.228          ether   52:54:00:48:8e:25   C                     virbr0
+192.168.124.143          ether   52:54:00:f1:3e:d9   C                     virbr0
+192.168.124.215          ether   52:54:00:89:b4:3b   C                     virbr0
+gateway                  ether   7e:08:5e:92:55:7f   C                     enp0s20f0u5
+192.168.124.125          ether   52:54:00:a5:fc:a0   C                     virbr0
+192.168.124.237          ether   52:54:00:f1:f6:db   C                     virbr0
+
+Now you can match IP address with MAC.
+
+For node 1 (1st BE):
+ssh foobar@192.168.124.215
+For node 2 (2nd BE):
+ssh foobar@192.168.124.228
+For node 3 (1st FE):
+ssh foobar@192.168.124.125
+For controller (configurator):
+ssh foobar@192.168.124.143
+For node 4 (2nd FE):
+ssh foobar@192.168.124.238
+
+
+Virsh edit
+----------
+
+This is an example of virhs edit (not needed thanks to extra args from previous command)
+virsh edit (andd append console=ttyS0 in the VM's kernel line in grub.conf):
+
+<serial type='pty'>
+  <target port='0'/>
+</serial>
+<console type='pty'>
+  <target type='serial' port='0'/>
+</console>
+
+Check the config with:
+
+ virsh --connect qemu:///system dumpxml foobar
+
+
+Virsh retrieve info
+-------------------
+
+# virsh dominfo
+# virt-top (install virt-top)
+# virsh shutdown VM
+# virsh reboot VM
+
+
+Check references:
+
+https://libvirt.org/drvqemu.html
+http://wiki.libvirt.org/page/Networking
+https://fedoraproject.org/wiki/Getting_started_with_virtualization
+
+* TODO not needed
+
+
+# This commented steps are not needed
+#Edit /etc/libvirt/qemu.conf, Uncomment user/group to work as root:
+#
+#---
+#user=root
+#group=root
+#---
+#
+#Then restart libvirtd
+# systemctl restart libvirtd
+# service libvirtd restart
+
+
+Put the iso image with root permissions in /tmp/src.iso
+setfacl -b /tmp/
+
+
+Create empty image file
+-----------------------
+
+# qemu-img create -f qcow2 /tmp/fedora-configurator.qcow2 10G
+
+The qemu user needs search permissions all the way up the path, that means chmod a+x. For me the issue was I had ACL's set which blocked qemu... to remove them run "setfacl -b offending-dir/"
+
+You can tell if that's your problem when unix permissions are correct but you can't ls every upstream dir with sudo su -s /bin/bash qemu and ls with an account that does have access yields a result with a permission line that contains a dot such as drwxrwxr-x. meaning extended ACL permissions.
+
+
+List all services in systemd
+----------------------------
+
+systemctl list-unit-files
+
+Start sshd:
+
+sudo systemctl start sshd.service
+
+Check status:
+
+sudo systemctl status sshd.service
+
+----
+
+Add support for cryptloop
+
+dnf install cryptsetup-reencrypt
+
+Other options are
+-----------------
+--cdrom /tmp/fed.iso  \
+
+ (can be used with location)
+--accelerate
+--noautoconsole
+--bridge=BRIDGE
+osinfo-query os (to get all os variants)
+
+--os-variant=OS_VARIANT
+For a full list of valid options refer to the man page (man virt-install).
+http://www.techotopia.com/index.php/Installing_a_KVM_Guest_OS_from_the_Command-line_(virt-install)
+
+
+
+
+* Packer
+
+Download packer from:
+
+https://www.packer.io/downloads.html
+
+# unzip packer_version.zip
+
+Validate the json file you create:
+packer validate ubuntu_64.json
+
+preseed.cfg: the file used to preconfigure the installer
+
+packer build -var-file=fedora26.json fedora.json
+
+* Amazon cloud (as an alternative to try virtualzation)
+
+If you don't have an AWS account, create one now. For the example, we'll use a "t2.micro" instance to build our image, which qualifies under the AWS free-tier
+
+https://www.packer.io/intro/getting-started/build-image.html
+
+https://aws.amazon.com/free/
