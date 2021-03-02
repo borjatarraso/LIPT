@@ -1,0 +1,382 @@
+* Lenovo P50 setup
+
+** BIOS
+Change the boot setup by entering the BIOS by pressing Fn+F1+F2 constantly
+
+Set the boot other
+Change graphics to Discrete as hybrid will flickering the screen
+
+** Baseline software
+After Fedora 33 is installed with the hard drive encrypted install emacs by typing it in the installer packages and start create a similar org file than this one.
+
+** Dock station
+
+By default dock station is not detected from Fedora, this means, no way you can use any port connected there, even battery.
+
+** Graphic setup (external screens)
+
+Select Settings -> Screens -> select the order of the screens, orientation, etc
+
+emacs /etc/systemd/logind.conf
+
+---
+And put this option:
+HandleLidSwitchDocked=ignore
+---
+
+Then restart logind from systemd:
+systemctl restart systemd-logind
+
+Now when you close the lid, 3 screens will work, while open, 4 screens (3+laptop screen), if you disconnect the dock, it should just work only one, the one from the laptop. If you connect again, original behaviour should still working
+
+xrandr output is:
+
+$ xrandr
+Screen 0: minimum 320 x 200, current 6810 x 1680, maximum 8192 x 8192
+XWAYLAND2 connected 1048x1680+5760+0 (normal left inverted right x axis y axis) 470mm x 300mm
+   1048x1680     59.86*+
+XWAYLAND7 connected 1920x1080+3840+0 (normal left inverted right x axis y axis) 510mm x 290mm
+   1920x1080     59.96*+
+XWAYLAND8 connected 1920x1080+1920+0 (normal left inverted right x axis y axis) 510mm x 290mm
+   1920x1080     59.96*+
+XWAYLAND9 connected 1920x1080+0+0 (normal left inverted right x axis y axis) 340mm x 190mm
+   1920x1080     60.05*+
+[btarraso@apocalipsis ~]$
+
+After that, install xmonad and configure those screens to work properly with it, just type xmonad in the console:
+
+Update the system to install xmonad:
+
+yum update
+yum install xmonad ghc-xmonad-contrib{,-devel} xmobar
+yum install cabal-install
+cabal update
+cabal install yeganesh
+yum install rxvt-unicode-256color-ml
+
+Following this: https://gist.github.com/andrewseidl/96dd9975fec4fb761869
+
+** Configure xmonad in Fedora
+
+dnf grouplist -v
+dnf install @xmonad
+
+cp xmonad.hs ~.xmonad/
+cp xmobar ~.xmonad/
+cp .xmonad ~/
+cp .xmobarrc ~/
+
+---
+Issue about xmobar:
+https://unix.stackexchange.com/questions/288037/xmobar-does-not-appear-on-top-of-window-stack-when-xmonad-starts/303242#303242
+---
+
+Two months later I figured it out. The problem is that statusBar does not register the events of Hooks.manageDocks properly. Once xmonad is running all works well because manageDocks is able to update the Struts on every window event. But in the moment that xmonad is starting the event of making the first windows fullscreen happens before the events from manageDocks. This mages that first open window to ignore the existence of xmobar.
+
+manageDocks has its event handler that must be set as the last event handler, therefore statusBar cannot be used. Instead, it is necessary to make xmonad call and configure xmobar manually through dynamicLog, manageHook, layoutHook and handleEventHook. A minimalistic configuration for this would be:
+
+main = do
+    xmproc <- spawnPipe "xmobar"
+    xmonad $ defaultConfig
+      { modMask            = mod4Mask
+      , manageHook         = manageDocks <+> manageHook defaultConfig
+      , layoutHook         = avoidStruts  $ layoutHook defaultConfig
+      -- this must be in this order, docksEventHook must be last
+      , handleEventHook    = handleEventHook defaultConfig <+> docksEventHook
+      , logHook            = dynamicLogWithPP xmobarPP
+          { ppOutput          = hPutStrLn xmproc
+          , ppTitle           = xmobarColor "darkgreen"  "" . shorten 20
+          , ppHiddenNoWindows = xmobarColor "grey" ""
+          }
+      , startupHook        = setWMName "LG3D"
+      } `additionalKeys`
+      [ ((mod4Mask, xK_b), sendMessage ToggleStruts) ]
+
+This makes all events to be processed by docsEventHook and ensures that layout changes made by docsEventHook are the last ones applied. Now
+
+lowerOnStart = False
+
+(or True) works as expected in all cases within .xmobarrc.
+
+---
+issue about composite:
+https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=756463
+---
+Package: xmonad
+Version: 0.11-8
+Severity: normal
+
+Dear Maintainer,
+
+   * What led up to the situation?
+
+Start xmonad from gdm. Open a terminal. Close the terminal.
+
+   * What was the outcome of this action?
+
+The terminal window was still visible as an artifact.
+
+   * What outcome did you expect instead?
+
+The terminal window disappears and the desktop will become visible.
+
+
+The desktop is also not redrawn when I switch to an empty workspace. It looks
+like a lack of a composition manager is causing this problem. Because when I
+modify "/usr/share/xsessions/xmonad.desktop" so that xmonad gets started by a
+script like this:
+
+  xcompmgr & (OR picom & as replacement of xcompmgr)
+  xmonad
+
+everything behaves like expected.
+
+Kind regards,
+
+Kai
+-------------------
+Info about composite:
+https://wiki.archlinux.org/index.php/xmonad#Starting_xmonad
+-------------------
+Compositing in GNOME and Xmonad
+
+Some applications look better (e.g. GNOME Do) when composition is enabled. This, however, is not the case in the default Xmonad window manager. To enable it add an additional .desktop file /usr/share/xsessions/xmonad-gnome-session-composite.desktop:
+
+[Desktop Entry]
+Name=Xmonad GNOME (Composite)
+Comment=Tiling window manager
+TryExec=/usr/bin/gnome-session
+Exec=/usr/sbin/gnome-xmonad-composite
+Type=XSession
+
+And create /usr/sbin/gnome-xmonad-composite and chmod +x /usr/sbin/gnome-xmonad-composite:
+
+xcompmgr & (OR picom & as replacement of xcompmgr)
+gnome-session --session=xmonad
+
+Now choose "Xmonad GNOME (Composite)" in the list of sessions during login. Reference man xcompmgr for additional "eye candy".
+---------------
+
+*** xrandr output for my case
+
+Screen 0: minimum 320 x 200, current 6810 x 1680, maximum 8192 x 8192
+XWAYLAND2 connected 1048x1680+5760+0 (normal left inverted right x axis y axis) 470mm x 300mm
+   1048x1680     59.86*+
+XWAYLAND6 connected 1920x1080+0+0 (normal left inverted right x axis y axis) 340mm x 190mm
+   1920x1080     60.05*+
+XWAYLAND7 connected 1920x1080+3840+0 (normal left inverted right x axis y axis) 510mm x 290mm
+   1920x1080     59.96*+
+XWAYLAND8 connected 1920x1080+1920+0 (normal left inverted right x axis y axis) 510mm x 290mm
+   1920x1080     59.96*+
+
+** Logs system
+
+sudo dnf install syslog-ng
+systemctl start syslog-ng
+systemctl enable syslog-ng
+
+Now you can check main logs at /var/log/messages
+
+** Shell config
+
+dnf install fish
+problem for find command: e.g find . -name \*.org
+(curly brackets, asterisk, etc should be escaped, as it has special meaning in fish)
+
+** Fonts
+
+dnf install terminus-fonts
+
+cp .Xdefaults ~/
+cp .Xresources ~/
+
+** Wallpaper
+
+dnf install feh
+
+cp .bash_profile ~/
+
+NOTE: Check the .bash_profile and replace xcompmgr by picom if needed.
+
+or put in .profile in case you use fish:
+
+cp .profile ~/
+
+** Emacs
+
+dnf install w3m w3m-img emacs-w3m emacs-common-w3m
+dnf install mu
+
+The configuration for emacs could be taken from the W541 as the configuration is generic for emacs:
+
+https://github.com/borjatarraso/LIPT/blob/master/config/W541/dotfiles.tar.gz
+
+Setting particular dot files and etc files specific configuration:
+
+https://github.com/borjatarraso/LIPT/blob/master/config/P50/dotfiles.tar.gz
+https://github.com/borjatarraso/LIPT/blob/master/config/P50/etcfiles.tar.gz
+
+*** A bit more about nmcli
+
+General status:
+nmcli general status
+
+Check device status:
+nmcli device status
+
+Connect or disconnect from an interface:
+nmcli device disconnect iface <interface>
+
+Edit a connection
+nmcli connection edit <connection name>
+
+Show info about the device:
+nmcli device show <interface>
+
+Show all devices:
+nmcli device show
+
+Show all connections:
+nmcli con show
+
+nmcli con up uuid <UUID> --ask
+
+systemctl stop NetworkManager.service
+systemctl disable NetworkManager.service
+
+Check fedoraproject.org/wiki/Networking/CLI#Wifi for info about editing interfaces and nmcli prompt usage.
+
+** Configure the brightness in the laptop
+
+cat /sys/class/backlight/*/brightness
+
+Generally it is here:
+cat /sys/class/backlight/nv_backlight/brightness
+echo 100 | sudo tee /sys/class/backlight/nv_backlight/brightness
+
+Set to the maximum brighntness level:
+sudo tee /sys/class/backlight/nv_backlight/brightness < /sys/class/backlight/nv_backlight/max_brightness
+
+However if you are yusing Discrete instead Hybrid in BIOS:
+
+echo 852  | sudo tee /sys/class/backlight/intel_backlight/brightness
+
+** Dropbox
+
+sudo dnf install libgnome pygtk2
+
+Download from:
+https://www.dropbox.com/install-linux
+
+Install the package:
+rpm -i <dropbox-installer-file>.rpm --nodeps
+
+Install the daemon:
+dropbox start -i
+
+Every time you want to use it just:
+dropbox start
+
+Once open the browser put your username and your password (check password manager for details).
+
+** Tmux
+
+In .tmux.conf put these lines:
+
+unbind C-b
+set -g prefix C-z
+
+** Grub
+
+sudo emacs /boot/grub2/grub.cfg
+remove the "quiet rhgb" from the line
+(Note: in fedora is not needed to run any grub2-update /dev/sdX command)
+reboot
+
+** Power saving options
+
+Edit this specific options in /etc/systemd/logind.conf
+
+---
+HandleLidSwitch=ignore
+HandleLidSwitchDocked=ignore
+IdleAction=ignore
+---
+
+Then, restart logind service from systemd:
+sudo systemctl restart systemd-logind.service
+
+* On startup
+
+Those things could be automated, otherwise needs to set every time on start up:
+
+# Set brightness from screen
+sudo tee /sys/class/backlight/nv_backlight/brightness < /sys/class/backlight/nv_backlight/max_brightness
+
+# Network connectivity
+nmcli dev wifi connect <WLAN> password <PASSWORD>
+
+# VPN configuration
+nmcli con up uuid <UUID> --ask
+
+* SELinux
+
+In case of issues check (if we have issues with SELinux):
+
+tail -f /var/log/messages
+
+And then remove the ACL recursively:
+
+sudo setfacl -b -R FOLDER/*
+
+Remove the attributes:
+
+sudo setfattr -x security.selinux FOLDER/*
+
+Be sure you have execution permissions in the folder:
+
+chmod u+x FOLDER
+
+In case of more general problems you can set the whole SELinux to a more permissive or even disable:
+
+# Check SELinux status:
+getenforce
+
+Could be:
+# This file controls the state of SELinux on the system.
+# SELINUX= can take one of these three values:
+#       enforcing - SELinux security policy is enforced.
+#       permissive - SELinux prints warnings instead of enforcing.
+#       disabled - No SELinux policy is loaded.
+SELINUX=disabled
+# SELINUXTYPE= can take one of these two values:
+#       targeted - Targeted processes are protected,
+#       mls - Multi Level Security protection.
+SELINUXTYPE=targeted
+
+# Set permissive
+/etc/selinux/config
+
+** Set calendar to different country
+
+# Set it in google
+calendar.google.com
+
+# Set it in thunderbird
+Edit -> Preferences -> Calendar -> Timezone
+
+* Add permanent DNS
+
+In my case:
+
+vi /etc/NetworkManager/NetworkManager.conf
+
+add after [main] one line with the following:
+
+dns=8.8.8.8
+
+For systems which has resolvconf:
+
+sudo dnf install resolvconf
+echo 'nameserver 10.165.74.2' >> /etc/resolvconf/resolv.conf.d/head
+resolvconf -u
