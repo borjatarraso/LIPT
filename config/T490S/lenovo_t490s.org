@@ -107,10 +107,10 @@ https://github.com/borjatarraso/LIPT/blob/master/config/W541/dotfiles.tar.gz
 
 Setting particular dot files and etc files specific configuration:
 
-Download the specific dotfiles and etcfiles for the Lenovo T490s here,:
+Download the specific dotfiles and etcfiles for the Lenovo T490s here:
 
 https://github.com/borjatarraso/LIPT/blob/master/config/T490s/dotfiles.tar.gz
-https://github.com/borjatarraso/LIPT/blob/master/config/T490s/dotfiles.tar.gz
+https://github.com/borjatarraso/LIPT/blob/master/config/T490s/etcfiles.tar.gz
 
 From dotfiles be sure you have copied to your $HOME:
 
