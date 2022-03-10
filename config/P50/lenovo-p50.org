@@ -380,3 +380,9 @@ For systems which has resolvconf:
 sudo dnf install resolvconf
 echo 'nameserver 10.165.74.2' >> /etc/resolvconf/resolv.conf.d/head
 resolvconf -u
+
+** Systemctl disable in booting, forcing manual startx
+
+systemctl get-default
+systemctl add-default multi-user.target
+systemctl start gdm
