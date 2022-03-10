@@ -227,3 +227,8 @@ More advanced info:
   A -> attached file
   ? -> marked email
   R -> Replied
+
+- Repetitions
+  M-3 -> action 3 times the following command
+  M-u -> action 4 times the following command
+  M-u u ... <ntimes> -> action 4 x u times the following command
