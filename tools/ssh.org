@@ -21,3 +21,6 @@ https://localhost:8443/adminfolder/
   sshpass ssh-copy-id
   ssh sudo ../etc/sudoeres.d/NOPASSWD
   ssh sudo ...
+
+* SSH for IPV6
+  ssh -6 @[IP_ADDRESS]:
